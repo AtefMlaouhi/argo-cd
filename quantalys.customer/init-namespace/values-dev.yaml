@@ -1,0 +1,4 @@
+namespaces:
+  - quantalys-customer-dev
+
+env: dev

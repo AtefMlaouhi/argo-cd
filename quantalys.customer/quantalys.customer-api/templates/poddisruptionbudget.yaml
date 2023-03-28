@@ -1,0 +1,15 @@
+{{- if .Values.autoscaling.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "quantalys.customer.fullname" . }}
+spec:
+  {{ if gt (.Values.autoscaling.minReplicas | int) 4 }}
+  minAvailable: 2
+  {{ else }}
+  minAvailable: 1
+  {{ end }}
+  selector:
+    matchLabels:
+      {{- include "quantalys.customer.selectorLabels" . | nindent 6 }}
+{{- end }}

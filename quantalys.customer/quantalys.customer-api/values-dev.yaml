@@ -1,0 +1,10 @@
+image:
+  tag: 1.0.1
+podAnnotations:
+  env: dev
+  version: 1.0.1
+replicaCount: 1
+hosts:
+  - quantalys-customer-api-k8s.dev.harvest.fr
+appsettingsJson:
+  nothing: no

@@ -1,0 +1,10 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    field.cattle.io/projectId: {{ .Values.global.rancherCluster }}:{{ .Values.global.rancherProject }}
+  name: {{ .Release.Namespace }}
+  labels:
+    field.cattle.io/projectId: {{ .Values.global.rancherProject }}
+    istio-injection: enabled

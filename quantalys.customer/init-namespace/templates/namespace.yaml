@@ -1,0 +1,12 @@
+{{- range $k, $namespace := .Values.namespaces }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    field.cattle.io/projectId: {{ $.Values.global.rancherCluster }}:{{ $.Values.global.rancherProject }}
+  name: {{ $namespace }}
+  labels:
+    field.cattle.io/projectId: {{ $.Values.global.rancherProject }}
+    istio-injection: enabled
+---
+{{- end }}

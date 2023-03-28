@@ -1,0 +1,4 @@
+namespaces:
+  - quantalys-customer-rci
+
+env: rci
