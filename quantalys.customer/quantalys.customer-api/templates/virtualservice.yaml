@@ -4,7 +4,6 @@ metadata:
   name: {{ include "quantalys.customer.name" . }}
 spec:
   gateways:
-  - istio-system/http-gateway
   - istio-system/https-gateway
   hosts:
   {{- toYaml .Values.hosts | nindent 4 }}

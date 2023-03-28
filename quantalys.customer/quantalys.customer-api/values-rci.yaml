@@ -6,5 +6,10 @@ podAnnotations:
 replicaCount: 1
 hosts:
   - quantalys-customer-api-k8s.rci.harvest.fr
+
+env:
+  - name: ASPNETCORE_ENVIRONMENT
+    value: dev
+
 appsettingsJson:
   nothing: no
