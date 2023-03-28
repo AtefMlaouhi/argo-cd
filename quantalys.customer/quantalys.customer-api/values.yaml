@@ -38,9 +38,10 @@ serviceAccount:
   annotations: {}
   name: ""
 
-command:
-  - dotnet
-  - Quantalys.Customer.Api.dll
+# command:
+#   - ./application
+#   - -Dquarkus.http.host=0.0.0.0
+#   - -XX:MaximumHeapSizePercent=80
 
 resources:
   requests:

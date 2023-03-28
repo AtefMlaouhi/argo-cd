@@ -61,9 +61,9 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          volumeMounts:
-          - name: application-config
-            mountPath: /app
+          # volumeMounts:
+          # - name: application-config
+          #   mountPath: /app
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -74,7 +74,7 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      volumes:
-      - name: application-config
-        configMap:
-          name: {{ include "quantalys.customer.fullname" . }}-config
+      # volumes:
+      # - name: application-config
+      #   configMap:
+      #     name: {{ include "quantalys.customer.fullname" . }}-config
