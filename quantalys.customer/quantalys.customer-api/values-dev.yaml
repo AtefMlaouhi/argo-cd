@@ -1,15 +1,13 @@
 image:
-  tag: 0.1.2
+  tag: ""
 podAnnotations:
   env: dev
-  version: 0.1.2
+  version: ""
 replicaCount: 1
 hosts:
   - quantalys-customer-api-k8s.dev.harvest.fr
-
 env:
   - name: ASPNETCORE_ENVIRONMENT
     value: dev
-
 appsettingsJson:
   nothing: no
