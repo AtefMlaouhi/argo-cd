@@ -1,8 +1,8 @@
 image:
-  tag: ""
+  tag: "dependencies.Build_Test.outputs['Setup.SetVariable.Version']"
 podAnnotations:
   env: dev
-  version: ""
+  version: "dependencies.Build_Test.outputs['Setup.SetVariable.Version']"
 replicaCount: 1
 hosts:
   - quantalys-customer-api-k8s.dev.harvest.fr
