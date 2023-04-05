@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.2
+  tag: ""
 podAnnotations:
   env: rcc
-  version: 0.1.2
+  version: ""
 replicaCount: 1
 hosts:
   - quantalys-customer-api-recette.harvest.fr
