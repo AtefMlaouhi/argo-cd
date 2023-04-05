@@ -1,8 +1,8 @@
 image:
-  tag: "0.1.22"
+  tag: "0.1.23"
 podAnnotations:
   env: dev
-  version: "0.1.22"
+  version: "0.1.23"
 replicaCount: 1
 hosts:
   - quantalys-customer-api-k8s.dev.harvest.fr
