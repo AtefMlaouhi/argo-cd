@@ -1,8 +1,8 @@
 image:
-  tag: "0.1.29"
+  tag: "0.1.30"
 podAnnotations:
   env: preprod
-  version: "0.1.29"
+  version: "0.1.30"
 replicaCount: 1
 hosts:
   - quantalys-customer-api-k8s.preprod.harvest.fr
