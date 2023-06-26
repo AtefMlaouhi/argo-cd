@@ -47,6 +47,10 @@ spec:
           env:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- range $k, $v := .Values.appsettingsJson }}
+            - name: {{ $k }}
+              value: {{ $v | quote }}
+          {{- end }}
           ports:
             - name: http
               containerPort: 80

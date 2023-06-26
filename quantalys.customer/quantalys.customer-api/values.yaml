@@ -13,15 +13,6 @@ podAnnotations:
   version: unspecified
   proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
 
-# env:
-#   - name: QUARKUS_DATASOURCE_PASSWORD
-#     valueFrom:
-#       secretKeyRef:
-#         name: database-tenant
-#         key: password
-#   - name: QUARKUS_LOG_LEVEL
-#     value: INFO
-
 appsettingsJson:
   nothing: yup
 
@@ -30,18 +21,11 @@ service:
   port: 80
 
 probes: {}
-#   livenessPath: "/q/health/live"
-#   readinessPath: "/q/health/ready"
 
 serviceAccount:
   create: true
   annotations: {}
   name: ""
-
-# command:
-#   - ./application
-#   - -Dquarkus.http.host=0.0.0.0
-#   - -XX:MaximumHeapSizePercent=80
 
 resources:
   requests:
@@ -56,9 +40,8 @@ replicaCount: 2
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 4
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
