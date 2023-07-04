@@ -4,29 +4,19 @@ podAnnotations:
   env: dev
   version: "0.1.30"
 replicaCount: 1
-hosts:
-  - quantalys-customer-api-k8s.dev.harvest.fr
 env:
   - name: ASPNETCORE_ENVIRONMENT
     value: dev
-  - name: ConnectionDb__SqlServer
-    valueFrom:
-      secretKeyRef:
-        name: connection-strings
-        key: connexion-string-quantacore-axa
 appsettingsJson:
   AllowedHosts: "*"
-  CustomerName: "AxaWS"
   Logging__LogLevel__Default: "Information"
   Logging__LogLevel__Microsoft: "Information"
   Logging__LogLevel__Microsoft.Hosting.Lifetime: "Information"
-  HarvestConfiguration__ApplicationName: "Quantalys.Customer.API"
   HarvestConfiguration__Domain: "Quantalys.Customer"
   HarvestConfiguration__Environment: "dev"
   Keycloak__AuthenticationType: "FORM"
-  Keycloak__Realm: "AWSUsers"
   Keycloak__TriggerEmail: "true"
-  Keycloak__RedirectUri: "https://localhost:44397"
+  Keycloak__RedirectUri: "https://keycloak-dev.harvest-r7.fr/auth"
   ServiceBus__Kafka__BootstrapServer: "kafka-k8s.dev.harvest.fr:4430"
   ServiceBus__Kafka__TopicCreateFinalUser: "dev-tenant-create-final-user-v2"
   ServiceBus__Kafka__TopicCreateProfessionalUser: "dev-tenant-create-professional-user-v2"
@@ -34,4 +24,3 @@ appsettingsJson:
   Tenant__Url: "https://tenant-api-k8s.dev.harvest.fr/"
   Tenant__ApplicationCode: "PLATFORM_WEALTH"
   Tenant__ApplicationCodeToGetTenantId: "QUANTALYS"
-  Tenant__Reference: "AXA"

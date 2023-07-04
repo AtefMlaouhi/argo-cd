@@ -16,15 +16,12 @@ env:
         key: connexion-string-quantacore-axa
 appsettingsJson:
   AllowedHosts: "*"
-  CustomerName: "AxaWS"
   Logging__LogLevel__Default: "Information"
   Logging__LogLevel__Microsoft: "Information"
   Logging__LogLevel__Microsoft.Hosting.Lifetime: "Information"
-  HarvestConfiguration__ApplicationName: "Quantalys.Customer.API"
   HarvestConfiguration__Domain: "Quantalys.Customer"
   HarvestConfiguration__Environment: "prod"
   Keycloak__AuthenticationType: "FORM"
-  Keycloak__Realm: "AWSUsers"
   Keycloak__TriggerEmail: "true"
   Keycloak__RedirectUri: "https://axawealthdigital.axa.fr"
   ServiceBus__Kafka__BootstrapServer: "kafka.harvest.fr:4430"
@@ -34,4 +31,3 @@ appsettingsJson:
   Tenant__Url: "https://tenant-api.harvest.fr"
   Tenant__ApplicationCode: "PLATFORM_WEALTH"
   Tenant__ApplicationCodeToGetTenantId: "QUANTALYS"
-  Tenant__Reference: "AXA"

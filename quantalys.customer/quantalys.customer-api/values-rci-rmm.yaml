@@ -1,0 +1,12 @@
+hosts:
+  - quantalys-customer-rmm-api-k8s.rci.harvest.fr
+env:
+  - name: ConnectionDb__SqlServer
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: connexion-string-quantacore-rmm
+appsettingsJson:
+  CustomerName: "RMM"
+  Keycloak__Realm: "AppUsers"
+  Tenant__Reference: "RMM"
