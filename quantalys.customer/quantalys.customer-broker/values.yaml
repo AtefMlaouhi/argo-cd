@@ -1,0 +1,82 @@
+image:
+  registry: registry-git.harvest.fr/o2s/o2s-modularisation
+  repository: quantalys.customer/tenant-background-service
+  pullPolicy: IfNotPresent
+
+imagePullSecrets:
+- name: gitlab
+nameOverride: ""
+fullnameOverride: "tenant-broker"
+
+podAnnotations:
+  env: unspecified
+  version: unspecified
+  proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
+
+env:
+  - name: QUARKUS_DATASOURCE_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: database-tenant
+        key: password
+  - name: QUARKUS_LOG_LEVEL
+    value: INFO
+  - name: QUARKUS_OIDC_CLIENT_O2S_TENANT_MANAGER_CREDENTIALS_SECRET
+    valueFrom:
+     secretKeyRef:
+       name: keycloak-tenant-secret
+       key: o2s-tenant-manager-secret
+  - name: QUARKUS_OIDC_CLIENT_APP_USER_TENANT_MANAGER_CREDENTIALS_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-tenant-secret
+        key: app-user-tenant-manager-secret
+  - name: QUARKUS_OIDC_CLIENT_PLATFORM_WEALTH_TENANT_MANAGER_CREDENTIALS_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-tenant-secret
+        key: platform-wealth-tenant-manager-secret
+  - name: KAFKA_SASL_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: kafka-sasl-secret
+        key: svc_tenant
+applicationYml:
+  quarkus:
+    datasource:
+      db-kind: postgresql
+      username: svc_tenant_app
+    log:
+      console:
+        json: true
+
+probes:
+  livenessPath: "/q/health/live"
+  readinessPath: "/q/health/ready"
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+command:
+  - ./application
+  - -Dquarkus.http.host=0.0.0.0
+  - -XX:MaximumHeapSizePercent=80
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 100m
+    memory: 512Mi
+
+replicaCount: 1
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80

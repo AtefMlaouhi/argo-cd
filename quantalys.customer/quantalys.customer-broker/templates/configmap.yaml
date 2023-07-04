@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ include "quantalys.customer.fullname" . }}-config
+data:
+    application.yml: |
+    {{- toYaml .Values.applicationYml | nindent 6 }}

@@ -1,0 +1,64 @@
+image:
+  tag: "1.131.0"
+podAnnotations:
+  env: rci
+  version: "1.131.0"
+applicationYml:
+  harvest:
+    application:
+      env: rci
+  tenant:
+    keycloak:
+      app-realms:
+        O2S: O2S_QAA
+        QUANTALYS: AWSUsers
+        MONEYPITCH: AppUsers
+        PLATFORM_WEALTH: AWSUsers
+      realms-clients:
+        O2S_QAA: o2s-tenant-manager
+        AppUsers: app-user-tenant-manager
+        AWSUsers: platform-wealth-tenant-manager
+  quarkus:
+    datasource:
+      jdbc:
+        url: 'jdbc:postgresql://tenant-postgresql-rci:5432/tenant'
+    rest-client:
+      keycloak-admin-api:
+        url: https://keycloak-rci.harvest-r7.fr/auth
+    oidc-client:
+      o2s-tenant-manager:
+        client-id: o2s-tenant-manager
+        auth-server-url: https://keycloak-rci.harvest-r7.fr/auth/realms/O2S_QAA
+      app-user-tenant-manager:
+        client-id: app-user-tenant-manager
+        auth-server-url: https://keycloak-rci.harvest-r7.fr/auth/realms/AppUsers
+      platform-wealth-tenant-manager:
+        client-id: platform-wealth-tenant-manager
+        auth-server-url: https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers
+  kafka:
+    bootstrap:
+      servers: message-broker-rci-kafka-headless.message-broker-rci.svc.cluster.local:9095
+    security:
+      protocol: "SASL_PLAINTEXT"
+    sasl:
+      mechanism: "SCRAM-SHA-512"
+      jaas:
+        config: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="svc_tenant" password="${KAFKA_SASL_PASSWORD}";'
+  mp:
+    messaging:
+      incoming:
+        company:
+          topic: ${harvest.application.env:local}-debezium.office2s.societe
+          group:
+            id: ${harvest.application.env:local}-debezium.office2s.societe-broker
+          value:
+            deserializer: quantalys.customer.broker.model.serialization.CompanyUpdateDeserializer
+          value-deserialization-failure-handler: failure-company-update-handler
+          failure-strategy: dead-letter-queue
+          dead-letter-queue:
+            topic: ${harvest.application.env:local}-debezium.office2s.societe-dlx
+            value:
+              serializer: io.quarkus.kafka.client.serialization.ObjectMapperSerializer
+          auto:
+            offset:
+              reset: earliest
