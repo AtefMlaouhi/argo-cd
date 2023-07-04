@@ -1,0 +1,12 @@
+hosts:
+  - quantalys-customer-cnp-api-k8s.rci.harvest.fr
+env:
+  - name: ConnectionDb__SqlServer
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: connexion-string-quantacore-cnp
+appsettingsJson:
+  CustomerName: "CNP"
+  Keycloak__Realm: "AppUsers"
+  Tenant__Reference: "CNP"

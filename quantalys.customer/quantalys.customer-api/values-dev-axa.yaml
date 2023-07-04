@@ -1,0 +1,13 @@
+hosts:
+  - quantalys-customer-axa-api-k8s.dev.harvest.fr
+env:
+  - name: ConnectionDb__SqlServer
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: connexion-string-quantacore-axa
+appsettingsJson:
+  HarvestConfiguration__ApplicationName: "Quantalys.Customer.AXA.API"
+  CustomerName: "AxaWS"
+  Keycloak__Realm: "AWSUsers"
+  Tenant__Reference: "AXA"
