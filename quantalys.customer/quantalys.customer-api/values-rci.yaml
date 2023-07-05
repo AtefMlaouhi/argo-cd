@@ -1,8 +1,8 @@
 image:
-  tag: "0.1.30"
+  tag: "0.1.39"
 podAnnotations:
   env: rci
-  version: "0.1.30"
+  version: "0.1.39"
 replicaCount: 1
 env:
   - name: ASPNETCORE_ENVIRONMENT
