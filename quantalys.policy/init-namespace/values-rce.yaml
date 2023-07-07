@@ -1,0 +1,4 @@
+namespaces:
+  - quantalys-policy-rce
+
+env: rce

@@ -1,0 +1,4 @@
+namespaces:
+  - quantalys-policy-rci
+
+env: rci

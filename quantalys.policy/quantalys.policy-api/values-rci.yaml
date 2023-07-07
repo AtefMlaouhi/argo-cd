@@ -1,0 +1,31 @@
+image:
+  tag: "0.1.39"
+podAnnotations:
+  env: rci
+  version: "0.1.39"
+replicaCount: 1
+env:
+  - name: ASPNETCORE_ENVIRONMENT
+    value: dev
+  - name: ConnectionDb__SqlServer
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: connexion-string-quantacore-axa
+appsettingsJson:
+  AllowedHosts: "*"
+  Logging__LogLevel__Default: "Information"
+  Logging__LogLevel__Microsoft: "Information"
+  Logging__LogLevel__Microsoft.Hosting.Lifetime: "Information"
+  HarvestConfiguration__Domain: "Quantalys.Policy"
+  HarvestConfiguration__Environment: "rci"
+  Keycloak__AuthenticationType: "FORM"
+  Keycloak__TriggerEmail: "true"
+  Keycloak__RedirectUri: "https://keycloak-rci.harvest-r7.fr/auth"
+  ServiceBus__Kafka__BootstrapServer: "kafka-k8s.rci.harvest.fr:4430"
+  ServiceBus__Kafka__TopicCreateFinalUser: "rci-tenant-create-final-user-v2"
+  ServiceBus__Kafka__TopicCreateProfessionalUser: "rci-tenant-create-professional-user-v2"
+  ServiceBus__Kafka__TopicDeleteUser: "rci-tenant-soft-delete-user-v2"
+  Tenant__Url: "https://tenant-api-k8s.rci.harvest.fr"
+  Tenant__ApplicationCode: "PLATFORM_WEALTH"
+  Tenant__ApplicationCodeToGetTenantId: "QUANTALYS"
