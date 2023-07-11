@@ -9,5 +9,7 @@ env:
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.RMM.API"
   CustomerName: "RMM"
-  Keycloak__Realm: "AppUsers"
+  Keycloak__realm: "AppUsers"
+  Keycloak__resource: "pw-rmm"
   Tenant__Reference: "RMM"
+  Subscription__Url: "https://rmm-pw-dev.quantalys.com/Standard/Souscription/PersonnelleByRole?ID_Acte={0}&sRole=SOUSCRIPTEUR"

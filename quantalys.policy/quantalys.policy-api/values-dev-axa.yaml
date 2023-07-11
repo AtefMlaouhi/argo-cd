@@ -9,5 +9,7 @@ env:
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.AXA.API"
   CustomerName: "AxaWS"
-  Keycloak__Realm: "AWSUsers"
+  Keycloak__realm: "AWSUsers"
+  Keycloak__resource: "pw-axa"
   Tenant__Reference: "AXA"
+  Subscription__Url: "https://axa-pw-dev.quantalys.com/Standard/Souscription/PersonnelleByRole?ID_Acte={0}&sRole=SOUSCRIPTEUR"

@@ -9,5 +9,6 @@ env:
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.CNP.API"
   CustomerName: "CNP"
-  Keycloak__Realm: "AppUsers"
-  Tenant__Reference: "CNP"
+  Keycloak__realm: "AppUsers"
+  Keycloak__resource: "pw-cnp"
+  Subscription__Url: "https://cnp-pw-dev.quantalys.com/Standard/Souscription/PersonnelleByRole?ID_Acte={0}&sRole=SOUSCRIPTEUR"
