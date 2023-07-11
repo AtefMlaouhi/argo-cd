@@ -18,4 +18,3 @@ appsettingsJson:
   Keycloak__RedirectUri: "https://keycloak-dev.harvest-r7.fr/auth"
   Keycloak__credentials__secret: "random_value_not_required"
   Api__IdentityUrl: "https://identity-api-k8s.dev.harvest.fr/"
-  GedDocument__Path: "D:\\Data\\GED\\cnp"

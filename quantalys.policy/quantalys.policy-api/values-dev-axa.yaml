@@ -9,6 +9,7 @@ env:
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.AXA.API"
   CustomerName: "AxaWS"
+  GedDocument__Path: "D:\\Data\\GED\\axa"
   Keycloak__realm: "AWSUsers"
   Keycloak__resource: "pw-axa"
   Tenant__Reference: "AXA"

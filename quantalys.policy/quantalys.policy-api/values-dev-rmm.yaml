@@ -9,6 +9,7 @@ env:
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.RMM.API"
   CustomerName: "RMM"
+  GedDocument__Path: "D:\\Data\\GED\\rmm"
   Keycloak__realm: "AppUsers"
   Keycloak__resource: "pw-rmm"
   Tenant__Reference: "RMM"
