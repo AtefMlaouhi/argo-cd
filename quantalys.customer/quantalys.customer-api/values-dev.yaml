@@ -22,7 +22,7 @@ appsettingsJson:
   ServiceBus__Kafka__TopicCreateProfessionalUser: "dev-tenant-create-professional-user-v2"
   ServiceBus__Kafka__TopicDeleteUser: "dev-tenant-soft-delete-user-v2"
   OpenTelemetry__Endpoint: "https://opentelemetry.flex-rci.harvest.fr/"
-  OpenTelemetry__ExportMetrics: true
+  OpenTelemetry__ExportMetrics: "true"
   OpenTelemetry__ServiceName: "dev-quantalsys-customer-api"
   Tenant__Url: "https://tenant-api-k8s.dev.harvest.fr/"
   Tenant__ApplicationCode: "PLATFORM_WEALTH"
