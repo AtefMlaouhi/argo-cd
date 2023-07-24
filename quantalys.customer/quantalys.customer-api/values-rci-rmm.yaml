@@ -9,4 +9,5 @@ env:
 appsettingsJson:
   CustomerName: "RMM"
   Keycloak__Realm: "AppUsers"
+  OpenTelemetry__ServiceName: "rci-quantalsys-customer-rmm-api"
   Tenant__Reference: "RMM"
