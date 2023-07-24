@@ -1,8 +1,8 @@
 image:
-  tag: "0.1.4"
+  tag: "0.1.42"
 podAnnotations:
   env: dev
-  version: "0.1.4"
+  version: "0.1.42"
 replicaCount: 1
 env:
   - name: ASPNETCORE_ENVIRONMENT
@@ -21,6 +21,9 @@ appsettingsJson:
   ServiceBus__Kafka__TopicCreateFinalUser: "dev-tenant-create-final-user-v2"
   ServiceBus__Kafka__TopicCreateProfessionalUser: "dev-tenant-create-professional-user-v2"
   ServiceBus__Kafka__TopicDeleteUser: "dev-tenant-soft-delete-user-v2"
+  OpenTelemetry__Endpoint: "https://opentelemetry.flex-rci.harvest.fr/"
+  OpenTelemetry__ExportMetrics: true
+  OpenTelemetry__ServiceName: "dev-quantalsys-customer-api"
   Tenant__Url: "https://tenant-api-k8s.dev.harvest.fr/"
   Tenant__ApplicationCode: "PLATFORM_WEALTH"
   Tenant__ApplicationCodeToGetTenantId: "QUANTALYS"
