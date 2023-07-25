@@ -9,5 +9,5 @@ env:
 appsettingsJson:
   CustomerName: "AxaWS"
   Keycloak__Realm: "AWSUsers"
-  OpenTelemetry__ServiceName: "rci-quantalsys-customer-axa-api"
+  OpenTelemetry__ServiceName: "rci-quantalys-customer-axa-api"
   Tenant__Reference: "AXA"

@@ -10,5 +10,5 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Customer.RMM.API"
   CustomerName: "RMM"
   Keycloak__Realm: "AppUsers"
-  OpenTelemetry__ServiceName: "dev-quantalsys-customer-rmm-api"
+  OpenTelemetry__ServiceName: "dev-quantalys-customer-rmm-api"
   Tenant__Reference: "RMM"

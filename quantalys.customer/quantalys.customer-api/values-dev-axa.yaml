@@ -10,5 +10,5 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Customer.AXA.API"
   CustomerName: "AxaWS"
   Keycloak__Realm: "AWSUsers"
-  OpenTelemetry__ServiceName: "dev-quantalsys-customer-axa-api"
+  OpenTelemetry__ServiceName: "dev-quantalys-customer-axa-api"
   Tenant__Reference: "AXA"
