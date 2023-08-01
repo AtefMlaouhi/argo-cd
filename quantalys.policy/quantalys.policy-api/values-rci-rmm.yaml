@@ -9,4 +9,5 @@ env:
 appsettingsJson:
   CustomerName: "RMM"
   Keycloak__Realm: "AppUsers"
+  Keycloak__RedirectUri: "https://quantalys-policy-rmm-api-k8s.rci.harvest.fr/swagger/oauth2-redirect.html"  
   Tenant__Reference: "RMM"
