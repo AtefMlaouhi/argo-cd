@@ -15,6 +15,6 @@ appsettingsJson:
   HarvestConfiguration__Domain: "Quantalys.Policy"
   HarvestConfiguration__Environment: "rci"
   Keycloak__auth-server-url: "https://auth-r7.harvest.fr/auth"
-  Keycloak__RedirectUri: "https://auth-r7.harvest.fr/auth"
+  Keycloak__RedirectUri: "https://quantalys-policy-cnp-api-k8s.rci.harvest.fr/swagger/oauth2-redirect.html"
   Keycloak__credentials__secret: "random_value_not_required"
   Api__IdentityUrl: "https://identity-api-k8s.rci.harvest.fr"
