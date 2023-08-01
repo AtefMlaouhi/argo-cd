@@ -8,5 +8,5 @@ env:
         key: connexion-string-quantacore-cnp
 appsettingsJson:
   CustomerName: "CNP"
-  Keycloak__Realm: "AppUsers"
+  Keycloak__Realm: "CNPUsers"
   Tenant__Reference: "CNP"
