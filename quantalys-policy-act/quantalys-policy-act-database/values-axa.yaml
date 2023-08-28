@@ -12,13 +12,13 @@ postgresql:
 
           -- CI
           CREATE ROLE "app_users";
-          CREATE USER "svc_policy_act_ci";
-          CREATE USER "svc_policy_act_app";
-          CREATE USER "svc_policy_act_dev" WITH PASSWORD 'p@ssword';
-          CREATE USER "svc_policy_act_rci" WITH PASSWORD 'p@ssword';
+          CREATE USER "svc_policy_act_ci" WITH PASSWORD 'PMjxrfnP7m';
+          CREATE USER "svc_policy_act_app" WITH PASSWORD 'DXZQuZHGl8';
+          CREATE USER "svc_policy_act_dev" WITH PASSWORD 'FAP2IeAY9W';
+          CREATE USER "svc_policy_act_rci" WITH PASSWORD 'PfUQelX9cW';
 
           CREATE ROLE "readonly_users";
-          CREATE USER "svc_policy_act_ro" WITH PASSWORD 'p@ssword';
+          CREATE USER "svc_policy_act_ro" WITH PASSWORD 'VSrf18nKs3';
         01.sql: |
           \connect policy_acts
 

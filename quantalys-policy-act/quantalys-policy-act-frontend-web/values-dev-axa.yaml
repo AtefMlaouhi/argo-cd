@@ -2,5 +2,5 @@ hosts:
   - quantalys-policy-act-axa-k8s.dev.harvest.fr
 env:
 appsettingsJson:
-  baseURL: "https://quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr"
+  baseURL: "http://policy-act-bff-api.axa-quantalys-policy-act-dev.svc.cluster.local"
   baseRoute: "insurers/axa/"

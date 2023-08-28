@@ -12,13 +12,13 @@ postgresql:
 
           -- CI
           CREATE ROLE "app_users";
-          CREATE USER "svc_policy_act_policyholder_ci";
-          CREATE USER "svc_policy_act_policyholder_app";
-          CREATE USER "svc_policy_act_policyholder_app" WITH PASSWORD 'p@ssword';
-          CREATE USER "svc_policy_act_policyholder_rci" WITH PASSWORD 'p@ssword';
+          CREATE USER "svc_policy_act_policyholder_ci" WITH PASSWORD '2QXet8Xhqd';
+          CREATE USER "svc_policy_act_policyholder_app" WITH PASSWORD 'UDJRoWsp8e';
+          CREATE USER "svc_policy_act_policyholder_dev" WITH PASSWORD 'ZdgG38RV7o';
+          CREATE USER "svc_policy_act_policyholder_rci" WITH PASSWORD 'P6Mrudqj2z';
 
           CREATE ROLE "readonly_users";
-          CREATE USER "svc_policy_act_policyholder_ro" WITH PASSWORD 'p@ssword';
+          CREATE USER "svc_policy_act_policyholder_ro" WITH PASSWORD 'nJ7Uv1zKZL';
         01.sql: |
           \connect policy_act_policyholders
 
@@ -34,7 +34,7 @@ postgresql:
           ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT USAGE,SELECT ON SEQUENCES TO "app_users";
 
           GRANT app_users TO "svc_policy_act_policyholder_app";
-          GRANT app_users TO "svc_policy_act_policyholder_app";
+          GRANT app_users TO "svc_policy_act_policyholder_dev";
           GRANT app_users TO "svc_policy_act_policyholder_rci";
 
           -- Granting rights to readonly role
