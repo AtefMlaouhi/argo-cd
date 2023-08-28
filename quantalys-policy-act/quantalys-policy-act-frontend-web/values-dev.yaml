@@ -1,7 +1,7 @@
 image:
-  tag: "0.1.0-alpha.19"
+  tag: "0.1.0-alpha.33"
 podAnnotations:
   env: dev
-  version: "0.1.0-alpha.19"
+  version: "0.1.0-alpha.33"
 replicaCount: 1
 appsettingsJson: {}
