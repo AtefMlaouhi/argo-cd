@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "quantalys.policy.act.frontend.name" -}}
+{{- define "quantalys.policy.act.bff.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "quantalys.policy.act.frontend.fullname" -}}
+{{- define "quantalys.policy.act.bff.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "quantalys.policy.act.frontend.chart" -}}
+{{- define "quantalys.policy.act.bff.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "quantalys.policy.act.frontend.labels" -}}
-helm.sh/chart: {{ include "quantalys.policy.act.frontend.chart" . }}
-{{ include "quantalys.policy.act.frontend.selectorLabels" . }}
+{{- define "quantalys.policy.act.bff.labels" -}}
+helm.sh/chart: {{ include "quantalys.policy.act.bff.chart" . }}
+{{ include "quantalys.policy.act.bff.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,8 +45,8 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "quantalys.policy.act.frontend.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "quantalys.policy.act.frontend.name" . }}
+{{- define "quantalys.policy.act.bff.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "quantalys.policy.act.bff.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app: {{ .Release.Name }}
 {{- end }}
@@ -54,9 +54,9 @@ app: {{ .Release.Name }}
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "quantalys.policy.act.frontend.serviceAccountName" -}}
+{{- define "quantalys.policy.act.bff.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "quantalys.policy.act.frontend.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "quantalys.policy.act.bff.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

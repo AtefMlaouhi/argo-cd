@@ -2,7 +2,7 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ include "quantalys.policy.act.frontend.fullname" . }}
+  name: {{ include "quantalys.policy.act.bff.fullname" . }}
 spec:
   {{ if gt (.Values.autoscaling.minReplicas | int) 4 }}
   minAvailable: 2
@@ -11,5 +11,5 @@ spec:
   {{ end }}
   selector:
     matchLabels:
-      {{- include "quantalys.policy.act.frontend.selectorLabels" . | nindent 6 }}
+      {{- include "quantalys.policy.act.bff.selectorLabels" . | nindent 6 }}
 {{- end }}

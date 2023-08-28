@@ -62,7 +62,7 @@ affinity:
               - key: "app.kubernetes.io/name"
                 operator: In
                 values:
-                  - '{{ include "quantalys.policy.act.frontend.name" . }}'
+                  - '{{ include "quantalys.policy.act.bff.name" . }}'
               - key: "app.kubernetes.io/instance"
                 operator: In
                 values:
