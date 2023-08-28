@@ -5,7 +5,7 @@ env:
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: connexion-string-policy-act-axa
+        key: postegresql-policy-act-axa
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.Act.Axa.Api"
   CustomerName: "Axa"
