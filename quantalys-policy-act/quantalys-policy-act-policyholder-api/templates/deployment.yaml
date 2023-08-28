@@ -49,7 +49,7 @@ spec:
 #          {{- end }}
           envFrom:
             - configMapRef:
-                name: quantalys-policy-act-policyholder-api-config
+                name: policy-act-policyholder-api-config
                 optional: false 
           ports:
             - name: http
