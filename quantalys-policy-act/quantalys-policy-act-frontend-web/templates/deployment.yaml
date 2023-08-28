@@ -47,10 +47,6 @@ spec:
           env:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-#          {{- range $k, $v := .Values.appsettingsJson }}
-#            - name: {{ $k }}
-#              value: {{ $v | quote }}
-#          {{- end }}
           envFrom:
             - configMapRef:
                 name: policy-act-frontend-web-config
