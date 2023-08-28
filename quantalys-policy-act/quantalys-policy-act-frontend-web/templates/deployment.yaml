@@ -53,7 +53,7 @@ spec:
 #          {{- end }}
           envFrom:
             - configMapRef:
-                name: quantalys-policy-act-frontend-web-config
+                name: policy-act-frontend-web-config
                 optional: false 
           ports:
             - name: http
