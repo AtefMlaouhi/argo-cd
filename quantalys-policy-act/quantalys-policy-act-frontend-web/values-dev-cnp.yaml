@@ -2,5 +2,5 @@ hosts:
   - quantalys-policy-act-cnp-k8s.dev.harvest.fr
 env:
 appsettingsJson:
-  baseURL: "https://quantalys-policy-act-bff-cnp-api-k8s.dev.harvest.fr"
+  baseURL: "http://policy-act-bff-api.cnp-quantalys-policy-act-dev.svc.cluster.local"
   baseRoute: "insurers/cnp/"

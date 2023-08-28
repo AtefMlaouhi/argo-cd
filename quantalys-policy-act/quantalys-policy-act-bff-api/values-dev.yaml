@@ -4,11 +4,6 @@ podAnnotations:
   env: dev
   version: "0.1.0-alpha.32"
 replicaCount: 1
-env:
-  - name: MsvcGestionActes__BaseAddress
-    value: https://quantalys-policy-act-axa-api-k8s.dev.harvest.fr
-  - name: MsvcPolicyHolder__BaseAddress
-    value: https://quantalys-policy-act-policyholder-axa-api-k8s.dev.harvest.fr
 appsettingsJson:
   AllowedHosts: "*"
   Logging__LogLevel__Default: "Information"
@@ -17,5 +12,7 @@ appsettingsJson:
   HarvestConfiguration__Domain: "Quantalys.Policy.Act.BackendForFrontend"
   HarvestConfiguration__Environment: "dev"
   JwtKeyCloak__Issuer: "https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers"
+  MsvcGestionActes__BaseAddress: http://policy-act-api.axa-quantalys-policy-act-dev.svc.cluster.local
+  MsvcPolicyHolder__BaseAddress: http://policy-act-policyholder-api.axa-quantalys-policy-act-dev.svc.cluster.local
   OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
   OpenTelemetry__ExportMetrics: "true"
