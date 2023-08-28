@@ -1,0 +1,17 @@
+image:
+  tag: "0.1.0-alpha.31"
+podAnnotations:
+  env: dev
+  version: "0.1.0-alpha.31"
+replicaCount: 1
+appsettingsJson:
+  ASPNETCORE_ENVIRONMENT: Development
+  AllowedHosts: "*"
+  Logging__LogLevel__Default: "Information"
+  Logging__LogLevel__Microsoft: "Information"
+  Logging__LogLevel__Microsoft.Hosting.Lifetime: "Information"
+  HarvestConfiguration__Domain: "Quantalys.Policy.Act"
+  HarvestConfiguration__Environment: "dev"
+  Keycloak__RedirectUri: "https://keycloak-dev.harvest-r7.fr/auth"
+  OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
+  OpenTelemetry__ExportMetrics: "true"

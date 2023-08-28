@@ -1,0 +1,17 @@
+image:
+  tag: "0.1.0-alpha.15"
+podAnnotations:
+  env: dev
+  version: "0.1.0-alpha.15"
+replicaCount: 1
+appsettingsJson:
+  ASPNETCORE_ENVIRONMENT: Development
+  AllowedHosts: "*"
+  Logging__LogLevel__Default: "Information"
+  Logging__LogLevel__Microsoft: "Information"
+  Logging__LogLevel__Microsoft.Hosting.Lifetime: "Information"
+  HarvestConfiguration__Domain: "Quantalys.Policy.Act.PolicyHolder"
+  HarvestConfiguration__Environment: "dev"
+  Jwt__Issuer: "https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers"
+  OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
+  OpenTelemetry__ExportMetrics: "true"

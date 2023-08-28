@@ -1,0 +1,5 @@
+init-namespace:
+  namespaces:
+  - cnp-quantalys-policy-act-dev
+
+  dockerconfigjson: ""

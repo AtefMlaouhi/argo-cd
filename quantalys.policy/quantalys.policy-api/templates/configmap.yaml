@@ -1,7 +1,0 @@
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: {{ include "quantalys.policy.fullname" . }}-config
-data:
-    appsettings-env.json: |
-    {{- toYaml .Values.appsettingsJson | nindent 6 }}

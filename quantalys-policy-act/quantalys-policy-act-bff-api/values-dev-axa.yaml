@@ -1,0 +1,7 @@
+hosts:
+  - quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
+appsettingsJson:
+  HarvestConfiguration__ApplicationName: "Quantalys.Policy.Act.BackendForFrontend.Axa.Api"
+  CustomerName: "Axa"
+  Keycloak__Realm: "AWSUsers"
+  OpenTelemetry__ServiceName: "dev-quantalsys-policy-act-bff-axa-api"

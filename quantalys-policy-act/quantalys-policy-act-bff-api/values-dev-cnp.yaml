@@ -1,0 +1,7 @@
+hosts:
+  - quantalys-policy-act-bff-cnp-api-k8s.dev.harvest.fr
+appsettingsJson:
+  HarvestConfiguration__ApplicationName: "Quantalys.Policy.Act.BackendForFrontend.Cnp.Api"
+  CustomerName: "CNP"
+  Keycloak__Realm: "AppUsers"
+  OpenTelemetry__ServiceName: "dev-quantalsys-policy-act-bff-cnp-api"

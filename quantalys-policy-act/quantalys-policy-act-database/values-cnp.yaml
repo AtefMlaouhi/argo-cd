@@ -1,0 +1,107 @@
+postgresql:
+  image:
+    tag: 14.4.0-debian-11-r23
+
+  primary:
+    service:
+      type: NodePort
+    initdb:
+      scripts:
+        00.sql: |
+          CREATE DATABASE policy_acts;
+
+          -- CI
+          CREATE ROLE "app_users";
+          CREATE USER "svc_policy_act_ci";
+          CREATE USER "svc_policy_act_app";
+          CREATE USER "svc_policy_act_dev" WITH PASSWORD 'p@ssword';
+          CREATE USER "svc_policy_act_rci" WITH PASSWORD 'p@ssword';
+
+          CREATE ROLE "readonly_users";
+          CREATE USER "svc_policy_act_ro" WITH PASSWORD 'p@ssword';
+        01.sql: |
+          \connect policy_acts
+
+          CREATE SCHEMA IF NOT EXISTS cnp;
+          SET search_path TO cnp;
+          -- Granting rights to CI and applicative accounts
+          GRANT ALL ON SCHEMA cnp TO "svc_policy_act_ci";
+          GRANT USAGE ON SCHEMA cnp TO "app_users";
+          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA cnp TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT USAGE, SELECT ON SEQUENCES TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT USAGE,SELECT ON SEQUENCES TO "app_users";
+
+          GRANT app_users TO "svc_policy_act_app";
+          GRANT app_users TO "svc_policy_act_dev";
+          GRANT app_users TO "svc_policy_act_rci";
+
+          -- Granting rights to readonly role
+          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA cnp TO "readonly_users";
+          GRANT USAGE ON SCHEMA cnp TO "readonly_users";
+          GRANT SELECT ON ALL TABLES IN SCHEMA cnp TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
+
+          GRANT USAGE ON SCHEMA public TO "readonly_users";
+          GRANT SELECT ON ALL TABLES IN SCHEMA public TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
+          GRANT readonly_users TO "svc_policy_act_ro";
+
+          -- Tables
+          CREATE TABLE acts
+          (
+            act_id        uuid NOT NULL,
+            act_type_id   int NOT NULL,
+            description   varchar(255),
+            created_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
+            updated_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
+            CONSTRAINT pk_act_id PRIMARY KEY (act_id)
+          );
+
+          -- To create new schema
+          GRANT CREATE ON DATABASE policy_acts TO svc_policy_act_ci
+
+  metrics:
+    auth:
+      database: policy_acts
+
+  migration_isolate: false
+
+  backup:
+    enabled: false
+    cron:
+      image:
+        tag: 13-9
+
+      schedule: "0 2 * * *" # 2am every day
+      storageSize: 1Gi
+
+      env:
+        - name: DB_LOGIN
+          value: svc_policy_act_ci
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: password
+        - name: FTP_LOGIN
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: ftp-login
+        - name: FTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: ftp-password
+        - name: PGPASSFILE
+          value: /tmp/.pgpass
+        - name: RETENTION_DAY
+          value: "10"
+
+    database:
+      name: policy_acts
+
