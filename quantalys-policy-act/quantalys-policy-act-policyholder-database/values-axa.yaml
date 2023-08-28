@@ -1,0 +1,106 @@
+postgresql:
+  image:
+    tag: 14.4.0-debian-11-r23
+
+  primary:
+    service:
+      type: NodePort
+    initdb:
+      scripts:
+        00.sql: |
+          CREATE DATABASE policy_act_policyholders;
+
+          -- CI
+          CREATE ROLE "app_users";
+          CREATE USER "svc_policy_act_policyholder_ci";
+          CREATE USER "svc_policy_act_policyholder_app";
+          CREATE USER "svc_policy_act_policyholder_app" WITH PASSWORD 'p@ssword';
+          CREATE USER "svc_policy_act_policyholder_rci" WITH PASSWORD 'p@ssword';
+
+          CREATE ROLE "readonly_users";
+          CREATE USER "svc_policy_act_policyholder_ro" WITH PASSWORD 'p@ssword';
+        01.sql: |
+          \connect policy_act_policyholders
+
+          CREATE SCHEMA IF NOT EXISTS axa;
+          SET search_path TO axa;
+          -- Granting rights to CI and applicative accounts
+          GRANT ALL ON SCHEMA axa TO "svc_policy_act_policyholder_ci";
+          GRANT USAGE ON SCHEMA axa TO "app_users";
+          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA axa TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT USAGE, SELECT ON SEQUENCES TO "app_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT USAGE,SELECT ON SEQUENCES TO "app_users";
+
+          GRANT app_users TO "svc_policy_act_policyholder_app";
+          GRANT app_users TO "svc_policy_act_policyholder_app";
+          GRANT app_users TO "svc_policy_act_policyholder_rci";
+
+          -- Granting rights to readonly role
+          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA axa TO "readonly_users";
+          GRANT USAGE ON SCHEMA axa TO "readonly_users";
+          GRANT SELECT ON ALL TABLES IN SCHEMA axa TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
+
+          GRANT USAGE ON SCHEMA public TO "readonly_users";
+          GRANT SELECT ON ALL TABLES IN SCHEMA public TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
+          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
+          GRANT readonly_users TO "svc_policy_act_policyholder_ro";
+
+          -- Tables
+          CREATE TABLE policyholder
+          (
+            policyholder_id   uuid NOT NULL,
+            data json         int NOT NULL,
+            created_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
+            updated_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
+            CONSTRAINT pk_policyholder_id PRIMARY KEY (policyholder_id)
+          );
+
+          -- To create new schema
+          GRANT CREATE ON DATABASE policy_act_policyholders TO svc_policy_act_policyholder_ci
+
+  metrics:
+    auth:
+      database: policy_act_policyholders
+
+  migration_isolate: false
+
+  backup:
+    enabled: false
+    cron:
+      image:
+        tag: 13-9
+
+      schedule: "0 2 * * *" # 2am every day
+      storageSize: 1Gi
+
+      env:
+        - name: DB_LOGIN
+          value: svc_policy_act_policyholder_ci
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: password
+        - name: FTP_LOGIN
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: ftp-login
+        - name: FTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: ftp-password
+        - name: PGPASSFILE
+          value: /tmp/.pgpass
+        - name: RETENTION_DAY
+          value: "10"
+
+    database:
+      name: policy_acts
+

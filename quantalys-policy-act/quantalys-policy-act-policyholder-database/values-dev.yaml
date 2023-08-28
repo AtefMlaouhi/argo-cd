@@ -1,0 +1,15 @@
+pgadmin-namespace: quantalys-policy-act-policyholder-dev
+
+postgresql:
+  fullnameOverride: policy-policyholder-postgresql
+  primary:
+    persistence:
+      size: 1Gi
+
+    resources:
+      limits:
+        memory: 1000Mi
+        cpu: 1000m
+      requests:
+        memory: 1000Mi
+        cpu: 1000m
