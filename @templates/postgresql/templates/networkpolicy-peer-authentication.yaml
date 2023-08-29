@@ -1,0 +1,12 @@
+# Needed for now since we are using NodePort to access the instance from outside the cluster
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: {{ printf "%s" (include "postgresql.primary.fullname" .) }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
+    app.kubernetes.io/component: primary
+  mtls:
+    mode: PERMISSIVE
