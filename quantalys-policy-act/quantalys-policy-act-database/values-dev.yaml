@@ -1,11 +1,15 @@
-message-broker-namespace: message-broker-dev
-pgadmin-namespace: o2sm-tooling-dev
-
 postgresql:
   fullnameOverride: policy-act-postgresql
   primary:
     persistence:
       size: 1Gi
+    extendedConfiguration: | 
+      pg_stat_statements.max = 1000
+      pg_stat_statements.track = all
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
 
     resources:
       limits:
@@ -14,3 +18,5 @@ postgresql:
       requests:
         memory: 1000Mi
         cpu: 1000m
+
+  postgresqlSharedPreloadLibraries: "pgaudit,pg_stat_statements"
