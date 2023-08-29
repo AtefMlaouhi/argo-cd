@@ -13,5 +13,6 @@ appsettingsJson:
   HarvestConfiguration__Domain: "Quantalys.Policy.Act"
   HarvestConfiguration__Environment: "dev"
   Keycloak__RedirectUri: "https://keycloak-dev.harvest-r7.fr/auth"
+  HubAPIs__BaseAddress: http://hub-subscription-api.hub-subscription-dev.svc.cluster.local
   OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
   OpenTelemetry__ExportMetrics: "true"

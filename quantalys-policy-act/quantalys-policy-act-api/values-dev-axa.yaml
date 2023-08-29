@@ -7,7 +7,7 @@ env:
         name: connection-strings
         key: postegresql-policy-act-axa
 appsettingsJson:
-  HarvestConfiguration__ApplicationName: "Quantalys.Policy.Act.Axa.Api"
   CustomerName: "Axa"
+  HarvestConfiguration__ApplicationName: "Quantalys.Policy.Act.Axa.Api"
   Keycloak__Realm: "AWSUsers"
   OpenTelemetry__ServiceName: "dev-quantalsys-policy-act-axa-api"

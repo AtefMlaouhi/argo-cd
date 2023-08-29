@@ -12,7 +12,5 @@ appsettingsJson:
   HarvestConfiguration__Domain: "Quantalys.Policy.Act.BackendForFrontend"
   HarvestConfiguration__Environment: "dev"
   JwtKeyCloak__Issuer: "https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers"
-  MsvcGestionActes__BaseAddress: http://policy-act-api.axa-quantalys-policy-act-dev.svc.cluster.local
-  MsvcPolicyHolder__BaseAddress: http://policy-act-policyholder-api.axa-quantalys-policy-act-dev.svc.cluster.local
   OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
   OpenTelemetry__ExportMetrics: "true"
