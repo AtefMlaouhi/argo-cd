@@ -1,5 +1,10 @@
 hosts:
   - quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
+env:
+  - name: MsvcGestionActes__BaseAddress
+    value: http://policy-act-api.axa-quantalys-policy-act-dev.svc.cluster.local
+  - name: MsvcPolicyHolder__BaseAddress
+    value: http://policy-act-policyholder-api.axa-quantalys-policy-act-dev.svc.cluster.local
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.Act.BackendForFrontend.Axa.Api"
   CustomerName: "Axa"
