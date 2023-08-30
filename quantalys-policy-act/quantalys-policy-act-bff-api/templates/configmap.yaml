@@ -4,46 +4,45 @@ metadata:
   name: {{ include "quantalys.policy.act.bff.fullname" . }}-config
 data:
     appsettings-env.json: |
-    {
-      "ConnectionStrings": {
-        "PolicyHolderContext": "Server=localhost;Database=policy_act_policyholders;Port=5432;Username=postgres;Password=example"
-      },
-      "ApplicationName": "Quantalys.Policy.PolicyHolder",
-      "Serilog": {
-        "Using": [
-          "Serilog.Sinks.Console"
-        ],
-        "MinimumLevel": "Warning",
-        "WriteTo": [
-          {
-            "Name": "Console",
-            "Args": {
-              "outputTemplate": "===> {Timestamp:HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}"
+      {
+        "ConnectionStrings": {
+          "PolicyHolderContext": "Server=localhost;Database=policy_act_policyholders;Port=5432;Username=postgres;Password=example"
+        },
+        "ApplicationName": "Quantalys.Policy.PolicyHolder",
+        "Serilog": {
+          "Using": [
+            "Serilog.Sinks.Console"
+          ],
+          "MinimumLevel": "Warning",
+          "WriteTo": [
+            {
+              "Name": "Console",
+              "Args": {
+                "outputTemplate": "===> {Timestamp:HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}"
+              }
             }
-          }
-        ]
-      },
-      "AllowedHosts": "*",
-      "CORS": {
-        "AllowedOrigins": "*",
-        "AllowedHeaders": "*",
-        "AllowedMethods": "*",
-        "PreflightMaxAge": 2520
-      },
-      "RateLimitDefinition": {
-        "PermitLimit": 6,
-        "Window": 9,
-        "ReplenishmentPeriod": 1,
-        "QueueLimit": 2,
-        "SegmentsPerWindow": 4,
-        "TokenLimit": 8,
-        "TokenLimit2": 12,
-        "TokensPerPeriod": 4,
-        "AutoReplenishment": true
-      },
-      "Jwt": {
-        "Issuer": "https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers",
-        "Audience": "account"
+          ]
+        },
+        "AllowedHosts": "*",
+        "CORS": {
+          "AllowedOrigins": "*",
+          "AllowedHeaders": "*",
+          "AllowedMethods": "*",
+          "PreflightMaxAge": 2520
+        },
+        "RateLimitDefinition": {
+          "PermitLimit": 6,
+          "Window": 9,
+          "ReplenishmentPeriod": 1,
+          "QueueLimit": 2,
+          "SegmentsPerWindow": 4,
+          "TokenLimit": 8,
+          "TokenLimit2": 12,
+          "TokensPerPeriod": 4,
+          "AutoReplenishment": true
+        },
+        "Jwt": {
+          "Issuer": "https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers",
+          "Audience": "account"
+        }
       }
-    }
-
