@@ -10,9 +10,33 @@ postgresql:
           CREATE DATABASE policy_act_policyholders;
 
           -- CI
-          CREATE USER "svc_policy_act_policyholder_ci" WITH PASSWORD 'UDJRoWsp8e';
-          CREATE ROLE "svc_policy_act_policyholder" WITH PASSWORD 'YXoWOsr8lC';
-          CREATE ROLE "policy_act_policyholder_reader" WITH PASSWORD 'ZdgG38RV7o';
+          CREATE ROLE "svc_policy_act_policyholder" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD '1tiVMz1C';
+          CREATE ROLE "svc_policy_act_policyholder" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'DmS9Laqg';
+          CREATE ROLE "svc_policy_act_policyholder_ci" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'nWqgBOSj';
         01.sql: |
           \connect policy_act_policyholders
           -- Create Schema
