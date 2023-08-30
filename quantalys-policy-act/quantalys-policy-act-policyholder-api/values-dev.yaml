@@ -5,7 +5,6 @@ podAnnotations:
   version: "0.1.0-alpha.16"
 replicaCount: 1
 appsettingsJson:
-  ASPNETCORE_ENVIRONMENT: Development
   AllowedHosts: "*"
   HarvestConfiguration__Domain: "Quantalys.Policy.Act"
   HarvestConfiguration__Environment: "dev"
