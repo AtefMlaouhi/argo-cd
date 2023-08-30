@@ -1,8 +1,8 @@
 image:
-  tag: "0.1.0-alpha.31"
+  tag: "0.1.0-alpha.34"
 podAnnotations:
   env: dev
-  version: "0.1.0-alpha.31"
+  version: "0.1.0-alpha.34"
 replicaCount: 1
 appsettingsJson:
   ASPNETCORE_ENVIRONMENT: Development
