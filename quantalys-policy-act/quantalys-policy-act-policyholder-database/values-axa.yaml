@@ -1,7 +1,6 @@
 postgresql:
   image:
     tag: 14.4.0-debian-11-r23
-
   primary:
     service:
       type: NodePort
@@ -11,73 +10,49 @@ postgresql:
           CREATE DATABASE policy_act_policyholders;
 
           -- CI
-          CREATE ROLE "app_users";
-          CREATE USER "svc_policy_act_policyholder_ci" WITH PASSWORD '2QXet8Xhqd';
-          CREATE USER "svc_policy_act_policyholder_app" WITH PASSWORD 'UDJRoWsp8e';
-          CREATE USER "svc_policy_act_policyholder_dev" WITH PASSWORD 'ZdgG38RV7o';
-          CREATE USER "svc_policy_act_policyholder_rci" WITH PASSWORD 'P6Mrudqj2z';
-
-          CREATE ROLE "readonly_users";
-          CREATE USER "svc_policy_act_policyholder_ro" WITH PASSWORD 'nJ7Uv1zKZL';
+          CREATE USER "svc_policy_act_policyholder_ci" WITH PASSWORD 'UDJRoWsp8e';
+          CREATE ROLE "svc_policy_act_policyholder" WITH PASSWORD 'YXoWOsr8lC';
+          CREATE ROLE "policy_act_policyholder_reader" WITH PASSWORD 'ZdgG38RV7o';
         01.sql: |
           \connect policy_act_policyholders
-
+          -- Create Schema
           CREATE SCHEMA IF NOT EXISTS axa;
-          SET search_path TO axa;
-          -- Granting rights to CI and applicative accounts
-          GRANT ALL ON SCHEMA axa TO "svc_policy_act_policyholder_ci";
-          GRANT USAGE ON SCHEMA axa TO "app_users";
-          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA axa TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT USAGE, SELECT ON SEQUENCES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT USAGE,SELECT ON SEQUENCES TO "app_users";
-
-          GRANT app_users TO "svc_policy_act_policyholder_app";
-          GRANT app_users TO "svc_policy_act_policyholder_dev";
-          GRANT app_users TO "svc_policy_act_policyholder_rci";
-
-          -- Granting rights to readonly role
-          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA axa TO "readonly_users";
-          GRANT USAGE ON SCHEMA axa TO "readonly_users";
-          GRANT SELECT ON ALL TABLES IN SCHEMA axa TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-
-          GRANT USAGE ON SCHEMA public TO "readonly_users";
-          GRANT SELECT ON ALL TABLES IN SCHEMA public TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_policyholder_ci" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-          GRANT readonly_users TO "svc_policy_act_policyholder_ro";
-
-          -- Tables
-          CREATE TABLE policyholder
-          (
-            policyholder_id   uuid NOT NULL,
-            data json         int NOT NULL,
-            created_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
-            updated_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
-            CONSTRAINT pk_policyholder_id PRIMARY KEY (policyholder_id)
+          -- Default grants
+          REVOKE CONNECT ON DATABASE policy_act_policyholders FROM PUBLIC;
+          REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+          GRANT ALL ON DATABASE policy_act_policyholders TO postgres;
+          -- PolicyHolder reader account
+          GRANT CONNECT ON DATABASE policy_act_policyholders TO "policy_act_policyholder_reader";
+          GRANT USAGE ON SCHEMA axa TO "policy_act_policyholder_reader";
+          GRANT SELECT ON ALL TABLES IN SCHEMA axa TO "policy_act_policyholder_reader";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT ON TABLES TO "policy_act_policyholder_reader";
+          GRANT CONNECT ON DATABASE policy_act_policyholders TO "svc_policy_act_policyholder";
+          -- PolicyHolder service account
+          GRANT USAGE ON SCHEMA axa TO "svc_policy_act_policyholder";
+          GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA axa TO "svc_policy_act_policyholder";
+          GRANT USAGE,SELECT ON ALL SEQUENCES IN SCHEMA axa to "svc_policy_act_policyholder";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "svc_policy_act_policyholder";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT ON TABLES TO "policy_act_policyholder_reader";
+          --PolicyHolder ci account
+          GRANT CREATE ON DATABASE policy_act_policyholders TO "svc_policy_act_policyholder_ci";
+          -- Create tables
+          CREATE TABLE axa.PolicyHolder (
+            Id text NOT NULL,
+            Content text NOT NULL,
+            CONSTRAINT "PK_PolicyHolder" PRIMARY KEY (Id)
           );
-
-          -- To create new schema
-          GRANT CREATE ON DATABASE policy_act_policyholders TO svc_policy_act_policyholder_ci
 
   metrics:
     auth:
       database: policy_act_policyholders
-
   migration_isolate: false
-
   backup:
     enabled: false
     cron:
       image:
         tag: 13-9
-
       schedule: "0 2 * * *" # 2am every day
       storageSize: 1Gi
-
       env:
         - name: DB_LOGIN
           value: svc_policy_act_policyholder_ci
@@ -100,7 +75,6 @@ postgresql:
           value: /tmp/.pgpass
         - name: RETENTION_DAY
           value: "10"
-
     database:
-      name: policy_acts
+      name: policy_act_policyholders
 

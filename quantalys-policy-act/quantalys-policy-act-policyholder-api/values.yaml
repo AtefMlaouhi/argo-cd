@@ -20,7 +20,8 @@ service:
   type: ClusterIP
   port: 80
 
-probes: {}
+probes:
+  readinessPath: "/q/health/ready"
 
 serviceAccount:
   create: true

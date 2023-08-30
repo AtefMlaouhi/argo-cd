@@ -8,6 +8,6 @@ env:
         key: postegresql-policy-act-policyholder-axa
 appsettingsJson:
   HarvestConfiguration__ApplicationName: "Quantalys.Policy.Act.PolicyHolder.Axa.Api"
-  CustomerName: "Axa"
+  TenantName: "Axa"
   Keycloak__Realm: "AWSUsers"
   OpenTelemetry__ServiceName: "dev-quantalsys-policy-act-policyholder-axa-api"
