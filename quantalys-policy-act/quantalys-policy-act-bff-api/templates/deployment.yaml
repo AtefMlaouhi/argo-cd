@@ -43,10 +43,10 @@ spec:
           env:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          envFrom:
-            - configMapRef:
-                name: policy-act-bff-api-config
-                optional: false 
+          {{- range $k, $v := .Values.appsettingsJson }}
+            - name: {{ $k }}
+              value: {{ $v | quote }}
+          {{- end }}
           ports:
             - name: http
               containerPort: 8080
