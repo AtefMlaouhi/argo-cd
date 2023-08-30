@@ -4,4 +4,4 @@ metadata:
   name: {{ include "quantalys.policy.act.bff.fullname" . }}-config
 data:
     appsettings-env.json: |
-    {{- toYaml .Values.appsettingsJson | nindent 6 }}
+    {{- .Files.Get "settings/appsettings.json" | nindent 6 }}
