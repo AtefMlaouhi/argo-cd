@@ -13,8 +13,7 @@ podAnnotations:
   version: unspecified
   proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
 
-appsettingsJson:
-  nothing: yup
+appsettingsJson: {}
 
 service:
   type: ClusterIP
