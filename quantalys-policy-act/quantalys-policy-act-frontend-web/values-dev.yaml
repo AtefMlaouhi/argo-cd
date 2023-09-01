@@ -8,5 +8,3 @@ config:
   keycloak:
     server: keycloak-dev.harvest-r7.fr
     logoutRedirectUrl: ''
-    realm: AWSUsers
-    client_id: quantalys-policy-act-frontend
