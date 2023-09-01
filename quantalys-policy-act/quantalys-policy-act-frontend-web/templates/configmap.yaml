@@ -7,7 +7,7 @@ data:
     {{- tpl .Values.nginx_config . | nindent 4 }}
 
   config.js: |
-  var PolicyActConfig = {
+    var PolicyActConfig = {
         baseUrl: 'https://{{ .Values.hosts | first }}',
         keycloakConfig: {
             url: 'https://{{ .Values.config.keycloak.server}}/auth',
