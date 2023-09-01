@@ -58,10 +58,10 @@ postgresql:
           ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "svc_policy_act_policyholder";
           ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT ON TABLES TO "policy_act_policyholder_reader";
           -- Create tables
-          CREATE TABLE axa.PolicyHolder (
-            Id text NOT NULL,
-            Content text NOT NULL,
-            CONSTRAINT "PK_PolicyHolder" PRIMARY KEY (Id)
+          CREATE TABLE axa.policy_holder (
+            id text NOT NULL,
+            "content" text NOT NULL,
+            CONSTRAINT "pk_policy_holder" PRIMARY KEY (id)
           );
 
   metrics:
