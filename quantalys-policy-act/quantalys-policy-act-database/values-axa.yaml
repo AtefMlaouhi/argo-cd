@@ -11,58 +11,112 @@ postgresql:
           CREATE DATABASE policy_acts;
 
           -- CI
-          CREATE ROLE "app_users";
-          CREATE USER "svc_policy_act_ci" WITH PASSWORD 'PMjxrfnP7m';
-          CREATE USER "svc_policy_act_app" WITH PASSWORD 'DXZQuZHGl8';
-          CREATE USER "svc_policy_act_dev" WITH PASSWORD 'FAP2IeAY9W';
-          CREATE USER "svc_policy_act_rci" WITH PASSWORD 'PfUQelX9cW';
-
-          CREATE ROLE "readonly_users";
-          CREATE USER "svc_policy_act_ro" WITH PASSWORD 'VSrf18nKs3';
+          CREATE ROLE "policy_act_reader" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'YgNrgOFNXs';
+          CREATE ROLE "svc_policy_act" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'WPntyea1G1';
+          CREATE ROLE "svc_policy_act_ci" WITH
+            LOGIN
+            NOSUPERUSER
+            CREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'jJnYxAtA1H';
         01.sql: |
           \connect policy_acts
-
+          -- Create Schema
           CREATE SCHEMA IF NOT EXISTS axa;
-          SET search_path TO axa;
-          -- Granting rights to CI and applicative accounts
-          GRANT ALL ON SCHEMA axa TO "svc_policy_act_ci";
-          GRANT USAGE ON SCHEMA axa TO "app_users";
-          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA axa TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT USAGE, SELECT ON SEQUENCES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA axa GRANT USAGE,SELECT ON SEQUENCES TO "app_users";
-
-          GRANT app_users TO "svc_policy_act_app";
-          GRANT app_users TO "svc_policy_act_dev";
-          GRANT app_users TO "svc_policy_act_rci";
-
-          -- Granting rights to readonly role
-          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA axa TO "readonly_users";
-          GRANT USAGE ON SCHEMA axa TO "readonly_users";
-          GRANT SELECT ON ALL TABLES IN SCHEMA axa TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-
-          GRANT USAGE ON SCHEMA public TO "readonly_users";
-          GRANT SELECT ON ALL TABLES IN SCHEMA public TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA axa GRANT SELECT ON TABLES TO "readonly_users";
-          GRANT readonly_users TO "svc_policy_act_ro";
-
-          -- Tables
-          CREATE TABLE acts
-          (
-            act_id        uuid NOT NULL,
-            act_type_id   int NOT NULL,
-            description   varchar(255),
-            created_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
-            updated_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
-            CONSTRAINT pk_act_id PRIMARY KEY (act_id)
+          -- Default grants
+          REVOKE CONNECT ON DATABASE policy_acts FROM PUBLIC;
+          REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+          GRANT ALL ON DATABASE policy_acts TO postgres;
+          -- PolicyAct reader account
+          GRANT CONNECT ON DATABASE policy_acts TO "policy_act_reader";
+          GRANT USAGE ON SCHEMA axa TO "policy_act_reader";
+          GRANT SELECT ON ALL TABLES IN SCHEMA axa TO "policy_act_reader";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT ON TABLES TO "policy_act_reader";
+          GRANT CONNECT ON DATABASE policy_acts TO "svc_policy_act";
+          -- PolicyAct service account
+          GRANT USAGE ON SCHEMA axa TO "svc_policy_act";
+          GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA axa TO "svc_policy_act";
+          GRANT USAGE,SELECT ON ALL SEQUENCES IN SCHEMA axa to "svc_policy_act";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "svc_policy_act";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA axa GRANT SELECT ON TABLES TO "policy_act_reader";
+          -- Create tables
+          CREATE TABLE axa.ActHolder (
+              ActHolderId text NOT NULL,
+              PolicyHolderId text NULL,
+              PolicyId text NULL,
+              Content text NULL,
+              CONSTRAINT PK_ActHolder PRIMARY KEY (ActHolderId)
           );
-
-          -- To create new schema
-          GRANT CREATE ON DATABASE policy_acts TO svc_policy_act_ci
+          CREATE TABLE axa.Example (
+              NumId int4 NOT NULL GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),
+              Num varchar(3) NOT NULL,
+              CodeA varchar(2) NOT NULL,
+              MyInt int4 NOT NULL,
+              CreationDate timestamp NOT NULL DEFAULT '2023-08-31 19:31:29.083761'::timestamp without time zone,
+              CreatedBy varchar(30) NULL,
+              LastModificationDate timestamp NOT NULL DEFAULT '2023-08-31 19:31:29.083788'::timestamp without time zone,
+              ModifiedBy varchar(30) NULL,
+              CONSTRAINT AK_Example_CodeA UNIQUE (CodeA),
+              CONSTRAINT AK_Example_MyInt UNIQUE (MyInt),
+              CONSTRAINT PK_Example PRIMARY KEY (NumId)
+          );
+          CREATE TABLE axa.SemiDigitalAct (
+              Id int4 NOT NULL GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),
+              ArbitrageDataId uuid NOT NULL,
+              PolicyHolderId varchar(50) NOT NULL,
+              PolicyId varchar(50) NOT NULL,
+              InsurerCode varchar(50) NOT NULL,
+              ShiftType varchar(50) NOT NULL,
+              CreatedAt timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+              LastModified timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+              CreatedBy varchar(50) NOT NULL,
+              LastModifiedBy varchar(50) NOT NULL,
+              Content text NULL,
+              CONSTRAINT PK_SemiDigitalAct PRIMARY KEY (Id)
+          );
+          CREATE TABLE axa.user_table (
+              user_id int4 NOT NULL GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),
+              user_name varchar(60) NOT NULL,
+              user_password varchar(100) NOT NULL,
+              email varchar(122) NOT NULL,
+              user_role varchar(50) NOT NULL,
+              refresh_token varchar(512) NULL,
+              refresh_token_expiry_time timestamp NOT NULL,
+              creation_date timestamp NOT NULL DEFAULT '2023-08-31 19:31:29.08278'::timestamp without time zone,
+              created_by varchar(30) NULL,
+              last_modification_date timestamp NOT NULL DEFAULT '2023-08-31 19:31:29.082813'::timestamp without time zone,
+              modified_by varchar(30) NULL,
+              CONSTRAINT AK_user_table_email UNIQUE (email),
+              CONSTRAINT AK_user_table_user_name UNIQUE (user_name),
+              CONSTRAINT PK_user_table PRIMARY KEY (user_id)
+          );
+          CREATE TABLE axa.SemiDigitalActDocuments (
+              Id int4 NOT NULL GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),
+              DocumentId varchar(50) NOT NULL,
+              ShiftId int4 NOT NULL,
+              CONSTRAINT PK_SemiDigitalActDocuments PRIMARY KEY (Id),
+              CONSTRAINT FK_SemiDigitalActDocuments_SemiDigitalAct_ShiftId FOREIGN KEY (ShiftId) REFERENCES axa.SemiDigitalAct(Id) ON DELETE CASCADE
+          );
+          CREATE INDEX IX_SemiDigitalActDocuments_ShiftId ON axa.SemiDigitalActDocuments USING btree (ShiftId);
 
   metrics:
     auth:
