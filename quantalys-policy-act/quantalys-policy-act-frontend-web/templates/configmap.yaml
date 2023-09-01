@@ -7,4 +7,31 @@ data:
     {{- tpl .Values.nginx_config . | nindent 4 }}
 
   config.js: |
+  var PolicyActConfig = {
+        baseUrl: 'https://{{ .Values.hosts | first }}',
+        keycloakConfig: {
+            url: 'https://{{ .Values.config.keycloak.server}}/auth',
+            logoutRedirectUrl: '{{ .Values.hosts | first }}/{{ .Values.config.keycloak.logoutRedirectUrl}}',
+            realm: '{{ .Values.config.keycloak.realm}}',
+            clientId: '{{ .Values.config.keycloak.client_id}}',
+            loginOptions: {
+                idpHint: ''
+            },
+        },
+        urls: {
+            apis: {
+                feesApi: '{{ .Values.config.backend.url}}/'
+            },
+        },
+        version: '{{ .Chart.AppVersion }}',
+    };
+
     // pour Angular
+    if (typeof window !== 'undefined') {
+    window.PolicyActConfig = PolicyActConfig;
+    }
+    
+    // pour Webpack
+    if (typeof exports !== 'undefined') {
+      exports.PolicyActConfig = PolicyActConfig;
+    }
