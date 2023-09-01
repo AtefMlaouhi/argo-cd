@@ -24,11 +24,8 @@ spec:
       labels:
         {{- include "quantalys.policy.act.frontend.selectorLabels" . | nindent 8 }}
         stack: "angular"
-        version: {{ .Values.image.tag }}
-#      annotations:
-#        co.elastic.logs/fileset.stderr: error
-#        co.elastic.logs/fileset.stdout: access
-#        co.elastic.logs/module: nginx
+        excluding_logs: "true"
+        version: {{.Values.image.tag}}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -65,6 +62,13 @@ spec:
 #              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+            - name: app-config
+              mountPath: /config
+              readOnly: true
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -75,3 +79,17 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: {{include "quantalys.policy.act.frontend.fullname" .}}-config
+            items:
+              - key: nginx.conf
+                path: nginx.conf
+        - name: app-config
+          configMap:
+            name: {{include "quantalys.policy.act.frontend.fullname" .}}-config
+            items:
+              - key: config.js
+                path: config.js
+

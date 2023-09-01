@@ -13,7 +13,32 @@ podAnnotations:
   version: unspecified
   proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
 
-appsettingsJson: {}
+config: {}
+
+nginx_config: |
+  events{}
+  http {
+      include /etc/nginx/mime.types;
+      server {
+        listen 80;
+        root /usr/share/nginx/html;
+        index index.html;
+  
+        location / {
+            try_files $uri $uri /index.html;
+        }
+
+        location /assets/config/ {
+          alias /config/;
+          add_header Content-Type application/javascript;
+          add_header Cache-Control 'no-cache, max-age=0, must-revalidate, proxy-revalidate';
+          add_header X-Frame-Options "SAMEORIGIN";
+          add_header X-XSS-Protection "1; mode=block";
+          index config.js;
+        }
+      }
+  }
+
 
 service:
   type: ClusterIP
@@ -46,24 +71,4 @@ nodeSelector: {}
 
 tolerations: []
 
-# Prevent multiple pods on the same host
-affinity:
-  podAntiAffinity:
-    preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        podAffinityTerm:
-          labelSelector:
-            matchExpressions:
-              - key: "app"
-                operator: In
-                values:
-                  - "{{ .Release.Name }}"
-              - key: "app.kubernetes.io/name"
-                operator: In
-                values:
-                  - '{{ include "quantalys.policy.act.frontend.name" . }}'
-              - key: "app.kubernetes.io/instance"
-                operator: In
-                values:
-                  - "{{ .Release.Name }}"
-          topologyKey: "kubernetes.io/hostname"
+affinity: {}
