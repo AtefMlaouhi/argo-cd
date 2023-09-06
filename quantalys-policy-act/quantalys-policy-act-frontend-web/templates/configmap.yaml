@@ -10,7 +10,7 @@ data:
     var PolicyActConfig = {
         baseUrl: 'https://{{ .Values.hosts | first }}', // baseUrl utilisée pour charger les assets dans les templates
         keycloakConfig: {
-            url: 'https://{{ .Values.config.keycloak.url }}',
+            url: 'https://{{ .Values.config.keycloak.url }}/auth',
             logoutRedirectUrl: 'https://{{ .Values.hosts | first }}', // peut être différente de l'application elle-même
             realm: '{{ .Values.config.keycloak.realm }}',
             clientId: '{{ .Values.config.keycloak.client_id }}',
