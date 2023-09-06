@@ -8,12 +8,12 @@ data:
 
   config.js: |
     var PolicyActConfig = {
-        baseUrl: 'https://quantalys-policy-act-axa-k8s.dev.harvest.fr', // baseUrl utilisée pour charger les assets dans les templates
+        baseUrl: 'https://{{ .Values.hosts | first }}', // baseUrl utilisée pour charger les assets dans les templates
         keycloakConfig: {
-            url: 'https://keycloak-rci.harvest-r7.fr/auth',
-            logoutRedirectUrl: 'https://quantalys-policy-act-axa-k8s.dev.harvest.fr', // peut être différente de l'application elle-même
-            realm: 'REALM',
-            clientId: 'front-app',
+            url: 'https://{{ .Values.config.keycloak.url }}',
+            logoutRedirectUrl: 'https://{{ .Values.hosts | first }}', // peut être différente de l'application elle-même
+            realm: '{{ .Values.config.keycloak.realm }}',
+            clientId: '{{ .Values.config.keycloak.client_id }}',
             loginOptions: {
                 idpHint: '',
             },
@@ -23,7 +23,7 @@ data:
             configs: {},
             fonts: {},
             apis: {
-                myapi: 'https://example-k8s.dev.harvest.fr/',
+                backend: 'https://{{ .Values.config.backend.url }}',
             },
         },
         version: '1.0.0'
