@@ -21,24 +21,24 @@ nginx_config: |
       include /etc/nginx/mime.types;
       server {
         listen 80;
-        root /usr/share/nginx/html;
-        index index.html;
-  
+
+        absolute_redirect off;
+        add_header Cache-Control 'no-cache, max-age=0, must-revalidate, proxy-revalidate';
+        add_header X-Frame-Options "SAMEORIGIN";
+        add_header X-XSS-Protection "1; mode=block";
+
         location / {
-            try_files $uri $uri /index.html;
+          root /usr/share/nginx/html;
+          index index.html index.htm;
+          try_files $uri $uri/ /index.html =404;
         }
 
-        location /assets/config/ {
-          alias /config/;
-          add_header Content-Type application/javascript;
-          add_header Cache-Control 'no-cache, max-age=0, must-revalidate, proxy-revalidate';
-          add_header X-Frame-Options "SAMEORIGIN";
-          add_header X-XSS-Protection "1; mode=block";
-          index config.js;
+        location /index.html {
+          root /usr/share/nginx/html;
+          index index.html index.htm;
         }
       }
   }
-
 
 service:
   type: ClusterIP
