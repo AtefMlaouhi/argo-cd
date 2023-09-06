@@ -3,4 +3,3 @@ hosts:
 env:
 appsettingsJson:
   baseURL: "http://policy-act-bff-api.cnp-quantalys-policy-act-dev.svc.cluster.local"
-  baseRoute: "insurers/cnp/"
