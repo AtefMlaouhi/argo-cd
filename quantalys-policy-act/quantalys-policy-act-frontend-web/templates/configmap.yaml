@@ -8,7 +8,7 @@ data:
 
   config.js: |
     var PolicyActConfig = {
-        baseUrl: 'https://quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr', // baseUrl utilisée pour charger les assets dans les templates
+        baseUrl: 'https://quantalys-policy-act-axa-k8s.dev.harvest.fr', // baseUrl utilisée pour charger les assets dans les templates
         keycloakConfig: {
             url: 'https://keycloak-rci.harvest-r7.fr/auth',
             logoutRedirectUrl: 'https://quantalys-policy-act-axa-k8s.dev.harvest.fr', // peut être différente de l'application elle-même
