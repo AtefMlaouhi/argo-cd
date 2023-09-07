@@ -67,7 +67,7 @@ spec:
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
             - name: app-config
-              mountPath: /config
+              mountPath: /usr/share/nginx/html/assets/config
               readOnly: true
       {{- with .Values.nodeSelector }}
       nodeSelector:
