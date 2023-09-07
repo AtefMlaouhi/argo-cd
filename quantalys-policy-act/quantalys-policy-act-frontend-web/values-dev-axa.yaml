@@ -3,8 +3,8 @@ hosts:
 baseURL: http://policy-act-bff-api.axa-quantalys-policy-act-dev.svc.cluster.local # Unused for now ?
 config:
   keycloak:
-    url: https://keycloak-rci.harvest-r7.fr/auth
+    url: keycloak-rci.harvest-r7.fr
     realm: AWSUsers
     client_id: quantalys-policy-act-frontend
   backend:
-    url: http://policy-act-bff-api.axa-quantalys-policy-act-dev.harvest.fr
+    url: policy-act-bff-api.axa-quantalys-policy-act-dev.harvest.fr
