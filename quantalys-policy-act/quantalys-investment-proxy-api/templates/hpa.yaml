@@ -4,7 +4,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: {{ include "quantalys.investment.proxy.fullname" . }}
   labels:
-    {{- include "quantalys.investment.proxy.name" . | nindent 4 }}
+    {{- include "quantalys.investment.proxy.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

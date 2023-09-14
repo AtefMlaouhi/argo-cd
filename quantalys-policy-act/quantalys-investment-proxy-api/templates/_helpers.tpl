@@ -33,7 +33,7 @@ Create chart name and version as used by the chart label.
 {{/*
 Common labels
 */}}
-{{- define "quantalys.investment.proxy.name" -}}
+{{- define "quantalys.investment.proxy.labels" -}}
 helm.sh/chart: {{ include "quantalys.investment.proxy.chart" . }}
 {{ include "quantalys.investment.proxy.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
