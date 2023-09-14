@@ -1,0 +1,5 @@
+hosts:
+  - quantalys-user-proxy-axa-api-k8s.dev.harvest.fr
+appsettingsJson:
+  Tenant__Name: "AxaWS"
+  OpenTelemetry__ServiceName: "dev-quantalsys-user-proxy-axa-api"

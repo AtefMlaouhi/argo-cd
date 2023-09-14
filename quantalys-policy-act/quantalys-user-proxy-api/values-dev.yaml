@@ -1,0 +1,11 @@
+image:
+  tag: "0.1.0-alpha.7"
+podAnnotations:
+  env: dev
+  version: "0.1.0-alpha.7"
+replicaCount: 1
+appsettingsJson:
+  HarvestConfiguration__Domain: "Quantalys.User.Proxy"
+  HarvestConfiguration__Environment: "dev"
+  OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
+  OpenTelemetry__ExportMetrics: "true"
