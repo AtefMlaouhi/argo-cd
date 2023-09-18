@@ -6,7 +6,7 @@ image:
 imagePullSecrets:
   - name: gitlab
 nameOverride: ""
-fullnameOverride: policy-investment-proxy-api
+fullnameOverride: investment-proxy-api
 
 podAnnotations:
   env: unspecified
