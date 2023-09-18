@@ -1,5 +1,11 @@
 hosts:
   - quantalys-investment-proxy-axa-api-k8s.dev.harvest.fr
+env:
+  - name: ConnectionStrings__SqlServerQuantaSynonyms
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-quanta-synonyms-axa
 appsettingsJson:
   Tenant__Name: "AxaWS"
-  OpenTelemetry__ServiceName: "dev-quantalsys-investment-proxy-axa-api"
+  OpenTelemetry__ServiceName: "dev-quantalys-investment-proxy-axa-api"
