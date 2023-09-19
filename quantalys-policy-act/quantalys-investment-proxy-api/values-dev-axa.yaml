@@ -1,6 +1,8 @@
 hosts:
   - quantalys-investment-proxy-axa-api-k8s.dev.harvest.fr
 env:
+  - name: ASPNETCORE_URLS
+    value: http://+:8080
   - name: ConnectionStrings__SqlServerQuantaSynonyms
     valueFrom:
       secretKeyRef:
