@@ -1,11 +1,13 @@
 image:
-  tag: "0.1.0-alpha.15"
+  tag: "0.1.0-alpha.16"
 podAnnotations:
   env: dev
-  version: "0.1.0-alpha.15"
+  version: "0.1.0-alpha.16"
 replicaCount: 1
 appsettingsJson:
-  HarvestConfiguration__Domain: "Quantalys.User.Proxy"
-  HarvestConfiguration__Environment: "dev"
-  OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
-  OpenTelemetry__ExportMetrics: "true"
+  Authentication__Audience: account
+  Authentication__RequireHttpsMetadata: false
+  HarvestConfiguration__Domain: Quantalys.User.Proxy
+  HarvestConfiguration__Environment: dev
+  OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
+  OpenTelemetry__ExportMetrics: true
