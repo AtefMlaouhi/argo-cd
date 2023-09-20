@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.10
+  tag: 0.1.0-alpha.11
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha.10
+  version: 0.1.0-alpha.11
 replicaCount: 1
 appsettingsJson:
   Authentication__Audience: account
