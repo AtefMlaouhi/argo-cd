@@ -11,58 +11,201 @@ postgresql:
           CREATE DATABASE policy_acts;
 
           -- CI
-          CREATE ROLE "app_users";
-          CREATE USER "svc_policy_act_ci";
-          CREATE USER "svc_policy_act_app";
-          CREATE USER "svc_policy_act_dev" WITH PASSWORD 'p@ssword';
-          CREATE USER "svc_policy_act_rci" WITH PASSWORD 'p@ssword';
-
-          CREATE ROLE "readonly_users";
-          CREATE USER "svc_policy_act_ro" WITH PASSWORD 'p@ssword';
+          CREATE ROLE "policy_act_reader" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'YgNrgOFNXs';
+          CREATE ROLE "svc_policy_act" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'WPntyea1G1';
+          CREATE ROLE "svc_policy_act_ci" WITH
+            LOGIN
+            NOSUPERUSER
+            CREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'jJnYxAtA1H';
         01.sql: |
           \connect policy_acts
-
+          -- Create Schema
           CREATE SCHEMA IF NOT EXISTS cnp;
-          SET search_path TO cnp;
-          -- Granting rights to CI and applicative accounts
-          GRANT ALL ON SCHEMA cnp TO "svc_policy_act_ci";
-          GRANT USAGE ON SCHEMA cnp TO "app_users";
-          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA cnp TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT USAGE, SELECT ON SEQUENCES TO "app_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT USAGE,SELECT ON SEQUENCES TO "app_users";
-
-          GRANT app_users TO "svc_policy_act_app";
-          GRANT app_users TO "svc_policy_act_dev";
-          GRANT app_users TO "svc_policy_act_rci";
-
-          -- Granting rights to readonly role
-          GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA cnp TO "readonly_users";
-          GRANT USAGE ON SCHEMA cnp TO "readonly_users";
-          GRANT SELECT ON ALL TABLES IN SCHEMA cnp TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
-
-          GRANT USAGE ON SCHEMA public TO "readonly_users";
-          GRANT SELECT ON ALL TABLES IN SCHEMA public TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "postgres" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
-          ALTER DEFAULT PRIVILEGES FOR USER "svc_policy_act_ci" IN SCHEMA cnp GRANT SELECT ON TABLES TO "readonly_users";
-          GRANT readonly_users TO "svc_policy_act_ro";
-
-          -- Tables
-          CREATE TABLE acts
-          (
-            act_id        uuid NOT NULL,
-            act_type_id   int NOT NULL,
-            description   varchar(255),
-            created_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
-            updated_on    timestamp with time zone default timezone('utc'::text, now()) NOT NULL,
-            CONSTRAINT pk_act_id PRIMARY KEY (act_id)
+          -- Default grants
+          REVOKE CONNECT ON DATABASE policy_acts FROM PUBLIC;
+          REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+          GRANT ALL ON DATABASE policy_acts TO postgres;
+          -- PolicyAct reader account
+          GRANT CONNECT ON DATABASE policy_acts TO "policy_act_reader";
+          GRANT USAGE ON SCHEMA cnp TO "policy_act_reader";
+          GRANT SELECT ON ALL TABLES IN SCHEMA cnp TO "policy_act_reader";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT ON TABLES TO "policy_act_reader";
+          GRANT CONNECT ON DATABASE policy_acts TO "svc_policy_act";
+          -- PolicyAct service account
+          GRANT USAGE ON SCHEMA cnp TO "svc_policy_act";
+          GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA cnp TO "svc_policy_act";
+          GRANT USAGE,SELECT ON ALL SEQUENCES IN SCHEMA cnp to "svc_policy_act";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "svc_policy_act";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT ON TABLES TO "policy_act_reader";
+          -- Create tables
+          CREATE TABLE IF NOT EXISTS __EFMigrationsHistory (
+              migration_id character varying(150) NOT NULL,
+              product_version character varying(32) NOT NULL,
+              CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
           );
 
-          -- To create new schema
-          GRANT CREATE ON DATABASE policy_acts TO svc_policy_act_ci
+          CREATE TABLE cnp.act_holder (
+              act_holder_id text NOT NULL,
+              policy_holder_id text NULL,
+              policy_id text NULL,
+              content text NULL,
+              CONSTRAINT pk_act_holder PRIMARY KEY (act_holder_id)
+          );
+
+          CREATE TABLE cnp.semi_digital_act (
+              id integer GENERATED BY DEFAULT AS IDENTITY,
+              arbitrage_data_id uuid NOT NULL,
+              policy_holder_id VARCHAR(50) NOT NULL,
+              policy_id VARCHAR(50) NOT NULL,
+              insurer_code VARCHAR(50) NOT NULL,
+              shift_type VARCHAR(50) NOT NULL,
+              created_at timestamp with time zone NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+              last_modified timestamp with time zone NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+              created_by VARCHAR(50) NOT NULL,
+              last_modified_by VARCHAR(50) NOT NULL,
+              content text NULL,
+              CONSTRAINT pk_semi_digital_act PRIMARY KEY (id)
+          );
+
+          CREATE TABLE cnp.shift_tracker (
+              Id integer GENERATED BY DEFAULT AS IDENTITY,
+              UserId VARCHAR(50) NOT NULL,
+              InsurerCode VARCHAR(50) NOT NULL,
+              PolicyHolderId VARCHAR(50) NOT NULL,
+              PolicyId VARCHAR(50) NOT NULL,
+              ShiftId VARCHAR(50) NOT NULL,
+              DivestmentType VARCHAR(50) NOT NULL,
+              SignatureStatus VARCHAR(50) NOT NULL,
+              SignatureMode VARCHAR(50) NOT NULL,
+              SignatureType VARCHAR(50) NOT NULL,
+              SignatureId VARCHAR(50) NULL,
+              CurrentStep VARCHAR(50) NOT NULL,
+              IsSubmitted BOOL NOT NULL,
+              CreatedAt timestamp NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'),
+              LastModified timestamp NOT NULL,
+              CreatedBy VARCHAR(50) NOT NULL,
+              LastModifiedBy VARCHAR(50) NOT NULL,
+              CONSTRAINT pk_shift_tracker PRIMARY KEY (Id)
+          );
+
+          CREATE TABLE cnp.semi_digital_act_documents (
+              id integer GENERATED BY DEFAULT AS IDENTITY,
+              document_id VARCHAR(50) NOT NULL,
+              shift_id integer NOT NULL,
+              CONSTRAINT pk_semi_digital_act_documents PRIMARY KEY (id),
+              CONSTRAINT fk_semi_digital_act_documents_semi_digital_act_semi_digital_ac FOREIGN KEY (shift_id) REFERENCES cnp.semi_digital_act (id) ON DELETE CASCADE
+          );
+
+          CREATE TABLE cnp.divestment (
+              Id integer GENERATED BY DEFAULT AS IDENTITY,
+              ShiftId integer NOT NULL,
+              Code VARCHAR(50) NOT NULL,
+              Name VARCHAR(50) NULL,
+              InvestmentManagmentMode VARCHAR(50) NOT NULL,
+              HeldAmount decimal NOT NULL,
+              DivestmentAmount decimal NOT NULL,
+              DivestmentPercentage decimal NOT NULL,
+              CreatedAt timestamp NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'),
+              LastModified timestamp NOT NULL,
+              CreatedBy VARCHAR(50) NOT NULL,
+              LastModifiedBy VARCHAR(50) NOT NULL,
+              CONSTRAINT pk_divestment PRIMARY KEY (Id),
+              CONSTRAINT fk_divestment_shift_tracker_shift_tracker_data_id FOREIGN KEY (ShiftId) REFERENCES cnp.shift_tracker (Id) ON DELETE CASCADE
+          );
+
+          CREATE TABLE cnp.investment (
+              Id integer GENERATED BY DEFAULT AS IDENTITY,
+              ShiftId integer NOT NULL,
+              Code VARCHAR(50) NOT NULL,
+              Name VARCHAR(50) NULL,
+              InvestmentManagmentMode VARCHAR(50) NOT NULL,
+              HeldAmount VARCHAR(50) NOT NULL,
+              InvestmentPercentage decimal NOT NULL,
+              CreatedAt timestamp NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'),
+              LastModified timestamp NOT NULL,
+              CreatedBy VARCHAR(50) NOT NULL,
+              LastModifiedBy VARCHAR(50) NOT NULL,
+              CONSTRAINT pk_investment PRIMARY KEY (Id),
+              CONSTRAINT fk_investment_shift_tracker_shift_tracker_data_id FOREIGN KEY (ShiftId) REFERENCES cnp.shift_tracker (Id) ON DELETE CASCADE
+          );
+
+          CREATE TABLE cnp.shift_additional_infos (
+              Id integer GENERATED BY DEFAULT AS IDENTITY,
+              ShiftId integer NOT NULL,
+              City VARCHAR(50) NULL,
+              Date VARCHAR(200) NULL,
+              Observations VARCHAR(50) NULL,
+              Attestation1 BOOL NOT NULL,
+              Attestation2 BOOL NOT NULL,
+              CreatedAt timestamp NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'),
+              LastModified timestamp NOT NULL,
+              CreatedBy VARCHAR(50) NOT NULL,
+              LastModifiedBy VARCHAR(50) NOT NULL,
+              CONSTRAINT pk_shift_additional_infos PRIMARY KEY (Id),
+              CONSTRAINT fk_shift_additional_infos_shift_tracker_shift_tracker_data_id FOREIGN KEY (ShiftId) REFERENCES cnp.shift_tracker (Id) ON DELETE CASCADE
+          );
+
+          CREATE TABLE cnp.shift_fees (
+              Id integer GENERATED BY DEFAULT AS IDENTITY,
+              ShiftId integer NOT NULL,
+              ShiftFeesTotal decimal NOT NULL,
+              TotalAmountDivested decimal NOT NULL,
+              TotalAmountInvested decimal NOT NULL,
+              ShiftFeesPercentage decimal NOT NULL,
+              CreatedAt timestamp NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'),
+              LastModified timestamp NOT NULL,
+              CreatedBy VARCHAR(50) NOT NULL,
+              LastModifiedBy VARCHAR(50) NOT NULL,
+              CONSTRAINT pk_shift_fees PRIMARY KEY (Id),
+              CONSTRAINT fk_shift_fees_shift_tracker_shift_tracker_data_id FOREIGN KEY (ShiftId) REFERENCES cnp.shift_tracker (Id) ON DELETE CASCADE
+          );
+
+          CREATE TABLE cnp.shift_sign_documents (
+              Id integer GENERATED BY DEFAULT AS IDENTITY,
+              ShiftId integer NOT NULL,
+              DocumentId VARCHAR(200) NOT NULL,
+              CreatedAt timestamp NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'),
+              LastModified timestamp NOT NULL,
+              CreatedBy VARCHAR(50) NOT NULL,
+              LastModifiedBy VARCHAR(50) NOT NULL,
+              CONSTRAINT pk_shift_sign_documents PRIMARY KEY (Id),
+              CONSTRAINT fk_shift_sign_documents_shift_tracker_shift_tracker_data_id FOREIGN KEY (ShiftId) REFERENCES cnp.shift_tracker (Id) ON DELETE CASCADE
+          );
+
+          CREATE INDEX ix_divestment_shift_id ON cnp.divestment (ShiftId);
+
+          CREATE INDEX ix_investment_shift_id ON cnp.investment (ShiftId);
+
+          CREATE INDEX ix_semi_digital_act_documents_shift_id ON cnp.semi_digital_act_documents (shift_id);
+
+          CREATE UNIQUE INDEX ix_shift_additional_infos_shift_id ON cnp.shift_additional_infos (ShiftId);
+
+          CREATE UNIQUE INDEX ix_shift_fees_shift_id ON cnp.shift_fees (ShiftId);
+
+          CREATE INDEX ix_shift_sign_documents_shift_id ON cnp.shift_sign_documents (ShiftId);
+
+          INSERT INTO __EFMigrationsHistory (migration_id, product_version) VALUES ('20230921121644_InitialMigration', '7.0.9');
 
   metrics:
     auth:

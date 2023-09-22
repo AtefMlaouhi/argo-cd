@@ -1,0 +1,20 @@
+postgresql:
+  fullnameOverride: policy-act-policyholder-db
+  postgresqlSharedPreloadLibraries: "pgaudit,pg_stat_statements"
+  primary:
+    persistence:
+      size: 1Gi
+    extendedConfiguration: | 
+      pg_stat_statements.max = 1000
+      pg_stat_statements.track = all
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+    resources:
+      limits:
+        memory: 1000Mi
+        cpu: 1000m
+      requests:
+        memory: 1000Mi
+        cpu: 1000m
