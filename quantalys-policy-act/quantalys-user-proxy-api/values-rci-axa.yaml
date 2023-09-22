@@ -1,0 +1,16 @@
+hosts:
+  - quantalys-user-proxy-axa-api-k8s.rci.harvest.fr
+env:
+  - name: ASPNETCORE_URLS
+    value: http://+:8080
+  - name: ConnectionStrings__SqlServerQuantaCore
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-quanta-core-axa
+appsettingsJson:
+  Authentication__MetadataUrl: https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers/.well-known/openid-configuration
+  Authentication__Issuer: https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers
+  HarvestConfiguration__ApplicationName: "Quantalys.User.Proxy.Axa.Api"
+  Tenant__Name: AxaWS
+  OpenTelemetry__ServiceName: rci-quantalys-user-proxy-axa-api

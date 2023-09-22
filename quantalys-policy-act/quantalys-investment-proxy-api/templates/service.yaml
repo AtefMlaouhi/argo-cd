@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "quantalys.investment.proxy.fullname" . }}
+  labels:
+    {{- include "quantalys.investment.proxy.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "quantalys.investment.proxy.selectorLabels" . | nindent 4 }}
