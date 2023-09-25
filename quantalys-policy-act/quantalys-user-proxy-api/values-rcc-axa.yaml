@@ -13,4 +13,4 @@ appsettingsJson:
   Authentication__Issuer: https://auth-r7.harvest.fr/auth/realms/AWSUsers
   HarvestConfiguration__ApplicationName: "Quantalys.User.Proxy.Axa.Api"
   Tenant__Name: AxaWS
-  OpenTelemetry__ServiceName: rce-quantalys-user-proxy-axa-api
+  OpenTelemetry__ServiceName: rcc-quantalys-user-proxy-axa-api
