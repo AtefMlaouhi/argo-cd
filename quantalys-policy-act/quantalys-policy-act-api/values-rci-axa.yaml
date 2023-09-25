@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-axa-api-k8s.dev.harvest.fr
+  - quantalys-policy-act-axa-api-k8s.rci.harvest.fr
 env:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
@@ -10,4 +10,4 @@ appsettingsJson:
   CustomerName: Axa
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   Keycloak__Realm: AWSUsers
-  OpenTelemetry__ServiceName: dev-quantalsys-policy-act-axa-api
+  OpenTelemetry__ServiceName: rci-quantalsys-policy-act-axa-api

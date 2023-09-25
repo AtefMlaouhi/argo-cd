@@ -1,0 +1,10 @@
+hosts:
+  - quantalys-policy-act-axa-k8s.rci.harvest.fr
+config:
+  keycloak:
+    enabled: false
+    url: keycloak-rci.harvest-r7.fr
+    realm: AWSUsers
+    client_id: quantalys-policy-act-frontend
+  backend:
+    url: policy-act-bff-api.axa-quantalys-policy-act-rci.harvest.fr

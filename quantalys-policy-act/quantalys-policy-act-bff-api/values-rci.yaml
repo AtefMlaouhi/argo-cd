@@ -1,7 +1,7 @@
 image:
   tag: 0.1.0-alpha.56
 podAnnotations:
-  env: dev
+  env: rci
   version: 0.1.0-alpha.56
 replicaCount: 1
 appsettingsJson:
@@ -10,7 +10,7 @@ appsettingsJson:
   Logging__LogLevel__Microsoft: Information
   Logging__LogLevel__Microsoft.Hosting.Lifetime: Information
   HarvestConfiguration__Domain: Quantalys.Policy.Act.BackendForFrontend
-  HarvestConfiguration__Environment: dev
+  HarvestConfiguration__Environment: rci
   JwtKeyCloak__Issuer: https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers
   OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
   OpenTelemetry__ExportMetrics: true

@@ -1,16 +1,16 @@
 image:
   tag: 0.1.0-alpha.64
 podAnnotations:
-  env: dev
+  env: rci
   version: 0.1.0-alpha.64
 replicaCount: 1
 appsettingsJson:
   AllowedHosts: "*"
   Logging__LogLevel__Default: Information
   Logging__LogLevel__Microsoft: Information
-  Logging__LogLevel__Microsoft.Hosting.Lifetime: Information
+  Logging__LogLevel__Microsoft.Hosting.Lifetime: "Information"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
-  HarvestConfiguration__Environment: dev
+  HarvestConfiguration__Environment: rci
   Keycloak__RedirectUri: https://keycloak-rci.harvest-r7.fr/auth
   HubAPIs__BaseAddress: http://hub-subscription-api.hub-subscription-rci.svc.cluster.local
   OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
