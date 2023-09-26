@@ -188,7 +188,7 @@ postgresql:
           CREATE INDEX ix_semi_digital_act_documents_shift_id ON axa.semi_digital_act_documents (shift_id);
           CREATE UNIQUE INDEX ix_shift_additional_infos_shift_data_id ON axa.shift_additional_infos (shift_data_id);
           CREATE UNIQUE INDEX ix_shift_fees_shift_data_id ON axa.shift_fees (shift_data_id);
-          CREATE INDEX ix_shift_sign_documents_shift_data_id ON axa.shift_sign_documents (shift_data_id);         
+          CREATE INDEX ix_shift_sign_documents_shift_data_id ON axa.shift_sign_documents (shift_data_id);
 
   metrics:
     auth:
