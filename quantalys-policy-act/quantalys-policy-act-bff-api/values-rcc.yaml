@@ -1,0 +1,16 @@
+image:
+  tag: 0.1.0-alpha.56
+podAnnotations:
+  env: rcc
+  version: 0.1.0-alpha.56
+replicaCount: 1
+appsettingsJson:
+  AllowedHosts: "*"
+  Logging__LogLevel__Default: Information
+  Logging__LogLevel__Microsoft: Information
+  Logging__LogLevel__Microsoft.Hosting.Lifetime: Information
+  HarvestConfiguration__Domain: Quantalys.Policy.Act.BackendForFrontend
+  HarvestConfiguration__Environment: rcc
+  JwtKeyCloak__Issuer: https://auth-r7.harvest.fr/auth/realms/AWSUsers
+  OpenTelemetry__Endpoint: opentelemetry-flex.harvest.fr
+  OpenTelemetry__ExportMetrics: false
