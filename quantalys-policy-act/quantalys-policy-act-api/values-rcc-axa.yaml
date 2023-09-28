@@ -1,0 +1,13 @@
+hosts:
+  - quantalys-policy-act-axa-api-recette.harvest.fr
+env:
+  - name: ConnectionStrings__PolicyActContext
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: postegresql-policy-act-axa
+appsettingsJson:
+  CustomerName: Axa
+  HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
+  Keycloak__Realm: AWSUsers
+  OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-axa-api
