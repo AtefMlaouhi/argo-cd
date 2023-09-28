@@ -1,0 +1,12 @@
+image:
+  tag: 0.1.0-alpha.40
+podAnnotations:
+  env: rcc
+  version: 0.1.0-alpha.40
+replicaCount: 1
+appsettingsJson:
+  AllowedHosts: "*"
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  HarvestConfiguration__Environment: rcc
+  OpenTelemetry__Endpoint: opentelemetry-flex.harvest.fr
+  OpenTelemetry__ExportMetrics: false

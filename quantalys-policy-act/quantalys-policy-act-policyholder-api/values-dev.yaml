@@ -6,8 +6,7 @@ podAnnotations:
 replicaCount: 1
 appsettingsJson:
   AllowedHosts: "*"
-  HarvestConfiguration__Domain: "Quantalys.Policy.Act"
-  HarvestConfiguration__Environment: "dev"
-  Jwt__Issuer: "https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers"
-  OpenTelemetry__Endpoint: "opentelemetry-k8s.dev.harvest.fr"
-  OpenTelemetry__ExportMetrics: "true"
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  HarvestConfiguration__Environment: dev
+  OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
+  OpenTelemetry__ExportMetrics: true
