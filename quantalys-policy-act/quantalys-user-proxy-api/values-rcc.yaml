@@ -10,4 +10,4 @@ appsettingsJson:
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: rcc
   OpenTelemetry__Endpoint: opentelemetry-flex.harvest.fr
-  OpenTelemetry__ExportMetrics: true
+  OpenTelemetry__ExportMetrics: false
