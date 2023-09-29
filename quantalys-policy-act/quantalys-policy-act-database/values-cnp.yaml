@@ -190,6 +190,21 @@ postgresql:
           CREATE UNIQUE INDEX ix_shift_fees_shift_data_id ON cnp.shift_fees (shift_data_id);
           CREATE INDEX ix_shift_sign_documents_shift_data_id ON cnp.shift_sign_documents (shift_data_id);        
 
+          ALTER TABLE axa.shift_tracker ALTER COLUMN user_id DROP NOT NULL;
+          ALTER TABLE axa.shift_tracker ALTER COLUMN policy_holder_id DROP NOT NULL;
+          ALTER TABLE axa.shift_tracker ALTER COLUMN last_modified_by DROP NOT NULL;
+          ALTER TABLE axa.shift_tracker ALTER COLUMN created_by DROP NOT NULL;
+          ALTER TABLE axa.shift_sign_documents ALTER COLUMN last_modified_by DROP NOT NULL;
+          ALTER TABLE axa.shift_sign_documents ALTER COLUMN created_by DROP NOT NULL;
+          ALTER TABLE axa.shift_fees ALTER COLUMN last_modified_by DROP NOT NULL;
+          ALTER TABLE axa.shift_fees ALTER COLUMN created_by DROP NOT NULL;
+          ALTER TABLE axa.shift_additional_infos ALTER COLUMN last_modified_by DROP NOT NULL;
+          ALTER TABLE axa.shift_additional_infos ALTER COLUMN created_by DROP NOT NULL;
+          ALTER TABLE axa.investment ALTER COLUMN last_modified_by DROP NOT NULL;
+          ALTER TABLE axa.investment ALTER COLUMN created_by DROP NOT NULL;
+          ALTER TABLE axa.divestment ALTER COLUMN last_modified_by DROP NOT NULL;
+          ALTER TABLE axa.divestment ALTER COLUMN created_by DROP NOT NULL;     
+
   metrics:
     auth:
       database: policy_acts
