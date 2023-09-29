@@ -229,6 +229,10 @@ postgresql:
           INSERT INTO "__EFMigrationsHistory" (migration_id, product_version)
           VALUES ('20230922183532_initial_migration', '6.0.20');
 
+          ALTER TABLE axa.personal_infos ALTER COLUMN created_date SET DEFAULT TIMESTAMP '2023-09-26 17:03:25.045984';
+          ALTER TABLE axa.contact_details ADD principal_address_additional_details varchar(200) NULL;
+          ALTER TABLE axa.contact_details ADD tax_address_additional_details varchar(100) NULL;
+
   metrics:
     auth:
       database: policy_act_policyholders
