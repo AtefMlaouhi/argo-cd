@@ -7,4 +7,4 @@ config:
     realm: AWSUsers
     client_id: quantalys-policy-act-frontend
   backend:
-    url: policy-act-bff-api.axa-quantalys-policy-act-rci.harvest.fr
+    url: quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
