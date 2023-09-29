@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.64
+  tag: 0.1.0-alpha.68
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.64
+  version: 0.1.0-alpha.68
 replicaCount: 1
 appsettingsJson:
   AllowedHosts: "*"

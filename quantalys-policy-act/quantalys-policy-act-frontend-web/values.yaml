@@ -1,6 +1,6 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.policy.act.frontend.web
+  repository: quantalys.policy.act.mfe.shift
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
