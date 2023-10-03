@@ -1,11 +1,11 @@
 image:
-  tag: 0.1.0-alpha.16
+  tag: 0.1.0-alpha.19
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha.16
+  version: 0.1.0-alpha.19
 replicaCount: 1
 appsettingsJson:
-  Authentication__Audience: account
+  Authentication__Audience: quantalys-user-proxy-api
   Authentication__RequireHttpsMetadata: false
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: dev
