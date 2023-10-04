@@ -2,5 +2,8 @@ dependencies:
 - name: postgresql
   repository: file://../../@templates/postgresql
   version: 12.10.0
-digest: sha256:85aa8d45aebd363467adaf3e550f27918931179659392a1fbd1787660908ad93
-generated: "2023-10-04T09:27:34.0832091+02:00"
+- name: common
+  repository: file://../../@templates/common
+  version: 2.13.0
+digest: sha256:2fe30c6c6d1d4ee40f9f31dad38a2aed7db3ab323616cb3316d124ddc78098f3
+generated: "2023-10-04T18:57:48.7793555+02:00"
