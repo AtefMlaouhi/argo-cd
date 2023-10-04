@@ -8,3 +8,32 @@ minio:
   persistence:
     enabled: true
     size: 512Mi
+
+  metrics:
+    serviceMonitor:
+      enabled: true
+
+  provisioning:
+    enabled: true
+    buckets:
+      - name: test-bucket
+        lifecycle:
+          - id: 7dRetention
+            disabled: false
+            expiry:
+              days: 7
+    users:
+      - username: test-username
+        password: test-password
+        disabled: false
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 10m
+      memory: 128Mi
+
+  networkPolicy:
+    enabled: true
+    allowExternal: false

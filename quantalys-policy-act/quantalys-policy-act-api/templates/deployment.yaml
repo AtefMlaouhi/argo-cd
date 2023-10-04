@@ -25,6 +25,7 @@ spec:
         {{- include "quantalys.policy.act.selectorLabels" . | nindent 8 }}
         stack: "dotnet"
         version: {{ .Values.image.tag }}
+        {{- toYaml .Values.podLabels | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
