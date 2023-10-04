@@ -1,0 +1,10 @@
+minio:
+  image:
+    tag: 2023.9.30-debian-11-r2
+  fullnameOverride: policy-act-bucket
+  mode: standalone
+  auth:
+    existingSecret: bucket
+  persistence:
+    enabled: true
+    size: 512Mi

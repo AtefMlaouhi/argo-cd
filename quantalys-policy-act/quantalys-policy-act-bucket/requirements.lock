@@ -1,0 +1,6 @@
+dependencies:
+- name: minio
+  repository: file://../../@templates/minio
+  version: 12.8.12
+digest: sha256:22bdaf5a068ae4b6894f6447029f5cc2659cbc5a450849627b3ffdb475a0ba2a
+generated: "2023-10-04T09:39:49.8052794+02:00"
