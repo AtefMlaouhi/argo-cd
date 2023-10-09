@@ -3,7 +3,7 @@ kind: VirtualService
 metadata:
   name: {{ .Values.minio.fullnameOverride }}-api-{{ .Release.Name }}
   annotations:
-    link.argocd.argoproj.io/external-link: {{ index .Values.minio.hosts.api 0 }}
+    link.argocd.argoproj.io/external-link: "https://{{ index .Values.minio.hosts.api 0 }}"
 spec:
   gateways:
     - istio-system/https-gateway
@@ -22,7 +22,7 @@ kind: VirtualService
 metadata:
   name: {{ .Values.minio.fullnameOverride }}-console-{{ .Release.Name }}
   annotations:
-    link.argocd.argoproj.io/external-link: {{ index .Values.minio.hosts.console 0 }}
+    link.argocd.argoproj.io/external-link: "https://{{ index .Values.minio.hosts.console 0 }}"
 spec:
   gateways:
     - istio-system/https-gateway
