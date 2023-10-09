@@ -33,5 +33,5 @@ spec:
     - destination:
         host: {{ .Values.minio.fullnameOverride }}
         port:
-          number: 9090
+          number: 9001
       weight: 100
