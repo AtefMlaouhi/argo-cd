@@ -219,6 +219,7 @@ spec:
               echo "End Minio provisioning";
 
               # kill istio proxy on success
+
               curl --max-time 2 -s -f -XPOST http://127.0.0.1:15020/quitquitquit
           {{- end }}
           {{- if .Values.provisioning.args }}
