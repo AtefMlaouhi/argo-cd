@@ -79,6 +79,10 @@ spec:
             - -c
             - >-
               set -e;
+
+              # kill istio proxy on success
+              trap "curl --max-time 2 -s -f -XPOST http://127.0.0.1:15020/quitquitquit" EXIT
+
               echo "Start Minio provisioning";
 
               function attachPolicy() {
