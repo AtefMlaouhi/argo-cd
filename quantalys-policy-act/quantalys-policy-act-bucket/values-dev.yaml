@@ -28,6 +28,8 @@ minio:
         disabled: false
     podLabels:
       policy-act-bucket-client: "true"
+    podAnnotations:
+      proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
   resources:
     limits:
       cpu: 100m
