@@ -26,6 +26,8 @@ minio:
       - username: test-username
         password: test-password
         disabled: false
+    podLabels:
+      policy-act-bucket-client: "true"
   resources:
     limits:
       cpu: 100m
