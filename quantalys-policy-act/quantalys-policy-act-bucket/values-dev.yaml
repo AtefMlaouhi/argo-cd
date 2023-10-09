@@ -31,10 +31,10 @@ minio:
   resources:
     limits:
       cpu: 100m
-      memory: 128Mi
+      memory: 256Mi
     requests:
       cpu: 10m
-      memory: 128Mi
+      memory: 256Mi
 
   networkPolicy:
     enabled: true
