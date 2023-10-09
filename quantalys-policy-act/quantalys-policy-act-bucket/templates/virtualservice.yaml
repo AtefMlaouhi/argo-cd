@@ -8,7 +8,7 @@ spec:
   gateways:
   - istio-system/https-gateway
   hosts:
-  {{- toYaml .Values.minio.hosts.api | nindent 4 }}
+    - quantalys-policy-act-axa-s3-k8s.dev.harvest.fr
   http:
   - route:
     - destination:
@@ -27,7 +27,7 @@ spec:
   gateways:
   - istio-system/https-gateway
   hosts:
-  {{- toYaml .Values.minio.hosts.console | nindent 4 }}
+    - quantalys-policy-act-axa-s3-console-k8s.dev.harvest.fr
   http:
   - route:
     - destination:
