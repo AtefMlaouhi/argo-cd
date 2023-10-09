@@ -80,9 +80,6 @@ spec:
             - >-
               set -e;
 
-              # kill istio proxy on success
-              trap "curl --max-time 2 -s -f -XPOST http://127.0.0.1:15020/quitquitquit" EXIT
-
               echo "Start Minio provisioning";
 
               function attachPolicy() {
@@ -220,6 +217,9 @@ spec:
               {{- end }}
 
               echo "End Minio provisioning";
+
+              # kill istio proxy on success
+              curl --max-time 2 -s -f -XPOST http://127.0.0.1:15020/quitquitquit
           {{- end }}
           {{- if .Values.provisioning.args }}
           args: {{- include "common.tplvalues.render" (dict "value" .Values.provisioning.args "context" $) | nindent 12 }}
