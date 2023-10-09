@@ -1,0 +1,19 @@
+minio:
+  auth:
+    existingSecret: bucket
+  fullnameOverride: policy-act-bucket
+  image:
+    tag: 2023.9.30-debian-11-r2
+  metrics:
+    serviceMonitor:
+      enabled: true
+    podLabels:
+      policy-act-bucket-client: true
+    podAnnotations:
+      proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
+  mode: standalone
+  networkPolicy:
+    enabled: true
+    allowExternal: false
+  persistence:
+    enabled: true
