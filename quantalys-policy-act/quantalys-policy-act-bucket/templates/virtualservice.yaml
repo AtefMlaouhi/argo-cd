@@ -3,12 +3,12 @@ kind: VirtualService
 metadata:
   name: {{ .Values.minio.fullnameOverride }}-api-{{ .Release.Name }}
   annotations:
-    link.argocd.argoproj.io/external-link: {{ .Values.minio.hosts.api }}
+    link.argocd.argoproj.io/external-link: "https://{{ index .Values.minio.hosts.api 0 }}"
 spec:
   gateways:
-  - istio-system/https-gateway
+    - istio-system/https-gateway
   hosts:
-    - quantalys-policy-act-axa-s3-k8s.dev.harvest.fr
+    {{- toYaml .Values.minio.hosts.api | nindent 4 }}
   http:
   - route:
     - destination:
@@ -22,12 +22,12 @@ kind: VirtualService
 metadata:
   name: {{ .Values.minio.fullnameOverride }}-console-{{ .Release.Name }}
   annotations:
-    link.argocd.argoproj.io/external-link: {{ .Values.minio.hosts.console }}
+    link.argocd.argoproj.io/external-link: "https://{{ index .Values.minio.hosts.console 0 }}"
 spec:
   gateways:
-  - istio-system/https-gateway
+    - istio-system/https-gateway
   hosts:
-    - quantalys-policy-act-axa-s3-console-k8s.dev.harvest.fr
+    {{- toYaml .Values.minio.hosts.console | nindent 4 }}
   http:
   - route:
     - destination:

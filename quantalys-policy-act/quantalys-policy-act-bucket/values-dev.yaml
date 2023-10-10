@@ -1,18 +1,14 @@
 minio:
-  image:
-    tag: 2023.9.30-debian-11-r2
-  fullnameOverride: policy-act-bucket
-  mode: standalone
-  auth:
-    existingSecret: bucket
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 256Mi
   persistence:
     enabled: true
-    size: 512Mi
-
-  metrics:
-    serviceMonitor:
-      enabled: true
-
+    size: 256Mi
   provisioning:
     enabled: true
     buckets:
@@ -26,14 +22,3 @@ minio:
       - username: test-username
         password: test-password
         disabled: false
-  resources:
-    limits:
-      cpu: 100m
-      memory: 128Mi
-    requests:
-      cpu: 10m
-      memory: 128Mi
-
-  networkPolicy:
-    enabled: true
-    allowExternal: false
