@@ -1,0 +1,25 @@
+postgresql:
+  fullnameOverride: policy-act-policyholder-db
+  postgresqlSharedPreloadLibraries: "pgaudit,pg_stat_statements"
+  auth:
+    database: "policy_act_policyholders"
+  primary:
+    persistence:
+      enabled: true
+    extendedConfiguration: | 
+      pg_stat_statements.max = 1000
+      pg_stat_statements.track = all
+    resources:
+      limits:
+        memory: 1000Mi
+        cpu: 1000m
+      requests:
+        memory: 1000Mi
+        cpu: 1000m
+  metrics:
+    enabled: true
+    podSelector:
+      matchLabels:
+        app.kubernetes.io/component: primary
+    serviceMonitor:
+      enabled: true
