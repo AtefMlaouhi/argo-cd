@@ -2,13 +2,13 @@ minio:
   resources:
     limits:
       cpu: 100m
-      memory: 256Mi
+      memory: 512Mi
     requests:
       cpu: 10m
-      memory: 256Mi
+      memory: 512Mi
   persistence:
     enabled: true
-    size: 256Mi
+    size: 512Mi
   provisioning:
     enabled: true
     buckets:
