@@ -17,10 +17,9 @@ minio:
     enabled: true
     allowExternal: false
     extraFromClauses:
-    - from:
-      - namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: cattle-monitoring-system # allow servicemonitor from prometheus
-        podSelector: {}
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: cattle-monitoring-system # allow servicemonitor from prometheus
+      podSelector: {}
   persistence:
     enabled: true
