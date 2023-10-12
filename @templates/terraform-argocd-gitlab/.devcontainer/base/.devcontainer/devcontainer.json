@@ -1,0 +1,62 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/ubuntu
+{
+	"name": "Ubuntu",
+	// "image": "registry-git.harvest.fr/o2s/o2s-modularisation/templates/terraform-argocd-gitlab/devcontainer:22.04-1.0.6",
+
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { "VARIANT": "jammy" }
+	},
+
+	"customizations": {
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"terminal.integrated.profiles.linux": {
+					"zsh": {
+						"path": "/bin/zsh"
+					}
+				},
+				"workbench.iconTheme": "vscode-icons",
+				"[terraform]": {
+					"editor.formatOnSave": true,
+					"editor.suggest.preview": true
+				},
+				"terraform.experimentalFeatures.prefillRequiredFields": true
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"vscode-icons-team.vscode-icons",
+				"hashicorp.terraform"
+			]
+		}
+	},
+
+	"mounts": [
+		// "source=/mnt/c/Users/CHANGE_ME_WITH_USERNAME/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",   // SYNC SSH WITH HOST
+		// "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",   // SYNC SSH WITH WSL
+		"source=devcontainer-argocd-gitlab-bashhistory,target=/commandhistory,type=volume", // keep bash history between container restart
+		"source=devcontainer-argocd-gitlab-direnv,target=/home/vscode/.local/share/direnv,type=volume" // keep direnv approval between container restart
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		8085 // For argocd auth callback on localhost:8085
+	],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "brew install python && pip3 install pre-commit && pre-commit autoupdate && pre-commit install",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+        "ghcr.io/devcontainers/features/terraform:1": {
+            "version": "1.3"
+        },
+		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {
+			"version": "2.0.3"
+		}
+	}
+}
