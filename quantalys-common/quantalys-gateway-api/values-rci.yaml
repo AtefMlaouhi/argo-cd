@@ -1,0 +1,16 @@
+image:
+  tag: 0.1.0-alpha.7
+podAnnotations:
+  env: rci
+  version: 0.1.0-alpha.7
+replicaCount: 1
+appsettingsJson:
+  AllowedHosts: "*"
+  Logging__LogLevel__Default: Information
+  Logging__LogLevel__Microsoft: Information
+  Logging__LogLevel__Microsoft.Hosting.Lifetime: Information
+  HarvestConfiguration__Domain: Quantalys.Gateway
+  HarvestConfiguration__Environment: rci
+  ApiGatewayConfiguration__ProviderTimeoutInSec: 60
+  ApiGatewayConfiguration__Name__0: axa
+  ApiGatewayConfiguration__BaseAddress__0: http://policy-act-bff-api.axa-quantalys-policy-act-rci.svc.cluster.local
