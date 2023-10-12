@@ -12,8 +12,6 @@ minio:
     podAnnotations:
       proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
   metrics:
-    serviceMonitor:
-      enabled: true
     podLabels:
       policy-act-bucket-client: true
   mode: standalone
