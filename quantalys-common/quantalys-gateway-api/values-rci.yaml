@@ -3,6 +3,8 @@ image:
 podAnnotations:
   env: rci
   version: 0.1.0-alpha.7
+hosts:
+  - quantalys-gateway-api-k8s.dev.harvest.fr
 replicaCount: 1
 appsettingsJson:
   AllowedHosts: "*"
