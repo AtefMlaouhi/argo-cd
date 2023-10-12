@@ -1,10 +1,10 @@
 minio:
   resources:
     limits:
-      cpu: 100m
-      memory: 256Mi
+      cpu: 200m
+      memory: 512Mi
     requests:
       cpu: 10m
-      memory: 256Mi
+      memory: 512Mi
   persistence:
     size: 512Mi

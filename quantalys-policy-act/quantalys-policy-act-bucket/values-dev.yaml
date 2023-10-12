@@ -7,8 +7,7 @@ minio:
       cpu: 10m
       memory: 512Mi
   persistence:
-    enabled: true
-    size: 512Mi
+    size: 256Mi
   provisioning:
     enabled: true
     buckets:
