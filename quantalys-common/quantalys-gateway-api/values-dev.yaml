@@ -15,4 +15,6 @@ appsettingsJson:
   HarvestConfiguration__Environment: dev
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__Name: axa
-  ApiGatewayConfiguration__Providers__0__BaseAddress: https://quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
+  ApiGatewayConfiguration__Providers__0__BaseAddress: http://policy-act-bff-api.axa-quantalys-policy-act-dev.svc.cluster.local
+  JwtKeyCloak__Issuer: https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers
+  JwtKeyCloak__Audience: quantalys-policy-act-backend
