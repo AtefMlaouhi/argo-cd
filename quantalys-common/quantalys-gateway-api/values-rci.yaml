@@ -14,5 +14,5 @@ appsettingsJson:
   HarvestConfiguration__Domain: Quantalys.Gateway
   HarvestConfiguration__Environment: rci
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
-  ApiGatewayConfiguration__Name__0: axa
-  ApiGatewayConfiguration__BaseAddress__0: http://policy-act-bff-api.axa-quantalys-policy-act-rci.svc.cluster.local
+  ApiGatewayConfiguration__Providers__Name__0: axa
+  ApiGatewayConfiguration__Providers__BaseAddress__0: http://policy-act-bff-api.axa-quantalys-policy-act-rci.svc.cluster.local
