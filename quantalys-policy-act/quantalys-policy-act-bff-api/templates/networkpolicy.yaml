@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "quantalys.policy.act.bff.fullname" . }}-allow-common-gateway-api
+spec:
+  policyTypes:
+    - Ingress
+  podSelector:
+    matchLabels:
+      {{- include "quantalys.policy.act.bff.selectorLabels" . | nindent 6 }}
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: quantalys-common-{{ .Values.podAnnotations.env }}
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: quantalys-gateway-api
+
