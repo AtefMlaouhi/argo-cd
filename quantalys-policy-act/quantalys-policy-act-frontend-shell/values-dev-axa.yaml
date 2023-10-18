@@ -1,0 +1,10 @@
+hosts:
+  - quantalys-policy-act-axa-preview-k8s.dev.harvest.fr
+config:
+  keycloak:
+    enabled: false
+    url: keycloak-dev.harvest-r7.fr
+    realm: AWSUsers
+    client_id: quantalys-web
+  backend:
+    url: quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr

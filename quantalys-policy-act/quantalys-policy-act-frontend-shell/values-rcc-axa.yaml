@@ -1,0 +1,10 @@
+hosts:
+  - policy-act-axa-recette.harvest.fr
+config:
+  keycloak:
+    enabled: false
+    url: auth-r7.harvest.fr
+    realm: AWSUsers
+    client_id: quantalys-policy-act-frontend
+  backend:
+    url: policy-act-bff-api.policy-act-axa-rcc.harvest.fr
