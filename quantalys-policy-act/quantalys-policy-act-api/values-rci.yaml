@@ -37,7 +37,7 @@ env:
         key: client-fake-esign-api
   - name: SseAPIs__BaseAddress
     valueFrom:
-      secretKeyRef:
+      configMapKeyRef:
         name: api-routes
         key: sse-api
 appsettingsJson:
