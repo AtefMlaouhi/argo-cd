@@ -4,69 +4,14 @@ podAnnotations:
   env: dev
   version: 0.1.0-alpha.81
 replicaCount: 1
-env:
-  - name: HubAPIs__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: hub-subscription-api
-  - name: HubToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-axa
-  - name: HubToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-password
-  - name: HubToken__clientSecret
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: client-plateformewealth-app
-  - name: HubToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription
-  - name: SSEToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-app
-  - name: SSEToken__clientSecret
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: client-fake-esign-api
-  - name: SseAPIs__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: sse-api
-  - name: SSEToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-credentials
-  - name: UserProxyToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-credentials
 appsettingsJson:
   AllowedHosts: "*"
+  Logging__LogLevel__Default: Information
+  Logging__LogLevel__Microsoft: Information
+  Logging__LogLevel__Microsoft.Hosting.Lifetime: Information
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: wexford1@a.fr
-  HubToken__scope: harvest.acte.subscription
-  HubToken__lang: fr
-  Jwt__Audience: quantalys-policy-act-backend-api
-  Minio__IsSecure: false
+  Keycloak__RedirectUri: https://keycloak-rci.harvest-r7.fr/auth
+  HubAPIs__BaseAddress: http://hub-subscription-api.hub-subscription-rci.svc.cluster.local
   OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
   OpenTelemetry__ExportMetrics: true
-  SSEToken__clientId: fake-esign-api-client
-  SSEToken__grant_type: client_credentials
-  UserProxyToken__clientId: quantalys-user-proxy-api
