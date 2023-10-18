@@ -8,7 +8,7 @@ env:
         key: postegresql-policy-act-axa
   - name: InvestmentAPI__BaseAddress
     valueFrom:
-      secretKeyRef:
+      configMapKeyRef:
         name: api-routes
         key: uantalys-investment-proxy-api
   - name: Jwt__Issuer
@@ -18,7 +18,7 @@ env:
         key: issuer-axa
   - name: Minio__EndPoint
     valueFrom:
-      secretKeyRef:
+      configMapKeyRef:
         name: api-routes
         key: bucket
   - name: Minio__AccessKey
