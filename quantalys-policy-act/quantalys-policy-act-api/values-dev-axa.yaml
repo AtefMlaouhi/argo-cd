@@ -10,7 +10,7 @@ env:
     valueFrom:
       configMapKeyRef:
         name: api-routes
-        key: uantalys-investment-proxy-api
+        key: quantalys-investment-proxy-api
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:
