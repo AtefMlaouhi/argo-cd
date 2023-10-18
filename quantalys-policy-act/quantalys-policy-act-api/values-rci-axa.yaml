@@ -25,12 +25,12 @@ env:
     valueFrom:
       secretKeyRef:
         name: bucket
-        key: postegresql-policy-act-axa
+        key: access-key
   - name: Minio__SecretKey
     valueFrom:
       secretKeyRef:
         name: bucket
-        key: access-key
+        key: secret-key
   - name: UserProxyAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
