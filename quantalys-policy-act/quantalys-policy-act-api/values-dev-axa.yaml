@@ -52,5 +52,3 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   InsurerCode: AWS
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-axa-api
-
-postegresql-policy-act-axa
