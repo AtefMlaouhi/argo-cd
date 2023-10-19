@@ -4,12 +4,6 @@ podAnnotations:
   env: dev
   version: 0.1.0-alpha.12
 replicaCount: 1
-env:
-  - name: Authentication__RequireHttpsMetadata
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: require-https-metadata
 appsettingsJson:
   Authentication__Audience: quantalys-investment-proxy-api
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy

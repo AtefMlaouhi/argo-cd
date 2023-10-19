@@ -18,6 +18,11 @@ env:
       configMapKeyRef:
         name: keycloak
         key: issuer-axa
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
 appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Investment.Proxy.Axa.Api
   Tenant__Name: AxaWS
