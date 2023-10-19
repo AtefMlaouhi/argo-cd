@@ -11,6 +11,7 @@ appsettingsJson:
   Logging__LogLevel__Microsoft.Hosting.Lifetime: Information
   HarvestConfiguration__Domain: Quantalys.Policy.Act.BackendForFrontend
   HarvestConfiguration__Environment: dev
-  JwtKeyCloak__Issuer: https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers
+  JwtKeyCloak__Issuer: https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers
+  JwtKeyCloak__Audience: quantalys-policy-act-backend-api
   OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
   OpenTelemetry__ExportMetrics: true
