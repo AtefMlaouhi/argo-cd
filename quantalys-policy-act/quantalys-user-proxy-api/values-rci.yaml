@@ -1,12 +1,19 @@
 image:
-  tag: 0.1.0-alpha.16
+  tag: 0.1.0-alpha.19
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.16
+  version: 0.1.0-alpha.19
 replicaCount: 1
+env:
+  - name: ASPNETCORE_URLS
+    value: http://+:8080
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
 appsettingsJson:
-  Authentication__Audience: account
-  Authentication__RequireHttpsMetadata: false
+  Authentication__Audience: quantalys-user-proxy-api
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: rci
   OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr

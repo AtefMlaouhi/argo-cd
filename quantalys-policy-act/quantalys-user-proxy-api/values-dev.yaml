@@ -4,9 +4,16 @@ podAnnotations:
   env: dev
   version: 0.1.0-alpha.19
 replicaCount: 1
+env:
+  - name: ASPNETCORE_URLS
+    value: http://+:8080
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
 appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
-  Authentication__RequireHttpsMetadata: false
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: dev
   OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
