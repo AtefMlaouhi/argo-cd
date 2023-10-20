@@ -1,14 +1,61 @@
 hosts:
   - quantalys-policy-act-policyholder-axa-api-k8s.dev.harvest.fr
-env:
+extraEnv:
   - name: ConnectionStrings__PolicyHolderContext
     valueFrom:
       secretKeyRef:
         name: connection-strings
         key: postegresql-policy-act-policyholder-axa
+  - name: HubToken__clientSecret
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-password
+  - name: HubToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-password
+  - name: HubToken__lang
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: language
+  - name: HubToken__password
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: language
+  - name: HubToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: Jwt__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: UserProxyToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: UserProxyToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-proxy-api
+  - name: UserProxyToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
 appsettingsJson:
+  ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
-  Jwt__Issuer: https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers
-  Keycloak__Realm: AWSUsers
+  HubToken__clientId: plateformewealth-app
+  HubToken__username: wexford1@a.fr
+  Insurer__Code: Axa
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-policyholder-axa-api
-  TenantName: Axa
+  
