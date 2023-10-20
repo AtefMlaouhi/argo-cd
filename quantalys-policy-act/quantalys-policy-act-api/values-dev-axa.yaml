@@ -1,13 +1,54 @@
 hosts:
   - quantalys-policy-act-axa-api-k8s.dev.harvest.fr
-env:
+extraEnv:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
       secretKeyRef:
         name: connection-strings
         key: postegresql-policy-act-axa
+  - name: InvestmentAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-investment-proxy-api
+  - name: Jwt__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: Minio__EndPoint
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: bucket
+  - name: Minio__AccessKey
+    valueFrom:
+      secretKeyRef:
+        name: bucket
+        key: access-key
+  - name: Minio__SecretKey
+    valueFrom:
+      secretKeyRef:
+        name: bucket
+        key: secret-key
+  - name: UserProxyAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-user-proxy-api
+  - name: UserProxyToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: UserProxyToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-proxy-api
 appsettingsJson:
+  ApplicationName: Quantalys.Policy.Act.Axa.Api
   CustomerName: Axa
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
-  Keycloak__Realm: AWSUsers
+  InsurerCode: AWS
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-axa-api
