@@ -29,7 +29,7 @@ extraEnv:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: language
+        key: user-hub-subscription
 #  - name: HubToken__tokenUrl
 #    valueFrom:
 #      configMapKeyRef:
