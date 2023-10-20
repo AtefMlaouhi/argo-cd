@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.12
+  tag: 0.1.0-alpha.13
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha.12
+  version: 0.1.0-alpha.13
 hosts:
   - quantalys-gateway-api-k8s.dev.harvest.fr
 replicaCount: 1  
@@ -14,7 +14,7 @@ appsettingsJson:
   HarvestConfiguration__Domain: Quantalys.Gateway
   HarvestConfiguration__Environment: dev
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
-  ApiGatewayConfiguration__Providers__0__InsurerCode: axa
+  ApiGatewayConfiguration__Providers__0__Name: axa
   ApiGatewayConfiguration__Providers__0__BaseAddress: http://policy-act-bff-api.axa-quantalys-policy-act-dev.svc.cluster.local
   JwtKeyCloak__Issuer: https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers
   JwtKeyCloak__Audience: quantalys-policy-act-backend
