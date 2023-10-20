@@ -8,13 +8,13 @@ env:
   - name: SSEKeyCloak__clientSecret
     valueFrom:
       secretKeyRef:
-        name: api-routes
-        key: bucket
+        name: keycloak
+        key: client-fake-esign-api
   - name: SSEKeyCloak__tokenUrl
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: client-fake-esign-api 
+        key: token-url-app 
 appsettingsJson:
   AllowedHosts: "*"
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend
