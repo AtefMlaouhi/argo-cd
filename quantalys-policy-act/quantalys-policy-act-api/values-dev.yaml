@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.82
+  tag: 0.1.0-alpha.89
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha.82
+  version: 0.1.0-alpha.89
 replicaCount: 1
 appsettingsJson:
   AllowedHosts: "*"
