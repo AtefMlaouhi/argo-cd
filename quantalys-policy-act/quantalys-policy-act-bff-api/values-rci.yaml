@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.72
+  tag: 0.1.0-alpha.76
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.72
+  version: 0.1.0-alpha.76
 replicaCount: 1
 env:
   - name: SSEKeyCloak__clientSecret
@@ -17,6 +17,7 @@ env:
         key: client-fake-esign-api 
 appsettingsJson:
   AllowedHosts: "*"
+  ApplicationName: Quantalys.Policy.Act.BackendForFrontend
   HarvestConfiguration__Domain: Quantalys.Policy.Act.BackendForFrontend
   HarvestConfiguration__Environment: rci
   Jwt__Audience: quantalys-policy-act-backend-api
