@@ -2,7 +2,7 @@ hosts:
   - quantalys-policy-act-policyholder-axa-api-k8s.dev.harvest.fr
 extraEnv:
   - name: HubToken__tokenUrl
-    value: "https://hub-subscription-api.flex-rci.harvest.fr"
+    value: "https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers/protocol/openid-connect/token"
   - name: ConnectionStrings__PolicyHolderContext
     valueFrom:
       secretKeyRef:
