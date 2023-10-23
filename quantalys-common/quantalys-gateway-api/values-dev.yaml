@@ -5,7 +5,23 @@ podAnnotations:
   version: 0.1.0-alpha.13
 hosts:
   - quantalys-gateway-api-k8s.dev.harvest.fr
-replicaCount: 1  
+replicaCount: 1
+env:
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: JwtKeyCloak__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
 appsettingsJson:
   AllowedHosts: "*"
   Logging__LogLevel__Default: Information
@@ -16,5 +32,4 @@ appsettingsJson:
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__Name: axa
   ApiGatewayConfiguration__Providers__0__BaseAddress: http://policy-act-bff-api.axa-quantalys-policy-act-dev.svc.cluster.local
-  JwtKeyCloak__Issuer: https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers
   JwtKeyCloak__Audience: quantalys-policy-act-backend
