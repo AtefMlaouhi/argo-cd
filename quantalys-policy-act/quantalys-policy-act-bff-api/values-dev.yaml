@@ -5,6 +5,16 @@ podAnnotations:
   version: 1.1.0-alpha.77
 replicaCount: 1
 env:
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
   - name: SSEKeyCloak__clientSecret
     valueFrom:
       secretKeyRef:
@@ -14,13 +24,10 @@ env:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: token-url-app 
+        key: token-url-app
 appsettingsJson:
   AllowedHosts: "*"
-  ApplicationName: Quantalys.Policy.Act.BackendForFrontend
-  HarvestConfiguration__Domain: Quantalys.Policy.Act.BackendForFrontend
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
   Jwt__Audience: quantalys-policy-act-backend-api
-  OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
-  OpenTelemetry__ExportMetrics: true
   SSEKeyCloak__clientId: fake-esign-api-client
