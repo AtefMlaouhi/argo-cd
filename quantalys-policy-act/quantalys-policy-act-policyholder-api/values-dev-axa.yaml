@@ -13,7 +13,7 @@ extraEnv:
         key: hub-subscription-api 
   - name: HubToken__clientSecret
     valueFrom:
-      configMapKeyRef:
+      secretKeyRef:
         name: keycloak
         key: client-plateformewealth-app
   - name: HubToken__grant_type
