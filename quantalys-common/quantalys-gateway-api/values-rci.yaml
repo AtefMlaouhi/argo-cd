@@ -35,5 +35,5 @@ appsettingsJson:
   HarvestConfiguration__Domain: Quantalys.Gateway
   HarvestConfiguration__Environment: rci
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
-  ApiGatewayConfiguration__Providers__0__Name: axa
+  ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
   JwtKeyCloak__Audience: quantalys-policy-act-backend
