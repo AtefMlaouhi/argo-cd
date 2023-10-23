@@ -10,7 +10,8 @@ env:
       configMapKeyRef:
         name: api-routes
         key: hub-subscription-api
-#  - name: HubToken__tokenUrl
+  - name: HubToken__tokenUrl
+    value: "https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers/protocol/openid-connect/token"
 #    valueFrom:
 #      configMapKeyRef:
 #        name: keycloak
@@ -30,6 +31,16 @@ env:
       secretKeyRef:
         name: keycloak
         key: user-hub-subscription
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
   - name: SSEToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -57,16 +68,14 @@ env:
         key: grant-type-client-credentials
 appsettingsJson:
   AllowedHosts: "*"
+  FileUpload__Path: "C:\\tmp"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: wexford1@a.fr
+  HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
   HubToken__scope: harvest.acte.subscription
-  HubToken__lang: fr
+  InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audience: quantalys-policy-act-backend-api
+  Minio__IsActive: false
   Minio__IsSecure: false
-  OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
-  OpenTelemetry__ExportMetrics: true
   SSEToken__clientId: fake-esign-api-client
-  SSEToken__grant_type: client_credentials
   UserProxyToken__clientId: quantalys-user-proxy-api

@@ -1,16 +1,56 @@
 hosts:
   - quantalys-policy-act-axa-api-k8s.rci.harvest.fr
-env:
+extraEnv:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
       secretKeyRef:
         name: connection-strings
         key: postegresql-policy-act-axa
+  - name: HubAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-subscription-api 
+  - name: HubToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-plateformewealth-app
+  - name: HubToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-password
+  - name: HubToken__lang
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: language
+  - name: HubToken__password
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: user-hub-subscription
   - name: InvestmentAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
         name: api-routes
         key: quantalys-investment-proxy-api
+  - name: InvestmentToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-investment-proxy-api
+  - name: InvestmentToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: InvestmentToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:
@@ -31,24 +71,44 @@ env:
       secretKeyRef:
         name: bucket
         key: secret-key
+  - name: SSEToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-fake-esign-api
+  - name: SSEToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-app
+  - name: SSEToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
   - name: UserProxyAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
         name: api-routes
         key: quantalys-user-proxy-api
-  - name: UserProxyToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-axa
   - name: UserProxyToken__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak
         key: client-quantalys-user-proxy-api
+  - name: UserProxyToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: UserProxyToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
-  CustomerName: Axa
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
-  InsurerCode: AWS
+  Insurer__Code: AWS
+  Insurer__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
   OpenTelemetry__ServiceName: rci-quantalsys-policy-act-axa-api
