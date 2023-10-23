@@ -36,4 +36,4 @@ appsettingsJson:
   HarvestConfiguration__Environment: dev
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
-  JwtKeyCloak__Audience: quantalys-policy-act-backend
+  JwtKeyCloak__Audience: quantalys-policy-act-backend-api
