@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.13
+  tag: 0.1.0-alpha.14
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.13
+  version: 0.1.0-alpha.14
 hosts:
   - quantalys-gateway-api-k8s.rci.harvest.fr
 replicaCount: 1
@@ -37,4 +37,3 @@ appsettingsJson:
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__Name: axa
   JwtKeyCloak__Audience: quantalys-policy-act-backend
-  
