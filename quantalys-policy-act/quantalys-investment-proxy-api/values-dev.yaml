@@ -12,9 +12,17 @@ env:
       configMapKeyRef:
         name: keycloak
         key: require-https-metadata
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
 appsettingsJson:
   Authentication__Audience: quantalys-investment-proxy-api
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy
   HarvestConfiguration__Environment: dev
-  OpenTelemetry__Endpoint: opentelemetry-k8s.dev.harvest.fr
-  OpenTelemetry__ExportMetrics: true
