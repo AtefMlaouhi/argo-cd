@@ -67,7 +67,7 @@ env:
         key: grant-type-client-credentials
 appsettingsJson:
   AllowedHosts: "*"
-  FileUpload__Path: "C:\\tmp2"
+  FileUpload__Path: "C:\\tmp"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
   HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c

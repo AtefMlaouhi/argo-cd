@@ -6,11 +6,6 @@ extraEnv:
       secretKeyRef:
         name: connection-strings
         key: postegresql-policy-act-axa
-  - name: HubAPIs__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: hub-subscription-api 
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
