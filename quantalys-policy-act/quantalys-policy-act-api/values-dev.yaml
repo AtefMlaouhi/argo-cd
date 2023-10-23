@@ -16,16 +16,21 @@ env:
 #      configMapKeyRef:
 #        name: keycloak
 #        key: token-url-axa
-  - name: HubToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-password
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak
         key: client-plateformewealth-app
+  - name: HubToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-password
+  - name: HubToken__lang
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: language
   - name: HubToken__password
     valueFrom:
       secretKeyRef:
@@ -41,11 +46,6 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: flag-export-metrics
-  - name: SSEToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-app
   - name: SSEToken__clientSecret
     valueFrom:
       secretKeyRef:
@@ -56,12 +56,12 @@ env:
       configMapKeyRef:
         name: api-routes
         key: sse-api
-  - name: SSEToken__grant_type
+  - name: SSEToken__tokenUrl
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-credentials
-  - name: UserProxyToken__grant_type
+        key: token-url-app
+  - name: SSEToken__grant_type
     valueFrom:
       configMapKeyRef:
         name: keycloak
