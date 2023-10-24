@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-axa-preview-k8s.dev.harvest.fr
+  - quantalys-policy-act-axa-alpha-k8s.dev.harvest.fr
 config:
   keycloak:
     enabled: false
