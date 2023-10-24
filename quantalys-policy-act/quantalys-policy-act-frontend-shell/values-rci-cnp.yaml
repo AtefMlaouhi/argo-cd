@@ -1,0 +1,10 @@
+hosts:
+  - quantalys-policy-act-cnp-alpha-k8s.rci.harvest.fr
+config:
+  keycloak:
+    enabled: false
+    url: keycloak-rci.harvest-r7.fr
+    realm: CNPUsers
+    client_id: quantalys-web
+  backend:
+    url: quantalys-policy-act-bff-cnp-api-k8s.rci.harvest.fr
