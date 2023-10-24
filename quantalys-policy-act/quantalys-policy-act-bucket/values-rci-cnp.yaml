@@ -1,2 +1,7 @@
 minio:
   defaultBuckets: quantalys-policy-act-cnp
+  hosts:
+    api:
+      - quantalys-policy-act-cnp-s3-k8s.rci.harvest.fr
+    console:
+      - quantalys-policy-act-cnp-s3-console-k8s.rci.harvest.fr

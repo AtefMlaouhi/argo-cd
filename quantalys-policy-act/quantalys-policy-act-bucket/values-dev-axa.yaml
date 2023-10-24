@@ -1,6 +1,5 @@
 minio:
   defaultBuckets: quantalys-policy-act-axa
-
   hosts:
     api:
       - quantalys-policy-act-axa-s3-k8s.dev.harvest.fr
