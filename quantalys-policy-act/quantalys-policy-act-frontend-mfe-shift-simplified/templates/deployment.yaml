@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "quantalys.policy.act.frontend.fullname" . }}
+  name: {{ include "quantalys.policy.act.frontend.mfe.shift.simplified.fullname" . }}
   labels:
-    {{- include "quantalys.policy.act.frontend.labels" . | nindent 4 }}
+    {{- include "quantalys.policy.act.frontend.mfe.shift.simplified.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "quantalys.policy.act.frontend.selectorLabels" . | nindent 6 }}
+      {{- include "quantalys.policy.act.frontend.mfe.shift.simplified.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -22,7 +22,7 @@ spec:
       {{- end }}
         checksum/configuration: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       labels:
-        {{- include "quantalys.policy.act.frontend.selectorLabels" . | nindent 8 }}
+        {{- include "quantalys.policy.act.frontend.mfe.shift.simplified.selectorLabels" . | nindent 8 }}
         stack: "angular"
         excluding_logs: "true"
         version: {{.Values.image.tag}}
@@ -31,11 +31,11 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "quantalys.policy.act.frontend.serviceAccountName" . }}
+      serviceAccountName: {{ include "quantalys.policy.act.frontend.mfe.shift.simplified.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ include "quantalys.policy.act.frontend.fullname" . }}
+        - name: {{ include "quantalys.policy.act.frontend.mfe.shift.simplified.fullname" . }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -46,7 +46,7 @@ spec:
           {{- end }}
           envFrom:
             - configMapRef:
-                name: policy-act-frontend-web-config
+                name: policy-act-mfe-shift-simplified-config
                 optional: false 
           ports:
             - name: http
@@ -82,13 +82,13 @@ spec:
       volumes:
         - name: nginx-config
           configMap:
-            name: {{include "quantalys.policy.act.frontend.fullname" .}}-config
+            name: {{include "quantalys.policy.act.frontend.mfe.shift.simplified.fullname" .}}-config
             items:
               - key: nginx.conf
                 path: nginx.conf
         - name: app-config
           configMap:
-            name: {{include "quantalys.policy.act.frontend.fullname" .}}-config
+            name: {{include "quantalys.policy.act.frontend.mfe.shift.simplified.fullname" .}}-config
             items:
               - key: config.js
                 path: config.js
