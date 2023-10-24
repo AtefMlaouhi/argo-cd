@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: {{ include "quantalys.policy.act.frontend.name" . }}
+  name: {{ include "quantalys.policy.act.frontend.mfe.shift.name" . }}
 spec:
   gateways:
   - istio-system/https-gateway
@@ -10,7 +10,7 @@ spec:
   http:
   - route:
     - destination:
-        host: {{ include "quantalys.policy.act.frontend.fullname" . }}
+        host: {{ include "quantalys.policy.act.frontend.mfe.shift.fullname" . }}
         port:
           number: 80
       weight: 100
