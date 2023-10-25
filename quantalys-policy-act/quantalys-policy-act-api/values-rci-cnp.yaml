@@ -6,6 +6,16 @@ extraEnv:
       secretKeyRef:
         name: connection-strings
         key: postegresql-policy-act-cnp
+  - name: HubToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-plateformewealth-app
+  - name: HubToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-cnp
   - name: InvestmentAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
