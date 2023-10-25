@@ -35,30 +35,31 @@ data:
         version: '1.0.0'
       };
 
-    // pour Angular
-    if (typeof window !== 'undefined') {
-        window.PolicyActConfig = PolicyActConfig;
+      // pour Angular
+      if (typeof window !== 'undefined') {
+          window.ShellConfig = ShellConfig;
 
-        // chargement des configs des microfrontends consommés
-        var configs = PolicyActConfig.urls.configs;
-        Object.keys(configs).forEach(function (key) {
-            var script = document.createElement('script');
-            script.src = configs[key];
-            document.head.appendChild(script);
-        });
+          // chargement des configs des microfrontends consommés
+          var configs = ShellConfig.urls.configs;
+          Object.keys(configs).forEach(function (key) {
+              var script = document.createElement('script');
+              script.src = configs[key];
+              document.head.appendChild(script);
+          });
 
-        var fonts = PolicyActConfig.urls.fonts;
-        Object.keys(fonts).forEach(function (key) {
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = fonts[key];
-            link.media = 'all';
-            document.head.appendChild(link);
-        });
-     }
+          var fonts = ShellConfig.urls.fonts;
+          Object.keys(fonts).forEach(function (key) {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.type = 'text/css';
+              link.href = fonts[key];
+              link.media = 'all';
+              document.head.appendChild(link);
+          });
+      }
 
-    // pour Webpack
-    if (typeof exports !== 'undefined') {
-        exports.PolicyActConfig = PolicyActConfig;
-    }
+      // pour Webpack
+      if (typeof exports !== 'undefined') {
+          exports.ShellConfig = ShellConfig;
+      }
+
