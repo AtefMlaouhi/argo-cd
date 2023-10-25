@@ -7,7 +7,7 @@ data:
     {{- tpl .Values.nginx_config . | nindent 4 }}
 
   config.js: |
-    var PolicyActConfig = {
+    var MfeActsConfig = {
         baseUrl: 'https://{{ .Values.hosts | first }}', // baseUrl utilisée pour charger les assets dans les templates
         keycloakConfig: {
             url: 'https://{{ .Values.config.keycloak.url }}/auth',

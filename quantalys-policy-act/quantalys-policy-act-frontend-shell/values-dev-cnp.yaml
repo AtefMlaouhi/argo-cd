@@ -6,5 +6,9 @@ config:
     url: keycloak-dev.harvest-r7.fr
     realm: CNPUsers
     client_id: quantalys-web
+  mfe:
+    shift_simplified:
+      host: quantalys-policy-act-mfe-shift-simplified-cnp-k8s.dev.harvest.fr
   backend:
     url: quantalys-policy-act-bff-cnp-api-k8s.dev.harvest.fr
+  
