@@ -79,8 +79,8 @@ extraEnv:
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Cnp.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Cnp.Api
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: wexford1@a.fr
+  HubToken__clientId: quantalys-web
+  HubToken__username: cnp-rci-user3
   Insurer__Code: CNP
   Insurer__TenantId: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-cnp-api
