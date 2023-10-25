@@ -14,7 +14,7 @@ env:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: token-url-axa
+        key: token-url-cnp
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
