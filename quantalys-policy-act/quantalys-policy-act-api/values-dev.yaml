@@ -16,11 +16,6 @@ env:
 #      configMapKeyRef:
 #        name: keycloak
 #        key: token-url-axa
-  - name: HubToken__clientSecret
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: client-plateformewealth-app
   - name: HubToken__grant_type
     valueFrom:
       configMapKeyRef:

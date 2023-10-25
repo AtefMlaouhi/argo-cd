@@ -10,16 +10,6 @@ env:
       configMapKeyRef:
         name: api-routes
         key: hub-subscription-api
-  - name: HubToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-cnp
-  - name: HubToken__clientSecret
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: client-plateformewealth-app
   - name: HubToken__grant_type
     valueFrom:
       configMapKeyRef:

@@ -6,6 +6,16 @@ extraEnv:
       secretKeyRef:
         name: connection-strings
         key: postegresql-policy-act-axa
+  - name: HubToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-plateformewealth-app
+  - name: HubToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
   - name: InvestmentAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
