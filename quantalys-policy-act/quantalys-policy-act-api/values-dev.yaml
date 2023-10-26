@@ -65,6 +65,6 @@ appsettingsJson:
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audience: quantalys-policy-act-backend-api
   Minio__IsActive: true
-  Minio__IsSecure: false
+  Minio__IsSecure: true
   SSEToken__clientId: fake-esign-api-client
   UserProxyToken__clientId: quantalys-user-proxy-api
