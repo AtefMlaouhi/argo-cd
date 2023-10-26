@@ -33,7 +33,7 @@ resources:
     memory: 256Mi
   limits:
     cpu: 100m
-    memory: 768Mi
+    memory: 256Mi
 
 replicaCount: 1
 

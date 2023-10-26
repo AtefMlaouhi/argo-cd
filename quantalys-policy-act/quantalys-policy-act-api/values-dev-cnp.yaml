@@ -12,10 +12,11 @@ extraEnv:
         name: keycloak
         key: client-plateformewealth-app
   - name: HubToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-cnp
+    value: "https://keycloak-rci.harvest-r7.fr/auth/realms/CNPUsers/protocol/openid-connect/token"
+#    valueFrom:
+#      configMapKeyRef:
+#        name: keycloak
+#        key: token-url-cnp
   - name: InvestmentAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
