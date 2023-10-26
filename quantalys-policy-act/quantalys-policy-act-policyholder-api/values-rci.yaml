@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.52
+  tag: 0.1.0-alpha.55
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.52
+  version: 0.1.0-alpha.55
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
