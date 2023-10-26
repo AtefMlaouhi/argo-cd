@@ -64,7 +64,7 @@ appsettingsJson:
   HubToken__scope: harvest.acte.subscription
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audience: quantalys-policy-act-backend-api
-  Minio__IsActive: false
+  Minio__IsActive: true
   Minio__IsSecure: false
   SSEToken__clientId: fake-esign-api-client
   UserProxyToken__clientId: quantalys-user-proxy-api
