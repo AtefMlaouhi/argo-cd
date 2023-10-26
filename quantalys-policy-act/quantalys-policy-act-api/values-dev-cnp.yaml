@@ -85,4 +85,6 @@ appsettingsJson:
   Insurer__Code: CNP
   Insurer__TenantId: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-cnp-api
+  Minio__IsActive: true
+  Minio__IsSecure: true  
   Minio__BucketName: quantalys-policy-act-cnp
