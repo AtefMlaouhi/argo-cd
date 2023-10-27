@@ -82,6 +82,7 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   HubToken__clientId: plateformewealth-app
   HubToken__username: wexford1@a.fr
+  Insurer__Name: axa  
   Insurer__Code: AWS
   Insurer__TenantId: b67bf86a-b02d-4f0e-b6d5-6095ab3e1b04
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-axa-api
