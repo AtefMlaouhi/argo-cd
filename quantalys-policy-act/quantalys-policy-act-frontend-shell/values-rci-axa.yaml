@@ -6,5 +6,8 @@ config:
     url: keycloak-rci.harvest-r7.fr
     realm: AWSUsers
     client_id: quantalys-web
+  micro_frontends:
+    - name: shift
+      host: quantalys-policy-act-mfe-shift-axa-k8s.rci.harvest.fr    
   backend:
     url: quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr

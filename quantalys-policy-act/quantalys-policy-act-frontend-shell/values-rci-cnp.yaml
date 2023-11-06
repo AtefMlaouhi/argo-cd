@@ -6,8 +6,8 @@ config:
     url: keycloak-rci.harvest-r7.fr
     realm: CNPUsers
     client_id: quantalys-web
-  mfe:
-    shift_simplified:
+  micro_frontends:
+    - name: shiftSimplified
       host: quantalys-policy-act-mfe-shift-simplified-cnp-k8s.rci.harvest.fr
   backend:
     url: quantalys-policy-act-bff-cnp-api-k8s.rci.harvest.fr

@@ -19,17 +19,25 @@ data:
             },
         },
         microfrontends: [
-          'shiftSimplified'
+          {{- range $micro_frontend := .Values.config.micro_frontends }}
+          '{{ $micro_frontend.name }}',
+          {{- end }}
         ],
         urls: {
             remotes: {
-                shiftSimplified: 'https://{{ .Values.config.mfe.shift_simplified.host }}/remoteEntry.js'
+                {{- range $micro_frontend := .Values.config.micro_frontends }}
+                {{ $micro_frontend.name }}: 'https://{{ $micro_frontend.host }}/remoteEntry.js',
+                {{- end }}
             },
             configs: {
-                shiftSimplified: 'https://{{ .Values.config.mfe.shift_simplified.host }}/assets/config/config.js'
+                {{- range $micro_frontend := .Values.config.micro_frontends }}
+                {{ $micro_frontend.name }}: 'https://{{ $micro_frontend.host }}/assets/config/config.js',
+                {{- end }}
             },
             fonts: {
-                shiftSimplified: 'https://{{ .Values.config.mfe.shift_simplified.host }}/assets/basalte/fonts.css'
+                {{- range $micro_frontend := .Values.config.micro_frontends }}
+                {{ $micro_frontend.name }}: 'https://{{ $micro_frontend.host }}/assets/basalte/fonts.css',
+                {{- end }}
             },
         },        
         version: '1.0.0'
