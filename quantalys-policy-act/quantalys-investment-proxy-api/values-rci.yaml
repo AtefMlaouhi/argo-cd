@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.12
+  tag: 0.1.0-alpha.22
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.12
+  version: 0.1.0-alpha.22
 replicaCount: 1
 env:
   - name: ASPNETCORE_URLS

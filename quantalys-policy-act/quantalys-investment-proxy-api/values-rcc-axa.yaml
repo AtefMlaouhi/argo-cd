@@ -12,5 +12,5 @@ appsettingsJson:
   Authentication__MetadataUrl: https://auth-r7.harvest.fr/auth/realms/AWSUsers/.well-known/openid-configuration
   Authentication__Issuer: https://auth-r7.harvest.fr/auth/realms/AWSUsers
   HarvestConfiguration__ApplicationName: "Quantalys.Investment.Proxy.Axa.Api"
-  Tenant__Name: AxaWS
+  Tenant__Name: axa
   OpenTelemetry__ServiceName: rcc-quantalys-investment-proxy-axa-api
