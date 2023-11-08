@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.25
+  tag: 1.0.0-beta.1
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.25
+  version: 1.0.0-beta.1
 replicaCount: 1
 env:
   - name: ASPNETCORE_URLS
@@ -24,5 +24,6 @@ env:
         key: flag-export-metrics
 appsettingsJson:
   Authentication__Audience: quantalys-investment-proxy-api
+  Caching__DurationInHours: 24
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy
   HarvestConfiguration__Environment: rci
