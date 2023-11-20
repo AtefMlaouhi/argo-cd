@@ -8,3 +8,4 @@ config:
   keycloak:
     server: keycloak-rci.harvest-r7.fr
     logoutRedirectUrl: ''
+
