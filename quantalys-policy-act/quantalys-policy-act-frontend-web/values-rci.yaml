@@ -1,8 +1,8 @@
 image:
-  tag: 1.1.0-alpha.30
+  tag: 1.1.0-alpha.33
 podAnnotations:
   env: rci
-  version: 1.1.0-alpha.30
+  version: 1.1.0-alpha.33
 replicaCount: 1
 config:
   keycloak:
