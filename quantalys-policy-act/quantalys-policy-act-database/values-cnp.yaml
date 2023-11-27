@@ -206,7 +206,14 @@ postgresql:
           CREATE INDEX ix_shift_sign_documents_shift_data_id ON cnp.shift_sign_documents (shift_data_id);
 
           COMMIT;
-  
+
+          -- 11/27/23: Update add min fee value
+          START TRANSACTION;
+
+          ALTER TABLE cnp.shift_fees ADD shift_fees_min_value decimal NOT NULL DEFAULT 0.0;
+
+          COMMIT;
+
   metrics:
     auth:
       database: policy_acts

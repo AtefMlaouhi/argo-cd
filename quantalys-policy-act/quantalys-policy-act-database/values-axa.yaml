@@ -208,6 +208,13 @@ postgresql:
 
           COMMIT;
 
+          --  11/27/23: Update add min fee value
+          START TRANSACTION;
+
+          ALTER TABLE axa.shift_fees ADD shift_fees_min_value decimal NOT NULL DEFAULT 0.0;
+
+          COMMIT;
+
   metrics:
     auth:
       database: policy_acts
