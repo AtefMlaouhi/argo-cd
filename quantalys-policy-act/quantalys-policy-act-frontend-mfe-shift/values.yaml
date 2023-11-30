@@ -25,6 +25,7 @@ nginx_config: |
         add_header Cache-Control 'no-cache, max-age=0, must-revalidate, proxy-revalidate';
         add_header X-Frame-Options "SAMEORIGIN";
         add_header X-XSS-Protection "1; mode=block";
+        add_header Access-Control-Allow-Origin *;
 
         location / {
           root /usr/share/nginx/html;
