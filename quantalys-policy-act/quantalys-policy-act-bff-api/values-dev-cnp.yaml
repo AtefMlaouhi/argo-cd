@@ -18,5 +18,6 @@ extraEnv:
         key: quantalys-policy-act-policyholder-api
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
+  FrontBaseUrl: https://quantalys-policy-act-cnp-k8s.dev.harvest.fr
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-bff-cnp-api
