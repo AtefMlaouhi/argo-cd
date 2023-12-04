@@ -20,11 +20,6 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: flag-export-metrics
-  - name: UserProxyAPI__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: quantalys-user-proxy-api
 appsettingsJson:
   AllowedHosts: "*"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
