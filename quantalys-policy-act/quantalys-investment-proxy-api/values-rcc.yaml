@@ -1,13 +1,29 @@
 image:
-  tag: 0.1.0-alpha.11
+  tag: 1.0.0-beta.1
 podAnnotations:
   env: rcc
-  version: 0.1.0-alpha.11
+  version: 1.0.0-beta.1
 replicaCount: 1
+env:
+  - name: ASPNETCORE_URLS
+    value: http://+:8080
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
 appsettingsJson:
-  Authentication__Audience: account
-  Authentication__RequireHttpsMetadata: false
+  Authentication__Audience: quantalys-investment-proxy-api
+  Caching__DurationInHours: 24
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy
   HarvestConfiguration__Environment: rcc
-  OpenTelemetry__Endpoint: opentelemetry-flex.harvest.fr
-  OpenTelemetry__ExportMetrics: false
