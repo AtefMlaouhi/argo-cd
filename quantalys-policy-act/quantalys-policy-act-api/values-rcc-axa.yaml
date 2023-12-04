@@ -1,13 +1,90 @@
 hosts:
   - quantalys-policy-act-axa-api-recette.harvest.fr
-env:
+extraEnv:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
       secretKeyRef:
         name: connection-strings
         key: postegresql-policy-act-axa
+  - name: HubToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-plateformewealth-app
+  - name: HubToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: InvestmentAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-investment-proxy-api
+  - name: InvestmentToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-investment-proxy-api
+  - name: InvestmentToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: InvestmentToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: Jwt__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: Minio__EndPoint
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: bucket
+  - name: Minio__AccessKey
+    valueFrom:
+      secretKeyRef:
+        name: bucket
+        key: access-key
+  - name: Minio__SecretKey
+    valueFrom:
+      secretKeyRef:
+        name: bucket
+        key: secret-key
+  - name: UserProxyAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-user-proxy-api
+  - name: UserProxyToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-proxy-api
+  - name: UserProxyToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: UserProxyToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
 appsettingsJson:
-  CustomerName: Axa
+  ApplicationName: Quantalys.Policy.Act.Axa.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
-  Keycloak__Realm: AWSUsers
+  HubToken__clientId: plateformewealth-app
+  HubToken__username: allurefinance@a.fr
+  Insurer__Name: axa  
+  Insurer__Code: AWS
+  Insurer__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
   OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-axa-api
+  Minio__BucketName: quantalys-policy-act-axa
+  Minio__IsActive: false
+  Minio__IsSecure: true
