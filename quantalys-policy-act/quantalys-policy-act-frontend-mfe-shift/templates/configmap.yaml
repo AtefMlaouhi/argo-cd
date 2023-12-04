@@ -9,6 +9,8 @@ data:
   config.js: |
     var PolicyActConfig = {
         baseUrl: 'https://{{ .Values.hosts | first }}', // baseUrl utilisée pour charger les assets dans les templates
+        redirectURLOperations: 'https://{{ .Values.config.redirect.operations }}',
+        redirectUrlContract: 'https://{{ .Values.config.redirect.contract }}',        
         keycloakConfig: {
             url: 'https://{{ .Values.config.keycloak.url }}/auth',
             logoutRedirectUrl: 'https://{{ .Values.hosts | first }}', // peut être différente de l'application elle-même

@@ -8,3 +8,6 @@ config:
     client_id: quantalys-web
   backend:
     url: quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
+  redirect:
+    operations: aws-pw-dev.quantalys.com/Contrats/Recherche
+    contract: aws-pw-dev.quantalys.com/Contrats/Synthese?sNumero=    
