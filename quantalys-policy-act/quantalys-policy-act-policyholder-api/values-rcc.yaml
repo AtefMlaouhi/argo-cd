@@ -1,12 +1,35 @@
 image:
-  tag: 0.1.0-alpha.40
+  tag: 1.1.0-alpha.7
 podAnnotations:
   env: rcc
-  version: 0.1.0-alpha.40
+  version: 1.1.0-alpha.7
 replicaCount: 1
+env:
+  - name: HubAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-subscription-api
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: UserProxyAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-user-proxy-api
 appsettingsJson:
   AllowedHosts: "*"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rcc
-  OpenTelemetry__Endpoint: opentelemetry-flex.harvest.fr
-  OpenTelemetry__ExportMetrics: false
+  HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  HubToken__scope: harvest.acte.subscription
+  Jwt__Audience: quantalys-policy-act-backend-api
+  UserProxyToken__clientId: quantalys-user-proxy-api
