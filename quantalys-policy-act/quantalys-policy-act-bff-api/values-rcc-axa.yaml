@@ -1,10 +1,23 @@
 hosts:
   - quantalys-policy-act-bff-axa-api-recette.harvest.fr
+extraEnv:
+  - name: Jwt__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: MsvcGestionActes__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-api
+  - name: MsvcPolicyHolder__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-policyholder-api
 appsettingsJson:
+  ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
+  FrontBaseUrl: https://quantalys-policy-act-axa-api-recette.harvest.fr
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
-  CustomerName: Axa
-  Keycloak__Realm: AWSUsers
-  JwtKeyCloak__Issuer: https://auth-r7.harvest.fr/auth/realms/AWSUsers
-  MsvcGestionActes__BaseAddress: http://policy-act-api.policy-act-axa-rcc.svc.cluster.local
-  MsvcPolicyHolder__BaseAddress: http://policy-act-policyholder-api.policy-act-axa-rcc.svc.cluster.local
   OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-bff-axa-api
