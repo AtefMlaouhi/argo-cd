@@ -39,8 +39,8 @@ data:
                 {{ $micro_frontend.name }}: 'https://{{ $micro_frontend.host }}/assets/basalte/fonts.css',
                 {{- end }}
             },
-        },        
-        version: '1.0.0'
+        },
+        version: '{{ .Values.image.tag }}'
       };
 
       // pour Angular
