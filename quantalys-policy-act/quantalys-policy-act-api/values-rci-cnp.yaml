@@ -86,6 +86,5 @@ appsettingsJson:
   Insurer__TenantId: e23b082c-f549-4111-bcce-65e2c48435b8
   OpenTelemetry__ServiceName: rci-quantalsys-policy-act-cnp-api
   Minio__BucketName: quantalys-policy-act-cnp
-  Minio__IsActive: false
+  Minio__IsActive: true
   Minio__IsSecure: true
-  Serilog__MinimumLevel: Information
