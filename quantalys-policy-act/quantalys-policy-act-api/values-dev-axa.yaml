@@ -87,5 +87,5 @@ appsettingsJson:
   Insurer__TenantId: b67bf86a-b02d-4f0e-b6d5-6095ab3e1b04
   OpenTelemetry__ServiceName: dev-quantalsys-policy-act-axa-api
   Minio__BucketName: quantalys-policy-act-axa
-  Minio__IsActive: false
+  Minio__IsActive: true
   Minio__IsSecure: true 
