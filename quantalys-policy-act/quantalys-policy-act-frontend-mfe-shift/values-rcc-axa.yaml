@@ -1,0 +1,12 @@
+hosts:
+  - quantalys-policy-act-mfe-shift-axa.recette.harvest.fr
+config:
+  keycloak:
+    url: auth-r7.harvest.fr
+    realm: AWSUsers
+    client_id: quantalys-web
+  backend:
+    url: quantalys-policy-act-bff-axa-api-recette.harvest.fr
+  redirect:
+    operations: fdw-tst.quantalys.com/Contrats/Recherche
+    contract: fdw-tst.quantalys.com/Contrats/Synthese?sNumero=    
