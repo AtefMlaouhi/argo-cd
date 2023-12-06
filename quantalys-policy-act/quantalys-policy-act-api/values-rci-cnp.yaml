@@ -88,3 +88,4 @@ appsettingsJson:
   Minio__BucketName: quantalys-policy-act-cnp
   Minio__IsActive: false
   Minio__IsSecure: true
+  Serilog__MinimumLevel: Information
