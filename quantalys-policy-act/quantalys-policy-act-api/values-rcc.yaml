@@ -61,7 +61,7 @@ appsettingsJson:
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rcc
   HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
-  HubToken__scope: harvest.acte.subscription
+  HubToken__scope: profile
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audience: quantalys-policy-act-backend-api
   Minio__IsActive: true
