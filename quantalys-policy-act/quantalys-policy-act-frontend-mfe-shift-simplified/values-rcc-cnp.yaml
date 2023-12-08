@@ -7,3 +7,5 @@ config:
     client_id: quantalys-web
   backend:
     url: uantalys-policy-act-bff-cnp-api-recette.harvest.fr
+  redirect:
+    operations: cnp-pw-recette.quantalys.com/Contrats/Recherche

@@ -7,3 +7,5 @@ config:
     client_id: quantalys-web
   backend:
     url: quantalys-policy-act-bff-cnp-api-k8s.dev.harvest.fr
+  redirect:
+    operations: aws-pw-dev.quantalys.com/Contrats/Recherche
