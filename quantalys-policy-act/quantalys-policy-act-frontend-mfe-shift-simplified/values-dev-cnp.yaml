@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-mfe-shift-simplified-cnp-k8s.dev.harvest.fr
+  - quantalys-policy-act-frontend-mfe-shift-simplified-cnp-k8s.dev.harvest.fr
 config:
   keycloak:
     url: keycloak-dev.harvest-r7.fr
