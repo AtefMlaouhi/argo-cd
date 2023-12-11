@@ -39,6 +39,9 @@ postgresql:
             PASSWORD '03ND693Qj5';
         01.sql: |
           \connect document_library
+
+          -- Create SCHEMA
+          CREATE SCHEMA IF NOT EXISTS cnp;
           
           -- Default grants
           REVOKE CONNECT ON DATABASE document_library FROM PUBLIC;
@@ -65,9 +68,6 @@ postgresql:
             product_version character varying(32) NOT NULL,
             CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
           );
-
-          -- Create SCHEMA
-          CREATE SCHEMA IF NOT EXISTS cnp;
 
           -- Create Tables
           START TRANSACTION;          
@@ -150,7 +150,7 @@ postgresql:
           COMMIT;
   metrics:
     auth:
-      database: policy_act_policyholders
+      database: document_library
   migration_isolate: false
   backup:
     enabled: false
