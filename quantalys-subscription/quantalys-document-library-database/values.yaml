@@ -1,5 +1,5 @@
 postgresql:
-  fullnameOverride: document_library-db
+  fullnameOverride: document-library-db
   postgresqlSharedPreloadLibraries: "pgaudit,pg_stat_statements"
   auth:
     database: document_library
