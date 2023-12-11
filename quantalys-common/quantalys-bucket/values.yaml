@@ -1,0 +1,27 @@
+minio:
+  auth:
+    existingSecret: bucket
+  fullnameOverride: policy-bucket
+  image:
+    tag: 2023.9.30-debian-11-r2
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/minio/v2/metrics/cluster"
+    prometheus.io/port: "9000"
+  provisioning:
+    podAnnotations:
+      proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
+  metrics:
+    podLabels:
+      policy-bucket-client: true
+  mode: standalone
+  networkPolicy:
+    enabled: true
+    allowExternal: false
+    extraFromClauses:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: cattle-monitoring-system # allow servicemonitor from prometheus
+      podSelector: {}
+  persistence:
+    enabled: true
