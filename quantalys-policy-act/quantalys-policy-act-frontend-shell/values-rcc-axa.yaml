@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-axa.recette.harvest.fr
+  - policy-act-axa-recette.harvest.fr
 config:
   keycloak:
     enabled: false

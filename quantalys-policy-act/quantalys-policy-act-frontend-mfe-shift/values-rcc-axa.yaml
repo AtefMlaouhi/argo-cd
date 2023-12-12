@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-mfe-shift-axa.recette.harvest.fr
+  - quantalys-policy-act-frontend-mfe-shift-axa.recette.harvest.fr
 config:
   keycloak:
     url: auth-r7.harvest.fr

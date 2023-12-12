@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-cnp.recette.harvest.fr
+  - policy-act-cnp-recette.harvest.fr
 config:
   keycloak:
     enabled: false
