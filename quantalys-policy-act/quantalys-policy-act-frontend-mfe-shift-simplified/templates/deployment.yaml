@@ -46,7 +46,7 @@ spec:
           {{- end }}
           envFrom:
             - configMapRef:
-                name: policy-act-mfe-shift-simplified-config
+                name: policy-act-frontend-shift-simplified-mfe-config
                 optional: false 
           ports:
             - name: http

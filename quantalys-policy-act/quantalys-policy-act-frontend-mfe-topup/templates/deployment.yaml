@@ -46,7 +46,7 @@ spec:
           {{- end }}
           envFrom:
             - configMapRef:
-                name: policy-act-mfe-topup-config
+                name: policy-act-frontend-topup-mfe-config
                 optional: false 
           ports:
             - name: http

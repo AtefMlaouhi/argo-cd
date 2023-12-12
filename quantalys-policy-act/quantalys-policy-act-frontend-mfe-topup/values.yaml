@@ -5,7 +5,7 @@ image:
 imagePullSecrets:
   - name: gitlab
 nameOverride: ""
-fullnameOverride: "policy-act-frontend-mfe-topup"
+fullnameOverride: "policy-act-frontend-topup-mfe"
 
 podAnnotations:
   env: unspecified

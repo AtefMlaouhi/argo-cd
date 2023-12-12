@@ -6,7 +6,7 @@ image:
 imagePullSecrets:
   - name: gitlab
 nameOverride: ""
-fullnameOverride: "policy-act-frontend-mfe-shift-simplified"
+fullnameOverride: "policy-act-frontend-shift-simplified-mfe"
 
 podAnnotations:
   env: unspecified
