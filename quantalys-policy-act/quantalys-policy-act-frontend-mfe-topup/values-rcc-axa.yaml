@@ -1,0 +1,9 @@
+hosts:
+  - quantalys-policy-act-mfe-topup-axa-k8s.recette.harvest.fr
+config:
+  keycloak:
+    url: auth-r7.harvest.fr
+    realm: AWSUsers
+    client_id: quantalys-policy-act-frontend
+  backend:
+    url: quantalys-policy-act-bff-axa-api-recette.harvest.fr
