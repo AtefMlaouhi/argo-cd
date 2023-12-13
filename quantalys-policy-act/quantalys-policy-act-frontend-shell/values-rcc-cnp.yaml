@@ -10,4 +10,4 @@ config:
     - name: shiftSimplified
       host: quantalys-policy-act-frontend-cnp-shift-simplified-mfe-recette.harvest.fr
   backend:
-    url: quantalys-policy-act-bff-cnp-recette.harvest.fr
+    url: quantalys-policy-act-cnp-bff-api-recette.harvest.fr
