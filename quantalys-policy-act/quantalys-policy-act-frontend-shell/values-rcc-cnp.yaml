@@ -1,5 +1,5 @@
 hosts:
-  - policy-act-cnp-k8s.recette.harvest.fr
+  - policy-act-cnp-recette.harvest.fr
 config:
   keycloak:
     enabled: false
@@ -8,6 +8,6 @@ config:
     client_id: quantalys-web
   micro_frontends:
     - name: shiftSimplified
-      host: quantalys-policy-act-frontend-cnp-shift-simplified-mfe-k8s.recette.harvest.fr
+      host: quantalys-policy-act-frontend-cnp-shift-simplified-mfe-recette.harvest.fr
   backend:
-    url: quantalys-policy-act-bff-cnp-k8s.recette.harvest.fr
+    url: quantalys-policy-act-bff-cnp-recette.harvest.fr

@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-bff-cnp-k8s.recette.harvest.fr
+  - quantalys-policy-act-bff-cnp-recette.harvest.fr
 extraEnv:
   - name: Jwt__Issuer
     valueFrom:

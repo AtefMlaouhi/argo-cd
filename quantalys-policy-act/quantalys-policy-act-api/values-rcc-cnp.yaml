@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-cnp-api-k8s.recette.harvest.fr
+  - quantalys-policy-act-cnp-api-recette.harvest.fr
 extraEnv:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
