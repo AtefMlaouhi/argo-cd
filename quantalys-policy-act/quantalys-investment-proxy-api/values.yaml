@@ -31,10 +31,9 @@ serviceAccount:
 
 resources:
   requests:
-    cpu: 30m
+    cpu: 25m
     memory: 400Mi
   limits:
-    cpu: 30m
     memory: 400Mi
 
 replicaCount: 1
