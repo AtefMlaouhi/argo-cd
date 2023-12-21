@@ -1,0 +1,11 @@
+hosts:
+  - quantalys-document-library-cnp-api-k8s.rci.harvest.fr
+extraEnv:
+  - name: ConnectionStrings__PolicyActContext
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: postegresql-document-library-cnp
+appsettingsJson:
+  ApplicationName: Quantalys.Document.Library.Cnp.Api
+  HarvestConfiguration__ApplicationName: Quantalys.Document.Library.Cnp.Api

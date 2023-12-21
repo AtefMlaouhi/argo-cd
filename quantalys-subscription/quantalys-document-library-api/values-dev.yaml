@@ -1,0 +1,16 @@
+image:
+  tag: 0.1.0-alpha.98
+podAnnotations:
+  env: dev
+  version: 0.1.0-alpha.98
+replicaCount: 1
+env:
+  - name: HubAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-subscription-api
+appsettingsJson:
+  AllowedHosts: "*"
+  HarvestConfiguration__Domain: Quantalys.Document.Library
+  HarvestConfiguration__Environment: dev
