@@ -68,10 +68,8 @@ postgresql:
             product_version character varying(32) NOT NULL,
             CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
           );
-
           -- Create Tables
           START TRANSACTION;          
-          
           CREATE TABLE cnp.document_group (
               id uuid NOT NULL,
               name text NULL,
@@ -84,12 +82,11 @@ postgresql:
               enabled boolean NOT NULL,
               CONSTRAINT pk_document_group PRIMARY KEY (id)
           );
-
           CREATE TABLE cnp.document_library (
               id uuid NOT NULL,
               title text NOT NULL,
               file_name text NOT NULL,
-              reference text NOT NULL,
+              reference text NULL,
               validity_date_from timestamp with time zone NULL,
               validity_date_to timestamp with time zone NULL,
               score integer NOT NULL,
@@ -101,8 +98,7 @@ postgresql:
               enabled boolean NOT NULL,
               CONSTRAINT pk_document_library PRIMARY KEY (id)
           );
-
-          CREATE TABLE cnp.meta_data (
+          CREATE TABLE cnp.metadata (
               id uuid NOT NULL,
               name text NULL,
               label text NULL,
@@ -112,41 +108,37 @@ postgresql:
               creation_date timestamp with time zone NOT NULL,
               modified_date timestamp with time zone NULL,
               enabled boolean NOT NULL,
-              CONSTRAINT pk_meta_data PRIMARY KEY (id)
+              CONSTRAINT pk_metadata PRIMARY KEY (id)
           );
-
-          CREATE TABLE cnp.documentlibrary_documentgroup (
+          CREATE TABLE cnp.document_library_document_group (
               document_groups_id uuid NOT NULL,
               documents_id uuid NOT NULL,
-              CONSTRAINT pk_documentlibrary_documentgroup PRIMARY KEY (document_groups_id, documents_id),
-              CONSTRAINT fk_documentlibrary_documentgroup_document_group_document_group FOREIGN KEY (document_groups_id) REFERENCES cnp.document_group (id) ON DELETE CASCADE,
-              CONSTRAINT fk_documentlibrary_documentgroup_document_library_documents_id FOREIGN KEY (documents_id) REFERENCES cnp.document_library (id) ON DELETE CASCADE
+              CONSTRAINT pk_document_library_document_group PRIMARY KEY (document_groups_id, documents_id),
+              CONSTRAINT fk_document_library_document_group_document_group_document_gro FOREIGN KEY (document_groups_id) REFERENCES cnp.document_group (id) ON DELETE CASCADE,
+              CONSTRAINT fk_document_library_document_group_document_library_documents_ FOREIGN KEY (documents_id) REFERENCES cnp.document_library (id) ON DELETE CASCADE
           );
-
-          CREATE TABLE cnp.documentgroup_metadata (
+          CREATE TABLE cnp.document_group_metadata (
               document_groups_id uuid NOT NULL,
               metadata_id uuid NOT NULL,
-              CONSTRAINT pk_documentgroup_metadata PRIMARY KEY (document_groups_id, metadata_id),
-              CONSTRAINT fk_documentgroup_metadata_document_group_document_groups_id FOREIGN KEY (document_groups_id) REFERENCES cnp.document_group (id) ON DELETE CASCADE,
-              CONSTRAINT fk_documentgroup_metadata_meta_data_metadata_id FOREIGN KEY (metadata_id) REFERENCES cnp.meta_data (id) ON DELETE CASCADE
+              CONSTRAINT pk_document_group_metadata PRIMARY KEY (document_groups_id, metadata_id),
+              CONSTRAINT fk_document_group_metadata_document_group_document_groups_id FOREIGN KEY (document_groups_id) REFERENCES cnp.document_group (id) ON DELETE CASCADE,
+              CONSTRAINT fk_document_group_metadata_meta_data_metadata_id FOREIGN KEY (metadata_id) REFERENCES cnp.metadata (id) ON DELETE CASCADE
           );
-
-          CREATE TABLE cnp.documentlibrary_metadata (
+          CREATE TABLE cnp.document_library_metadata (
               documents_id uuid NOT NULL,
               metadata_id uuid NOT NULL,
-              CONSTRAINT pk_documentlibrary_metadata PRIMARY KEY (documents_id, metadata_id),
-              CONSTRAINT fk_documentlibrary_metadata_document_library_documents_id FOREIGN KEY (documents_id) REFERENCES cnp.document_library (id) ON DELETE CASCADE,
-              CONSTRAINT fk_documentlibrary_metadata_meta_data_metadata_id FOREIGN KEY (metadata_id) REFERENCES cnp.meta_data (id) ON DELETE CASCADE
+              CONSTRAINT pk_document_library_metadata PRIMARY KEY (documents_id, metadata_id),
+              CONSTRAINT fk_document_library_metadata_document_library_documents_id FOREIGN KEY (documents_id) REFERENCES cnp.document_library (id) ON DELETE CASCADE,
+              CONSTRAINT fk_document_library_metadata_meta_data_metadata_id FOREIGN KEY (metadata_id) REFERENCES cnp.metadata (id) ON DELETE CASCADE
           );
-
           CREATE INDEX ix_document_group_tenant_id ON cnp.document_group (tenant_id);
+          CREATE INDEX ix_document_group_metadata_metadata_id ON cnp.document_group_metadata (metadata_id);
           CREATE INDEX ix_document_library_tenant_id ON cnp.document_library (tenant_id);
-          CREATE INDEX ix_documentgroup_metadata_metadata_id ON cnp.documentgroup_metadata (metadata_id);
-          CREATE INDEX ix_documentlibrary_documentgroup_documents_id ON cnp.documentlibrary_documentgroup (documents_id);
-          CREATE INDEX ix_documentlibrary_metadata_metadata_id ON cnp.documentlibrary_metadata (metadata_id);
-          CREATE INDEX ix_meta_data_tenant_id ON cnp.meta_data (tenant_id);
+          CREATE INDEX ix_document_library_document_group_documents_id ON cnp.document_library_document_group (documents_id);
+          CREATE INDEX ix_document_library_metadata_metadata_id ON cnp.document_library_metadata (metadata_id);
+          CREATE INDEX ix_metadata_tenant_id ON cnp.metadata (tenant_id);
           INSERT INTO "__EFMigrationsHistory" (migration_id, product_version)
-          VALUES ('20231208163758_initial', '7.0.14');
+          VALUES ('20231215084142_initial', '7.0.14');
           COMMIT;
   metrics:
     auth:
