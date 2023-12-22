@@ -1,0 +1,23 @@
+hosts:
+  - quantalys-policy-act-bff-axa-api-preprod.harvest.fr
+extraEnv:
+  - name: Jwt__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: MsvcGestionActes__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-api
+  - name: MsvcPolicyHolder__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-policyholder-api
+appsettingsJson:
+  ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
+  FrontBaseUrl: https://quantalys-policy-act-axa-api-preprod.harvest.fr
+  HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
+  OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-bff-axa-api

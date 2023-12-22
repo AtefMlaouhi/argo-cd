@@ -1,7 +1,7 @@
 image:
   tag: 1.1.0-alpha.11
 podAnnotations:
-  env: rcc
+  env: preprod
   version: 1.1.0-alpha.11
 replicaCount: 1
 env:
@@ -28,6 +28,6 @@ env:
 appsettingsJson:
   AllowedHosts: "*"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
-  HarvestConfiguration__Environment: rcc
+  HarvestConfiguration__Environment: preprod
   Jwt__Audience: quantalys-policy-act-backend-api
   SSEKeyCloak__clientId: quantalys-sa
