@@ -1,16 +1,26 @@
 image:
-  tag: 0.1.0-alpha.98
+  tag: 0.1.0-alpha.99
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha.98
+  version: 0.1.0-alpha.99
 replicaCount: 1
 env:
-  - name: HubAPIs__BaseAddress
+  - name: Authentication__RequireHttpsMetadata
     valueFrom:
       configMapKeyRef:
-        name: api-routes
-        key: hub-subscription-api
+        name: keycloak
+        key: require-https-metadata
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
 appsettingsJson:
-  AllowedHosts: "*"
+  Authentication__Audience: quantalys-document-library-api
   HarvestConfiguration__Domain: Quantalys.Document.Library
   HarvestConfiguration__Environment: dev
