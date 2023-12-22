@@ -33,9 +33,9 @@ extraEnv:
         key: secret-key
 appsettingsJson:
   Database__DefaultSchema: cnp
+  Documents__MostViewedItemCount: 15
   HarvestConfiguration__ApplicationName: Quantalys.Document.Library.Api
   OpenTelemetry__ServiceName: dev-quantalys-document-library-api
   Minio__BucketName: document-library-cnp
-  Minio__BucketType: documentslibrary
   Minio__IsSecure: true
   Tenant__Id: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9
