@@ -1,7 +1,7 @@
 image:
   tag: 0.1.0-alpha.19
 podAnnotations:
-  env: rcc
+  env: preprod
   version: 0.1.0-alpha.19
 replicaCount: 1
 env:
@@ -25,4 +25,4 @@ env:
 appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
   HarvestConfiguration__Domain: Quantalys.User.Proxy
-  HarvestConfiguration__Environment: rcc
+  HarvestConfiguration__Environment: preprod
