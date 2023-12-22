@@ -1,0 +1,12 @@
+hosts:
+  - quantalys-policy-act-frontend-axa-shift-mfe-preprod.harvest.fr
+config:
+  keycloak:
+    url: auth-preprod.harvest.fr
+    realm: AWSUsers
+    client_id: quantalys-web
+  backend:
+    url: quantalys-policy-act-bff-axa-api-preprod.harvest.fr
+  redirect:
+    operations: awd-pp.axa.fr/Contrats/Recherche
+    contract: awd-pp.axa.fr/Contrats/Synthese?sNumero=    
