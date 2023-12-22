@@ -1,0 +1,30 @@
+image:
+  tag: 1.1.0-alpha.7
+podAnnotations:
+  env: preprod
+  version: 1.1.0-alpha.7
+replicaCount: 1
+env:
+  - name: HubAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-subscription-api
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+appsettingsJson:
+  AllowedHosts: "*"
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  HarvestConfiguration__Environment: preprod
+  HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  HubToken__scope: harvest.acte.subscription
+  Jwt__Audience: quantalys-policy-act-backend-api
+  UserProxyToken__clientId: quantalys-user-proxy-api
