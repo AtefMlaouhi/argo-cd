@@ -5,7 +5,28 @@ podAnnotations:
   version: 0.1.0-alpha.98
 replicaCount: 1
 env:
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
 appsettingsJson:
   AllowedHosts: "*"
+  Authentication__Audience: quantalys-document-library-bff-api
   HarvestConfiguration__Domain: Quantalys.Document.Library
   HarvestConfiguration__Environment: dev
+  ReverseProxy__Routes__documentSwaggerRoute__ClusterId: documentApiCluster
+  ReverseProxy__Routes__documentSwaggerRoute__Match__Path: /swagger/{*any}
+  ReverseProxy__Routes__documentsRoute__ClusterId: documentApiCluster
+  ReverseProxy__Routes__documentsRoute__AuthorizationPolicy: authenticatedUser
+  ReverseProxy__Routes__documentsRoute__Match__Path: "{**catch-all}"
