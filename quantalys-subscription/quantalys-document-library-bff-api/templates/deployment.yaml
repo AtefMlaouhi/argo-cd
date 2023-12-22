@@ -53,7 +53,7 @@ spec:
           {{- end }}
           envFrom:
             - configMapRef:
-                name: policy-act-api-config
+                name: document-library-bff-api-config
                 optional: false
           ports:
             - name: http

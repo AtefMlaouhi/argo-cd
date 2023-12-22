@@ -1,12 +1,12 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.policy.act.api
+  repository: quantalys.document.library.backend.api
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
   - name: gitlab
 nameOverride: ""
-fullnameOverride: "policy-act-api"
+fullnameOverride: "document-library-bff-api"
 
 podAnnotations:
   env: unspecified
