@@ -62,5 +62,5 @@ appsettingsJson:
   HubToken__clientId: plateformewealth-app
   HubToken__username: allurefinance@a.fr
   Insurer__Code: AWS
-  OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-policyholder-axa-api
+  OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-policyholder-axa-api
   
