@@ -1,0 +1,13 @@
+hosts:
+  - policy-act-cnp-preprod.harvest.fr
+config:
+  keycloak:
+    enabled: false
+    url: auth-r7.harvest.fr
+    realm: CNPUsers
+    client_id: quantalys-web
+  micro_frontends:
+    - name: shiftSimplified
+      host: quantalys-policy-act-frontend-cnp-shift-simplified-mfe-preprod.harvest.fr
+  backend:
+    url: quantalys-policy-act-bff-cnp-api-preprod.harvest.fr

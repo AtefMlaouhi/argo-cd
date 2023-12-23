@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-cnp-api-recette.harvest.fr
+  - quantalys-policy-act-cnp-api-preprod.harvest.fr
 extraEnv:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
@@ -83,8 +83,8 @@ appsettingsJson:
   HubToken__username: allurefinance@a.fr
   Insurer__Name: cnp  
   Insurer__Code: CNP
-  Insurer__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
-  OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-cnp-api
+  Insurer__TenantId: d151f9d9-88c1-478e-9cf8-544700066e0e
+  OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-cnp-api
   Minio__BucketName: quantalys-policy-act-cnp
   Minio__IsActive: false
   Minio__IsSecure: true
