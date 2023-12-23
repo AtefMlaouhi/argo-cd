@@ -1,7 +1,7 @@
 minio:
   auth:
     existingSecret: bucket
-  fullnameOverride: policy-bucket
+  fullnameOverride: bucket-minio
   image:
     tag: 2023.9.30-debian-11-r2
   podAnnotations:
