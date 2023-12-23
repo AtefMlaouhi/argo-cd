@@ -22,7 +22,7 @@ env:
         key: flag-export-metrics
 appsettingsJson:
   AllowedHosts: "*"
-  Authentication__Audience: quantalys-document-library-bff-api
+  Authentication__Audience: quantalys-document-library-backend-api
   HarvestConfiguration__Domain: Quantalys.Document.Library
   HarvestConfiguration__Environment: dev
   ReverseProxy__Routes__documentSwaggerRoute__ClusterId: documentApiCluster
