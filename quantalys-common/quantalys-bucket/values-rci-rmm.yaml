@@ -1,7 +1,0 @@
-minio:
-  defaultBuckets: third-party-content-rmm
-  hosts:
-    api:
-      - quantalys-bucket-rmm-s3-k8s.rci.harvest.fr
-    console:
-      - quantalys-bucket-rmm-s3-console-k8s.rci.harvest.fr

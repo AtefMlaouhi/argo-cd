@@ -1,7 +1,0 @@
-minio:
-  defaultBuckets: quantalys-policy-act-axa
-  hosts:
-    api:
-      - quantalys-bucket-axa-s3-k8s.dev.harvest.fr
-    console:
-      - quantalys-bucket-axa-s3-console-k8s.dev.harvest.fr

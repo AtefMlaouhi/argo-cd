@@ -1,9 +1,0 @@
-dependencies:
-- name: minio
-  repository: file://../../@templates/minio
-  version: 12.8.12
-- name: common
-  repository: file://../../@templates/common
-  version: 2.13.0
-digest: sha256:bca9d9c9fdb4f1707595c5a4862db1262fa39c246f4e67ec7bad41534011e30f
-generated: "2023-10-05T13:40:19.0580968+02:00"

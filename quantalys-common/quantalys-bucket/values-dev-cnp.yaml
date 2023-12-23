@@ -1,7 +1,0 @@
-minio:
-  defaultBuckets: quantalys-policy-act-cnp, document-library-cnp, third-party-content-cnp
-  hosts:
-    api:
-      - quantalys-bucket-cnp-s3-k8s.dev.harvest.fr
-    console:
-      - quantalys-bucket-cnp-s3-console-k8s.dev.harvest.fr
