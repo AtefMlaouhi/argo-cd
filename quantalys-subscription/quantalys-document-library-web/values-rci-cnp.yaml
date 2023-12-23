@@ -1,9 +1,0 @@
-hosts:
-  - quantalys-document-library-cnp-k8s.rci.harvest.fr
-config:
-  keycloak:
-    url: keycloak-rci.harvest-r7.fr
-    realm: CNPUsers
-    client_id: quantalys-web
-  backend:
-    url: quantalys-document-library-bff-cnp-api-k8s.rci.harvest.fr
