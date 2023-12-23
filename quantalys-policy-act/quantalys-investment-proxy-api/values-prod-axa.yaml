@@ -1,0 +1,22 @@
+hosts:
+  - quantalys-investment-proxy-axa-api.harvest.fr
+extraEnv:
+  - name: ConnectionStrings__SqlServerQuantaSynonyms
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-quanta-synonyms-axa
+  - name: Authentication__MetadataUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: metadata-url-axa
+  - name: Authentication__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+appsettingsJson:
+  HarvestConfiguration__ApplicationName: Quantalys.Investment.Proxy.Axa.Api
+  Tenant__Name: axa
+  OpenTelemetry__ServiceName: quantalys-investment-proxy-axa-api
