@@ -83,7 +83,7 @@ appsettingsJson:
   HubToken__username: allurefinance@a.fr
   Insurer__Name: axa  
   Insurer__Code: AWS
-  Insurer__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
+  Insurer__TenantId: 353b4c54-44c3-4384-ab83-8a587a1a3e68
   OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-axa-api
   Minio__BucketName: quantalys-policy-act-axa
   Minio__IsActive: false
