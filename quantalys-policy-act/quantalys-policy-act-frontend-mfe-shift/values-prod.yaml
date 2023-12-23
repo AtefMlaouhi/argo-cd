@@ -1,10 +1,10 @@
 image:
   tag: 1.1.0-alpha.56
 podAnnotations:
-  env: preprod
+  env: rcc
   version: 1.1.0-alpha.56
 replicaCount: 1
 config:
   keycloak:
-    server: auth-preprod.harvest.fr
+    server: auth.harvest.fr
     logoutRedirectUrl: ''
