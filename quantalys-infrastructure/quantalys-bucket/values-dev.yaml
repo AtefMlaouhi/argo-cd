@@ -1,0 +1,10 @@
+minio:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 10m
+      memory: 512Mi
+  persistence:
+    size: 256Mi
