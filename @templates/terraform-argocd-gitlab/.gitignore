@@ -1,9 +1,0 @@
-.idea/
-**/.terraform/*
-**/.envrc
-
-*.backup
-*.tfstate
-*.auto.tfvars
-atlantis.yaml
-*local*
