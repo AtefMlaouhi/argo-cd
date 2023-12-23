@@ -1,0 +1,26 @@
+image:
+  tag: 0.1.0-alpha.101
+podAnnotations:
+  env: rci
+  version: 0.1.0-alpha.99
+replicaCount: 1
+env:
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+appsettingsJson:
+  Authentication__Audience: quantalys-document-library-api
+  HarvestConfiguration__Domain: Quantalys.Document.Library
+  HarvestConfiguration__Environment: rci

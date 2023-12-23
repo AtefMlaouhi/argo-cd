@@ -1,0 +1,22 @@
+image:
+  tag: 0.1.0-alpha.5
+podAnnotations:
+  env: rci
+  version: 0.1.0-alpha.5
+replicaCount: 1
+env:
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
+appsettingsJson:
+  AllowedHosts: "*"
+  Authentication__Audience: quantalys-document-library-backend-api
+  HarvestConfiguration__Domain: Quantalys.Document.Library
+  HarvestConfiguration__Environment: rci
+  ReverseProxy__Routes__documentSwaggerRoute__ClusterId: documentApiCluster
+  ReverseProxy__Routes__documentSwaggerRoute__Match__Path: /swagger/{*any}
+  ReverseProxy__Routes__documentsRoute__ClusterId: documentApiCluster
+  ReverseProxy__Routes__documentsRoute__AuthorizationPolicy: authenticatedUser
+  ReverseProxy__Routes__documentsRoute__Match__Path: "{**catch-all}"

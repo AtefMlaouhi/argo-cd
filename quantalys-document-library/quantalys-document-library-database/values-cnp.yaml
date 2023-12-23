@@ -1,0 +1,178 @@
+postgresql:
+  image:
+    tag: 14.4.0-debian-11-r23
+  primary:
+    service:
+      type: NodePort
+    initdb:
+      scripts:
+        00.sql: |
+          CREATE DATABASE document_library;
+
+          -- CI
+          CREATE ROLE "document_library_reader" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'g3ZZvZ1hie';
+          CREATE ROLE "svc_document_library" WITH
+            LOGIN
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD 'QvhcNiC1p6';
+          CREATE ROLE "svc_document_library_ci" WITH
+            LOGIN
+            NOSUPERUSER
+            CREATEDB
+            NOCREATEROLE
+            INHERIT
+            NOREPLICATION
+            CONNECTION LIMIT -1
+            PASSWORD '03ND693Qj5';
+        01.sql: |
+          \connect document_library
+
+          -- Create SCHEMA
+          CREATE SCHEMA IF NOT EXISTS cnp;
+          
+          -- Default grants
+          REVOKE CONNECT ON DATABASE document_library FROM PUBLIC;
+          REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+          GRANT ALL ON DATABASE document_library TO postgres;
+          
+          -- Grants to document_library_reader
+          GRANT CONNECT ON DATABASE document_library TO "document_library_reader";
+          GRANT USAGE ON SCHEMA cnp TO "document_library_reader";
+          GRANT SELECT ON ALL TABLES IN SCHEMA cnp TO "document_library_reader";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT ON TABLES TO "document_library_reader";
+          GRANT CONNECT ON DATABASE document_library TO "svc_document_library";
+          
+          -- Grants to svc_document_library
+          GRANT USAGE ON SCHEMA cnp TO "svc_document_library";
+          GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA cnp TO "svc_document_library";
+          GRANT USAGE,SELECT ON ALL SEQUENCES IN SCHEMA cnp to "svc_document_library";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "svc_document_library";
+          ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT ON TABLES TO "document_library_reader";
+          
+          -- Create Migration Table
+          CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+            migration_id character varying(150) NOT NULL,
+            product_version character varying(32) NOT NULL,
+            CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
+          );
+          -- Create Tables
+          START TRANSACTION;          
+          CREATE TABLE cnp.document_group (
+              id uuid NOT NULL,
+              name text NULL,
+              label text NULL,
+              tenant_id varchar(36) NOT NULL,
+              user_creation text NULL,
+              user_modification text NULL,
+              creation_date timestamp with time zone NOT NULL,
+              modified_date timestamp with time zone NULL,
+              enabled boolean NOT NULL,
+              CONSTRAINT pk_document_group PRIMARY KEY (id)
+          );
+          CREATE TABLE cnp.document_library (
+              id uuid NOT NULL,
+              title text NOT NULL,
+              file_name text NOT NULL,
+              reference text NULL,
+              validity_date_from timestamp with time zone NULL,
+              validity_date_to timestamp with time zone NULL,
+              score integer NOT NULL,
+              tenant_id varchar(36) NOT NULL,
+              user_creation text NULL,
+              user_modification text NULL,
+              creation_date timestamp with time zone NOT NULL,
+              modified_date timestamp with time zone NULL,
+              enabled boolean NOT NULL,
+              CONSTRAINT pk_document_library PRIMARY KEY (id)
+          );
+          CREATE TABLE cnp.metadata (
+              id uuid NOT NULL,
+              name text NULL,
+              label text NULL,
+              tenant_id varchar(36) NOT NULL,
+              user_creation text NULL,
+              user_modification text NULL,
+              creation_date timestamp with time zone NOT NULL,
+              modified_date timestamp with time zone NULL,
+              enabled boolean NOT NULL,
+              CONSTRAINT pk_metadata PRIMARY KEY (id)
+          );
+          CREATE TABLE cnp.document_library_document_group (
+              document_groups_id uuid NOT NULL,
+              documents_id uuid NOT NULL,
+              CONSTRAINT pk_document_library_document_group PRIMARY KEY (document_groups_id, documents_id),
+              CONSTRAINT fk_document_library_document_group_document_group_document_gro FOREIGN KEY (document_groups_id) REFERENCES cnp.document_group (id) ON DELETE CASCADE,
+              CONSTRAINT fk_document_library_document_group_document_library_documents_ FOREIGN KEY (documents_id) REFERENCES cnp.document_library (id) ON DELETE CASCADE
+          );
+          CREATE TABLE cnp.document_group_metadata (
+              document_groups_id uuid NOT NULL,
+              metadata_id uuid NOT NULL,
+              CONSTRAINT pk_document_group_metadata PRIMARY KEY (document_groups_id, metadata_id),
+              CONSTRAINT fk_document_group_metadata_document_group_document_groups_id FOREIGN KEY (document_groups_id) REFERENCES cnp.document_group (id) ON DELETE CASCADE,
+              CONSTRAINT fk_document_group_metadata_meta_data_metadata_id FOREIGN KEY (metadata_id) REFERENCES cnp.metadata (id) ON DELETE CASCADE
+          );
+          CREATE TABLE cnp.document_library_metadata (
+              documents_id uuid NOT NULL,
+              metadata_id uuid NOT NULL,
+              CONSTRAINT pk_document_library_metadata PRIMARY KEY (documents_id, metadata_id),
+              CONSTRAINT fk_document_library_metadata_document_library_documents_id FOREIGN KEY (documents_id) REFERENCES cnp.document_library (id) ON DELETE CASCADE,
+              CONSTRAINT fk_document_library_metadata_meta_data_metadata_id FOREIGN KEY (metadata_id) REFERENCES cnp.metadata (id) ON DELETE CASCADE
+          );
+          CREATE INDEX ix_document_group_tenant_id ON cnp.document_group (tenant_id);
+          CREATE INDEX ix_document_group_metadata_metadata_id ON cnp.document_group_metadata (metadata_id);
+          CREATE INDEX ix_document_library_tenant_id ON cnp.document_library (tenant_id);
+          CREATE INDEX ix_document_library_document_group_documents_id ON cnp.document_library_document_group (documents_id);
+          CREATE INDEX ix_document_library_metadata_metadata_id ON cnp.document_library_metadata (metadata_id);
+          CREATE INDEX ix_metadata_tenant_id ON cnp.metadata (tenant_id);
+          INSERT INTO "__EFMigrationsHistory" (migration_id, product_version)
+          VALUES ('20231215084142_initial', '7.0.14');
+          COMMIT;
+  metrics:
+    auth:
+      database: document_library
+  migration_isolate: false
+  backup:
+    enabled: false
+    cron:
+      image:
+        tag: 13-9
+      schedule: "0 2 * * *" # 2am every day
+      storageSize: 1Gi
+      env:
+        - name: DB_LOGIN
+          value: svc_document_library_ci
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: password
+        - name: FTP_LOGIN
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: ftp-login
+        - name: FTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-backup
+              key: ftp-password
+        - name: PGPASSFILE
+          value: /tmp/.pgpass
+        - name: RETENTION_DAY
+          value: "10"
+    database:
+      name: document_library
+
