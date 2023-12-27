@@ -7,8 +7,10 @@ data:
     {{- tpl .Values.nginx_config . | nindent 4 }}
 
   config.js: |
-    var PolicyActConfig = {
+    var MfeDocumentsConfig = {
         baseUrl: 'https://{{ .Values.hosts | first }}',
+        redirectURLOperations: 'https://{{ .Values.config.redirect.operations }}',
+        redirectUrlContract: 'https://{{ .Values.config.redirect.contract }}',
         keycloakConfig: {
             url: 'https://{{ .Values.config.keycloak.url }}/auth',
             logoutRedirectUrl: 'https://{{ .Values.hosts | first }}', // peut être différente de l'application elle-même
@@ -24,6 +26,7 @@ data:
             fonts: {},
             apis: {
                 backend: 'https://{{ .Values.config.backend.url }}',
+                legacy: 'https://{{ .Values.config.legacy.url }}/'
             },
         },
         version: '1.0.0'
@@ -31,17 +34,17 @@ data:
 
     // pour Angular
     if (typeof window !== 'undefined') {
-        window.PolicyActConfig = PolicyActConfig;
+        window.MfeDocumentsConfig = MfeDocumentsConfig;
 
         // chargement des configs des microfrontends consommés
-        var configs = PolicyActConfig.urls.configs;
+        var configs = MfeDocumentsConfig.urls.configs;
         Object.keys(configs).forEach(function (key) {
             var script = document.createElement('script');
             script.src = configs[key];
             document.head.appendChild(script);
         });
 
-        var fonts = PolicyActConfig.urls.fonts;
+        var fonts = MfeDocumentsConfig.urls.fonts;
         Object.keys(fonts).forEach(function (key) {
             var link = document.createElement('link');
             link.rel = 'stylesheet';
@@ -54,5 +57,5 @@ data:
 
     // pour Webpack
     if (typeof exports !== 'undefined') {
-        exports.PolicyActConfig = PolicyActConfig;
+        exports.MfeDocumentsConfig = MfeDocumentsConfig;
     }
