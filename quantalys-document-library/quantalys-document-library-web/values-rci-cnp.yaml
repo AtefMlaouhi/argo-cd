@@ -6,6 +6,6 @@ config:
     realm: CNPUsers
     client_id: quantalys-web
   backend:
-    url: https://quantalys-document-library-bff-cnp-api-k8s.rci.harvest.fr
+    url: quantalys-document-library-bff-cnp-api-k8s.rci.harvest.fr
   legacy:
-    url: https://cnp-pw-rci.quantalys.com/
+    url: cnp-pw-rci.quantalys.com/
