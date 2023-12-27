@@ -12,6 +12,16 @@ env:
       configMapKeyRef:
         name: api-routes
         key: quantalys-policy-act-bff-axa-api
+  - name: JwtKeyCloak__Issuers__0
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: JwtKeyCloak__Issuers__0
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-cnp
   - name: OpenTelemetry__Endpoint
     valueFrom:
       configMapKeyRef:
