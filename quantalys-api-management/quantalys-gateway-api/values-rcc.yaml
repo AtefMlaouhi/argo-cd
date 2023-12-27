@@ -1,8 +1,8 @@
 image:
-  tag: 1.1.0-alpha.1
+  tag: 1.1.0-alpha.3
 podAnnotations:
   env: rcc
-  version: 1.1.0-alpha.1
+  version: 1.1.0-alpha.3
 hosts:
   - quantalys-gateway-api-recette.harvest.fr
 replicaCount: 1
