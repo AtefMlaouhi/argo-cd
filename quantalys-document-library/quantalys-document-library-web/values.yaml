@@ -1,6 +1,6 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.document.library.web
+  repository: quantalys.document.library.frontend.web
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
