@@ -19,13 +19,20 @@ data:
           },
       },
       urls: {
-          remotes: {},
-          configs: {},
-          fonts: {},
-          apis: {
-              backend: 'https://{{ .Values.config.backend.url }}',
-              legacy: 'https://{{ .Values.config.legacy.url }}'
+          remotes: {
+            example: 'https://{{ .Values.hosts | first }}/remoteEntry.js',
           },
+          configs: {},
+          fonts: {
+            example: 'https://{{ .Values.hosts | first }}/assets/basalte/fonts.css',
+          },
+          apis: {
+            backend: 'https://{{ .Values.config.backend.url }}',
+            legacy: 'https://{{ .Values.config.legacy.url }}'
+          },
+      },
+      remotesConfigName: {
+        example: 'MfeDocumentsConfig',
       },
       version: '1.0.0'
     };
