@@ -12,21 +12,11 @@ env:
       configMapKeyRef:
         name: api-routes
         key: quantalys-policy-act-bff-axa-api
-  - name: ApiGatewayConfiguration__Providers__1__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: quantalys-policy-act-bff-cnp-api
   - name: JwtKeyCloak__Issuers__0
     valueFrom:
       configMapKeyRef:
         name: keycloak
         key: issuer-axa
-  - name: JwtKeyCloak__Issuers__0
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: issuer-cnp
   - name: OpenTelemetry__Endpoint
     valueFrom:
       configMapKeyRef:
@@ -48,5 +38,4 @@ appsettingsJson:
   HarvestConfiguration__Environment: rci
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
-  ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
   JwtKeyCloak__Audience: quantalys-policy-act-backend-api
