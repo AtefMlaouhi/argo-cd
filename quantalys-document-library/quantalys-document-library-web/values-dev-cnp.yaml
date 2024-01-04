@@ -8,4 +8,4 @@ config:
   backend:
     url: quantalys-document-library-bff-cnp-api-k8s.dev.harvest.fr/api/v1
   legacy:
-    url: http://cnp-pw-dev.quantalys.com/
+    url: cnp-pw-dev.quantalys.com
