@@ -89,6 +89,7 @@ postgresql:
               reference text NULL,
               validity_date_from timestamp with time zone NULL,
               validity_date_to timestamp with time zone NULL,
+              versioning_date timestamp with time zone NULL,
               score integer NOT NULL,
               tenant_id varchar(36) NOT NULL,
               user_creation text NULL,
