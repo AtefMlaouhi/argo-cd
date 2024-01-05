@@ -11,12 +11,12 @@ env:
     valueFrom:
       configMapKeyRef:
         name: api-routes
-        key: quantalys-policy-act-bff-axa-api
+        key: https://quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr
   - name: ApiGatewayConfiguration__Providers__1__BaseAddress
     valueFrom:
       configMapKeyRef:
         name: api-routes
-        key: quantalys-policy-act-bff-cnp-api
+        key: https://quantalys-policy-act-bff-cnp-api-k8s.rci.harvest.fr
   - name: JwtKeyCloak__Issuers__0
     valueFrom:
       configMapKeyRef:
