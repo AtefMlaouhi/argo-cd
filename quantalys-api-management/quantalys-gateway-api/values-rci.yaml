@@ -8,15 +8,17 @@ hosts:
 replicaCount: 1
 env:
   - name: ApiGatewayConfiguration__Providers__0__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: https://quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr
+    value: "https://quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr"
+#    valueFrom:
+#      configMapKeyRef:
+#        name: api-routes
+#        key: quantalys-policy-act-bff-axa-api
   - name: ApiGatewayConfiguration__Providers__1__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: https://quantalys-policy-act-bff-cnp-api-k8s.rci.harvest.fr
+    value: "https://quantalys-policy-act-bff-cnp-api-k8s.rci.harvest.fr"
+#    valueFrom:
+#      configMapKeyRef:
+#        name: api-routes
+#        key: quantalys-policy-act-bff-cnp-api
   - name: JwtKeyCloak__Issuers__0
     valueFrom:
       configMapKeyRef:
