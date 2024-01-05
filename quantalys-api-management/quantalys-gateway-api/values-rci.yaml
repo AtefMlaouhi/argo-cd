@@ -1,24 +1,24 @@
 image:
-  tag: 1.3.0-alpha0007-24434
+  tag: 1.3.0-alpha0007-24438
 podAnnotations:
   env: rci
-  version: 1.3.0-alpha0007-24434
+  version: 1.3.0-alpha0007-24438
 hosts:
   - quantalys-gateway-api-k8s.rci.harvest.fr
 replicaCount: 1
 env:
   - name: ApiGatewayConfiguration__Providers__0__BaseAddress
+    value: http://quantalys-policy-act-bff-api.quantalys-policy-act-axa-rci.svc.cluster.local
 #    valueFrom:
 #      configMapKeyRef:
 #        name: api-routes
 #        key: quantalys-policy-act-bff-axa-api
-    value: "https://quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr"
   - name: ApiGatewayConfiguration__Providers__1__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: quantalys-policy-act-bff-cnp-api
-#    value: "https://quantalys-policy-act-bff-cnp-api-k8s.rci.harvest.fr"
+    value: http://quantalys-policy-act-bff-api.quantalys-policy-act-cnp-rci.svc.cluster.local
+#    valueFrom:
+#      configMapKeyRef:
+#        name: api-routes
+#        key: quantalys-policy-act-bff-cnp-api
   - name: JwtKeyCloak__Issuers__0
     valueFrom:
       configMapKeyRef:
