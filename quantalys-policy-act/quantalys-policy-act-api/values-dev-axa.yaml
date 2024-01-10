@@ -77,6 +77,13 @@ extraEnv:
       configMapKeyRef:
         name: keycloak
         key: token-url-axa
+  - name: ProductAPIsToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-plateformewealth-app
+  - name: ProductAPIsToken__tokenUrl
+    value: "https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers/protocol/openid-connect/token"        
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
@@ -89,3 +96,5 @@ appsettingsJson:
   Minio__BucketName: quantalys-policy-act-axa
   Minio__IsActive: true
   Minio__IsSecure: true 
+  ProductAPIsToken__clientId: plateformewealth-app
+  ProductAPIsToken__username: allurefinance@a.fr

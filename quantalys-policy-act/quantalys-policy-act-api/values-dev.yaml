@@ -55,6 +55,21 @@ env:
       configMapKeyRef:
         name: keycloak
         key: grant-type-client-credentials
+  - name: ProductAPIsToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-password
+  - name: ProductAPIsToken__lang
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: language
+  - name: ProductAPIsToken__password
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: user-hub-subscription        
 appsettingsJson:
   AllowedHosts: "*"
   FileUpload__Path: "C:\\tmp"
@@ -68,3 +83,6 @@ appsettingsJson:
   Minio__IsSecure: true
   SSEToken__clientId: fake-esign-api-client
   UserProxyToken__clientId: quantalys-user-proxy-api
+  ProductAPIsToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  ProductAPIsToken__scope: harvest.acte.subscription
+  ProductAPIs__BaseAddress: https://plateform-api-products.flex-rci.harvest.fr
