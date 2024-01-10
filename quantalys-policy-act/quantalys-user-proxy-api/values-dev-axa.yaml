@@ -18,5 +18,5 @@ extraEnv:
         key: issuer-axa
 appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.User.Proxy.Axa.Api
-  Tenant__Name: AxaWS
+  Tenant__Name: axa
   OpenTelemetry__ServiceName: dev-quantalys-user-proxy-axa-api
