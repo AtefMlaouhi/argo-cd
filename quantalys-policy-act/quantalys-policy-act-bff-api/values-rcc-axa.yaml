@@ -18,6 +18,6 @@ extraEnv:
         key: quantalys-policy-act-policyholder-api
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
-  FrontBaseUrl: https://policy-act-axa-recette.harvest.fr/
+  FrontBaseUrl: https://policy-act-axa-recette.harvest.fr
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-bff-axa-api
