@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0005-24411
+  tag: 1.3.0-alpha0010-24744
 podAnnotations:
   env: dev
-  version: 1.3.0-alpha0005-24411
+  version: 1.3.0-alpha0010-24744
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -75,12 +75,14 @@ appsettingsJson:
   FileUpload__Path: "C:\\tmp"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
-  HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
   HubToken__scope: harvest.acte.subscription
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audience: quantalys-policy-act-backend-api
   Minio__IsActive: true
   Minio__IsSecure: true
+  SseAPIs__Lang: FR
+  SseAPIs__ApplicationId: application-4c736984-155f-49d2-81c7-b6117720599c
+  SseAPIs__TenantId: tenant-b67bf86a-b02d-4f0e-b6d5-6095ab3e1b04
   SSEToken__clientId: fake-esign-api-client
   UserProxyToken__clientId: quantalys-user-proxy-api
   ProductAPIsToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
