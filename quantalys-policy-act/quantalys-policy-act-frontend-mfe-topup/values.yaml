@@ -1,6 +1,6 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.policy.act.mfe.shift #TODO: TO BE REPLACED quantalys.policy.act.mfe.topup
+  repository: quantalys.policy.act.mfe.topup
 
 imagePullSecrets:
   - name: gitlab
