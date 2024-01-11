@@ -7,7 +7,7 @@ data:
     {{- tpl .Values.nginx_config . | nindent 4 }}
 
   config.js: |
-    var PolicyActConfig = {
+    var ActsMfeTopupConfig = {
         baseUrl: 'https://{{ .Values.hosts | first }}', // baseUrl utilisée pour charger les assets dans les templates
         keycloakConfig: {
             url: 'https://{{ .Values.config.keycloak.url }}/auth',
@@ -31,17 +31,17 @@ data:
 
     // pour Angular
     if (typeof window !== 'undefined') {
-        window.PolicyActConfig = PolicyActConfig;
+        window.ActsMfeTopupConfig = ActsMfeTopupConfig;
 
         // chargement des configs des microfrontends consommés
-        var configs = PolicyActConfig.urls.configs;
+        var configs = ActsMfeTopupConfig.urls.configs;
         Object.keys(configs).forEach(function (key) {
             var script = document.createElement('script');
             script.src = configs[key];
             document.head.appendChild(script);
         });
 
-        var fonts = PolicyActConfig.urls.fonts;
+        var fonts = ActsMfeTopupConfig.urls.fonts;
         Object.keys(fonts).forEach(function (key) {
             var link = document.createElement('link');
             link.rel = 'stylesheet';
@@ -54,5 +54,5 @@ data:
 
     // pour Webpack
     if (typeof exports !== 'undefined') {
-        exports.PolicyActConfig = PolicyActConfig;
+        exports.ActsMfeTopupConfig = ActsMfeTopupConfig;
     }

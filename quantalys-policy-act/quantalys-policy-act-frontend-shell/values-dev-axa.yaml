@@ -7,8 +7,8 @@ config:
     realm: AWSUsers
     client_id: quantalys-web
   micro_frontends:
-    # - name: shift
-    #   host: quantalys-policy-act-frontend-mfe-shift-axa-k8s.dev.harvest.fr
+    - name: shift
+      host: quantalys-policy-act-frontend-mfe-shift-axa-k8s.dev.harvest.fr
     - name: topup
       host: quantalys-policy-act-mfe-topup-axa-k8s.dev.harvest.fr
   backend:
