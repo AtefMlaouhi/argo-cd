@@ -41,6 +41,7 @@ data:
             },
         },
         remotesConfigName: {
+            shift: 'ActsMfeShiftConfig',
             topup: 'ActsMfeTopupConfig',
         },
         version: '{{ .Values.image.tag }}'
