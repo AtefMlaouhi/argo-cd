@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0011-24868
+  tag: 1.3.0-alpha0012-24876
 podAnnotations:
   env: dev
-  version: 1.3.0-alpha0011-24868
+  version: 1.3.0-alpha0012-24876
 replicaCount: 1
 env:
   - name: OpenTelemetry__Endpoint
