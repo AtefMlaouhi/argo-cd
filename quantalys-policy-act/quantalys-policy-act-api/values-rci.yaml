@@ -66,7 +66,6 @@ appsettingsJson:
   Minio__IsActive: true
   Minio__IsSecure: true
   SseAPIs__Lang: FR
-  SseAPIs__ApplicationId: application-4c736984-155f-49d2-81c7-b6117720599c
-  SseAPIs__TenantId: tenant-6f0f6355-308c-4f86-8dab-6fe050aa6bd9
+  SseAPIs__ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   SSEToken__clientId: fake-esign-api-client
   UserProxyToken__clientId: quantalys-user-proxy-api

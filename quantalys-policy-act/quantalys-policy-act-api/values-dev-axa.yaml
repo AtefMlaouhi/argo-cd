@@ -98,3 +98,4 @@ appsettingsJson:
   Minio__IsSecure: true 
   ProductAPIsToken__clientId: plateformewealth-app
   ProductAPIsToken__username: allurefinance@a.fr
+  SseAPIs__TenantId: b67bf86a-b02d-4f0e-b6d5-6095ab3e1b04

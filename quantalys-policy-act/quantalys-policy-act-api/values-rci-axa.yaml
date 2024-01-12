@@ -88,3 +88,4 @@ appsettingsJson:
   Minio__BucketName: quantalys-policy-act-axa
   Minio__IsActive: true
   Minio__IsSecure: true
+  SseAPIs__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9

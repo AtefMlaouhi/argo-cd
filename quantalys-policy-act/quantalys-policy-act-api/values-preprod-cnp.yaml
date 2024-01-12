@@ -88,3 +88,4 @@ appsettingsJson:
   Minio__BucketName: quantalys-policy-act-cnp
   Minio__IsActive: false
   Minio__IsSecure: true
+  SseAPIs__TenantId: e57fa96d-bfe5-4735-9f68-21486e45c6dd
