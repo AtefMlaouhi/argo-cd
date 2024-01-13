@@ -3,7 +3,7 @@ hosts:
 config:
   keycloak:
     enabled: false
-    url: auth-r7.harvest.fr
+    url: auth-preprod.harvest.fr
     realm: CNPUsers
     client_id: quantalys-web
   micro_frontends:

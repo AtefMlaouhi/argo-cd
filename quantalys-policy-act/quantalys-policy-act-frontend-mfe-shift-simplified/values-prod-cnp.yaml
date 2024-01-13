@@ -2,10 +2,10 @@ hosts:
   - quantalys-policy-act-frontend-cnp-shift-simplified-mfe.harvest.fr
 config:
   keycloak:
-    url: auth-preprod.harvest.fr
+    url: auth.harvest.fr
     realm: CNPUsers
     client_id: quantalys-web
   backend:
     url: quantalys-policy-act-bff-cnp-k8s.harvest.fr
   redirect:
-    operations: cnp-pw.quantalys.com/Contrats/Recherche
+    operations: cnp-alyses.com/Contrats/Recherche
