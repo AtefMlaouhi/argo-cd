@@ -24,6 +24,7 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Financial.Document.Api
   HarvestConfiguration__Domain: Quantalys.Financial.Document
   HarvestConfiguration__Environment: dev
+  KeycloakRealm: https://keycloak-dev.harvest-r7.fr/auth/realms/quantalys
   OpenTelemetry__ExportMetrics: false
   OpenTelemetry__ExportTraces: false
   OpenTelemetry__ServiceName: ""
@@ -32,3 +33,4 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
+  SettingsOptions__PathDoc: ""
