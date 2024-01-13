@@ -59,14 +59,6 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-#          livenessProbe:
-#             httpGet:
-#              path: {{ .Values.probes.livenessPath | default "/" }}
-#              port: http
-          readinessProbe:
-             httpGet:
-              path: {{ .Values.probes.readinessPath | default "/" }}
-              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
