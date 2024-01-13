@@ -1,18 +1,36 @@
 hosts:
   - quantalys-financial-document-api-k8s.rci.harvest.fr
 image:
-  tag: 1.1.0-alpha.17
+  tag: 0.1.0
 podAnnotations:
   env: rci
-  version: 1.1.0-alpha.17
+  version: 0.1.0
 replicaCount: 1
 env:
-  - name: HubAPIs__BaseAddress
+  - name: ConnectionStrings__BaseFrance
     valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: hub-subscription-api
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-base-france
+  - name: ConnectionStrings__QuantaReplicationManagement
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-quanta-replication
 appsettingsJson:
   AllowedHosts: "*"
-  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  ApplicationName: Quantalys.Financial.Document.Api
+  AppName__Name: Quantalys.Financial.Document.Api
+  HarvestConfiguration__ApplicationName: Quantalys.Financial.Document.Api
+  HarvestConfiguration__Domain: Quantalys.Financial.Document
   HarvestConfiguration__Environment: rci
+  KeycloakRealm: https://keycloak-rci.harvest-r7.fr/auth/realms/quantalys
+  OpenTelemetry__ExportMetrics: false
+  OpenTelemetry__ExportTraces: false
+  OpenTelemetry__ServiceName: ""
+  OpenTelemetry__Endpoint: ""
+  OpenTelemetry__TracesPath: ""
+  OpenTelemetry__MetricsPath: ""
+  OpenTelemetry__ActivitySourceName: ""
+  OpenTelemetry__MeterName: ""
+  SettingsOptions__PathDoc: ""

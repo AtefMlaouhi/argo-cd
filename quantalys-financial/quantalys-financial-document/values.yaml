@@ -1,6 +1,6 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.financial.document.api
+  repository: quantalys.document.api
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
