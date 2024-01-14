@@ -49,4 +49,4 @@ appsettingsJson:
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
   ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
-  JwtKeyCloak__Audience: quantalys-policy-act-backend-api
+  JwtKeyCloak__Audience: quantalys-gateway-api

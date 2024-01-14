@@ -46,4 +46,4 @@ appsettingsJson:
   ApiGatewayConfiguration__Providers__0__TenantId: b67bf86a-b02d-4f0e-b6d5-6095ab3e1b04
   ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
   ApiGatewayConfiguration__Providers__1__TenantId: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9
-  JwtKeyCloak__Audience: quantalys-policy-act-backend-api
+  JwtKeyCloak__Audience: quantalys.gateway.api.audience
