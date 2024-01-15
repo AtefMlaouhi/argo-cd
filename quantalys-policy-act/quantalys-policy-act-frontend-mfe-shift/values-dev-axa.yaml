@@ -9,5 +9,5 @@ config:
   backend:
     url: quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
   redirect:
-    operations: aws-pw-dev.quantalys.com/Contrats/Recherche
+    operations: aws-pw-dev.quantalys.com/Standard/Operation/Suivi
     contract: aws-pw-dev.quantalys.com/Contrats/Synthese?sNumero=    

@@ -8,5 +8,5 @@ config:
   backend:
     url: quantalys-policy-act-bff-axa-api-preprod.harvest.fr
   redirect:
-    operations: awd-pp.axa.fr/Contrats/Recherche
+    operations: awd-pp.axa.fr/Standard/Operation/Suivi
     contract: awd-pp.axa.fr/Contrats/Synthese?sNumero=
