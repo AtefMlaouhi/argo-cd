@@ -21,3 +21,4 @@ appsettingsJson:
   FrontBaseUrl: https://quantalys-policy-act-cnp-api-k8s.recette.harvest.fr
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
   OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-bff-cnp-api
+  Tenant__Name: cnp
