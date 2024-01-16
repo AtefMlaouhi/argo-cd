@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0010-24895
+  tag: 1.3.0-alpha0011-24945
 podAnnotations:
   env: dev
-  version: 1.3.0-alpha0010-24895
+  version: 1.3.0-alpha0011-24945
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -31,5 +31,5 @@ appsettingsJson:
   HarvestConfiguration__Environment: dev
   HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
   HubToken__scope: harvest.acte.subscription
-  Jwt__Audience: quantalys-policy-act-backend-api
+  Jwt__Audiences: ["quantalys-policy-act-backend-api", "quantalys-policy-act-policyholder-api"]
   UserProxyToken__clientId: quantalys-user-proxy-api
