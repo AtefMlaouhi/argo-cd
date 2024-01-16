@@ -8,4 +8,3 @@ data:
 
   config.js: |
     {{- tpl .Values.shell_config . | nindent 4 }}
-
