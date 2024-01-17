@@ -20,5 +20,7 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   FrontBaseUrl: https://quantalys-policy-act-axa-k8s.rci.harvest.fr
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
+  OpenTelemetry__ActivityName: quantalsys-policy-act-bff-axa-api-activity
+  OpenTelemetry__MeterName: quantalsys-policy-act-bff-axa-api-meter
   OpenTelemetry__ServiceName: rci-quantalsys-policy-act-bff-axa-api
   Tenant__Name: axa
