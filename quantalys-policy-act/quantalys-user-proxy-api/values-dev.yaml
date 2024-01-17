@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha0031-25097
+  tag: 0.1.0-alpha0033-25102
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha0031-25097
+  version: 0.1.0-alpha0033-25102
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
@@ -29,4 +29,5 @@ appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: dev
-  OpenTelemetry__ActivityName: quantalys-user-proxy-axa-api
+  OpenTelemetry__ActivityName: quantalys-user-proxy-axa-activity
+  OpenTelemetry__MeterName: quantalys-user-proxy-axa-meter
