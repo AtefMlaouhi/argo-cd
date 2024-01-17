@@ -89,8 +89,6 @@ appsettingsJson:
   SseAPIs__ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   SSEToken__clientId: fake-esign-api-client
   UserProxyToken__clientId: quantalys-user-proxy-api
-  OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
-  OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
   ProductAPIsToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
   ProductAPIsToken__scope: harvest.acte.subscription
   ProductAPIs__BaseAddress: https://plateform-api-products.flex-rci.harvest.fr
