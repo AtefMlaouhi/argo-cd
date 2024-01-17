@@ -70,6 +70,8 @@ appsettingsJson:
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
   Minio__IsActive: true
   Minio__IsSecure: true
+  OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
+  OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
   SseAPIs__Lang: FR
   SseAPIs__ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   SSEToken__clientId: fake-esign-api-client
