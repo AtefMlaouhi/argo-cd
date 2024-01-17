@@ -8,4 +8,4 @@ config:
   backend:
     url: quantalys-policy-act-bff-cnp-k8s.recette.harvest.fr
   redirect:
-    operations: cnp-pw-recette.quantalys.com/Contrats/Recherche
+    operations: cnp-pw-recette.quantalys.com/Standard/Operation/Suivi
