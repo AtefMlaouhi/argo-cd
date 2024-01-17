@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0012-25017
+  tag: 1.3.0-alpha0013-25162
 podAnnotations:
   env: rci
-  version: 1.3.0-alpha0012-25017
+  version: 1.3.0-alpha0013-25162
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -10,7 +10,7 @@ env:
       configMapKeyRef:
         name: api-routes
         key: hub-subscription-api
-  - name: OpenTelemetry__Endpoint
+  - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
         name: instrumentation
@@ -20,6 +20,11 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
   - name: UserProxyAPI__BaseAddress
     valueFrom:
       configMapKeyRef:

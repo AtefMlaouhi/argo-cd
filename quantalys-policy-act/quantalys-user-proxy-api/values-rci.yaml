@@ -29,5 +29,3 @@ appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: rci
-  OpenTelemetry__ActivityName: quantalys-user-proxy-axa-activity
-  OpenTelemetry__MeterName: quantalys-user-proxy-axa-meter
