@@ -34,10 +34,10 @@ appsettingsJson:
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
   ApiGatewayConfiguration__Providers__0__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
-  ApiGatewayConfiguration__Providers__0__PolicyHolder__BaseAddress: https://quantalys-policy-act-axa-api-k8s.dev.harvest.fr/
+  ApiGatewayConfiguration__Providers__0__PolicyHolder__BaseAddress: https://quantalys-policy-act-policyholder-axa-api-k8s.dev.harvest.fr/
   ApiGatewayConfiguration__Providers__0__PolicyHolder__ClientId: quantalys-policy-act-policyholder-api
   ApiGatewayConfiguration__Providers__0__PolicyHolder__ClientSecret: S8U5NqZDuUBTxZhPmBy36XqhTdMuH2v3
-  ApiGatewayConfiguration__Providers__0__Acts__BaseAddress: https://quantalys-policy-act-policyholder-axa-api-k8s.dev.harvest.fr/
+  ApiGatewayConfiguration__Providers__0__Acts__BaseAddress: https://quantalys-policy-act-axa-api-k8s.dev.harvest.fr/
   ApiGatewayConfiguration__Providers__0__Acts__ClientId: quantalys-policy-act-api
   ApiGatewayConfiguration__Providers__0__Acts__ClientSecret: wcyIVlImOUc01CsmRirXb0Mt8N4VfEf2
   ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
@@ -45,7 +45,7 @@ appsettingsJson:
   ApiGatewayConfiguration__Providers__1__PolicyHolder__BaseAddress: https://foo/
   ApiGatewayConfiguration__Providers__1__PolicyHolder__ClientId: ""
   ApiGatewayConfiguration__Providers__1__PolicyHolder__ClientSecret: ""
-  ApiGatewayConfiguration__Providers__1__Acts__BaseAddress: https://quantalys-policy-act-policyholder-cnp-api-k8s.dev.harvest.fr/
+  ApiGatewayConfiguration__Providers__1__Acts__BaseAddress: https://quantalys-policy-act-cnp-api-k8s.dev.harvest.fr/
   ApiGatewayConfiguration__Providers__1__Acts__ClientId: quantalys-policy-act-api
   ApiGatewayConfiguration__Providers__1__Acts__ClientSecret: Big1QKMxhrNGLIzQrwMgjIZyMTVNVLnB
   JwtKeyCloak__BaseAddress: https://keycloak-dev.harvest-r7.fr/auth/realms/
