@@ -84,8 +84,10 @@ appsettingsJson:
   Insurer__Name: axa  
   Insurer__Code: AWS
   Insurer__TenantId: d151f9d9-88c1-478e-9cf8-544700066e0e
+  OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
+  OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
   OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-axa-api
   Minio__BucketName: quantalys-policy-act-axa
-  Minio__IsActive: false
+  Minio__IsActive: true
   Minio__IsSecure: true
   SseAPIs__TenantId: d151f9d9-88c1-478e-9cf8-544700066e0e
