@@ -6,7 +6,7 @@ config:
     realm: AWSUsers
     client_id: quantalys-web
   backend:
-    url: quantalys-policy-act-bff-axa-api-preprod.harvest.fr
+    url: quantalys-policy-act-bff-axa-api.harvest.fr
   redirect:
     operations: awd.axa.fr/Standard/Operation/Suivi
     contract: awd.axa.fr/Contrats/Synthese?sNumero=
