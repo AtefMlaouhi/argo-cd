@@ -5,16 +5,21 @@ podAnnotations:
   version: 1.3.0-alpha0022-25230
 replicaCount: 1
 env:
-  - name: OpenTelemetry__Endpoint
+  - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
         name: instrumentation
-        key: opentelemetry-collector-api
+        key: opentelemetry-collector-host
   - name: OpenTelemetry__ExportMetrics
     valueFrom:
       configMapKeyRef:
         name: instrumentation
         key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
   - name: SSEKeyCloak__clientSecret
     valueFrom:
       secretKeyRef:

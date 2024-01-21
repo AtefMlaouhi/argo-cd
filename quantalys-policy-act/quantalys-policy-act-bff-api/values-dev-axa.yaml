@@ -22,5 +22,5 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   OpenTelemetry__ActivityName: quantalys-policy-act-bff-axa-api-activity
   OpenTelemetry__MeterName: quantalys-policy-act-bff-axa-api-meter
-  OpenTelemetry__ServiceName: dev-quantalys-user-proxy-axa-api
+  OpenTelemetry__ServiceName: dev-quantalys-policy-act-bff-axa-api
   Tenant__Name: axa

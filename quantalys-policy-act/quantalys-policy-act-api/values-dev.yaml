@@ -77,7 +77,6 @@ env:
         key: user-hub-subscription        
 appsettingsJson:
   AllowedHosts: "*"
-  FileUpload__Path: "C:\\tmp"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
   HubToken__scope: harvest.acte.subscription

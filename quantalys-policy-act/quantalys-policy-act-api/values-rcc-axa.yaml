@@ -81,12 +81,12 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   HubToken__clientId: plateformewealth-app
   HubToken__username: allurefinance@a.fr
-  Insurer__Name: axa  
   Insurer__Code: AWS
+  Insurer__Name: axa
   Insurer__TenantId: 353b4c54-44c3-4384-ab83-8a587a1a3e68
   OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
   OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
-  OpenTelemetry__ServiceName: rci-quantalsys-policy-act-axa-api
+  OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-axa-api
   Minio__BucketName: quantalys-policy-act-axa
   Minio__IsActive: true
   Minio__IsSecure: true

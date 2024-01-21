@@ -22,5 +22,5 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
   OpenTelemetry__ActivityName: quantalys-policy-act-bff-cnp-api-activity
   OpenTelemetry__MeterName: quantalys-policy-act-bff-cnp-api-meter
-  OpenTelemetry__ServiceName: dev-quantalys-user-proxy-cnp-api
+  OpenTelemetry__ServiceName: dev-quantalys-policy-act-bff-cnp-api
   Tenant__Name: cnp

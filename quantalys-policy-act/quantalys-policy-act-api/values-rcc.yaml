@@ -60,9 +60,23 @@ env:
       configMapKeyRef:
         name: keycloak
         key: grant-type-client-credentials
+  - name: ProductAPIsToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-password
+  - name: ProductAPIsToken__lang
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: language
+  - name: ProductAPIsToken__password
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: user-hub-subscription        
 appsettingsJson:
   AllowedHosts: "*"
-  FileUpload__Path: "C:\\tmp"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rcc
   HubToken__scope: harvest.acte.subscription
