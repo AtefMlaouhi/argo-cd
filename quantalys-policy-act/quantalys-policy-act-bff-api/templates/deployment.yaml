@@ -46,7 +46,6 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.extraEnv }}
-          
             {{- toYaml . | nindent 12 }}
           {{- end }}
           envFrom:

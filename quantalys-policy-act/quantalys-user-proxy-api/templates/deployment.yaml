@@ -16,7 +16,7 @@ spec:
       {{- with .Values.podAnnotations }}
       annotations:
         prometheus.io/scrape: "true"
-        prometheus.io/port: "80"
+        prometheus.io/port: "8080"
         prometheus.io/path: "/q/metrics"
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -46,7 +46,6 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.extraEnv }}
-          
             {{- toYaml . | nindent 12 }}
           {{- end }}
           envFrom:
@@ -55,7 +54,7 @@ spec:
                 optional: false 
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
               protocol: TCP
 #          livenessProbe:
 #             httpGet:
