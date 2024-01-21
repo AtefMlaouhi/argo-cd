@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha.14
+  tag: 1.3.0-alpha0015-25302
 podAnnotations:
   env: dev
-  version: 1.3.0-alpha.14
+  version: 1.3.0-alpha0015-25302
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
