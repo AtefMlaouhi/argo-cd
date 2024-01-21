@@ -80,12 +80,14 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Cnp.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Cnp.Api
   HubToken__clientId: plateformewealth-app
-  HubToken__username: allurefinance@a.fr
-  Insurer__Name: cnp  
+  HubToken__username: cnp-preprod-user3
   Insurer__Code: CNP
-  Insurer__TenantId: d151f9d9-88c1-478e-9cf8-544700066e0e
+  Insurer__Name: cnp
+  Insurer__TenantId: e57fa96d-bfe5-4735-9f68-21486e45c6dd
+  OpenTelemetry__ActivityName: quantalys-policy-act-cnp-activity
+  OpenTelemetry__MeterName: quantalys-policy-act-cnp-meter
   OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-cnp-api
   Minio__BucketName: quantalys-policy-act-cnp
-  Minio__IsActive: false
+  Minio__IsActive: true
   Minio__IsSecure: true
   SseAPIs__TenantId: e57fa96d-bfe5-4735-9f68-21486e45c6dd

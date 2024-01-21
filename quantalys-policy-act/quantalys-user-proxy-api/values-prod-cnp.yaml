@@ -18,5 +18,7 @@ extraEnv:
         key: issuer-cnp
 appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.User.Proxy.Cnp.Api
-  Tenant__Name: CNP
+  Tenant__Name: cnp
+  OpenTelemetry__ActivityName: quantalys-user-proxy-cnp-activity
+  OpenTelemetry__MeterName: quantalys-user-proxy-cnp-meter
   OpenTelemetry__ServiceName: quantalys-user-proxy-cnp-api

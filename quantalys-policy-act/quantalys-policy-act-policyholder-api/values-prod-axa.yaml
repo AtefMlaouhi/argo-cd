@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-policyholder-axa-api-preprod.harvest.fr
+  - quantalys-policy-act-policyholder-axa-api.harvest.fr
 extraEnv:
   - name: ConnectionStrings__PolicyHolderContext
     valueFrom:
@@ -65,5 +65,5 @@ appsettingsJson:
   Insurer__Name: axa
   OpenTelemetry__ActivityName: quantalsys-policy-act-policyholder-axa-activity
   OpenTelemetry__MeterName: quantalsys-policy-act-policyholder-axa-meter
-  OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-policyholder-axa-api
+  OpenTelemetry__ServiceName: quantalsys-policy-act-policyholder-axa-api
   
