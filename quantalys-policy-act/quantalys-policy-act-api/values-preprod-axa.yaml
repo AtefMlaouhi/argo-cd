@@ -80,7 +80,7 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   HubToken__clientId: plateformewealth-app
-  HubToken__username: allurefinance@a.fr
+  HubToken__username: pentest_2@harvest.fr
   Insurer__Code: AWS
   Insurer__Name: axa
   Insurer__TenantId: d151f9d9-88c1-478e-9cf8-544700066e0e
