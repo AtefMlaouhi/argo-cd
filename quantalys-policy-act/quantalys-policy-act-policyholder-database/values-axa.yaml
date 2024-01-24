@@ -129,6 +129,7 @@ postgresql:
               policy_holder_id varchar(50) NOT NULL,
               is_politically_exposed boolean NULL,
               is_american_citizen_or_tax_citizen boolean NULL,
+              tin varchar(50) NULL,
               created_date timestamp with time zone NOT NULL DEFAULT (CURRENT_TIMESTAMP at time zone 'UTC'),
               created_by varchar(50) NOT NULL,
               updated_date timestamp with time zone NOT NULL,
