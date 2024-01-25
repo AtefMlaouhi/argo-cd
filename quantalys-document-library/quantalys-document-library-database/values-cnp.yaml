@@ -42,26 +42,22 @@ postgresql:
 
           -- Create SCHEMA
           CREATE SCHEMA IF NOT EXISTS cnp;
-          
           -- Default grants
           REVOKE CONNECT ON DATABASE document_library FROM PUBLIC;
           REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
           GRANT ALL ON DATABASE document_library TO postgres;
-          
           -- Grants to document_library_reader
           GRANT CONNECT ON DATABASE document_library TO "document_library_reader";
           GRANT USAGE ON SCHEMA cnp TO "document_library_reader";
           GRANT SELECT ON ALL TABLES IN SCHEMA cnp TO "document_library_reader";
           ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT ON TABLES TO "document_library_reader";
           GRANT CONNECT ON DATABASE document_library TO "svc_document_library";
-          
           -- Grants to svc_document_library
           GRANT USAGE ON SCHEMA cnp TO "svc_document_library";
           GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA cnp TO "svc_document_library";
           GRANT USAGE,SELECT ON ALL SEQUENCES IN SCHEMA cnp to "svc_document_library";
           ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "svc_document_library";
           ALTER DEFAULT PRIVILEGES IN SCHEMA cnp GRANT SELECT ON TABLES TO "document_library_reader";
-          
           -- Create Migration Table
           CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
             migration_id character varying(150) NOT NULL,
@@ -187,7 +183,7 @@ postgresql:
           VALUES ('20240123142720_deleteScoreProperty', '7.0.14');
           COMMIT;
           START TRANSACTION;
-          ALTER TABLE cnp.document_library ADD slug text NOT NULL DEFAULT '';
+          ALTER TABLE cnp.document_library ADD slug text NULL DEFAULT '';
           INSERT INTO "__EFMigrationsHistory" (migration_id, product_version)
           VALUES ('20240123154132_addSlug', '7.0.14');
           COMMIT;
