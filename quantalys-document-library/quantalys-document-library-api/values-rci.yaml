@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.112
+  tag: 0.1.0-alpha0114-25929
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha.112
+  version: 0.1.0-alpha0114-25929
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
@@ -27,6 +27,4 @@ appsettingsJson:
   Documents__UserRoleFilter : apporteur
   HarvestConfiguration__Domain: Quantalys.Document.Library
   HarvestConfiguration__Environment: rci
-  UserProxy__BaseAddress: https://quantalys-user-proxy-cnp-api-k8s.rci.harvest.fr/
   UserProxy__ClientId: quantalys-user-proxy-api
-  UserProxy__ClientSecret: TLgSPeZRnfk0HNT6jYnO5uLuYLrVVDJN
