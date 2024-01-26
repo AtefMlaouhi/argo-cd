@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha.105
+  tag: 0.1.0-alpha0116-25946
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha.105
+  version: 0.1.0-alpha0116-25946
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
@@ -22,5 +22,9 @@ env:
         key: flag-export-metrics
 appsettingsJson:
   Authentication__Audience: quantalys-document-library-api
+  Authentication__BaseAddress: https://keycloak-dev.harvest-r7.fr/auth/realms/
+  Culture__DefaultCulture : en-US
+  Documents__UserRoleFilter : apporteur
   HarvestConfiguration__Domain: Quantalys.Document.Library
   HarvestConfiguration__Environment: dev
+  UserProxy__ClientId: quantalys-user-proxy-api
