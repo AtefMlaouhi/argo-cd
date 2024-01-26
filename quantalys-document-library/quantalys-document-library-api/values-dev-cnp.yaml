@@ -38,6 +38,7 @@ appsettingsJson:
   OpenTelemetry__ServiceName: dev-quantalys-document-library-api
   Minio__BucketName: document-library-cnp
   Minio__IsSecure: true
+  Tenant__Code: cnp
   Tenant__Id: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9
   UserProxy__BaseAddress: https://quantalys-user-proxy-cnp-api-k8s.dev.harvest.fr/
   UserProxy__ClientSecret: aOF3gElO9wr4P8DGWmo29dAk4hoDavb6
