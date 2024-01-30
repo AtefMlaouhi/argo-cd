@@ -32,6 +32,8 @@ env:
         key: token-url-app
 appsettingsJson:
   AllowedHosts: "*"
+  GetDocumentBundleRetry__DelayInSeconds: 3
+  GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: preprod
   Jwt__Audience: quantalys-policy-act-backend-api

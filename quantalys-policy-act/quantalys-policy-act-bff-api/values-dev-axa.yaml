@@ -20,8 +20,6 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   FrontBaseUrl: https://quantalys-policy-act-axa-k8s.dev.harvest.fr
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
-  GetDocumentBundleRetry__DelayInSeconds: 3
-  GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   OpenTelemetry__ActivityName: quantalys-policy-act-bff-axa-api-activity
   OpenTelemetry__MeterName: quantalys-policy-act-bff-axa-api-meter
