@@ -78,6 +78,7 @@ extraEnv:
         key: token-url-cnp
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Cnp.Api
+  GetDocumentBundleRetry__ErrorCodes: ""
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Cnp.Api
   HubToken__clientId: plateformewealth-app
   HubToken__username: cnp-rci-user3

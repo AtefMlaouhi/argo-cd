@@ -78,6 +78,7 @@ extraEnv:
         key: token-url-axa
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
+  GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   HubToken__clientId: plateformewealth-app
   HubToken__username: pentest_2@harvest.fr

@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0005-26186
+  tag: 2.1.0-alpha0006-26203
 podAnnotations:
   env: rci
-  version: 2.1.0-alpha0005-26186
+  version: 2.1.0-alpha0006-26203
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -77,6 +77,8 @@ env:
         key: user-hub-subscription        
 appsettingsJson:
   AllowedHosts: "*"
+  GetDocumentBundleRetry__DelayInSeconds: 3
+  GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
   HubToken__scope: harvest.acte.subscription

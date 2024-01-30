@@ -77,6 +77,8 @@ env:
         key: user-hub-subscription        
 appsettingsJson:
   AllowedHosts: "*"
+  GetDocumentBundleRetry__DelayInSeconds: 3
+  GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
   HubToken__scope: harvest.acte.subscription

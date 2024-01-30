@@ -79,6 +79,8 @@ appsettingsJson:
   AllowedHosts: "*"
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: preprod
+  GetDocumentBundleRetry__DelayInSeconds: 3
+  GetDocumentBundleRetry__RetryCount: 5
   HubToken__scope: harvest.acte.subscription
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
