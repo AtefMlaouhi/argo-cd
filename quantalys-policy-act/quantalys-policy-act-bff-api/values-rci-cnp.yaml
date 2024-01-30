@@ -19,6 +19,7 @@ extraEnv:
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
   FrontBaseUrl: https://quantalys-policy-act-cnp-k8s.rci.harvest.fr
+  GetDocumentBundleRetry__ErrorCodes: ""
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
   OpenTelemetry__ActivityName: quantalys-policy-act-bff-cnp-api-activity
   OpenTelemetry__MeterName: quantalys-policy-act-bff-cnp-api-meter
