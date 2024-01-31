@@ -88,7 +88,7 @@ appsettingsJson:
   OpenTelemetry__ActivityName: quantalys-policy-act-cnp-activity
   OpenTelemetry__MeterName: quantalys-policy-act-cnp-meter
   OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-cnp-api
-  Minio__BucketName: quantalys-policy-act-cnp
+  Minio__BucketName: obs-eu-west-0-pw-rcc-cnp-policy-act-01
   Minio__IsActive: true
   Minio__IsSecure: true
   SseAPIs__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
