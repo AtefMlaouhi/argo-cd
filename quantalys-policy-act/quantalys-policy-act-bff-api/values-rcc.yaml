@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0024-25413
+  tag: 2.1.0-alpha0003-26185
 podAnnotations:
   env: rcc
-  version: 1.3.0-alpha0024-25413
+  version: 2.1.0-alpha0003-26185
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
