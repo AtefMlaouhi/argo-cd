@@ -1,0 +1,30 @@
+image:
+  tag: 0.1.0-alpha0116-25946
+podAnnotations:
+  env: rcc
+  version: 0.1.0-alpha0116-25946
+replicaCount: 1
+env:
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
+  - name: OpenTelemetry__Endpoint
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-api
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+appsettingsJson:
+  Authentication__Audience: quantalys-document-library-api
+  Authentication__BaseAddress: https://auth-r7.harvest.fr/auth/realms/
+  Culture__DefaultCulture : en-US
+  Documents__UserRoleFilter : apporteur
+  HarvestConfiguration__Domain: Quantalys.Document.Library
+  HarvestConfiguration__Environment: rcc
+  UserProxy__ClientId: quantalys-user-proxy-api
