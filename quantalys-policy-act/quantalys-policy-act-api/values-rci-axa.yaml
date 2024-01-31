@@ -92,3 +92,4 @@ appsettingsJson:
   Minio__IsActive: true
   Minio__IsSecure: true
   SseAPIs__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
+  Serilog__MinimumLevel__Default: Debug
