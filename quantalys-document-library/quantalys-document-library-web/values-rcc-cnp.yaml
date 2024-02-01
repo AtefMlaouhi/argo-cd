@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-document-library-cnp-recette.harvest.fr
+  - document-library-cnp-recette.harvest.fr
 config:
   keycloak:
     url: auth-r7.harvest.fr
