@@ -10,7 +10,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-hub-sa
+        key: client-hub-sa-api
   - name: HubToken__tokenUrl
     value: "https://keycloak-rci.harvest-r7.fr/auth/realms/CNPUsers/protocol/openid-connect/token"
 #    valueFrom:

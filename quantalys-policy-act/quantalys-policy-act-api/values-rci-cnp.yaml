@@ -10,7 +10,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-hub-sa
+        key: client-hub-sa-api
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
