@@ -80,7 +80,7 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Cnp.Api
   GetDocumentBundleRetry__ErrorCodes: ""
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Cnp.Api
-  HubToken__clientId: plateformewealth-app
+  HubToken__clientId: pw-cnp-sa
   HubToken__username: cnp-rce-user3
   Insurer__Code: CNP
   Insurer__Name: cnp
