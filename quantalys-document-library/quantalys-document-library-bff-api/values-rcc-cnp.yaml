@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-document-library-bff-cnp-api-recette.harvest.fr
+  - document-library-bff-cnp-api-recette.harvest.fr
 extraEnv:
   - name: Authentication__MetadataUrl
     valueFrom:

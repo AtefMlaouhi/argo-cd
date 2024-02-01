@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-document-library-cnp-api-api-recette.harvest.fr
+  - document-library-cnp-api-api-recette.harvest.fr
 extraEnv:
   - name: ConnectionStrings__DocumentLibraryContext
     valueFrom:
