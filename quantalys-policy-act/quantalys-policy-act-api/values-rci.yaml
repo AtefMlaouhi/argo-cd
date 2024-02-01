@@ -15,11 +15,6 @@ env:
       configMapKeyRef:
         name: keycloak
         key: grant-type-client-credentials
-  - name: HubToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription
   - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
@@ -60,11 +55,6 @@ env:
       configMapKeyRef:
         name: keycloak
         key: grant-type-client-password
-  - name: ProductAPIsToken__lang
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: language
   - name: ProductAPIsToken__password
     valueFrom:
       secretKeyRef:
