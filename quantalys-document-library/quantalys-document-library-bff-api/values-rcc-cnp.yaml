@@ -1,5 +1,5 @@
 hosts:
-  - document-library-bff-cnp-api-recette.harvest.fr
+  - third-party-content-bff-cnp-api-recette.harvest.fr
 extraEnv:
   - name: Authentication__MetadataUrl
     valueFrom:

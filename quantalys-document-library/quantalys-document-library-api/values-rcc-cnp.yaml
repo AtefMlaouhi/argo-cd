@@ -1,5 +1,5 @@
 hosts:
-  - document-library-cnp-api-api-recette.harvest.fr
+  - third-party-content-cnp-api-recette.harvest.fr
 extraEnv:
   - name: ConnectionStrings__DocumentLibraryContext
     valueFrom:
