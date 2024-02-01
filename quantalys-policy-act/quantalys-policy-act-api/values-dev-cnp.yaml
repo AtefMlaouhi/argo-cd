@@ -10,7 +10,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-plateformewealth-app
+        key: client-hub-sa
   - name: HubToken__tokenUrl
     value: "https://keycloak-rci.harvest-r7.fr/auth/realms/CNPUsers/protocol/openid-connect/token"
 #    valueFrom:
@@ -80,8 +80,7 @@ extraEnv:
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Cnp.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Cnp.Api
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: cnp-rci-user3
+  HubToken__clientId: pw-cnp-sa
   Insurer__Code: CNP
   Insurer__Name: cnp
   Insurer__TenantId: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9

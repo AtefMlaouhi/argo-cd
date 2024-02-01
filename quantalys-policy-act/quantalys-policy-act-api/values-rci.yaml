@@ -14,12 +14,7 @@ env:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-password
-  - name: HubToken__lang
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: language
+        key: grant-type-client-credentials
   - name: HubToken__password
     valueFrom:
       secretKeyRef:
@@ -81,7 +76,6 @@ appsettingsJson:
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
-  HubToken__scope: harvest.acte.subscription
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
   Minio__IsActive: true
