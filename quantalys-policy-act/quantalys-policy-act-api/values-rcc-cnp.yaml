@@ -10,7 +10,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-plateformewealth-app
+        key: client-hub-sa-api
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -21,6 +21,11 @@ extraEnv:
       configMapKeyRef:
         name: api-routes
         key: quantalys-investment-proxy-api
+  - name: HubToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
   - name: InvestmentToken__clientSecret
     valueFrom:
       secretKeyRef:
@@ -81,7 +86,6 @@ appsettingsJson:
   GetDocumentBundleRetry__ErrorCodes: ""
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Cnp.Api
   HubToken__clientId: pw-cnp-sa
-  HubToken__username: cnp-rce-user3
   Insurer__Code: CNP
   Insurer__Name: cnp
   Insurer__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
