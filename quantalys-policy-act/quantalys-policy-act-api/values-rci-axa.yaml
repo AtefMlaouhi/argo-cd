@@ -21,6 +21,11 @@ extraEnv:
       configMapKeyRef:
         name: keycloak
         key: grant-type-client-password
+  - name: HubToken__password
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: user-hub-subscription  
   - name: HubToken__lang
     valueFrom:
       configMapKeyRef:
