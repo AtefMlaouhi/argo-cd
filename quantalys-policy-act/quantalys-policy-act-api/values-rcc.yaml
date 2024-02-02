@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0007-26317
+  tag: 2.1.0-alpha0009-26432
 podAnnotations:
   env: rcc
-  version: 2.1.0-alpha0007-26317
+  version: 2.1.0-alpha0009-26432
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -10,21 +10,6 @@ env:
       configMapKeyRef:
         name: api-routes
         key: hub-subscription-api
-  - name: HubToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-password
-  - name: HubToken__lang
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: language
-  - name: HubToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription
   - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
@@ -81,7 +66,6 @@ appsettingsJson:
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rcc
-  HubToken__scope: harvest.acte.subscription
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
   Minio__IsActive: true
