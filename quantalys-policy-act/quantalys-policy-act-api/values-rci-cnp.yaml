@@ -21,6 +21,11 @@ extraEnv:
       configMapKeyRef:
         name: api-routes
         key: quantalys-investment-proxy-api
+  - name: HubToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
   - name: InvestmentToken__clientSecret
     valueFrom:
       secretKeyRef:
