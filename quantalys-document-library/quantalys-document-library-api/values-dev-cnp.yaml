@@ -6,7 +6,6 @@ extraEnv:
       secretKeyRef:
         name: connection-strings
         key: sqlserver-document-library-cnp
-
 appsettingsJson:
   Database__DefaultSchema: cnp
   Documents__MostViewedItemCount: 15

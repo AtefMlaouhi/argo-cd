@@ -10,26 +10,6 @@ env:
       configMapKeyRef:
         name: keycloak
         key: require-https-metadata
-  - name: Authentication__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: realms
-  - name: OpenTelemetry__CollectorHost
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: opentelemetry-collector-host
-  - name: OpenTelemetry__ExportMetrics
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: flag-export-metrics
-  - name: OpenTelemetry__Protocol
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: protocol
 appsettingsJson:
   Authentication__Audience: quantalys-document-library-api
   Culture__DefaultCulture : en-US
