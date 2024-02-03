@@ -5,7 +5,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: postegresql-document-library-cnp
+        key: sqlserver-document-library-cnp
   - name: Authentication__MetadataUrl
     valueFrom:
       configMapKeyRef:
@@ -31,6 +31,16 @@ extraEnv:
       secretKeyRef:
         name: bucket
         key: secret-key
+  - name: UserProxy__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-user-proxy-api
+  - name: UserProxy__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-proxy-api
 appsettingsJson:
   Database__DefaultSchema: cnp
   Documents__MostViewedItemCount: 15
@@ -40,5 +50,3 @@ appsettingsJson:
   Minio__IsSecure: true
   Tenant__Code: CNP
   Tenant__Id: e23b082c-f549-4111-bcce-65e2c48435b8
-  UserProxy__ClientSecret: TLgSPeZRnfk0HNT6jYnO5uLuYLrVVDJN
-  UserProxy__BaseAddress: https://quantalys-user-proxy-cnp-api-k8s.rci.harvest.fr/
