@@ -37,10 +37,12 @@ extraEnv:
         name: api-routes
         key: quantalys-user-proxy-api
   - name: UserProxy__ClientSecret
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: client-quantalys-user-proxy-api
+    value: "https://quantalys-user-proxy-cnp-api-k8s.rci.harvest.fr/"
+#  - name: UserProxy__ClientSecret
+#    valueFrom:
+#      secretKeyRef:
+#        name: keycloak
+#        key: client-quantalys-user-proxy-api
 appsettingsJson:
   Database__DefaultSchema: cnp
   Documents__MostViewedItemCount: 15
