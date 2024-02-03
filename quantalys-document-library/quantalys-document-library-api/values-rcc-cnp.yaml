@@ -5,7 +5,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: postegresql-document-library-cnp
+        key: sqlserver-document-library-cnp
   - name: Authentication__MetadataUrl
     valueFrom:
       configMapKeyRef:
@@ -36,6 +36,11 @@ extraEnv:
       configMapKeyRef:
         name: api-routes
         key: quantalys-user-proxy-api
+  - name: UserProxy__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-proxy-api
 appsettingsJson:
   Database__DefaultSchema: cnp
   Documents__MostViewedItemCount: 15
@@ -45,4 +50,3 @@ appsettingsJson:
   Minio__IsSecure: true
   Tenant__Code: CNP
   Tenant__Id: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
-  UserProxy__ClientSecret: dLQ49mOowcnkVZCSotQSzNHTeyaaAqNC

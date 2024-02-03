@@ -10,19 +10,28 @@ env:
       configMapKeyRef:
         name: keycloak
         key: require-https-metadata
-  - name: OpenTelemetry__Endpoint
+  - name: Authentication__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: realms
+  - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
         name: instrumentation
-        key: opentelemetry-collector-api
+        key: opentelemetry-collector-host
   - name: OpenTelemetry__ExportMetrics
     valueFrom:
       configMapKeyRef:
         name: instrumentation
         key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
 appsettingsJson:
   Authentication__Audience: quantalys-document-library-api
-  Authentication__BaseAddress: https://auth-r7.harvest.fr/auth/realms/
   Culture__DefaultCulture : en-US
   Documents__UserRoleFilter : apporteur
   HarvestConfiguration__Domain: Quantalys.Document.Library
