@@ -1,12 +1,12 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.document.api
+  repository: quantalys.financial.document.api
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
   - name: gitlab
 nameOverride: ""
-fullnameOverride: quantalys.financial.document.api
+fullnameOverride: "financial-document-api"
 
 podAnnotations:
   env: unspecified
