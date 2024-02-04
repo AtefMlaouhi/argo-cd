@@ -6,7 +6,7 @@ image:
 imagePullSecrets:
   - name: gitlab
 nameOverride: ""
-fullnameOverride: "financial-document-api"
+fullnameOverride: quantalys.financial.document.api
 
 podAnnotations:
   env: unspecified
