@@ -28,6 +28,7 @@ env:
 appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
   Caching__DurationInHours: 24
+  Caching__DurationInMinutes: 1440
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: rci
   OpenTelemetry__ActivityName: quantalys-user-proxy-axa-activity
