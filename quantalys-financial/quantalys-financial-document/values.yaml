@@ -17,10 +17,10 @@ appsettingsJson: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
-#probes:
-#  readinessPath: "/q/health/ready"
+probes:
+  readinessPath: "/q/health/ready"
 
 serviceAccount:
   create: true
@@ -30,9 +30,9 @@ serviceAccount:
 resources:
   requests:
     cpu: 50m
-    memory: 400Mi
+    memory: 384Mi
   limits:
-    memory: 400Mi
+    memory: 384Mi
 
 replicaCount: 1
 
