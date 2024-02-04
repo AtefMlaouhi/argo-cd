@@ -24,7 +24,7 @@ env:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-fake-esign-api
+        key: client-esign-api
   - name: SSEKeyCloak__tokenUrl
     valueFrom:
       configMapKeyRef:
