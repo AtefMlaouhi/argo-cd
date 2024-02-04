@@ -16,21 +16,6 @@ extraEnv:
       configMapKeyRef:
         name: keycloak
         key: issuer-axa
-  - name: OpenTelemetry__CollectorHost
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: opentelemetry-collector-host
-  - name: OpenTelemetry__ExportMetrics
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: flag-export-metrics
-  - name: OpenTelemetry__Protocol
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: protocol
 appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Investment.Proxy.Axa.Api
   Tenant__Name: axa

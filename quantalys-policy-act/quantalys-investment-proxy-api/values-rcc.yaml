@@ -10,16 +10,21 @@ env:
       configMapKeyRef:
         name: keycloak
         key: require-https-metadata
-  - name: OpenTelemetry__Endpoint
+  - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
         name: instrumentation
-        key: opentelemetry-collector-api
+        key: opentelemetry-collector-host
   - name: OpenTelemetry__ExportMetrics
     valueFrom:
       configMapKeyRef:
         name: instrumentation
         key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
 appsettingsJson:
   Authentication__Audience: quantalys-investment-proxy-api
   Caching__DurationInHours: 24
