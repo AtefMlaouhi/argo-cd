@@ -1,9 +1,9 @@
 hosts:
   - quantalys-policy-act-cnp-api-k8s.rci.harvest.fr
 image:
-  tag: 2.1.0-alpha0010-26594
+  tag: 2.1.0-alpha0010-26618
 podAnnotations:
-  version: 2.1.0-alpha0010-26594
+  version: 2.1.0-alpha0010-26618
 extraEnv:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
