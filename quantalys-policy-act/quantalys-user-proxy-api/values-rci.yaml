@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha0035-25823
+  tag: 0.1.0-alpha0037-26562
 podAnnotations:
   env: rci
-  version: 0.1.0-alpha0035-25823
+  version: 0.1.0-alpha0037-26562
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
@@ -27,7 +27,6 @@ env:
         key: protocol
 appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
-  Caching__DurationInHours: 24
   Caching__DurationInMinutes: 1440
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: rci
