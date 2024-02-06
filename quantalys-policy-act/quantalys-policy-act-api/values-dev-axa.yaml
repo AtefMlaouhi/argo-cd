@@ -17,11 +17,6 @@ extraEnv:
 #      configMapKeyRef:
 #        name: keycloak
 #        key: token-url-axa
-  - name: HubToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-password
   - name: HubToken__password
     valueFrom:
       secretKeyRef:

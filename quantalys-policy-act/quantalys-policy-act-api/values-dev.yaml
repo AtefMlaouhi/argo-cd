@@ -14,7 +14,7 @@ env:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-credentials
+        key: grant-type-client-password
   - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
