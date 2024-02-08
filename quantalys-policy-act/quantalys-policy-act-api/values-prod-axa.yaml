@@ -10,7 +10,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-plateformewealth-app
+        key: client-esign-api
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
