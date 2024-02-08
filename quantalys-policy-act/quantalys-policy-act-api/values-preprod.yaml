@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0018-25143
+  tag: 2.1.0-alpha0009-26432
 podAnnotations:
   env: preprod
-  version: 1.3.0-alpha0018-25143
+  version: 2.1.0-alpha0009-26432
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -77,10 +77,10 @@ env:
         key: user-hub-subscription        
 appsettingsJson:
   AllowedHosts: "*"
-  HarvestConfiguration__Domain: Quantalys.Policy.Act
-  HarvestConfiguration__Environment: preprod
   GetDocumentBundleRetry__DelayInSeconds: 3
   GetDocumentBundleRetry__RetryCount: 5
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  HarvestConfiguration__Environment: preprod
   HubToken__scope: harvest.acte.subscription
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
