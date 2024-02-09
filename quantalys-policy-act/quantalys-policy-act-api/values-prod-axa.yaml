@@ -10,7 +10,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-plateformewealth-app
+        key: client-hub-subscription-api
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -80,8 +80,7 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: allurefinance@a.fr
+  HubToken__clientId: pw-aws-sa
   Insurer__Code: AWS
   Insurer__Name: axa
   Insurer__TenantId: 70991372-9a3d-4aa8-9844-eef094017d00
