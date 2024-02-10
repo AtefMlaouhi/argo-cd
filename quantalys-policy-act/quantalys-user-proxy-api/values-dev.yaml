@@ -1,8 +1,8 @@
 image:
-  tag: 0.1.0-alpha0039-26654
+  tag: 0.1.0-alpha0040-27024
 podAnnotations:
   env: dev
-  version: 0.1.0-alpha0039-26654
+  version: 0.1.0-alpha0040-27024
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
@@ -15,6 +15,11 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
   - name: OpenTelemetry__ExportMetrics
     valueFrom:
       configMapKeyRef:
