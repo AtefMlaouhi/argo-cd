@@ -3,7 +3,10 @@ image:
 podAnnotations:
   env: prod
   version: 2.1.0-alpha0004-26318
-replicaCount: 1
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
 env:
   - name: OpenTelemetry__CollectorHost
     valueFrom:

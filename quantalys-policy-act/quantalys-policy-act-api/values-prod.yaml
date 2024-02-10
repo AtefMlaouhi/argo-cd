@@ -3,7 +3,10 @@ image:
 podAnnotations:
   env: prod
   version: 2.1.0-alpha0009-26432
-replicaCount: 1
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
 env:
   - name: HubAPIs__BaseAddress
     valueFrom:
