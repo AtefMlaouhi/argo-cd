@@ -3,9 +3,11 @@ image:
 podAnnotations:
   env: prod
   version: 1.2.13-beta.1
-replicaCount: 1
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
 config:
   keycloak:
     server: auth.harvest.fr
     logoutRedirectUrl: ''
-
