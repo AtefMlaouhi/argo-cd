@@ -3,7 +3,10 @@ image:
 podAnnotations:
   env: prod
   version: 0.1.0-alpha0035-25823
-replicaCount: 1
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 2
 env:
   - name: Authentication__RequireHttpsMetadata
     valueFrom:
