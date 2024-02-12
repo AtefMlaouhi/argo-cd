@@ -5,7 +5,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: sqlserver-policy-act-axa 
+        key: postegresql-policy-act-axa 
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
