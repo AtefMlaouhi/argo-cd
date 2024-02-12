@@ -1,11 +1,11 @@
 hosts:
   - quantalys-policy-act-policyholder-axa-api-k8s.rci.harvest.fr
 extraEnv:
-  - name: ConnectionStrings__PolicyHolderContext
+  - name: ConnectionStrings__PolicyholderContext
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: postegresql-policy-act-policyholder-axa
+        key: sqlserver-policy-act-policyholder-axa
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
@@ -15,17 +15,7 @@ extraEnv:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-password
-  - name: HubToken__lang
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: language
-  - name: HubToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription
+        key: grant-type-client-credentials
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -59,8 +49,7 @@ extraEnv:
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: allurefinance@a.fr
+  HubToken__clientId: pw-aws-sa
   Insurer__Code: AWS
   Insurer__Name: axa
   OpenTelemetry__ActivityName: quantalsys-policy-act-policyholder-axa-activity
