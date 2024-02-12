@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0004-26318
+  tag: 2.0.0-beta0001-27040
 podAnnotations:
   env: rci
-  version: 2.1.0-alpha0004-26318
+  version: 2.0.0-beta0001-27040
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
@@ -10,6 +10,11 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
   - name: OpenTelemetry__ExportMetrics
     valueFrom:
       configMapKeyRef:
@@ -32,8 +37,6 @@ env:
         key: token-url-app
 appsettingsJson:
   AllowedHosts: "*"
-  GetDocumentBundleRetry__DelayInSeconds: 3
-  GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
   Jwt__Audience: quantalys-policy-act-backend-api
