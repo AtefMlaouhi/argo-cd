@@ -20,17 +20,7 @@ extraEnv:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-password
-  - name: HubToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription  
-  - name: HubToken__lang
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: language
+        key: grant-type-client-credentials
   - name: InvestmentAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
@@ -95,8 +85,7 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: allurefinance@a.fr
+  HubToken__clientId: pw-aws-sa
   HubToken__scope: harvest.acte.subscription
   Insurer__Code: AWS
   Insurer__Name: axa
