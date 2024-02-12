@@ -97,6 +97,7 @@ extraEnv:
         name: keycloak
         key: token-url-axa
 appsettingsJson:
+  ASPNETCORE_ENVIRONMENT: Staging
   ApplicationName: Quantalys.Policy.Act.Axa.Api
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
