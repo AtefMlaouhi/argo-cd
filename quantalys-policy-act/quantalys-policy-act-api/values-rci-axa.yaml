@@ -10,7 +10,17 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-hub-subscription-api 
+        key: client-hub-subscription-api
+  - name: DicAPIsToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: DicAPIsToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -99,8 +109,12 @@ extraEnv:
 appsettingsJson:
   ASPNETCORE_ENVIRONMENT: Staging
   ApplicationName: Quantalys.Policy.Act.Axa.Api
+  DicAPIsToken__BaseAddress: https://quantalys-financial-document-api-k8s.dev.harvest.fr
+  DicAPIsToken__clientId: documentapi
+  DicAPIsToken__clientSecret: tbd
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
+  HarvestConfiguration__Environment: rci
   HubToken__clientId: pw-aws-sa
   HubToken__scope: harvest.acte.subscription
   Insurer__Code: AWS
@@ -112,6 +126,7 @@ appsettingsJson:
   OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
   OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
   OpenTelemetry__ServiceName: rci-quantalsys-policy-act-axa-api
+  ProductAPIs__BaseAddress: https://foo
   ProductAPIsToken__clientId: pw-aws-sa
   ProductAPIsToken__scope: harvest.acte.subscription
   SseAPIs__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
