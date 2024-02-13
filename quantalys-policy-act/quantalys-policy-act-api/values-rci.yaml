@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.0-beta0001-27240
+  tag: 2.0.0-beta0001-27241
 podAnnotations:
   env: rci
-  version: 2.0.0-beta0001-27240
+  version: 2.0.0-beta0001-27241
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -15,11 +15,6 @@ env:
       configMapKeyRef:
         name: keycloak
         key: grant-type-client-credentials
-  - name: UserProxyToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-credentials 
   - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
@@ -56,6 +51,11 @@ env:
         name: keycloak
         key: token-url-app
   - name: SSEToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: ProductAPIsToken__grant_type
     valueFrom:
       configMapKeyRef:
         name: keycloak
