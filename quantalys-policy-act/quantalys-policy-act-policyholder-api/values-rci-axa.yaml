@@ -5,7 +5,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: sqlserver-quanta-core-axa
+        key: sqlserver-policy-act-policyholder-axa
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
