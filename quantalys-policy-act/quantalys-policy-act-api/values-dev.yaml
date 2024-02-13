@@ -20,6 +20,11 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
   - name: OpenTelemetry__ExportMetrics
     valueFrom:
       configMapKeyRef:
