@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.0-beta0001-27223
+  tag: 2.0.0-beta0001-27242
 podAnnotations:
   env: rci
-  version: 2.0.0-beta0001-27223
+  version: 2.0.0-beta0001-27242
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
@@ -15,6 +15,11 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
   - name: OpenTelemetry__ExportMetrics
     valueFrom:
       configMapKeyRef:
@@ -25,13 +30,9 @@ env:
       configMapKeyRef:
         name: instrumentation
         key: protocol
-  - name: UserProxyAPI__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: quantalys-user-proxy-api
 appsettingsJson:
   AllowedHosts: "*"
+  ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
   HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c

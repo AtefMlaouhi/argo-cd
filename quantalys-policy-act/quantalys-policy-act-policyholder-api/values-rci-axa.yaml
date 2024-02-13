@@ -48,7 +48,9 @@ extraEnv:
         key: token-url-axa
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
+  ASPNETCORE_ENVIRONMENT: Staging
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
+  HarvestConfiguration__Environment: rci
   HubToken__clientId: pw-aws-sa
   Insurer__Code: AWS
   Insurer__Name: axa
