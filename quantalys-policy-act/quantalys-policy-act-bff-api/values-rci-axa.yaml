@@ -17,6 +17,7 @@ extraEnv:
         name: api-routes
         key: quantalys-policy-act-policyholder-api
 appsettingsJson:
+  ASPNETCORE_ENVIRONMENT: Staging
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   FrontBaseUrl: https://quantalys-policy-act-axa-k8s.rci.harvest.fr
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
