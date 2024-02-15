@@ -1,10 +1,15 @@
 image:
-  tag: 2.0.0-beta0001-27432
+  tag: 2.0.1-beta0001-27702
 podAnnotations:
   env: rci
-  version: 2.0.0-beta0001-27432
+  version: 2.0.1-beta0001-27702
 replicaCount: 1
 env:
+  - name: ApiGateway__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-api-management-api-external
   - name: HubAPIs__BaseAddress
     valueFrom:
       configMapKeyRef:
