@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0008-25213
+  tag: 1.3.0-alpha0013-27663
 podAnnotations:
   env: rci
-  version: 1.3.0-alpha0008-25213
+  version: 1.3.0-alpha0013-27663
 hosts:
   - quantalys-gateway-api-k8s.rci.harvest.fr
 replicaCount: 1
