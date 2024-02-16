@@ -48,7 +48,7 @@ appsettingsJson:
   ApiGatewayConfiguration__Providers__1__Acts__BaseAddress: https://quantalys-policy-act-cnp-api-k8s.rci.harvest.fr/
   ApiGatewayConfiguration__Providers__1__Acts__ClientId: quantalys-policy-act-api
   ApiGatewayConfiguration__Providers__1__Acts__ClientSecret: 6HQjJO6MEFtJW3DjlKEvYI3esbHEtmCS
-  JwtKeyCloak__BaseAddress: https://keycloak-dev.harvest-r7.fr/auth/realms/
+  JwtKeyCloak__BaseAddress: https://keycloak-rci.harvest-r7.fr/auth/realms/
   JwtKeyCloak_Issuers__0: https://keycloak-rci.harvest-r7.fr/auth/realms/AWSUsers
   JwtKeyCloak_Issuers__1: https://keycloak-rci.harvest-r7.fr/auth/realms/CNPUsers
   JwtKeyCloak__Audience: quantalys-gateway-api
