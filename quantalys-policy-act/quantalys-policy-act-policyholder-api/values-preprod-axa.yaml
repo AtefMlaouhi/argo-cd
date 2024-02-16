@@ -1,7 +1,7 @@
 hosts:
   - quantalys-policy-act-policyholder-axa-api-preprod.harvest.fr
 extraEnv:
-  - name: ConnectionStrings__PolicyHolderContext
+  - name: ConnectionStrings__PolicyholderContext
     valueFrom:
       secretKeyRef:
         name: connection-strings
