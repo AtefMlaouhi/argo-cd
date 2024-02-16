@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.1-beta0001-27700
+  tag: 2.0.2-beta0001-27754
 podAnnotations:
   env: rci
-  version: 2.0.1-beta0001-27700
+  version: 2.0.2-beta0001-27754
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
