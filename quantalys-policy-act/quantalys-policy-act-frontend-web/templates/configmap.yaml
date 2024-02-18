@@ -28,7 +28,8 @@ data:
                 backend: 'https://{{ .Values.config.backend.url }}',
             },
         },
-        version: '1.0.0'
+        version: '1.0.0',
+        applicationTitle: 'AXA Wealth Digital'
       };
 
     // pour Angular
