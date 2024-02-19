@@ -17,6 +17,21 @@ env:
       secretKeyRef:
         name: connection-strings
         key: sqlserver-quanta-replication
+  - name: SettingsOptions__Domain
+    valueFrom:
+      configMapKeyRef:
+        name: distributed-file-system
+        key: domain
+  - name: SettingsOptions__Password
+    valueFrom:
+      secretKeyRef:
+        name: distributed-file-system
+        key: password
+  - name: SettingsOptions__User
+    valueFrom:
+      configMapKeyRef:
+        name: distributed-file-system
+        key: username
 appsettingsJson:
   AllowedHosts: "*"
   ApplicationName: Quantalys.Financial.Document.Api
