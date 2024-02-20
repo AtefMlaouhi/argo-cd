@@ -48,4 +48,4 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
-  SettingsOptions__PathDoc: ""
+  SettingsOptions__PathDoc: "\\\\prod.ent\\ECS-DFS\\Base_Documentaire\\Prospectus"
