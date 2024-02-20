@@ -66,16 +66,21 @@ extraEnv:
       secretKeyRef:
         name: bucket
         key: secret-key
-  - name: ProductAPIsToken__clientSecret
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: client-hub-subscription-api 
-  - name: ProductAPIsToken__tokenUrl
+  - name: UserProxyToken__tokenUrl
     valueFrom:
       configMapKeyRef:
         name: keycloak
         key: token-url-axa
+  - name: ProductAPIsToken__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-product-api 
+  - name: ProductAPIs__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-hub-subscription-api 
   - name: UserProxyAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
@@ -111,6 +116,5 @@ appsettingsJson:
   OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
   OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
   OpenTelemetry__ServiceName: rci-quantalsys-policy-act-axa-api
-  ProductAPIs__BaseAddress: https://foo
   ProductAPIsToken__clientId: pw-aws-sa
   SseAPIs__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
