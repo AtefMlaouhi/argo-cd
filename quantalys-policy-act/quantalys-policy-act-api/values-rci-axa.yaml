@@ -113,5 +113,4 @@ appsettingsJson:
   OpenTelemetry__ServiceName: rci-quantalsys-policy-act-axa-api
   ProductAPIs__BaseAddress: https://foo
   ProductAPIsToken__clientId: pw-aws-sa
-  ProductAPIsToken__scope: harvest.acte.subscription
   SseAPIs__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
