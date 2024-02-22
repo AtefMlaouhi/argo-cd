@@ -35,6 +35,7 @@ env:
         key: protocol
 appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
+  ASPNETCORE_ENVIRONMENT: Production
   Caching__DurationInMinutes: 5
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: prod
