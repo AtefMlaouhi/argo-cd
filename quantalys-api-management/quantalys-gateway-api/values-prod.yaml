@@ -42,16 +42,26 @@ env:
       configMapKeyRef:
         name: api-routes
         key: quantalys-policy-act-cnp-api
-  - name: OpenTelemetry__Endpoint
+  - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
         name: instrumentation
-        key: opentelemetry-collector-api
-  - name: OpenTelemetry__Endpoint
+        key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
     valueFrom:
       configMapKeyRef:
         name: instrumentation
-        key: opentelemetry-collector-api
+        key: opentelemetry-collector-uri
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
 appsettingsJson:
   AllowedHosts: "*"
   HarvestConfiguration__Domain: Quantalys.Gateway
