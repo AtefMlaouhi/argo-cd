@@ -58,7 +58,7 @@ appsettingsJson:
   HarvestConfiguration__Environment: rcc
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
-  ApiGatewayConfiguration__Providers__0__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
+  ApiGatewayConfiguration__Providers__0__TenantId: 353b4c54-44c3-4384-ab83-8a587a1a3e68
   ApiGatewayConfiguration__Providers__0__Acts__ClientId: quantalys-policy-act-api
   ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
   ApiGatewayConfiguration__Providers__1__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
