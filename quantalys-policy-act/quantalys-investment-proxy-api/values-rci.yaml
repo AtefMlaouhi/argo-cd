@@ -32,6 +32,7 @@ env:
         key: protocol
 appsettingsJson:
   Authentication__Audience: quantalys-investment-proxy-api
+  ASPNETCORE_ENVIRONMENT: Staging
   Caching__DurationInHours: 24
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy
   HarvestConfiguration__Environment: rci

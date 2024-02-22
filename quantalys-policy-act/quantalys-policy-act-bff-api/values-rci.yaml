@@ -37,6 +37,7 @@ env:
         key: token-url-app
 appsettingsJson:
   AllowedHosts: "*"
+  ASPNETCORE_ENVIRONMENT: Staging
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
   Jwt__Audience: quantalys-policy-act-backend-api

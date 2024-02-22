@@ -32,6 +32,7 @@ env:
         key: protocol
 appsettingsJson:
   AllowedHosts: "*"
+  ASPNETCORE_ENVIRONMENT: Staging
   ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
