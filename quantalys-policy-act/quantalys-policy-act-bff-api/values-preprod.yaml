@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0004-26318
+  tag: 2.0.2-beta0001-27754
 podAnnotations:
   env: preprod
-  version: 2.1.0-alpha0004-26318
+  version: 2.0.2-beta0001-27754
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
@@ -37,6 +37,7 @@ env:
         key: token-url-app
 appsettingsJson:
   AllowedHosts: "*"
+  ASPNETCORE_ENVIRONMENT: Preproduction
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: preprod
   Jwt__Audience: quantalys-policy-act-backend-api

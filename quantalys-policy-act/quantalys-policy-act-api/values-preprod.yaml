@@ -1,30 +1,25 @@
 image:
-  tag: 2.1.0-alpha0009-26432
+  tag: 2.0.6-beta0001-27948
 podAnnotations:
   env: preprod
-  version: 2.1.0-alpha0009-26432
+  version: 2.0.6-beta0001-27948
 replicaCount: 1
 env:
+  - name: ApiGateway__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-api-management-api-external
   - name: HubAPIs__BaseAddress
     valueFrom:
       configMapKeyRef:
         name: api-routes
         key: hub-subscription-api
-  - name: HubToken__grant_type
+  - name: InvestmentToken__grant_type
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-password
-  - name: HubToken__lang
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: language
-  - name: HubToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription
+        key: grant-type-client-credentials
   - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
@@ -69,29 +64,24 @@ env:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-password
-  - name: ProductAPIsToken__lang
+        key: grant-type-client-credentials
+  - name: UserProxyToken__grant_type
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: language
-  - name: ProductAPIsToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription        
+        key: grant-type-client-credentials  
 appsettingsJson:
   AllowedHosts: "*"
+  ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  ASPNETCORE_ENVIRONMENT: Preproduction
   GetDocumentBundleRetry__DelayInSeconds: 3
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: preprod
-  HubToken__scope: harvest.acte.subscription
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
   Minio__IsActive: true
   Minio__IsSecure: true
   SseAPIs__Lang: FR
-  SseAPIs__ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   SSEToken__clientId: quantalys-sa
   UserProxyToken__clientId: quantalys-user-proxy-api

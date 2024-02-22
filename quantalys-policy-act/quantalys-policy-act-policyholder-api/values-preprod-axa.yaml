@@ -5,27 +5,17 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: postegresql-policy-act-policyholder-axa
+        key: sqlserver-policy-act-policyholder-axa
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-plateformewealth-app
+        key: client-hub-subscription-api
   - name: HubToken__grant_type
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-password
-  - name: HubToken__lang
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: language
-  - name: HubToken__password
-    valueFrom:
-      secretKeyRef:
-        name: keycloak
-        key: user-hub-subscription
+        key: grant-type-client-credentials
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -59,8 +49,7 @@ extraEnv:
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.PolicyHolder.Axa.Api
-  HubToken__clientId: plateformewealth-app
-  HubToken__username: pentest_2@harvest.fr
+  HubToken__clientId: pw-aws-sa
   Insurer__Code: AWS
   Insurer__Name: axa
   OpenTelemetry__ActivityName: quantalsys-policy-act-policyholder-axa-activity
