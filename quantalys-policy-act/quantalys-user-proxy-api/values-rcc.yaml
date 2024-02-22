@@ -32,7 +32,8 @@ env:
         key: protocol
 appsettingsJson:
   Authentication__Audience: quantalys-user-proxy-api
-  Caching__DurationInMinutes: 15
+  ASPNETCORE_ENVIRONMENT: Staging
+  Caching__DurationInMinutes: 5
   HarvestConfiguration__Domain: Quantalys.User.Proxy
   HarvestConfiguration__Environment: rcc
   OpenTelemetry__ActivityName: quantalys-user-proxy-axa-activity

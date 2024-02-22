@@ -6,12 +6,12 @@ extraEnv:
       configMapKeyRef:
         name: keycloak
         key: issuer-axa
-  - name: MsvcGestionActes__BaseAddress
+  - name: PolicyAct__BaseAddress
     valueFrom:
       configMapKeyRef:
         name: api-routes
         key: quantalys-policy-act-api
-  - name: MsvcPolicyHolder__BaseAddress
+  - name: PolicyActPolicyHolder__BaseAddress
     valueFrom:
       configMapKeyRef:
         name: api-routes
