@@ -1,45 +1,46 @@
 hosts:
   - quantalys-policy-act-cnp-api-recette.harvest.fr
-image:
-  tag: 2.1.0-alpha0010-26618
-podAnnotations:
-  version: 2.1.0-alpha0010-26618
 extraEnv:
   - name: ConnectionStrings__PolicyActContext
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: postegresql-policy-act-cnp
+        key: sqlserver-policy-act-cnp
   - name: HubToken__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-hub-sa-api
+        key: client-hub-subscription-api
+  - name: DicAPIsToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-cnp
+  - name: DicAPIsToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
         name: keycloak
         key: token-url-cnp
-  - name: InvestmentAPI__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: quantalys-investment-proxy-api
   - name: HubToken__grant_type
     valueFrom:
       configMapKeyRef:
         name: keycloak
         key: grant-type-client-credentials
+  - name: InvestmentAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-investment-proxy-api
   - name: InvestmentToken__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak
         key: client-quantalys-investment-proxy-api
-  - name: InvestmentToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-credentials
   - name: InvestmentToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -65,6 +66,26 @@ extraEnv:
       secretKeyRef:
         name: bucket
         key: secret-key
+  - name: UserProxyToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-cnp
+  - name: ProductAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-product-api 
+  - name: ProductAPIsToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-cnp
+  - name: ProductAPIsToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-hub-subscription-api 
   - name: UserProxyAPI__BaseAddress
     valueFrom:
       configMapKeyRef:
@@ -75,11 +96,6 @@ extraEnv:
       secretKeyRef:
         name: keycloak
         key: client-quantalys-user-proxy-api
-  - name: UserProxyToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-credentials
   - name: UserProxyToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -87,16 +103,20 @@ extraEnv:
         key: token-url-cnp
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Cnp.Api
+  DicAPIs__BaseAddress: https://quantalys-financial-document-api-k8s.dev.harvest.fr
+  DicAPIsToken__clientId: documentapi
+  DicAPIsToken__clientSecret: tbd
   GetDocumentBundleRetry__ErrorCodes: ""
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Cnp.Api
   HubToken__clientId: pw-cnp-sa
   Insurer__Code: CNP
   Insurer__Name: cnp
   Insurer__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
-  OpenTelemetry__ActivityName: quantalys-policy-act-cnp-activity
-  OpenTelemetry__MeterName: quantalys-policy-act-cnp-meter
-  OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-cnp-api
   Minio__BucketName: obs-eu-west-0-pw-rcc-cnp-policy-act-01
   Minio__IsActive: true
   Minio__IsSecure: true
+  OpenTelemetry__ActivityName: quantalys-policy-act-cnp-activity
+  OpenTelemetry__MeterName: quantalys-policy-act-cnp-meter
+  OpenTelemetry__ServiceName: rcc-quantalsys-policy-act-cnp-api
+  ProductAPIsToken__clientId: pw-cnp-sa
   SseAPIs__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
