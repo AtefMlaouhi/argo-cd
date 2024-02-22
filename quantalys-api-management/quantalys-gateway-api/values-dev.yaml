@@ -1,8 +1,8 @@
 image:
-  tag: 1.3.0-alpha0017-27876
+  tag: 1.3.0-alpha0018-28058
 podAnnotations:
   env: dev
-  version: 1.3.0-alpha0017-27876
+  version: 1.3.0-alpha0018-28058
 hosts:
   - quantalys-gateway-api-k8s.dev.harvest.fr
 replicaCount: 1
@@ -17,6 +17,31 @@ env:
       configMapKeyRef:
         name: keycloak
         key: issuer-cnp
+  - name: JwtKeyCloak__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-realms
+  - name: ApiGatewayConfiguration__Providers__0__Acts__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-policy-act-axa-api
+  - name: ApiGatewayConfiguration__Providers__1__Acts__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-policy-act-cnp-api
+  - name: ApiGatewayConfiguration__Providers__0__Acts__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-axa-api
+  - name: ApiGatewayConfiguration__Providers__1__Acts__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-cnp-api
   - name: OpenTelemetry__Endpoint
     valueFrom:
       configMapKeyRef:
@@ -34,21 +59,8 @@ appsettingsJson:
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
   ApiGatewayConfiguration__Providers__0__TenantId: b67bf86a-b02d-4f0e-b6d5-6095ab3e1b04
-  ApiGatewayConfiguration__Providers__0__PolicyHolder__BaseAddress: https://quantalys-policy-act-policyholder-axa-api-k8s.dev.harvest.fr/
-  ApiGatewayConfiguration__Providers__0__PolicyHolder__ClientId: quantalys-policy-act-policyholder-api
-  ApiGatewayConfiguration__Providers__0__PolicyHolder__ClientSecret: S8U5NqZDuUBTxZhPmBy36XqhTdMuH2v3
-  ApiGatewayConfiguration__Providers__0__Acts__BaseAddress: https://quantalys-policy-act-axa-api-k8s.dev.harvest.fr/
   ApiGatewayConfiguration__Providers__0__Acts__ClientId: quantalys-policy-act-api
-  ApiGatewayConfiguration__Providers__0__Acts__ClientSecret: wcyIVlImOUc01CsmRirXb0Mt8N4VfEf2
   ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
   ApiGatewayConfiguration__Providers__1__TenantId: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9
-  ApiGatewayConfiguration__Providers__1__PolicyHolder__BaseAddress: https://foo/
-  ApiGatewayConfiguration__Providers__1__PolicyHolder__ClientId: ""
-  ApiGatewayConfiguration__Providers__1__PolicyHolder__ClientSecret: ""
-  ApiGatewayConfiguration__Providers__1__Acts__BaseAddress: https://quantalys-policy-act-cnp-api-k8s.dev.harvest.fr/
   ApiGatewayConfiguration__Providers__1__Acts__ClientId: quantalys-policy-act-api
-  ApiGatewayConfiguration__Providers__1__Acts__ClientSecret: Big1QKMxhrNGLIzQrwMgjIZyMTVNVLnB
-  JwtKeyCloak__BaseAddress: https://keycloak-dev.harvest-r7.fr/auth/realms/
-  JwtKeyCloak_Issuers__0: https://keycloak-dev.harvest-r7.fr/auth/realms/AWSUsers
-  JwtKeyCloak_Issuers__1: https://keycloak-dev.harvest-r7.fr/auth/realms/CNPUsers
   JwtKeyCloak__Audience: quantalys-gateway-api
