@@ -18,7 +18,7 @@ spec:
             app: quantalys-api-management-{{ .Values.podAnnotations.env }}
       - namespaceSelector:
           matchLabels:
-            kubernetes.io/metadata.name: api-management-{{ .Values.podAnnotations.env }}
+            kubernetes.io/metadata.name: apimanagement-{{ .Values.podAnnotations.env }}
         podSelector:
           matchLabels:
-            app: apimanagement-{{ .Values.podAnnotations.env }}
+            app: quantalys-api-management-{{ .Values.podAnnotations.env }}
