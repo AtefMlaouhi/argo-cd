@@ -84,4 +84,5 @@ appsettingsJson:
   Minio__IsSecure: true
   SseAPIs__Lang: FR
   SSEToken__clientId: fake-esign-api-client
+  Serilog__MinimumLevel__Override__Microsoft: "Warning"
   UserProxyToken__clientId: quantalys-user-proxy-api
