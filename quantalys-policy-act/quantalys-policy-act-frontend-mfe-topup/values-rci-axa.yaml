@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-policy-act-mfe-topup-axa-k8s.rci.harvest.fr
+  - quantalys-policy-act-frontend-mfe-topup-axa-k8s.rci.harvest.fr
 config:
   keycloak:
     url: keycloak-rci.harvest-r7.fr
