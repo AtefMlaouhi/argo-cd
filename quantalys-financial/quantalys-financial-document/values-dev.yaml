@@ -48,6 +48,6 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
-  SettingsOptions__Server: "\\prod.ent\ecs-dfs"
+  SettingsOptions__Server: "ECS-PROD-DFS-01.prod.ent"
   SettingsOptions__PathDoc: "Prospectus"
   SettingsOptions__Directory: "Base_Documentaire"
