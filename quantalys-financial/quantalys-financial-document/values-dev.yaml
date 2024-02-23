@@ -1,10 +1,10 @@
 hosts:
   - quantalys-financial-document-api-k8s.dev.harvest.fr
 image:
-  tag: 0.1.4
+  tag: 0.1.5
 podAnnotations:
   env: dev
-  version: 0.1.4
+  version: 0.1.5
 replicaCount: 1
 env:
   - name: ConnectionStrings__BaseFrance
@@ -48,4 +48,6 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
-  SettingsOptions__PathDoc: "\\\\prod.ent\\ECS-DFS\\Base_Documentaire\\Prospectus"
+  SettingsOptions__Server: "ECS-DFS"
+  SettingsOptions__PathDoc: "Prospectus"
+  SettingsOptions__Directory: "Base_Documentaire"
