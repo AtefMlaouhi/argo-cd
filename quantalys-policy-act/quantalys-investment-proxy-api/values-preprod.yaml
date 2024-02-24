@@ -36,6 +36,5 @@ appsettingsJson:
   Caching__DurationInHours: 24
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy
   HarvestConfiguration__Environment: preprod
-  Serilog__MinimumLevel__Override__Microsoft.Hosting.Lifetime: Information
   Serilog__MinimumLevel__Override__Microsoft: Warning
   Serilog__MinimumLevel__Override__System: Warning

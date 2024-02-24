@@ -1,8 +1,8 @@
 image:
-  tag: 1.0.10-28389
+  tag: 1.0.0-27026
 podAnnotations:
-  env: prod
-  version: 1.0.10-28389
+  env: dr
+  version: 1.0.0-27026
 autoscaling:
   enabled: true
   minReplicas: 2
@@ -34,10 +34,8 @@ env:
         name: instrumentation
         key: protocol
 appsettingsJson:
-  Authentication__Audience: quantalys-investment-proxy-api
-  ASPNETCORE_ENVIRONMENT: Production
-  Caching__DurationInHours: 24
-  HarvestConfiguration__Domain: Quantalys.Investment.Proxy
-  HarvestConfiguration__Environment: prod
-  Serilog__MinimumLevel__Override__Microsoft: Warning
-  Serilog__MinimumLevel__Override__System: Warning
+  Authentication__Audience: quantalys-user-proxy-api
+  ASPNETCORE_ENVIRONMENT: DisasterRecovery
+  Caching__DurationInMinutes: 5
+  HarvestConfiguration__Domain: Quantalys.User.Proxy
+  HarvestConfiguration__Environment: dr
