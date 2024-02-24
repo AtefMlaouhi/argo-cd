@@ -1,8 +1,8 @@
 image:
-  tag: 1.0.9-beta0001-28034
+  tag: 1.0.10-beta0001-28388
 podAnnotations:
   env: rci
-  version: 1.0.9-beta0001-28034
+  version: 1.0.10-beta0001-28388
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
@@ -36,3 +36,6 @@ appsettingsJson:
   Caching__DurationInHours: 24
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy
   HarvestConfiguration__Environment: rci
+  Serilog__MinimumLevel__Override__Microsoft.Hosting.Lifetime: Information
+  Serilog__MinimumLevel__Override__Microsoft: Warning
+  Serilog__MinimumLevel__Override__System: Warning

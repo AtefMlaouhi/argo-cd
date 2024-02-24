@@ -1,8 +1,8 @@
 image:
-  tag: 1.1.0-alpha0021-28018
+  tag: 1.1.0-alpha0022-28381
 podAnnotations:
   env: dev
-  version: 1.1.0-alpha0021-28018
+  version: 1.1.0-alpha0022-28381
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
@@ -36,3 +36,6 @@ appsettingsJson:
   Caching__DurationInHours: 24
   HarvestConfiguration__Domain: Quantalys.Investment.Proxy
   HarvestConfiguration__Environment: dev
+  Serilog__MinimumLevel__Override__Microsoft.Hosting.Lifetime: Information
+  Serilog__MinimumLevel__Override__Microsoft: Warning
+  Serilog__MinimumLevel__Override__System: Warning
