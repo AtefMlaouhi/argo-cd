@@ -1,0 +1,41 @@
+image:
+  tag: 1.0.9-28379
+podAnnotations:
+  env: dr
+  version: 1.0.9-28379
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+env:
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
+  - name: OpenTelemetry__CollectorHost
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
+appsettingsJson:
+  Authentication__Audience: quantalys-investment-proxy-api
+  ASPNETCORE_ENVIRONMENT: DisasterRecovery
+  Caching__DurationInHours: 24
+  HarvestConfiguration__Domain: Quantalys.Investment.Proxy
+  HarvestConfiguration__Environment: dr
