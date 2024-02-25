@@ -1,8 +1,8 @@
 image:
-  tag: 1.1.0-alpha0002-28535
+  tag: 1.1.0-alpha0002-28538
 podAnnotations:
   env: dev
-  version: 1.1.0-alpha0002-28535
+  version: 1.1.0-alpha0002-28538
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
