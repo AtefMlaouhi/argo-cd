@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0038-28121
+  tag: 2.1.0-alpha0042-28556
 podAnnotations:
   env: dev
-  version: 2.1.0-alpha0038-28121
+  version: 2.1.0-alpha0042-28556
 replicaCount: 1
 env:
   - name: ApiGateway__BaseAddress
@@ -44,7 +44,7 @@ env:
     valueFrom:
       secretKeyRef:
         name: keycloak
-        key: client-esign-api 
+        key: client-esign-api
   - name: SseAPIs__BaseAddress
     valueFrom:
       configMapKeyRef:
@@ -69,7 +69,7 @@ env:
     valueFrom:
       configMapKeyRef:
         name: keycloak
-        key: grant-type-client-credentials  
+        key: grant-type-client-credentials
 appsettingsJson:
   AllowedHosts: "*"
   ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
