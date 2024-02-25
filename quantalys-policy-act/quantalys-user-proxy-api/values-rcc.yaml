@@ -1,8 +1,8 @@
 image:
-  tag: 1.0.2-28542
+  tag: 1.0.2-28564
 podAnnotations:
   env: rcc
-  version: 1.0.2-28542
+  version: 1.0.2-28564
 replicaCount: 1
 env:
   - name: Authentication__RequireHttpsMetadata
