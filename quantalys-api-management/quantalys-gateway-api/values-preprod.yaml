@@ -1,0 +1,79 @@
+image:
+  tag: 2.0.0-28546
+podAnnotations:
+  env: preprod
+  version: 2.0.0-28546
+hosts:
+  - quantalys-gateway-api-preprod.harvest.fr
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+env:
+  - name: JwtKeyCloak__Issuers__0
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: JwtKeyCloak__Issuers__1
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-cnp
+  - name: JwtKeyCloak__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-realms
+  - name: ApiGatewayConfiguration__Providers__0__Acts__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-policy-act-axa-api
+  - name: ApiGatewayConfiguration__Providers__1__Acts__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-policy-act-cnp-api
+  - name: ApiGatewayConfiguration__Providers__0__Acts__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-axa-api
+  - name: ApiGatewayConfiguration__Providers__1__Acts__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-cnp-api
+  - name: OpenTelemetry__CollectorHost
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
+appsettingsJson:
+  AllowedHosts: "*"
+  HarvestConfiguration__Domain: Quantalys.Gateway
+  HarvestConfiguration__Environment: preprod
+  ApiGatewayConfiguration__ProviderTimeoutInSec: 60
+  ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
+  ApiGatewayConfiguration__Providers__0__TenantId: 70991372-9a3d-4aa8-9844-eef094017d00
+  ApiGatewayConfiguration__Providers__0__Acts__ClientId: quantalys-policy-act-api
+  ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
+  ApiGatewayConfiguration__Providers__1__TenantId: af5c9c9e-ced0-4d3d-9846-15e1e57e230c
+  ApiGatewayConfiguration__Providers__1__Acts__ClientId: quantalys-policy-act-api
+  JwtKeyCloak__Audience: quantalys-gateway-api
