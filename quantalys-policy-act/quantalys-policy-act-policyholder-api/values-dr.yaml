@@ -1,0 +1,45 @@
+image:
+  tag: 2.0.3-28568
+podAnnotations:
+  env: prod
+  version: 2.0.3-28568
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+env:
+  - name: HubAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-subscription-api
+  - name: OpenTelemetry__CollectorHost
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
+appsettingsJson:
+  AllowedHosts: "*"
+  ASPNETCORE_ENVIRONMENT: Production
+  ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  HarvestConfiguration__Environment: prod
+  HubToken__applicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  HubToken__scope: harvest.acte.subscription
+  Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-policyholder-api"
+  UserProxyToken__clientId: quantalys-user-proxy-api

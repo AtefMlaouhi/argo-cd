@@ -1,0 +1,11 @@
+hosts:
+  - quantalys-policy-act-frontend-cnp-shift-simplified-mfe-dr.harvest.fr
+config:
+  keycloak:
+    url: auth.harvest.fr
+    realm: CNPUsers
+    client_id: quantalys-web
+  backend:
+    url: quantalys-policy-act-bff-cnp-api.harvest.fr
+  redirect:
+    operations: cnp-alyses.com/Standard/Operation/Suivi

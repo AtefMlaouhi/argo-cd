@@ -1,0 +1,123 @@
+hosts:
+  - quantalys-policy-act-axa-api-dr.harvest.fr
+extraEnv:
+  - name: ConnectionStrings__PolicyActContext
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-policy-act-axa
+  - name: HubToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-hub-subscription-api
+  - name: DicAPIsToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: DicAPIsToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: HubToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: HubToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: InvestmentAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-investment-proxy-api
+  - name: InvestmentToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-investment-proxy-api
+  - name: InvestmentToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: Jwt__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
+  - name: Minio__EndPoint
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: bucket
+  - name: Minio__AccessKey
+    valueFrom:
+      secretKeyRef:
+        name: bucket
+        key: access-key
+  - name: Minio__SecretKey
+    valueFrom:
+      secretKeyRef:
+        name: bucket
+        key: secret-key
+  - name: UserProxyToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: ProductAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-product-api 
+  - name: ProductAPIsToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+  - name: ProductAPIsToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-hub-subscription-api 
+  - name: UserProxyAPI__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-user-proxy-api
+  - name: UserProxyToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-proxy-api
+  - name: UserProxyToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-axa
+appsettingsJson:
+  ApplicationName: Quantalys.Policy.Act.Axa.Api
+  DicAPIs__BaseAddress: https://quantalys-financial-document-api-k8s.dev.harvest.fr
+  DicAPIsToken__clientId: documentapi
+  DicAPIsToken__clientSecret: tbd
+  GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
+  HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
+  HubToken__clientId: pw-aws-sa
+  HubToken__scope: harvest.acte.subscription
+  Insurer__Code: AWS
+  Insurer__Name: axa
+  Insurer__TenantId: 70991372-9a3d-4aa8-9844-eef094017d00
+  Minio__BucketName: obs-eu-west-0-pw-prod-axa-policy-act-01
+  Minio__IsActive: true
+  Minio__IsSecure: true
+  OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
+  OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
+  OpenTelemetry__ServiceName: dr-quantalsys-policy-act-axa-api
+  ProductAPIsToken__clientId: pw-aws-sa
+  SseAPIs__TenantId: 70991372-9a3d-4aa8-9844-eef094017d00

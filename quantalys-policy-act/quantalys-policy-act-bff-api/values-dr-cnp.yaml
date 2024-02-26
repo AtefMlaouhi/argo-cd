@@ -1,0 +1,27 @@
+hosts:
+  - quantalys-policy-act-bff-cnp-api-dr.harvest.fr
+extraEnv:
+  - name: Jwt__Issuer
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-cnp
+  - name: PolicyAct__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-api
+  - name: PolicyActPolicyHolder__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-policy-act-policyholder-api
+appsettingsJson:
+  ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
+  FrontBaseUrl: https://quantalys-policy-act-cnp-api-k8s.harvest.fr
+  HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Cnp.Api
+  InvestableSupport__HideCodeForProductTypes: ""
+  OpenTelemetry__ActivityName: quantalys-policy-act-bff-cnp-api-activity
+  OpenTelemetry__MeterName: quantalys-policy-act-bff-cnp-api-meter
+  OpenTelemetry__ServiceName: quantalys-policy-act-bff-cnp-api
+  Tenant__Name: cnp

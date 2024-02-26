@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-user-proxy-cnp-api.harvest.fr
+  - quantalys-user-proxy-cnp-api-dr.harvest.fr
 extraEnv:
   - name: ConnectionStrings__SqlServerQuantaCore
     valueFrom:

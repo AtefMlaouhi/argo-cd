@@ -1,0 +1,12 @@
+hosts:
+  - quantalys-policy-act-frontend-axa-shift-mfe-dr.harvest.fr
+config:
+  keycloak:
+    url: auth.harvest.fr
+    realm: AWSUsers
+    client_id: quantalys-web
+  backend:
+    url: quantalys-policy-act-bff-axa-api-dr.harvest.fr
+  redirect:
+    operations: awd.axa.fr/Standard/Operation/Suivi
+    contract: awd.axa.fr/Contrats/Synthese?sNumero=    

@@ -1,0 +1,90 @@
+image:
+  tag: 2.0.7-28566
+podAnnotations:
+  env: prod
+  version: 2.0.7-28566
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+env:
+  - name: ApiGateway__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-api-management-api-external
+  - name: HubAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: hub-subscription-api
+  - name: InvestmentToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: OpenTelemetry__CollectorHost
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
+  - name: SSEToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-esign-api
+  - name: SseAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: sse-api
+  - name: SSEToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-app
+  - name: SSEToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: ProductAPIsToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: UserProxyToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+appsettingsJson:
+  AllowedHosts: "*"
+  ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  ASPNETCORE_ENVIRONMENT: Production
+  GetDocumentBundleRetry__DelayInSeconds: 3
+  GetDocumentBundleRetry__RetryCount: 5
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  HarvestConfiguration__Environment: prod
+  InvestmentToken__clientId: quantalys-investment-proxy-api
+  Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
+  Minio__IsActive: true
+  Minio__IsSecure: true
+  SseAPIs__Lang: FR
+  SSEToken__clientId: quantalys-sa
+  UserProxyToken__clientId: quantalys-user-proxy-api

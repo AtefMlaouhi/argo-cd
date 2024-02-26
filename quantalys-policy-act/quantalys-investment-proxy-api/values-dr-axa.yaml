@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-investment-proxy-axa-api.harvest.fr
+  - quantalys-investment-proxy-axa-api-dr.harvest.fr
 extraEnv:
   - name: ConnectionStrings__SqlServerQuantaSynonyms
     valueFrom:

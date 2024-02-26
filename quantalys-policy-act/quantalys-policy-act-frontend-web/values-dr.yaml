@@ -1,0 +1,13 @@
+image:
+  tag: 1.2.18-beta.1
+podAnnotations:
+  env: prod
+  version: 1.2.18-beta.1
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+config:
+  keycloak:
+    server: auth.harvest.fr
+    logoutRedirectUrl: ''

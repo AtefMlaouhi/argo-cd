@@ -1,0 +1,13 @@
+hosts:
+  - policy-act-axa-dr.harvest.fr
+config:
+  keycloak:
+    enabled: false
+    url: auth.harvest.fr
+    realm: AWSUsers
+    client_id: quantalys-web
+  micro_frontends:
+    - name: shift
+      host: quantalys-policy-act-frontend-axa-shift-mfe.harvest.fr 
+  backend:
+    url: quantalys-policy-act-bff-axa-api.harvest.fr

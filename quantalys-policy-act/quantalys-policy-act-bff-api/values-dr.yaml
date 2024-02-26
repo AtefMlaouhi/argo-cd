@@ -1,0 +1,47 @@
+image:
+  tag: 2.0.3-28569
+podAnnotations:
+  env: prod
+  version: 2.0.3-28569
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+env:
+  - name: OpenTelemetry__CollectorHost
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
+  - name: SSEKeyCloak__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-esign-api
+  - name: SSEKeyCloak__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-app
+appsettingsJson:
+  AllowedHosts: "*"
+  ASPNETCORE_ENVIRONMENT: Production
+  HarvestConfiguration__Domain: Quantalys.Policy.Act
+  HarvestConfiguration__Environment: prod
+  Jwt__Audience: quantalys-policy-act-backend-api
+  SSEKeyCloak__clientId: quantalys-sa

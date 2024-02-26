@@ -1,0 +1,86 @@
+hosts:
+  - policy-act-cnp-dr.harvest.fr
+image:
+  tag: 1.2.10-beta.1
+podAnnotations:
+  env: dev
+  version: 1.2.10-beta.1
+config:
+  keycloak:
+    enabled: false
+    url: auth.harvest.fr
+    realm: CNPUsers
+    client_id: quantalys-web
+  micro_frontends:
+    - name: shiftSimplified
+      host: quantalys-policy-act-frontend-cnp-shift-simplified-mfe.harvest.fr
+  backend:
+    url: quantalys-policy-act-bff-cnp-api.harvest.fr
+shell_config: |
+  var ShellConfig = {
+      baseUrl: 'https://{{ .Values.hosts | first }}', // baseUrl utilis�e pour charger les assets dans les templates
+      keycloakConfig: {
+          url: 'https://{{ .Values.config.keycloak.url }}/auth',
+          logoutRedirectUrl: 'https://{{ .Values.hosts | first }}', // peut �tre diff�rente de l'application elle-m�me
+          realm: '{{ .Values.config.keycloak.realm }}',
+          clientId: '{{ .Values.config.keycloak.client_id }}',
+          loginOptions: {
+              idpHint: '',
+          },
+      },
+      microfrontends: [
+        {{- range $micro_frontend := .Values.config.micro_frontends }}
+        '{{ $micro_frontend.name }}',
+        {{- end }}
+      ],
+      urls: {
+          remotes: {
+              {{- range $micro_frontend := .Values.config.micro_frontends }}
+              {{ $micro_frontend.name }}: 'https://{{ $micro_frontend.host }}/remoteEntry.js',
+              {{- end }}
+          },
+          configs: {
+              {{- range $micro_frontend := .Values.config.micro_frontends }}
+              {{ $micro_frontend.name }}: 'https://{{ $micro_frontend.host }}/assets/config/config.js',
+              {{- end }}
+          },
+          fonts: {
+              {{- range $micro_frontend := .Values.config.micro_frontends }}
+              {{ $micro_frontend.name }}: 'https://{{ $micro_frontend.host }}/assets/basalte/fonts.css',
+              {{- end }}
+          },
+      },
+      remotesConfigName: {
+          shift: 'ActsMfeShiftConfig',
+          topup: 'ActsMfeTopupConfig',
+      },
+      version: '{{ .Values.image.tag }}'
+    };
+
+    // pour Angular
+    if (typeof window !== 'undefined') {
+        window.ShellConfig = ShellConfig;
+
+        // chargement des configs des microfrontends consomm�s
+        var configs = ShellConfig.urls.configs;
+        Object.keys(configs).forEach(function (key) {
+            var script = document.createElement('script');
+            script.src = configs[key];
+            document.head.appendChild(script);
+        });
+
+        var fonts = ShellConfig.urls.fonts;
+        Object.keys(fonts).forEach(function (key) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = fonts[key];
+            link.media = 'all';
+            document.head.appendChild(link);
+        });
+    }
+
+    // pour Webpack
+    if (typeof exports !== 'undefined') {
+        exports.ShellConfig = ShellConfig;
+    }
