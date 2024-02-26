@@ -20,6 +20,7 @@ appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   FrontBaseUrl: https://policy-act-axa-preprod.harvest.fr
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
+  InvestableSupport__HideCodeForProductTypes: "FONDS_EURO,SCPI"
   OpenTelemetry__ActivityName: quantalys-policy-act-bff-axa-api-activity
   OpenTelemetry__MeterName: quantalys-policy-act-bff-axa-api-meter
   OpenTelemetry__ServiceName: preprod-quantalys-policy-act-bff-axa-api
