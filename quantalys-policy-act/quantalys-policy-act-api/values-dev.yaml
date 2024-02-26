@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0042-28556
+  tag: 2.1.0-alpha0043-28668
 podAnnotations:
   env: dev
-  version: 2.1.0-alpha0042-28556
+  version: 2.1.0-alpha0043-28668
 replicaCount: 1
 env:
   - name: ApiGateway__BaseAddress
