@@ -16,6 +16,16 @@ extraEnv:
       configMapKeyRef:
         name: api-routes
         key: quantalys-policy-act-policyholder-api
+  - name: UserProxy__baseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-user-proxy-api
+  - name: UserProxyToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-proxy-api
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
   FrontBaseUrl: https://quantalys-policy-act-axa-k8s.dev.harvest.fr
