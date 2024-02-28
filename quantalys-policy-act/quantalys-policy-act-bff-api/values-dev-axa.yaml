@@ -26,7 +26,7 @@ extraEnv:
       configMapKeyRef:
         name: api-routes
         key: quantalys-user-proxy-api
-  - name: UserProxyToken__clientSecret
+  - name: UserProxy__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak
