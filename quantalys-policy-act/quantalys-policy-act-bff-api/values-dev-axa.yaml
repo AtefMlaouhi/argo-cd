@@ -1,6 +1,11 @@
 hosts:
   - quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
 extraEnv:
+  - name: Jwt__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: issuer-axa
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:
@@ -16,7 +21,7 @@ extraEnv:
       configMapKeyRef:
         name: api-routes
         key: quantalys-policy-act-policyholder-api
-  - name: UserProxy__baseAddress
+  - name: UserProxy__BaseAddress
     valueFrom:
       configMapKeyRef:
         name: api-routes
