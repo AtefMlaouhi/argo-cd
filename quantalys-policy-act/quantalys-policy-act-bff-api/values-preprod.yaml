@@ -42,3 +42,4 @@ appsettingsJson:
   HarvestConfiguration__Environment: preprod
   Jwt__Audience: quantalys-policy-act-backend-api
   SSEKeyCloak__clientId: quantalys-sa
+  UserProxy__clientId: quantalys-user-proxy-api
