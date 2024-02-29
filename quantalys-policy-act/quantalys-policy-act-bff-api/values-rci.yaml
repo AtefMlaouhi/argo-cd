@@ -42,4 +42,6 @@ appsettingsJson:
   HarvestConfiguration__Environment: rci
   Jwt__Audience: quantalys-policy-act-backend-api
   SSEKeyCloak__clientId: fake-esign-api-client
+  Serilog__MinimumLevel__Override__Microsoft: Warning
+  Serilog__MinimumLevel__Override__System: Warning
   UserProxy__clientId: quantalys-user-proxy-api

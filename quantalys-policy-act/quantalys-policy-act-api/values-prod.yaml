@@ -87,4 +87,6 @@ appsettingsJson:
   Minio__IsSecure: true
   SseAPIs__Lang: FR
   SSEToken__clientId: quantalys-sa
+  Serilog__MinimumLevel__Override__Microsoft: Warning
+  Serilog__MinimumLevel__Override__System: Warning
   UserProxyToken__clientId: quantalys-user-proxy-api
