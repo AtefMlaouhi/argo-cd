@@ -67,10 +67,10 @@ appsettingsJson:
   HarvestConfiguration__Environment: preprod
   ApiGatewayConfiguration__ProviderTimeoutInSec: 60
   ApiGatewayConfiguration__Providers__0__InsurerCode: AWS
-  ApiGatewayConfiguration__Providers__0__TenantId: 70991372-9a3d-4aa8-9844-eef094017d00
+  ApiGatewayConfiguration__Providers__0__TenantId: d151f9d9-88c1-478e-9cf8-544700066e0e
   ApiGatewayConfiguration__Providers__0__Acts__ClientId: quantalys-policy-act-api
   ApiGatewayConfiguration__Providers__1__InsurerCode: CNP
-  ApiGatewayConfiguration__Providers__1__TenantId: af5c9c9e-ced0-4d3d-9846-15e1e57e230c
+  ApiGatewayConfiguration__Providers__1__TenantId: e57fa96d-bfe5-4735-9f68-21486e45c6dd
   ApiGatewayConfiguration__Providers__1__Acts__ClientId: quantalys-policy-act-api
   JwtKeyCloak__Audience: quantalys-gateway-api
   GenerateMFERoutes: false
