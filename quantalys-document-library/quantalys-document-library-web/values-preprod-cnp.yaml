@@ -1,0 +1,11 @@
+hosts:
+  - knowledgebase-cnp-preprod.harvest.fr
+config:
+  keycloak:
+    url: auth-preprod.harvest.fr
+    realm: CNPUsers
+    client_id: quantalys-web
+  backend:
+    url: third-party-content-bff-cnp-api-recette.harvest.fr/api/v1
+  legacy:
+    url: cnp-pw-preprod.quantalys.com/
