@@ -46,7 +46,7 @@ appsettingsJson:
   Documents__MostViewedItemCount: 15
   HarvestConfiguration__ApplicationName: Quantalys.Document.Library.Api
   OpenTelemetry__ServiceName: prod-quantalys-document-library-api
-  Minio__BucketName: obs-eu-west-0-pw-rcc-cnp-document-library-01
+  Minio__BucketName: obs-eu-west-0-pw-prod-cnp-document-library-01
   Minio__IsSecure: true
   Tenant__Code: CNP
   Tenant__Id: af5c9c9e-ced0-4d3d-9846-15e1e57e230c
