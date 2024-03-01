@@ -103,9 +103,6 @@ extraEnv:
         key: token-url-axa
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
-  DicAPIs__BaseAddress: https://quantalys-financial-document-api-k8s.dev.harvest.fr
-  DicAPIsToken__clientId: documentapi
-  DicAPIsToken__clientSecret: tbd
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   HubToken__clientId: pw-aws-sa

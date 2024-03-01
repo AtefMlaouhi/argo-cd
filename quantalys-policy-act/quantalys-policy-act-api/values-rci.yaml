@@ -10,6 +10,16 @@ env:
       configMapKeyRef:
         name: api-routes
         key: quantalys-api-management-api-external
+  - name: DicAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-financial-document-api
+  - name: DicAPIsToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-financial-document-api
   - name: HubAPIs__BaseAddress
     valueFrom:
       configMapKeyRef:
