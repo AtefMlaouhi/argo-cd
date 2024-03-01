@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "quantalys.financial.document.fullname" . }}-allow-api-quantalys-policy-act-api
+spec:
+  policyTypes:
+    - Ingress
+  podSelector:
+    matchLabels:
+      {{- include "quantalys.financial.document.selectorLabels" . | nindent 6 }}
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: quantalys-policy-act-axa-{{ .Values.podAnnotations.env }}
+        podSelector:
+          matchLabels:
+            app: quantalys-policy-act-axa-api-{{ .Values.podAnnotations.env }}
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: policy-act-axa-{{ .Values.podAnnotations.env }}
+        podSelector:
+          matchLabels:
+            app: quantalys-policy-act-axa-api-{{ .Values.podAnnotations.env }}
