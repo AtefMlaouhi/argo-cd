@@ -1,0 +1,7 @@
+minio:
+  defaultBuckets: quantalys-financial-document
+  hosts:
+    api:
+      - quantalys-bucket-data-s3-k8s.dev.harvest.fr
+    console:
+      - quantalys-bucket-data-s3-console-k8s.dev.harvest.fr
