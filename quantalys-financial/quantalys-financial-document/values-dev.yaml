@@ -47,7 +47,7 @@ appsettingsJson:
   OpenTelemetry__TracesPath: ""
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
-  OpenTelemetry__MeterName: " "
+  OpenTelemetry__MeterName: ""
   SettingsOptions__Server: ""
   SettingsOptions__PathDoc: "Prospectus"
   SettingsOptions__Directory: ""
