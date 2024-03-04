@@ -6,6 +6,6 @@ config:
     realm: CNPUsers
     client_id: quantalys-web
   backend:
-    url: third-party-content-bff-cnp-api-recette.harvest.fr/api/v1
+    url: knowledgebase-bff-cnp-api.harvest.fr/api/v1
   legacy:
     url: cnp-alyses.com/
