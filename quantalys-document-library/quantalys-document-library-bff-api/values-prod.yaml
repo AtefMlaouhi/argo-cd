@@ -1,9 +1,12 @@
 image:
   tag: 0.1.0-alpha.5
 podAnnotations:
-  env: rcc
+  env: prod
   version: 0.1.0-alpha.5
-replicaCount: 1
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
 env:
   - name: Authentication__RequireHttpsMetadata
     valueFrom:
@@ -14,7 +17,7 @@ appsettingsJson:
   AllowedHosts: "*"
   Authentication__Audience: quantalys-document-library-backend-api
   HarvestConfiguration__Domain: Quantalys.Document.Library
-  HarvestConfiguration__Environment: rcc
+  HarvestConfiguration__Environment: prod
   ReverseProxy__Routes__documentSwaggerRoute__ClusterId: documentApiCluster
   ReverseProxy__Routes__documentSwaggerRoute__Match__Path: /swagger/{*any}
   ReverseProxy__Routes__documentsRoute__ClusterId: documentApiCluster
