@@ -8,6 +8,8 @@ config:
     client_id: quantalys-web
   micro_frontends:
     - name: shift
-      host: quantalys-policy-act-frontend-axa-shift-mfe-recette.harvest.fr 
+      host: quantalys-policy-act-frontend-axa-shift-mfe-recette.harvest.fr
+#    - name: topup
+#      host: quantalys-policy-act-frontend-axa-topup-mfe-recette.harvest.fr
   backend:
     url: quantalys-policy-act-bff-axa-api-recette.harvest.fr
