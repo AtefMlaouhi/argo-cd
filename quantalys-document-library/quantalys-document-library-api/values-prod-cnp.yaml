@@ -17,10 +17,11 @@ extraEnv:
         name: keycloak
         key: issuer-cnp
   - name: Minio__EndPoint
-    valueFrom:
-      configMapKeyRef:
-        name: api-routes
-        key: bucket
+    value: "obs-eu-west-0-pw-prod-cnp-document-library-01.oss.eu-west-0.prod-cloud-ocb.orange-business.com"
+#    valueFrom:
+#      configMapKeyRef:
+#        name: api-routes
+#        key: bucket
   - name: Minio__AccessKey
     valueFrom:
       secretKeyRef:
