@@ -1,0 +1,7 @@
+global:
+  rancherCluster: "c-btmpm"
+  rancherProject: "p-99g6k"
+init-namespace:
+  namespaces:
+    - quantalys-axb-rci
+  dockerconfigjson: ""

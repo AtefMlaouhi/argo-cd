@@ -39,18 +39,23 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- with .Values.env }}
+          {{- if or .Values.env .Values.extraEnv }}
           env:
+          {{- end }}
+          {{- with .Values.env }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.extraEnv }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
 #          {{- range $k, $v := .Values.appsettingsJson }}
 #            - name: {{ $k }}
 #              value: {{ $v | quote }}
 #          {{- end }}
-          envFrom:
-            - configMapRef:
-                name: quantalys-policy-act-api-config
-                optional: false
+          # envFrom:
+          #   - configMapRef:
+          #       name: quantalys-policy-act-api-config
+          #       optional: false
           ports:
             - name: http
               containerPort: 8080
@@ -59,10 +64,10 @@ spec:
 #             httpGet:
 #              path: {{ .Values.probes.livenessPath | default "/" }}
 #              port: http
-#          readinessProbe:
-#             httpGet:
-#              path: {{ .Values.probes.readinessPath | default "/" }}
-#              port: http
+          readinessProbe:
+             httpGet:
+              path: {{ .Values.probes.readinessPath | default "/" }}
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
