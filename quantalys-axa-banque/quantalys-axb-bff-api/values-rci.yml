@@ -1,38 +1,3 @@
 application-api:
   hosts:
-    - quantalys-policy-act-bff-axa-api.flex-rci.harvest.fr
-  # extraEnv:
-  #   - name: Jwt__Issuer
-  #     valueFrom:
-  #       configMapKeyRef:
-  #         name: keycloak
-  #         key: issuer-axa
-  #   - name: PolicyAct__BaseAddress
-  #     valueFrom:
-  #       configMapKeyRef:
-  #         name: api-routes
-  #         key: quantalys-policy-act-api
-  #   - name: PolicyActPolicyHolder__BaseAddress
-  #     valueFrom:
-  #       configMapKeyRef:
-  #         name: api-routes
-  #         key: quantalys-policy-act-policyholder-api
-  #   - name: UserProxy__baseAddress
-  #     valueFrom:
-  #       configMapKeyRef:
-  #         name: api-routes
-  #         key: quantalys-user-proxy-api
-  #   - name: UserProxy__clientSecret
-  #     valueFrom:
-  #       secretKeyRef:
-  #         name: keycloak
-  #         key: client-quantalys-user-proxy-api
-  # appsettingsJson:
-  #   ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
-  #   FrontBaseUrl: https://quantalys-policy-act-axa-k8s.rci.harvest.fr
-  #   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.BackendForFrontend.Axa.Api
-  #   InvestableSupport__HideCodeForProductTypes: "FONDS_EURO,SCPI"
-  #   OpenTelemetry__ActivityName: quantalys-policy-act-bff-axa-api-activity
-  #   OpenTelemetry__MeterName: quantalys-policy-act-bff-axa-api-meter
-  #   OpenTelemetry__ServiceName: rci-quantalys-policy-act-bff-axa-api
-  #   Tenant__Name: axa
+    - quantalys-axb-bff-api.flex-rci.harvest.fr

@@ -1,0 +1,6 @@
+dependencies:
+- name: application-api
+  repository: file://../../@templates/application-api
+  version: 0.1.0
+digest: sha256:806790542b5d21912ccdb4fa417381f3ee6293c3d72f3bfa4582f51c5a0ad146
+generated: "2024-03-05T15:53:09.125754+01:00"
