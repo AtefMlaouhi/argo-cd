@@ -1,6 +1,6 @@
 global:
-  rancherCluster: "c-btmpm"
-  rancherProject: "p-99g6k"
+  rancherCluster: "c-m-gz9552xq" # Check Rancher flew-pw-rcc project axa banque
+  rancherProject: "p-8hlrw"
 init-namespace:
   namespaces:
     - quantalys-axb-rci
