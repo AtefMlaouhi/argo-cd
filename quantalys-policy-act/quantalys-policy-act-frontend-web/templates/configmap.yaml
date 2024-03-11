@@ -26,6 +26,7 @@ data:
             fonts: {},
             apis: {
                 backend: 'https://{{ .Values.config.backend.url }}',
+                esign: 'https://{{ .Values.config.esign.url }}'
             },
         },
         version: '1.0.0'

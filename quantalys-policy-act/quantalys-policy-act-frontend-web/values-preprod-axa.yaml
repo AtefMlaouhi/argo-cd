@@ -10,3 +10,5 @@ config:
   redirect:
     operations: awd-pp.axa.fr/Standard/Operation/Suivi
     contract: awd-pp.axa.fr/Contrats/Synthese?sNumero=
+  esign:
+    url: sign.test.universign.eu/fr/revocation/

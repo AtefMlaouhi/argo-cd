@@ -10,3 +10,5 @@ config:
   redirect:
     operations: fdw-tst.quantalys.com/Standard/Operation/Suivi
     contract: fdw-tst.quantalys.com/Contrats/Synthese?sNumero=
+  esign:
+    url: sign.test.universign.eu/fr/revocation/

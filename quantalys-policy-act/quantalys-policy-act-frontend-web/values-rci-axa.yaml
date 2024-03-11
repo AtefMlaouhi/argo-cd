@@ -10,3 +10,5 @@ config:
   redirect:
     operations: aws-pw-rci.quantalys.com/Standard/Operation/Suivi
     contract: aws-pw-rci.quantalys.com/Contrats/Synthese?sNumero=
+  esign:
+    url: sign.test.universign.eu/fr/revocation/
