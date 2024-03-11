@@ -1,6 +1,8 @@
 hosts:
   - quantalys-policy-act-bff-cnp-api-recette.harvest.fr
 extraEnv:
+  - name: Jwt__BaseAddress
+    value: "https://auth-r7.harvest.fr/auth/realms/"
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:
@@ -35,3 +37,5 @@ appsettingsJson:
   OpenTelemetry__MeterName: quantalys-policy-act-bff-cnp-api-meter
   OpenTelemetry__ServiceName: rcc-quantalys-policy-act-bff-cnp-api
   Tenant__Name: cnp
+  UserProxy__Realm: CNPUsers
+  EsignApi__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b

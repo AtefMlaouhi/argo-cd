@@ -45,3 +45,8 @@ appsettingsJson:
   Serilog__MinimumLevel__Override__Microsoft: Warning
   Serilog__MinimumLevel__Override__System: Warning
   UserProxy__clientId: quantalys-user-proxy-api
+  ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  EsignApi__Lang: FR
+  EsignApi__Realm: AppUsers
+  EsignApi__clientId: quantalys-sa
+  EsignApi__BaseAddress: https://esign-api-recette.harvest.fr

@@ -1,6 +1,8 @@
 hosts:
   - quantalys-policy-act-bff-cnp-api-k8s.dev.harvest.fr
 extraEnv:
+  - name: Jwt__BaseAddress
+    value: "https://keycloak-dev.harvest-r7.fr/auth/realms/"
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:
@@ -35,3 +37,5 @@ appsettingsJson:
   OpenTelemetry__MeterName: quantalys-policy-act-bff-cnp-api-meter
   OpenTelemetry__ServiceName: dev-quantalys-policy-act-bff-cnp-api
   Tenant__Name: cnp
+  UserProxy__Realm: CNPUsers
+  EsignApi__TenantId: 93fa2d70-bf6f-4a72-85c1-a637c71a06c9

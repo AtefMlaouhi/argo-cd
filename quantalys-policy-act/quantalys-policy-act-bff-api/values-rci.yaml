@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.3-beta0001-28554
+  tag: 3.0.1-beta0001-29840
 podAnnotations:
   env: rci
-  version: 2.0.3-beta0001-28554
+  version: 3.0.1-beta0001-29840
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
@@ -45,3 +45,8 @@ appsettingsJson:
   Serilog__MinimumLevel__Override__Microsoft: Warning
   Serilog__MinimumLevel__Override__System: Warning
   UserProxy__clientId: quantalys-user-proxy-api
+  ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
+  EsignApi__Lang: FR
+  EsignApi__Realm: AppUsers
+  EsignApi__clientId: fake-esign-api-client
+  EsignApi__BaseAddress: https://esign-api-k8s.rci.harvest.fr

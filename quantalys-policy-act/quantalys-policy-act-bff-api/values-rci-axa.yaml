@@ -1,6 +1,8 @@
 hosts:
   - quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr
 extraEnv:
+  - name: Jwt__BaseAddress
+    value: "https://keycloak-rci.harvest-r7.fr/auth/realms/"
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:
@@ -35,3 +37,5 @@ appsettingsJson:
   OpenTelemetry__MeterName: quantalys-policy-act-bff-axa-api-meter
   OpenTelemetry__ServiceName: rci-quantalys-policy-act-bff-axa-api
   Tenant__Name: axa
+  UserProxy__Realm: AWSUsers
+  EsignApi__TenantId: 6f0f6355-308c-4f86-8dab-6fe050aa6bd9
