@@ -40,3 +40,5 @@ appsettingsJson:
   OpenTelemetry__MeterName: quantalys-policy-act-bff-axa-api-meter
   OpenTelemetry__ServiceName: dev-quantalys-policy-act-bff-axa-api
   Tenant__Name: axa
+  UserProxy__Realm: AWSUsers
+  EsignApi__TenantId: b67bf86a-b02d-4f0e-b6d5-6095ab3e1b04
