@@ -2,10 +2,11 @@ hosts:
   - quantalys-policy-act-bff-axa-api-k8s.dev.harvest.fr
 extraEnv:
   - name: Jwt__BaseAddress
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: issuer-axa
+    value: "https://keycloak-dev.harvest-r7.fr/auth/realms/"
+    # valueFrom:
+    #   configMapKeyRef:
+    #     name: keycloak
+    #     key: issuer-axa
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:

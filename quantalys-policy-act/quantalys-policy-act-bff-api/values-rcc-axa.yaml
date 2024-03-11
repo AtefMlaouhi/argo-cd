@@ -1,6 +1,8 @@
 hosts:
   - quantalys-policy-act-bff-axa-api-recette.harvest.fr
 extraEnv:
+  - name: Jwt__BaseAddress
+    value: "https://auth-r7.harvest.fr/auth/realms/"
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:

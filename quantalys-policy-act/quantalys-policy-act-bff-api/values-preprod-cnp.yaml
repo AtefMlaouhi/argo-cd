@@ -1,6 +1,8 @@
 hosts:
   - quantalys-policy-act-bff-cnp-api-preprod.harvest.fr
 extraEnv:
+  - name: Jwt__BaseAddress
+    value: "https://auth-preprod.harvest.fr/auth/realms/"
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:

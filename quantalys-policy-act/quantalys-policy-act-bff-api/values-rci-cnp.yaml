@@ -1,6 +1,8 @@
 hosts:
   - quantalys-policy-act-bff-cnp-api-k8s.rci.harvest.fr
 extraEnv:
+  - name: Jwt__BaseAddress
+    value: "https://keycloak-rci.harvest-r7.fr/auth/realms/"
   - name: Jwt__Issuer
     valueFrom:
       configMapKeyRef:
