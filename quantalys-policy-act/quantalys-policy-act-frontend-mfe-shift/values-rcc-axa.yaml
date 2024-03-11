@@ -9,4 +9,6 @@ config:
     url: quantalys-policy-act-bff-axa-api-recette.harvest.fr
   redirect:
     operations: fdw-tst.quantalys.com/Standard/Operation/Suivi
-    contract: fdw-tst.quantalys.com/Contrats/Synthese?sNumero=    
+    contract: fdw-tst.quantalys.com/Contrats/Synthese?sNumero=
+  esign:
+    url: sign.test.universign.eu/fr/revocation/  
