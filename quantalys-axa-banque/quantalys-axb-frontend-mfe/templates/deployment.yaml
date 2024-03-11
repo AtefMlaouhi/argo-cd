@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "quantalys.axb.frontend.mfe.fullname" . }}
+  labels:
+    {{- include "quantalys.axb.frontend.mfe.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "quantalys.axb.frontend.mfe.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/q/metrics"
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+        checksum/configuration: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      labels:
+        {{- include "quantalys.axb.frontend.mfe.selectorLabels" . | nindent 8 }}
+        stack: "angular"
+        excluding_logs: "true"
+        version: {{.Values.image.tag}}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "quantalys.axb.frontend.mfe.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ include "quantalys.axb.frontend.mfe.fullname" . }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- with .Values.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          envFrom:
+            - configMapRef:
+                name: policy-act-frontend-shift-mfe-config
+                optional: false 
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+#          livenessProbe:
+#             httpGet:
+#              path: {{ .Values.probes.livenessPath | default "/" }}
+#              port: http
+#          readinessProbe:
+#             httpGet:
+#              path: {{ .Values.probes.readinessPath | default "/" }}
+#              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+            - name: app-config
+              mountPath: /usr/share/nginx/html/assets/config
+              readOnly: true
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+        {{- tpl (.Values.affinity | toYaml) . | nindent 8 }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: {{include "quantalys.axb.frontend.mfe.fullname" .}}-config
+            items:
+              - key: nginx.conf
+                path: nginx.conf
+        - name: app-config
+          configMap:
+            name: {{include "quantalys.axb.frontend.mfe.fullname" .}}-config
+            items:
+              - key: config.js
+                path: config.js
+
