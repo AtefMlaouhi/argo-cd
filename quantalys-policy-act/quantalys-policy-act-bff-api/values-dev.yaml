@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0030-29787
+  tag: 3.1.0-alpha0001-29898
 podAnnotations:
   env: dev
-  version: 2.1.0-alpha0030-29787
+  version: 3.1.0-alpha0001-29898
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
