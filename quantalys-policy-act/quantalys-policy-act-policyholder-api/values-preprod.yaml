@@ -27,10 +27,11 @@ env:
         name: instrumentation
         key: flag-export-metrics
   - name: OpenTelemetry__Protocol
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: protocol
+    value : 'HttpProtobuf'
+    # valueFrom:
+    #   configMapKeyRef:
+    #     name: instrumentation
+    #     key: protocol
 appsettingsJson:
   AllowedHosts: "*"
   ASPNETCORE_ENVIRONMENT: Preproduction
