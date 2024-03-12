@@ -117,6 +117,6 @@ appsettingsJson:
   Minio__IsSecure: true
   OpenTelemetry__ActivityName: quantalys-policy-act-cnp-activity
   OpenTelemetry__MeterName: quantalys-policy-act-cnp-meter
-  OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-cnp-api
+  OpenTelemetry__ServiceName: preprod-quantalys-policy-act-cnp-api
   ProductAPIsToken__clientId: pw-cnp-sa
   SseAPIs__TenantId: e57fa96d-bfe5-4735-9f68-21486e45c6dd

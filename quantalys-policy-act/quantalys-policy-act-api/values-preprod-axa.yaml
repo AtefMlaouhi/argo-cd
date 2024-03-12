@@ -118,6 +118,6 @@ appsettingsJson:
   Minio__IsSecure: true
   OpenTelemetry__ActivityName: quantalys-policy-act-axa-activity
   OpenTelemetry__MeterName: quantalys-policy-act-axa-meter
-  OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-axa-api
+  OpenTelemetry__ServiceName: preprod-quantalys-policy-act-axa-api
   ProductAPIsToken__clientId: pw-aws-sa
   SseAPIs__TenantId: d151f9d9-88c1-478e-9cf8-544700066e0e
