@@ -6,10 +6,11 @@ podAnnotations:
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: opentelemetry-collector-host
+    value: "opentelemetry-flex.harvest.fr"
+    # valueFrom:
+    #   configMapKeyRef:
+    #     name: instrumentation
+    #     key: opentelemetry-collector-host
   - name: OpenTelemetry__CollectorUri
     valueFrom:
       configMapKeyRef:

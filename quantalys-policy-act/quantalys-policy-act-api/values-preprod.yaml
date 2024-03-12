@@ -21,10 +21,11 @@ env:
         name: keycloak
         key: grant-type-client-credentials
   - name: OpenTelemetry__CollectorHost
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: opentelemetry-collector-host
+    value: "opentelemetry-flex.harvest.fr"
+    # valueFrom:
+    #   configMapKeyRef:
+    #     name: instrumentation
+    #     key: opentelemetry-collector-host
   - name: OpenTelemetry__CollectorUri
     valueFrom:
       configMapKeyRef:
