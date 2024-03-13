@@ -85,8 +85,8 @@ appsettingsJson:
   ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   ASPNETCORE_ENVIRONMENT: Integration
   DicAPIsToken__clientId: documentapi
-  GetDocumentBundleRetry__DelayInSeconds: 3
-  GetDocumentBundleRetry__RetryCount: 5
+  GetDocumentBundleRetry__DelayInSeconds: 5
+  GetDocumentBundleRetry__RetryCount: 8
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
   InvestmentToken__clientId: quantalys-investment-proxy-api
