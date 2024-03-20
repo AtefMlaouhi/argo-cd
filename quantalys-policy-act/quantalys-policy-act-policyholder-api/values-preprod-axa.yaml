@@ -52,7 +52,7 @@ appsettingsJson:
   HubToken__clientId: pw-aws-sa
   Insurer__Code: AWS
   Insurer__Name: axa
-  OpenTelemetry__ActivityName: quantalsys-policy-act-policyholder-axa-activity
-  OpenTelemetry__MeterName: quantalsys-policy-act-policyholder-axa-meter
-  OpenTelemetry__ServiceName: preprod-quantalsys-policy-act-policyholder-axa-api
+  OpenTelemetry__ActivityName: quantalys-policy-act-policyholder-axa-activity
+  OpenTelemetry__MeterName: quantalys-policy-act-policyholder-axa-meter
+  OpenTelemetry__ServiceName: preprod-quantalys-policy-act-policyholder-axa-api
   

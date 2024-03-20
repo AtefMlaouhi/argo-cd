@@ -6,10 +6,11 @@ podAnnotations:
 replicaCount: 1
 env:
   - name: OpenTelemetry__CollectorHost
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: opentelemetry-collector-host
+    value: "opentelemetry-flex.harvest.fr"
+    # valueFrom:
+    #   configMapKeyRef:
+    #     name: instrumentation
+    #     key: opentelemetry-collector-host
   - name: OpenTelemetry__CollectorUri
     valueFrom:
       configMapKeyRef:
@@ -21,10 +22,11 @@ env:
         name: instrumentation
         key: flag-export-metrics
   - name: OpenTelemetry__Protocol
-    valueFrom:
-      configMapKeyRef:
-        name: instrumentation
-        key: protocol
+    value : 'HttpProtobuf'
+    # valueFrom:
+    #   configMapKeyRef:
+    #     name: instrumentation
+    #     key: protocol
   - name: SSEKeyCloak__clientSecret
     valueFrom:
       secretKeyRef:

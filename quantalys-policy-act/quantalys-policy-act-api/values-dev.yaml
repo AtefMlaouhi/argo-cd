@@ -1,8 +1,8 @@
 image:
-  tag: 3.1.0-alpha0009-29741
+  tag: 3.1.0-alpha0011-30240
 podAnnotations:
   env: dev
-  version: 3.1.0-alpha0009-29741
+  version: 3.1.0-alpha0011-30240
 replicaCount: 1
 env:
   - name: ApiGateway__BaseAddress
@@ -85,8 +85,8 @@ appsettingsJson:
   ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   ASPNETCORE_ENVIRONMENT: Integration
   DicAPIsToken__clientId: documentapi
-  GetDocumentBundleRetry__DelayInSeconds: 3
-  GetDocumentBundleRetry__RetryCount: 5
+  GetDocumentBundleRetry__DelayInSeconds: 5
+  GetDocumentBundleRetry__RetryCount: 8
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: dev
   InvestmentToken__clientId: quantalys-investment-proxy-api
