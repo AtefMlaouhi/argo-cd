@@ -5,8 +5,8 @@ image:
 
 imagePullSecrets:
   - name: gitlab
-nameOverride: ""
-fullnameOverride: "quantalys-axb-frontend-web"
+nameOverride: quantalys-axb-frontend-web
+fullnameOverride: quantalys-axb-frontend-web
 
 podAnnotations:
   env: unspecified

@@ -6,7 +6,7 @@ application-api:
 
   imagePullSecrets:
     - name: gitlab
-  nameOverride: ""
+  nameOverride: policy-axb-bff-api
   fullnameOverride: policy-axb-bff-api
 
   podAnnotations:
