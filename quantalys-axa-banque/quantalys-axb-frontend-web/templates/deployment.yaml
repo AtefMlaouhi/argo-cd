@@ -86,10 +86,3 @@ spec:
             items:
               - key: nginx.conf
                 path: nginx.conf
-        - name: app-config
-          configMap:
-            name: {{include "quantalys.axb.frontend.fullname" .}}-config
-            items:
-              - key: config.js
-                path: config.js
-
