@@ -1,11 +1,12 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.axb.frontend.mfe
+  repository: quantalys.axb.frontend.web # nom de l'image docker (cf CI.yml dans le repo du front)
+  pullPolicy: IfNotPresent
 
 imagePullSecrets:
   - name: gitlab
 nameOverride: ""
-fullnameOverride: "quantalys-axb-frontend-mfe"
+fullnameOverride: "quantalys-axb-frontend-web"
 
 podAnnotations:
   env: unspecified
@@ -54,9 +55,9 @@ serviceAccount:
 resources:
   requests:
     cpu: 50m
-    memory: 256Mi
+    memory: 400Mi
   limits:
-    memory: 256Mi
+    memory: 400Mi
 
 replicaCount: 1
 

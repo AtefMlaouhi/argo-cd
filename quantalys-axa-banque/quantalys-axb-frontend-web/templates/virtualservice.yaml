@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: {{ include "quantalys.axb.frontend.mfe.name" . }}
+  name: {{ include "quantalys.axb.frontend.name" . }}
 spec:
   gateways:
   - istio-system/https-gateway
@@ -10,7 +10,7 @@ spec:
   http:
   - route:
     - destination:
-        host: {{ include "quantalys.axb.frontend.mfe.fullname" . }}
+        host: {{ include "quantalys.axb.frontend.fullname" . }}
         port:
           number: 80
       weight: 100
