@@ -1,0 +1,3 @@
+application-api:
+  hosts:
+    - quantalys-axb-api.flex-rcc.harvest.fr
