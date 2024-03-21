@@ -3,3 +3,38 @@ application-api:
     - quantalys-axb-api.flex-rci.harvest.fr
   image:
     tag: 0.1.0-30263
+
+extraEnv:
+  - name: ConnectionStrings__AxbDbConnection
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-axb
+  - name: BApiCredentials__ClientId
+    valueFrom:
+      secretKeyRef:
+        name: b-api-credentials
+        key: client-id
+  - name: BApiCredentials__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: b-api-credentials
+        key: client-secret
+  - name: FcaScoring__Login
+    valueFrom:
+      secretKeyRef:
+        name: b-api-credentials
+        key: login
+  - name: FcaScoring__Password
+    valueFrom:
+      secretKeyRef:
+        name: b-api-credentials
+        key: password
+
+appsettingsJson:
+  AllowedHosts: "*"
+  OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
+  OpenTelemetrySettings__Endpoint: opentelemetry-k8s.dev.harvest.fr
+  BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
+  FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs/RecupererScoreParNumClient
+  ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
