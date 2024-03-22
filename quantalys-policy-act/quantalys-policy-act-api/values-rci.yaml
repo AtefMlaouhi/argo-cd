@@ -1,8 +1,8 @@
 image:
-  tag: 3.0.5-beta0001-30645
+  tag: 3.0.6-beta0001-30664
 podAnnotations:
   env: rci
-  version: 3.0.5-beta0001-30645
+  version: 3.0.6-beta0001-30664
 replicaCount: 1
 env:
   - name: ApiGateway__BaseAddress
