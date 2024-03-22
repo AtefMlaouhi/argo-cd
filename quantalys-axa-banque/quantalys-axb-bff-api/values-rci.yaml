@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-bff-api.flex-rci.harvest.fr
   image:
-    tag: 0.1.0-30638
+    tag: 0.1.0-30666
 appsettingsJson:
   AllowedHosts: "*"
   Authentication__Audience: quantalys-document-library-backend-api
