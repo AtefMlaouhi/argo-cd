@@ -46,7 +46,7 @@ spec:
           {{- end }}
           envFrom:
             - configMapRef:
-                name: policy-act-frontend-shift-mfe-config
+                name: quantalys-axb-frontend-web-config
                 optional: false 
           ports:
             - name: http
