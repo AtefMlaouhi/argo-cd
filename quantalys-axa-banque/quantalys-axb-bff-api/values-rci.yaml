@@ -9,5 +9,9 @@ appsettingsJson:
   Keycloak__Authority: https://keycloak-dev.harvest-r7.fr/realms/Axb.BFF
   AxBffSettings__ServiceBaseUrl: https://keycloak-dev.harvest-r7.fr/realms/Axb.BFF
   AxBffSettings__TokenUrl: https://keycloak-dev.harvest-r7.fr/auth/realms/AxbUsers/.well-known/openid-configuration
-  CorsSettings__AllowedOrigins: 
+  CorsSettings__AllowedOrigins:
     - https://quantalys-axb.flex-rci.harvest.fr
+image:
+  tag: 0.1.0-30673
+podAnnotations:
+  version: 0.1.0-30673
