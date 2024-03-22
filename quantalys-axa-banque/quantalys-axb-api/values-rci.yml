@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-api.flex-rci.harvest.fr
   image:
-    tag: 0.1.0-30263
+    tag: 0.1.0-30617
 
 extraEnv:
   - name: ConnectionStrings__AxbDbConnection
