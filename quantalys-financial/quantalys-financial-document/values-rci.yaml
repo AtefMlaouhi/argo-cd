@@ -39,7 +39,7 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Financial.Document.Api
   HarvestConfiguration__Domain: Quantalys.Financial.Document
   HarvestConfiguration__Environment: rci
-  KeycloakRealm: https://keycloak-rci.harvest-r7.fr/auth/realms/quantalys
+  KeycloakRealm: https://keycloak-rci.harvest-r7.fr/auth/realms/AppUsers
   OpenTelemetry__ExportMetrics: false
   OpenTelemetry__ExportTraces: false
   OpenTelemetry__ServiceName: ""
