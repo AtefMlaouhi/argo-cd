@@ -6,10 +6,5 @@ application-api:
 appsettingsJson:
   AllowedHosts: "*"
   Authentication__Audience: quantalys-document-library-backend-api
-  Keycloak__Authority: https://keycloak-dev.harvest-r7.fr/realms/AxbUsers
-  Keycloak__ClientId: AxB.BFF
-  Keycloak__Audiences:
-    - account
-    - AxB.BFF
   CorsSettings__AllowedOrigins:
     - https://quantalys-axb.flex-rci.harvest.fr
