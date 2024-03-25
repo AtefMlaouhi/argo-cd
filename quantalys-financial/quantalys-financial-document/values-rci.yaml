@@ -1,10 +1,10 @@
 hosts:
   - quantalys-financial-document-api-k8s.rci.harvest.fr
 image:
-  tag: 0.1.4
+  tag: 0.1.5
 podAnnotations:
   env: rci
-  version: 0.1.4
+  version: 0.1.5
 replicaCount: 1
 env:
   - name: ConnectionStrings__BaseFrance
@@ -48,4 +48,10 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
-  SettingsOptions__PathDoc: "\\\\prod.ent\\ECS-DFS\\Base_Documentaire\\Prospectus"
+  SettingsOptions__Server: ""
+  SettingsOptions__PathDoc: "Prospectus"
+  SettingsOptions__Directory: ""
+  Minio__EndPoint: "oss.eu-west-0.prod-cloud-ocb.orange-business.com"
+  Minio__AccessKey: "53N5AYQKVCNRBV7R48GS"
+  Minio__SecretKey: "N9utpCWUkrM6lwIQarFfB5jdhnVW0VzfwSxDXOW2"
+  Minio__BucketName: "obs-eu-west-0-pw-prod-base-documentaire-01"
