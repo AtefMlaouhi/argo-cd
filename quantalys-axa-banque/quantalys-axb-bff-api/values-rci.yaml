@@ -1,6 +1,6 @@
 application-api:
   hosts:
-    - quantalys-axb-bff-api.flex-rci.harvest.fr
+    - quantalys-axb-bff-api-rci.harvest.fr
   image:
     tag: 0.1.0-30673
 appsettingsJson:

@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-axb.flex-rci.harvest.fr
+  - quantalys-axb-rci.harvest.fr
 image:
   tag: 0.1.0-cicd.1
 podAnnotations:
