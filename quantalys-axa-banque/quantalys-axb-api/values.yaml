@@ -6,8 +6,8 @@ application-api:
 
   imagePullSecrets:
     - name: gitlab
-  nameOverride: policy-axb-api
-  fullnameOverride: policy-axb-api
+  nameOverride: quantalys-axb-back-api
+  fullnameOverride: quantalys-axb-back-api
 
   podAnnotations:
     env: unspecified
