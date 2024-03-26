@@ -6,8 +6,8 @@ application-api:
 
   imagePullSecrets:
     - name: gitlab
-  nameOverride: policy-axb-bff-api
-  fullnameOverride: policy-axb-bff-api
+  nameOverride: quantalys-axa-banque-bff-api
+  fullnameOverride: quantalys-axa-banque-bff-api
 
   podAnnotations:
     env: unspecified
