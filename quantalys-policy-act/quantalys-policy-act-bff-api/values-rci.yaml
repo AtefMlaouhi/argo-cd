@@ -5,6 +5,11 @@ podAnnotations:
   version: 3.0.5-beta0001-30663
 replicaCount: 1
 env:
+  - name: Esign__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-esign-api
   - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:

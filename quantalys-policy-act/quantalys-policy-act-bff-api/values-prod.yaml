@@ -8,6 +8,11 @@ autoscaling:
   minReplicas: 2
   maxReplicas: 4
 env:
+  - name: Esign__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-esign-api
   - name: OpenTelemetry__CollectorHost
     valueFrom:
       configMapKeyRef:
