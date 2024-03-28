@@ -1,12 +1,9 @@
 hosts:
   - quantalys-axb-rci.harvest.fr
 image:
-  tag: 0.1.0-cicd.1
+  tag: latest:rci
 podAnnotations:
   env: rci
   version: latest
 replicaCount: 1
-config:
-  keycloak:
-    server: keycloak-rci.harvest-r7.fr
-    logoutRedirectUrl: ''
+config: {}
