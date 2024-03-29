@@ -8,7 +8,7 @@ autoscaling:
   minReplicas: 2
   maxReplicas: 4
 env:
-  - name: Esign__clientSecret
+  - name: EsignApi__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak

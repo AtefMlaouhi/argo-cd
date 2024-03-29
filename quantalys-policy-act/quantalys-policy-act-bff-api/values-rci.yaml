@@ -5,7 +5,7 @@ podAnnotations:
   version: 3.0.5-beta0001-30663
 replicaCount: 1
 env:
-  - name: Esign__clientSecret
+  - name: EsignApi__clientSecret
     valueFrom:
       secretKeyRef:
         name: keycloak
