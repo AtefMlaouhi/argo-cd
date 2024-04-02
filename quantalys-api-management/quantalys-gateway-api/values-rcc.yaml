@@ -74,4 +74,4 @@ appsettingsJson:
   ApiGatewayConfiguration__Providers__1__TenantId: b16fe6cd-ea40-4bf0-8979-cf39a8ae2e1b
   ApiGatewayConfiguration__Providers__1__Acts__ClientId: quantalys-policy-act-api
   JwtKeyCloak__Audience: quantalys-gateway-api
-  GenerateMFERoutes: false
+  GenerateMFERoutes: true
