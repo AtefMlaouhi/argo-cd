@@ -19,6 +19,6 @@ appsettingsJson:
     - authorization
     - content-type
 image:
-  tag: 0.1.0-31252
+  tag: 0.1.0-31515
 podAnnotations:
-  version: 0.1.0-31252
+  version: 0.1.0-31515
