@@ -6,18 +6,13 @@ application-api:
 appsettingsJson:
   Logging__LogLevel__Default: Information
   Logging__LogLevel__Microsoft.AspNetCore: Information
-  AllowedHosts: "*"
   Keycloak__Authority: https://keycloak-dev.harvest-r7.fr/auth/realms/AxbUsers
   Keycloak__Audiences:
     - account
     - AxB.BFF
   Keycloak__ClientId: AxB.BFF
-  Keycloak__ExpirationSeconds: 5
   CorsSettings__AllowedOrigins:
-    - https://quantalys-axb.flex-rci.harvest.fr
-  CorsSettings__AllowedHeaders:
-    - authorization
-    - content-type
+    - '*'
   # WARNING : DEV ONLY, DELETE THIS WHEN BFF IS DECOMISSIONED
   AxBffSettings__Username: 123
   AxBffSettings__Password: 123
