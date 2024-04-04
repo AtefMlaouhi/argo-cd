@@ -18,6 +18,9 @@ appsettingsJson:
   CorsSettings__AllowedHeaders:
     - authorization
     - content-type
+  # WARNING : DEV ONLY, DELETE THIS WHEN BFF IS DECOMISSIONED
+  AxBffSettings__Username: 123
+  AxBffSettings__Password: 123
 image:
   tag: 0.1.0-31515
 podAnnotations:
