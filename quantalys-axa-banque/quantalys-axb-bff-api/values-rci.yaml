@@ -3,18 +3,29 @@ application-api:
     - quantalys-axb-bff-api-rci.harvest.fr
   image:
     tag: 0.1.0-31584
-appsettingsJson:
-  Logging__LogLevel__Default: Information
-  Logging__LogLevel__Microsoft.AspNetCore: Information
-  Keycloak__Authority: https://keycloak-dev.harvest-r7.fr/auth/realms/AxbUsers
-  Keycloak__Audiences:
-    - account
-    - AxB.BFF
-  Keycloak__ClientId: AxB.BFF
-  CorsSettings__AllowedOrigins:
-    - '*'
-  # WARNING : DEV ONLY, DELETE THIS WHEN BFF IS DECOMISSIONED
-  AxBffSettings__Username: 123
-  AxBffSettings__Password: 123
+
 podAnnotations:
   version: 0.1.0-31584
+
+extraEnv:
+  # Standard config
+  - name: Logging__LogLevel__Default
+    value: Information
+  - name: Logging__LogLevel__Microsoft.AspNetCore
+    value: Information
+  - name: Keycloak__Authority
+    value: https://keycloak-dev.harvest-r7.fr/auth/realms/AxbUsers
+  - name: Keycloak__Audiences
+    value:
+      - account
+      - AxB.BFF
+  - name: Keycloak__ClientId
+    value: AxB.BFF
+  - name: CorsSettings__AllowedOrigins
+    value: '*'
+
+  # ⚠ Obsolete temporary values, remove after BFF retirement
+  - name: AxBffSettings__Username
+    value: '123'
+  - name: AxBffSettings__Password
+    value: '123'
