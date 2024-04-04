@@ -21,6 +21,8 @@ extraEnv:
       - AxB.BFF
   - name: Keycloak__ClientId
     value: AxB.BFF
+  - name: Keycloak__ExpirationSeconds
+    value: 20
   - name: CorsSettings__AllowedOrigins
     value: '*'
 
