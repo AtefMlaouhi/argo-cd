@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-bff-api-rci.harvest.fr
   image:
-    tag: 0.1.0-31515
+    tag: 0.1.0-31584
 appsettingsJson:
   Logging__LogLevel__Default: Information
   Logging__LogLevel__Microsoft.AspNetCore: Information
@@ -19,4 +19,4 @@ appsettingsJson:
 image:
   tag: 0.1.0-31572
 podAnnotations:
-  version: 0.1.0-31572
+  version: 0.1.0-31584
