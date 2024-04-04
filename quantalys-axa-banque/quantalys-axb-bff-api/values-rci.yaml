@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-bff-api-rci.harvest.fr
   image:
-    tag: 0.1.0-31252
+    tag: 0.1.0-31515
 appsettingsJson:
   Logging__LogLevel__Default: Information
   Logging__LogLevel__Microsoft.AspNetCore: Information
