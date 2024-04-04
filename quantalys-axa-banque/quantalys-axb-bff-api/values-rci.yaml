@@ -16,7 +16,5 @@ appsettingsJson:
   # WARNING : DEV ONLY, DELETE THIS WHEN BFF IS DECOMISSIONED
   AxBffSettings__Username: 123
   AxBffSettings__Password: 123
-image:
-  tag: 0.1.0-31572
 podAnnotations:
   version: 0.1.0-31584
