@@ -1,8 +1,8 @@
 image:
-  tag: 3.1.0-alpha0007-31283
+  tag: 3.1.0-alpha0008-31508
 podAnnotations:
   env: dev
-  version: 3.1.0-alpha0007-31283
+  version: 3.1.0-alpha0008-31508
 replicaCount: 1
 env:
   - name: EsignApi__clientSecret
