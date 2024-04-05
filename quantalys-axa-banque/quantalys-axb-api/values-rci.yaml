@@ -2,11 +2,9 @@ application-api:
   hosts:
     - quantalys-axb-api-rci.harvest.fr
   image:
-    tag: 0.1.0-31583
-
+    tag: 0.1.0-31648
 podAnnotations:
-  version: 0.1.0-31583
-
+  version: 0.1.0-31648
 extraEnv:
   # Config requiring secrets
   - name: ConnectionStrings__AxbDbConnection
@@ -34,7 +32,6 @@ extraEnv:
       secretKeyRef:
         name: b-api-credentials
         key: password
-
   # Standard config
   - name: OpenTelemetrySettings__ServiceName
     value: dev-quantalys-customer-Axb-api
