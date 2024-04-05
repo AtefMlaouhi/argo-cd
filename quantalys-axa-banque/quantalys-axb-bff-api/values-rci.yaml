@@ -2,11 +2,9 @@ application-api:
   hosts:
     - quantalys-axb-bff-api-rci.harvest.fr
   image:
-    tag: 0.1.0-31584
-
+    tag: 0.1.0-31649
 podAnnotations:
-  version: 0.1.0-31584
-
+  version: 0.1.0-31649
 extraEnv:
   # Standard config
   - name: Logging__LogLevel__Default
@@ -25,7 +23,6 @@ extraEnv:
     value: 20
   - name: CorsSettings__AllowedOrigins
     value: '*'
-
   # ⚠ Obsolete temporary values, remove after BFF retirement
   - name: AxBffSettings__Username
     value: '123'
