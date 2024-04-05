@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-api-rci.harvest.fr
   image:
-    tag: 0.1.0-31648
+    tag: 0.1.0-31692
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -36,4 +36,4 @@ application-api:
     FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs/RecupererScoreParNumClient
     ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
 podAnnotations:
-  version: 0.1.0-31648
+  version: 0.1.0-31692
