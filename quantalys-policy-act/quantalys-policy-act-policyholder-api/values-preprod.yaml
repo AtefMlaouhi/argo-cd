@@ -11,11 +11,10 @@ env:
         name: api-routes
         key: hub-subscription-api
   - name: OpenTelemetry__CollectorHost
-    value: "opentelemetry-flex.harvest.fr"
-    # valueFrom:
-    #   configMapKeyRef:
-    #     name: instrumentation
-    #     key: opentelemetry-collector-host
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-host
   - name: OpenTelemetry__CollectorUri
     valueFrom:
       configMapKeyRef:
@@ -27,11 +26,10 @@ env:
         name: instrumentation
         key: flag-export-metrics
   - name: OpenTelemetry__Protocol
-    value : 'HttpProtobuf'
-    # valueFrom:
-    #   configMapKeyRef:
-    #     name: instrumentation
-    #     key: protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
 appsettingsJson:
   AllowedHosts: "*"
   ASPNETCORE_ENVIRONMENT: Preproduction

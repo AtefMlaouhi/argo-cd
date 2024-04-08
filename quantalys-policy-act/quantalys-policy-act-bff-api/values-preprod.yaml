@@ -11,7 +11,6 @@ env:
         name: keycloak
         key: client-esign-api
   - name: OpenTelemetry__CollectorHost
-    #value: "opentelemetry-flex.harvest.fr"
     valueFrom:
       configMapKeyRef:
         name: instrumentation
@@ -27,7 +26,6 @@ env:
         name: instrumentation
         key: flag-export-metrics
   - name: OpenTelemetry__Protocol
-    #value: "HttpProtobuf"
     valueFrom:
       configMapKeyRef:
         name: instrumentation

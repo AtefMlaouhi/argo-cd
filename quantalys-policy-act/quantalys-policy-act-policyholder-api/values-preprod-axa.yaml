@@ -55,4 +55,3 @@ appsettingsJson:
   OpenTelemetry__ActivityName: quantalys-policy-act-policyholder-axa-activity
   OpenTelemetry__MeterName: quantalys-policy-act-policyholder-axa-meter
   OpenTelemetry__ServiceName: preprod-quantalys-policy-act-policyholder-axa-api
-  
