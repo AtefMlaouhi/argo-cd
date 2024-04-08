@@ -7,3 +7,5 @@ config:
     client_id: quantalys-policy-act-frontend
   backend:
     url: quantalys-policy-act-bff-axa-api-recette.harvest.fr
+  esign:
+    url: sign.test.universign.eu/fr/revocation/
