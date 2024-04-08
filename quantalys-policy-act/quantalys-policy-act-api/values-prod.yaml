@@ -90,3 +90,4 @@ appsettingsJson:
   Serilog__MinimumLevel__Override__Microsoft: Warning
   Serilog__MinimumLevel__Override__System: Warning
   UserProxyToken__clientId: quantalys-user-proxy-api
+  DicAPIsToken__clientId: documentapi
