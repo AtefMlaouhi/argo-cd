@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-bff-api-rci.harvest.fr
   image:
-    tag: 0.1.0-31693
+    tag: 0.1.0-31856
   appsettingsJson:
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft.AspNetCore: Information
@@ -14,4 +14,4 @@ application-api:
     Keycloak__ExpirationSeconds: 20
     CorsSettings__AllowedOrigins: '*'
 podAnnotations:
-  version: 0.1.0-31693
+  version: 0.1.0-31856
