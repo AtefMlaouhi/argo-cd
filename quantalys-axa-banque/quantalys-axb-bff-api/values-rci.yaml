@@ -3,7 +3,7 @@ application-api:
     - quantalys-axb-bff-api-rci.harvest.fr
   image:
     tag: 0.1.0-31856
-  env:
+  appsettingsJson:
     Logging__LogLevel__Default: Information
     Logging__LogLevel__Microsoft.AspNetCore: Information
     Keycloak__Authority: https://keycloak-dev.harvest-r7.fr/auth/realms/AxbUsers
