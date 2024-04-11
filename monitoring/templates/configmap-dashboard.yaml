@@ -1,0 +1,23 @@
+{{ if .Values.grafana.enabled }}
+{{- $replaces := .Values.grafana.dashboards.replaces -}}
+{{- $releaseName := .Release.Namespace -}}
+{{- range $path, $bytes := .Files.Glob "dashboards/**" }}
+{{- $key := base (dir $path) }}
+{{- if not (has (base $path) $.Values.grafana.dashboards.excludes) }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ base $path }}
+  labels:
+    grafana_dashboard: "1"
+data:
+    {{- $file := $.Files.Get $path }}
+    {{- range $replaces }}
+        {{- $file = $file | replace .from .to -}}
+    {{- end }}
+    {{ $releaseName }}-{{ base $path }}: |-
+    {{- $file | nindent 6 }}
+---
+{{- end }}
+{{- end }}
+{{- end }}
