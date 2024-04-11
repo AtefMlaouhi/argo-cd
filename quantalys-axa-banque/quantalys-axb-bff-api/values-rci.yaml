@@ -13,5 +13,5 @@ application-api:
     Keycloak__ClientId: AxB.BFF
     Keycloak__ExpirationSeconds: 10 # Check if this value is read by the app
     CorsSettings__AllowedOrigins: '*'
-  podAnnotations:
+podAnnotations:
   version: 0.1.0-31856
