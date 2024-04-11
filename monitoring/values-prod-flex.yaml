@@ -14,5 +14,7 @@ grafana:
         to: 'c-m-h2rkm56h'
       - from: 'rce-axaddc-ecrans'
         to: 'prod-axaddc-ecrans'
+      - from: 'RCE'
+        to: 'PROD'
       # - from: 'DEV/RCI'
       #   to: 'PROD'
