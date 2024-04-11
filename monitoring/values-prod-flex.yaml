@@ -1,0 +1,10 @@
+grafana:
+  enabled: true
+  dashboards:
+    replaces:
+      - from: 'XYMPB6oSk' # notif channel uid
+        to: ''  #TODO: read value
+      - from: 'c-btmpm' # cluster id
+        to: 'c-m-h2rkm56h'
+      # - from: 'DEV/RCI'
+      #   to: 'PROD'
