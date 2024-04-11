@@ -3,37 +3,47 @@ application-api:
     - quantalys-axb-api-rci.harvest.fr
   image:
     tag: 0.1.0-31692
+  ## 💥 NOTE : THESE CREDENTIALS ARE HERE ONLY BECAUSE WE HAVE A VERY TIGHT DELIVERY SCHEDULE
+  ## 💥 THIS WAY OF DOING SHOULD NOT BE USED IN ANY OTHER ENVIRONMENT
+  ## 💥 WE KNOW IT'S NOT THE GOOD PRACTICES BUT HERE WE ARE WITHOUT SECRETS EDITING RIGHTS
+  # extraEnv:
+  #   - name: ConnectionStrings__AxbDbConnection
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: connection-strings
+  #         key: sqlserver-axb
+  #   - name: BApiCredentials__ClientId
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: b-api-credentials
+  #         key: client-id
+  #   - name: BApiCredentials__ClientSecret
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: b-api-credentials
+  #         key: client-secret
+  #   - name: FcaScoring__Login
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: b-api-credentials
+  #         key: login
+  #   - name: FcaScoring__Password
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: b-api-credentials
+  #         key: password
   extraEnv:
-    - name: ConnectionStrings__AxbDbConnection
-      valueFrom:
-        secretKeyRef:
-          name: connection-strings
-          key: sqlserver-axb
-    - name: BApiCredentials__ClientId
-      valueFrom:
-        secretKeyRef:
-          name: b-api-credentials
-          key: client-id
-    - name: BApiCredentials__ClientSecret
-      valueFrom:
-        secretKeyRef:
-          name: b-api-credentials
-          key: client-secret
-    - name: FcaScoring__Login
-      valueFrom:
-        secretKeyRef:
-          name: b-api-credentials
-          key: login
-    - name: FcaScoring__Password
-      valueFrom:
-        secretKeyRef:
-          name: b-api-credentials
-          key: password
-  appsettingsJson:
     OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
     OpenTelemetrySettings__Endpoint: opentelemetry-k8s.dev.harvest.fr
     BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
     FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs/RecupererScoreParNumClient
     ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
+    ## 💥 REMOVE THESE VALUES AFTER SETTING THE SECRETS
+    ## 💥 EDIT WITH THE RIGHT INFORMATION AFTER REMOVING THE API PLUG IN THE CODE
+    #ConnectionStrings__AxbDbConnection: Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword; # No override from the appSettings.json in the app
+    BApiCredentials__ClientId: noClientIdNeededHere
+    BApiCredentials__ClientSecret: noClientSecretNeededHere
+    FcaScoring__Login: noLoginHere
+    FcaScoring__Password: noPasswordHere
 podAnnotations:
   version: 0.1.0-31692
