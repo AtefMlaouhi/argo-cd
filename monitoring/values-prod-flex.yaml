@@ -1,6 +1,6 @@
 global:
   rancherCluster: c-m-h2rkm56h
-  rancherProject: p-n4bkz
+  rancherProject: p-845jr
   clusterName: Flex-prod
   env: prod
 
