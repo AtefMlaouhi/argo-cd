@@ -11,7 +11,17 @@ application-api:
       - account
       - AxB.BFF
     Keycloak__ClientId: AxB.BFF
-    Keycloak__ExpirationSeconds: 20
+    Keycloak__ExpirationSeconds: 10 # Check if this value is read by the app
     CorsSettings__AllowedOrigins: '*'
-podAnnotations:
+  env:
+    Keycloak__ExpirationSeconds: 11 # Check if this value is read by the app
+  extraEnv:
+    Keycloak__ExpirationSeconds: 12 # Check if this value is read by the app
+  podAnnotations:
   version: 0.1.0-31856
+env:
+  Keycloak__ExpirationSeconds: 7 # Check if this value is read by the app
+extraEnv:
+  Keycloak__ExpirationSeconds: 8 # Check if this value is read by the app
+appsettingsJson:
+  Keycloak__ExpirationSeconds: 9 # Check if this value is read by the app
