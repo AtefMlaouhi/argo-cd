@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.2-29270
+  tag: 2.0.3-32003
 podAnnotations:
   env: prod
-  version: 2.0.2-29270
+  version: 2.0.3-32003
 hosts:
   - quantalys-gateway-api.harvest.fr
 autoscaling:
