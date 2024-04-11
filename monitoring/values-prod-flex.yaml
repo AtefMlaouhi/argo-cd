@@ -1,3 +1,9 @@
+global:
+  rancherCluster: c-m-h2rkm56h
+  rancherProject: p-n4bkz
+  clusterName: Flex-prod
+  env: prod
+
 grafana:
   enabled: true
   dashboards:
