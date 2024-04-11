@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quantalys-monitoring
+spec:
+  destination:
+    name: ''
+    namespace: wealthplateform-monitoring
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: monitoring
+    repoURL: 'https://git.harvest.fr/quantalys/cicd/argocd-dotnet.git'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-prod-flex.yaml
+  project: quantalys
