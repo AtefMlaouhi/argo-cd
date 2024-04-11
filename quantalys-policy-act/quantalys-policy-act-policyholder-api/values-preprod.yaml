@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.3-28568
+  tag: 4.0.0-31983
 podAnnotations:
   env: preprod
-  version: 2.0.3-28568
+  version: 4.0.0-31983
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
