@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.8-28659
+  tag: 3.0.10-31992
 podAnnotations:
   env: rcc
-  version: 2.0.8-28659
+  version: 3.0.10-31992
 replicaCount: 1
 env:
   - name: ApiGateway__BaseAddress
