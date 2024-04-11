@@ -1,7 +1,7 @@
 hosts:
   - quantalys-axb-rci.harvest.fr
 image:
-  tag: rci-0.1.0-25
+  tag: rci-0.1.0-28
 podAnnotations:
   env: rci
   version: latest
