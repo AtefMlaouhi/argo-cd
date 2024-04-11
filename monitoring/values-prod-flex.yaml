@@ -12,5 +12,7 @@ grafana:
         to: ''  #TODO: read value
       - from: 'c-btmpm' # cluster id
         to: 'c-m-h2rkm56h'
+      - from: 'rce-axaddc-ecrans'
+        to: 'prod-axaddc-ecrans'
       # - from: 'DEV/RCI'
       #   to: 'PROD'
