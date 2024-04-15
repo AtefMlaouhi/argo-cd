@@ -1,0 +1,57 @@
+hosts:
+  - quantalys-financial-document-api-recette.harvest.fr
+image:
+  tag: 0.1.5
+podAnnotations:
+  env: rci
+  version: 0.1.5
+replicaCount: 1
+env:
+  - name: ConnectionStrings__BaseFrance
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-base-france
+  - name: ConnectionStrings__QuantaReplicationManagement
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-quanta-replication
+  - name: SettingsOptions__Domain
+    valueFrom:
+      configMapKeyRef:
+        name: distributed-file-system
+        key: domain
+  - name: SettingsOptions__Password
+    valueFrom:
+      secretKeyRef:
+        name: distributed-file-system
+        key: password
+  - name: SettingsOptions__User
+    valueFrom:
+      configMapKeyRef:
+        name: distributed-file-system
+        key: username
+appsettingsJson:
+  AllowedHosts: "*"
+  ApplicationName: Quantalys.Financial.Document.Api
+  AppName__Name: Quantalys.Financial.Document.Api
+  HarvestConfiguration__ApplicationName: Quantalys.Financial.Document.Api
+  HarvestConfiguration__Domain: Quantalys.Financial.Document
+  HarvestConfiguration__Environment: rci
+  KeycloakRealm: https://auth-r7.harvest.fr/auth/realms/AppUsers
+  OpenTelemetry__ExportMetrics: false
+  OpenTelemetry__ExportTraces: false
+  OpenTelemetry__ServiceName: ""
+  OpenTelemetry__Endpoint: ""
+  OpenTelemetry__TracesPath: ""
+  OpenTelemetry__MetricsPath: ""
+  OpenTelemetry__ActivitySourceName: ""
+  OpenTelemetry__MeterName: ""
+  SettingsOptions__Server: ""
+  SettingsOptions__PathDoc: "Prospectus"
+  SettingsOptions__Directory: ""
+  Minio__EndPoint: "oss.eu-west-0.prod-cloud-ocb.orange-business.com"
+  Minio__AccessKey: "53N5AYQKVCNRBV7R48GS"
+  Minio__SecretKey: "N9utpCWUkrM6lwIQarFfB5jdhnVW0VzfwSxDXOW2"
+  Minio__BucketName: "obs-eu-west-0-pw-prod-base-documentaire-01"
