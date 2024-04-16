@@ -2,9 +2,12 @@ image:
   tag: latest
 podAnnotations:
   env: rcc
-  version: latest
+  version: ""
 replicaCount: 1
 config:
   keycloak:
     server: auth-r7.harvest.fr
     logoutRedirectUrl: ''
+application-api:
+  image:
+    tag: ""

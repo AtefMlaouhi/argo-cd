@@ -4,6 +4,9 @@ image:
   tag: rci-0.1.0-28
 podAnnotations:
   env: rci
-  version: latest
+  version: ""
 replicaCount: 1
 config: {}
+application-api:
+  image:
+    tag: ""
