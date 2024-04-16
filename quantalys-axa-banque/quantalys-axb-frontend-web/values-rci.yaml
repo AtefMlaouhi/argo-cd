@@ -1,12 +1,10 @@
-hosts:
-  - quantalys-axb-rci.harvest.fr
-image:
-  tag: rci-0.1.0-28
-podAnnotations:
-  env: rci
-  version: ""
-replicaCount: 1
-config: {}
 application-api:
+  hosts:
+    - quantalys-axb-rci.harvest.fr
   image:
-    tag: ""
+    tag: latest
+  appsettingsJson:
+    todo: todo
+    # TODO
+podAnnotations:
+  version: latest
