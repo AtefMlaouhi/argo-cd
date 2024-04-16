@@ -2,9 +2,9 @@ application-api:
   hosts:
     - quantalys-axb.flex-rcc.harvest.fr
   image:
-    tag: ""
+    tag: "0.1.0-mgi-fix-ci-cd.1-43"
   appsettingsJson:
     todo: todo
     # TODO
 podAnnotations:
-  version: ""
+  version: "0.1.0-mgi-fix-ci-cd.1-43"
