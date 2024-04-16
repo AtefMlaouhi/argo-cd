@@ -2,9 +2,9 @@ application-api:
   hosts:
     - quantalys-axb.flex-rcc.harvest.fr
   image:
-    tag: latest
+    tag: ""
   appsettingsJson:
     todo: todo
     # TODO
 podAnnotations:
-  version: latest
+  version: ""
