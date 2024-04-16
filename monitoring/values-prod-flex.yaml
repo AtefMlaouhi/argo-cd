@@ -9,7 +9,7 @@ grafana:
   dashboards:
     replaces:
       - from: 'XYMPB6oSk' # notif channel uid
-        to: ''  #TODO: read value
+        to: 'zVdhlLaIz'  
       - from: 'c-btmpm' # cluster id
         to: 'c-m-h2rkm56h'
       - from: 'rce-axaddc-ecrans'
