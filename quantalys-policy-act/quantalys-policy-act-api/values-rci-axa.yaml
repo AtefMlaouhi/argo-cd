@@ -11,16 +11,6 @@ extraEnv:
       secretKeyRef:
         name: keycloak
         key: client-hub-subscription-api
-  - name: DicAPIsToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-axa
-  - name: DicAPIsToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-credentials
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
