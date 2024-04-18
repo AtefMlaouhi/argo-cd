@@ -1,10 +1,9 @@
-application-api:
-  hosts:
-    - quantalys-axb-rci.harvest.fr
-  image:
-    tag: "0.1.0-32"
-  appsettingsJson:
-    todo: todo
-    # TODO
+hosts:
+  - quantalys-axb-rci.harvest.fr
+image:
+  tag: "0.1.0-32"
+appsettingsJson:
+  todo: todo
+  # TODO
 podAnnotations:
   version: "0.1.0-32"
