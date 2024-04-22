@@ -1,10 +1,10 @@
 hosts:
   - quantalys-financial-document-api-recette.harvest.fr
 image:
-  tag: 0.1.5
+  tag: 0.1.5-32692
 podAnnotations:
   env: rci
-  version: 0.1.5
+  version: 0.1.5-32692
 replicaCount: 1
 env:
   - name: ConnectionStrings__BaseFrance
