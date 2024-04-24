@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-api-rci.harvest.fr
   image:
-    tag: 0.1.0-32872
+    tag: 0.1.0-32907
   ## 💥 NOTE : THESE CREDENTIALS ARE HERE ONLY BECAUSE WE HAVE A VERY TIGHT DELIVERY SCHEDULE
   ## 💥 THIS WAY OF DOING SHOULD NOT BE USED IN ANY OTHER ENVIRONMENT
   ## 💥 WE KNOW IT'S NOT THE GOOD PRACTICES BUT HERE WE ARE WITHOUT SECRETS EDITING RIGHTS
@@ -46,4 +46,4 @@ application-api:
     FcaScoring__Login: noLoginHere
     FcaScoring__Password: noPasswordHere
 podAnnotations:
-  version: 0.1.0-32872
+  version: 0.1.0-32907
