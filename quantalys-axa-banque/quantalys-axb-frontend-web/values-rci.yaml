@@ -1,9 +1,9 @@
 hosts:
   - quantalys-axb-rci.harvest.fr
 image:
-  tag: "0.1.0-37"
+  tag: "0.1.0-38"
 appsettingsJson:
   todo: todo
   # TODO
 podAnnotations:
-  version: "0.1.0-37"
+  version: "0.1.0-38"
