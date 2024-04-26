@@ -1,6 +1,6 @@
 global:
   rancherCluster: "c-m-gz9552xq" # Check Rancher flew-pw-rcc project axa banque
-  rancherProject: "p-8hlrw"
+  rancherProject: "p-zfgj4"
 init-namespace:
   namespaces: {}
   dockerconfigjson: ""
