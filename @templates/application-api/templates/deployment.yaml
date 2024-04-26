@@ -48,22 +48,22 @@ spec:
           {{- with .Values.extraEnv }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- range $k, $v := .Values.appsettingsJson }}
-            - name: {{ $k }}
-              value: {{ $v | quote }}
-          {{- end }}
+#          {{- range $k, $v := .Values.appsettingsJson }}
+#            - name: {{ $k }}
+#              value: {{ $v | quote }}
+#          {{- end }}
           # envFrom:
           #   - configMapRef:
-          #       name: {{ include "application.api.fullname" . }}-config
-          #       optional: true
+          #       name: quantalys-policy-act-api-config
+          #       optional: false
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #    path: {{ .Values.probes.livenessPath | default "/" }}
-          #    port: http
+#          livenessProbe:
+#             httpGet:
+#              path: {{ .Values.probes.livenessPath | default "/" }}
+#              port: http
           readinessProbe:
              httpGet:
               path: {{ .Values.probes.readinessPath | default "/" }}
