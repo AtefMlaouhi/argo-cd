@@ -1,6 +1,0 @@
-global:
-  rancherCluster: "" # A changer avec les bonnes valeurs
-  rancherProject: "" # plouf
-init-namespace:
-  namespaces: {}
-  dockerconfigjson: ""

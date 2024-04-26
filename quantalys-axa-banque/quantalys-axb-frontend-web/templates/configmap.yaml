@@ -5,3 +5,5 @@ metadata:
 data:
   nginx.conf: |
     {{- tpl .Values.nginx_config . | nindent 4 }}
+  appsettings.json: |
+    {{- tpl .Values.appsettingsJson . | nindent 4 }}

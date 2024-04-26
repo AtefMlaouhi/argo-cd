@@ -2,8 +2,21 @@ hosts:
   - quantalys-axb.flex-rcc.harvest.fr
 image:
   tag: "0.1.0-38"
-appsettingsJson:
-  todo: todo
-  # TODO
+appsettingsJson: |
+  {
+    "keycloak": {
+      "url": "https://auth-r7.harvest.fr/auth",
+      "realm": "AxbUsers",
+      "clientId": "AxB.BFF"
+    },
+    "matomo": {
+      "trackerUrl": "https://analytics-k8s.rci.harvest.fr",
+      "siteId": "44",
+      "disabled": true
+    },
+    "urls": {
+      "back": "https://quantalys-axb-api.flex-rcc.harvest.fr"
+    }
+  }
 podAnnotations:
   version: "0.1.0-38"
