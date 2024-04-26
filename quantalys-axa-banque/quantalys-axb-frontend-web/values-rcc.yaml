@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-axb.flex-rcc.harvest.fr
+  - quantalys-axb-recette.harvest.fr
 image:
   tag: "0.1.0-38"
 appsettingsJson: |
@@ -15,7 +15,7 @@ appsettingsJson: |
       "disabled": true
     },
     "urls": {
-      "back": "https://quantalys-axb-api.flex-rcc.harvest.fr"
+      "back": "https://quantalys-axb-api-recette.harvest.fr"
     }
   }
 podAnnotations:

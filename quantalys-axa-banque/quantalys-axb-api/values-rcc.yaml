@@ -1,6 +1,6 @@
 application-api:
   hosts:
-    - quantalys-axb-api.flex-rcc.harvest.fr
+    - quantalys-axb-api-recette.harvest.fr
   image:
     tag: 0.1.0-32923
   extraEnv:
@@ -57,8 +57,8 @@ application-api:
     Keycloak__Audiences:
       - account
     Cors__AllowedOrigins:
-      - quantalys-axb.flex-rcc.harvest.fr # Front RCC
-      - quantalys-axb-api.flex-rcc.harvest.fr # Swagger
+      - quantalys-axb-recette.harvest.fr # Front RCC
+      - quantalys-axb-api-recette.harvest.fr # Swagger
     AllowedHosts: '*'
 podAnnotations:
   version: 0.1.0-32923
