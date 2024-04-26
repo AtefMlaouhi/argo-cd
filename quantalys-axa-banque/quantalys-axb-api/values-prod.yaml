@@ -1,6 +1,7 @@
-hosts:
-  - quantalys-axb-api.flex-rcc.harvest.fr
-image:
-  tag: 0.1.0-33086
+application-api:
+  hosts:
+    - quantalys-axb-api.flex-rcc.harvest.fr
+  image:
+    tag: 0.1.0-33086
 podAnnotations:
   version: 0.1.0-33086
