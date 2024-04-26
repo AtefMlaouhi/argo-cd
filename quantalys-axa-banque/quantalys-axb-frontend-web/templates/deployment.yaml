@@ -66,6 +66,9 @@ spec:
             - name: nginx-config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+            - name: app-config
+              mountPath: /usr/share/nginx/html/assets/config
+              readOnly: true
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -83,3 +86,9 @@ spec:
             items:
               - key: nginx.conf
                 path: nginx.conf
+        - name: app-config
+          configMap:
+            name: {{include "quantalys.axb.frontend.fullname" .}}-config
+            items:
+              - key: appsettings.json
+                path: appsettings.json
