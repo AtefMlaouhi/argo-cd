@@ -1,0 +1,10 @@
+image:
+  tag: 2.1.0-alpha.82
+podAnnotations:
+  env: rci
+  version: 2.1.0-alpha.82
+replicaCount: 1
+config:
+  keycloak:
+    server: keycloak-rci.harvest-r7.fr
+    logoutRedirectUrl: ""

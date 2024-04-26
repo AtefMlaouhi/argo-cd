@@ -1,0 +1,14 @@
+hosts:
+  - quantalys-policy-act-frontend-mfe-surrender-axa-k8s.rci.harvest.fr
+config:
+  keycloak:
+    url: keycloak-rci.harvest-r7.fr
+    realm: AWSUsers
+    client_id: quantalys-web
+  backend:
+    url: quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr
+  redirect:
+    operations: aws-pw-rci.quantalys.com/Standard/Operation/Suivi
+    contract: aws-pw-rci.quantalys.com/Contrats/Synthese?sNumero=
+  esign:
+    url: sign.test.universign.eu/fr/revocation/ 
