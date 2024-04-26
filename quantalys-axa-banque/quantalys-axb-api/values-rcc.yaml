@@ -1,64 +1,63 @@
-application-api:
-  hosts:
-    - quantalys-axb-api-recette.harvest.fr
-  image:
-    tag: 0.1.0-33086
-  extraEnv:
-    - name: ConnectionStrings__AxbDbConnection
-      valueFrom:
-        secretKeyRef:
-          name: connection-strings
-          key: sqlserver-axb
-    - name: Keycloak__ClientId
-      valueFrom:
-        secretKeyRef:
-          name: keycloak
-          key: client-quantalys-user-axb-api
-    # B.API
-    - name: BApiSettings__ClientId
-      valueFrom:
-        secretKeyRef:
-          name: b-api-credentials
-          key: client-id
-    - name: BApiSettings__ClientSecret
-      valueFrom:
-        secretKeyRef:
-          name: b-api-credentials
-          key: client-secret
-    # FCA
-    - name: FcaScoringSettings__Login
-      valueFrom:
-        secretKeyRef:
-          name: fca-scoring-credentials
-          key: login
-    - name: FcaScoringSettings__Password
-      valueFrom:
-        secretKeyRef:
-          name: fca-scoring-credentials
-          key: password
-    # ABS
-    - name: ArkeaBankingServicesSettings__CertificatePath
-      valueFrom:
-        secretKeyRef:
-          name: arkea-credentials
-          key: certificate_path
-    - name: ArkeaBankingServicesSettings__CertificatePassword
-      valueFrom:
-        secretKeyRef:
-          name: arkea-credentials
-          key: certificate_password
-  appsettingsJson:
-    OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
-    OpenTelemetrySettings__Endpoint: opentelemetry-k8s.dev.harvest.fr
-    BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
-    FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs/RecupererScoreParNumClient
-    ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
-    Keycloak__Authority: https://auth-r7.harvest.fr/auth/realms/AxbUsers
-    Keycloak__Audiences:
-      - account
-    Cors__AllowedOrigins:
-      - quantalys-axb-recette.harvest.fr # Front RCC
-      - quantalys-axb-api-recette.harvest.fr # Swagger
-    AllowedHosts: '*'
+hosts:
+  - quantalys-axb-api-recette.harvest.fr
+image:
+  tag: 0.1.0-33086
+extraEnv:
+  - name: ConnectionStrings__AxbDbConnection
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-axb
+  - name: Keycloak__ClientId
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-quantalys-user-axb-api
+  # B.API
+  - name: BApiSettings__ClientId
+    valueFrom:
+      secretKeyRef:
+        name: b-api-credentials
+        key: client-id
+  - name: BApiSettings__ClientSecret
+    valueFrom:
+      secretKeyRef:
+        name: b-api-credentials
+        key: client-secret
+  # FCA
+  - name: FcaScoringSettings__Login
+    valueFrom:
+      secretKeyRef:
+        name: fca-scoring-credentials
+        key: login
+  - name: FcaScoringSettings__Password
+    valueFrom:
+      secretKeyRef:
+        name: fca-scoring-credentials
+        key: password
+  # ABS
+  - name: ArkeaBankingServicesSettings__CertificatePath
+    valueFrom:
+      secretKeyRef:
+        name: arkea-credentials
+        key: certificate_path
+  - name: ArkeaBankingServicesSettings__CertificatePassword
+    valueFrom:
+      secretKeyRef:
+        name: arkea-credentials
+        key: certificate_password
+appsettingsJson:
+  OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
+  OpenTelemetrySettings__Endpoint: opentelemetry-k8s.dev.harvest.fr
+  BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
+  FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs/RecupererScoreParNumClient
+  ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
+  Keycloak__Authority: https://auth-r7.harvest.fr/auth/realms/AxbUsers
+  Keycloak__Audiences:
+    - account
+  Cors__AllowedOrigins:
+    - quantalys-axb-recette.harvest.fr # Front RCC
+    - quantalys-axb-api-recette.harvest.fr # Swagger
+  AllowedHosts: '*'
 podAnnotations:
   version: 0.1.0-33086

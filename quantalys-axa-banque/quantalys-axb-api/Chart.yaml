@@ -1,11 +1,6 @@
 apiVersion: v2
 name: quantalys-axb-api
 description: A Helm chart for Kubernetes
-dependencies:
-- name: application-api
-  repository: file://../../@templates/application-api
-  version: 0.1.0
-  alias: application-api
 
 # A chart can be either an 'application' or a 'library' chart.
 #
