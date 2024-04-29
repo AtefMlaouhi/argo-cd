@@ -1,6 +1,6 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.policy.act.mfe.shift
+  repository: quantalys.policy.act.mfe.surrender
 
 imagePullSecrets:
   - name: gitlab
