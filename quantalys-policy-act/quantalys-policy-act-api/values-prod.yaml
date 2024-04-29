@@ -1,8 +1,8 @@
 image:
-  tag: 3.0.10-31992
+  tag: 3.1.6-33227
 podAnnotations:
   env: prod
-  version: 3.0.10-31992
+  version: 3.1.6-33227
 autoscaling:
   enabled: true
   minReplicas: 2
