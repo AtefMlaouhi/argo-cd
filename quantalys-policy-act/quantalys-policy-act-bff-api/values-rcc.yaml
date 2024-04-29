@@ -1,8 +1,8 @@
 image:
-  tag: 3.0.7-31991
+  tag: 3.1.4-33226
 podAnnotations:
   env: rcc
-  version: 3.0.7-31991
+  version: 3.1.4-33226
 replicaCount: 1
 env:
   - name: EsignApi__clientSecret
