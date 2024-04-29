@@ -1,8 +1,8 @@
 image:
-  tag: 2.0.4-beta0001-32265
+  tag: 2.1.0-beta0001-33228
 podAnnotations:
   env: rci
-  version: 2.0.4-beta0001-32265
+  version: 2.1.0-beta0001-33228
 hosts:
   - quantalys-gateway-api-k8s.rci.harvest.fr
 replicaCount: 1
