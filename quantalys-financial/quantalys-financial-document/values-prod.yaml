@@ -1,0 +1,55 @@
+hosts:
+  - quantalys-financial-document-api.harvest.fr
+image:
+  tag: 0.1.5-32692
+podAnnotations:
+  env: prod
+  version: 0.1.5-32692
+replicaCount: 1
+env:
+  - name: ConnectionStrings__BaseFrance
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-base-france
+  - name: ConnectionStrings__QuantaReplicationManagement
+    valueFrom:
+      secretKeyRef:
+        name: connection-strings
+        key: sqlserver-quanta-replication
+  - name: KeycloakRealm
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url
+  - name: Minio__AccessKey
+    valueFrom:
+      secretKeyRef:
+        name: minio
+        key: access-key
+  - name: Minio__EndPoint
+    valueFrom:
+      configMapKeyRef:
+        name: minio
+        key: endpoint
+  - name: Minio__SecretKey
+    valueFrom:
+      secretKeyRef:
+        name: minio
+        key: secret-key
+appsettingsJson:
+  AllowedHosts: "*"
+  ApplicationName: Quantalys.Financial.Document.Api
+  AppName__Name: Quantalys.Financial.Document.Api
+  HarvestConfiguration__ApplicationName: Quantalys.Financial.Document.Api
+  HarvestConfiguration__Domain: Quantalys.Financial.Document
+  HarvestConfiguration__Environment: prod
+  Minio__BucketName: "obs-eu-west-0-pw-prod-base-documentaire-01"
+  OpenTelemetry__ExportMetrics: false
+  OpenTelemetry__ExportTraces: false
+  OpenTelemetry__ServiceName: ""
+  OpenTelemetry__Endpoint: ""
+  OpenTelemetry__TracesPath: ""
+  OpenTelemetry__MetricsPath: ""
+  OpenTelemetry__ActivitySourceName: ""
+  OpenTelemetry__MeterName: ""
