@@ -17,21 +17,26 @@ env:
       secretKeyRef:
         name: connection-strings
         key: sqlserver-quanta-replication
-  - name: SettingsOptions__Domain
+  - name: KeycloakRealm
     valueFrom:
       configMapKeyRef:
-        name: distributed-file-system
-        key: domain
-  - name: SettingsOptions__Password
+        name: keycloak
+        key: token-url
+  - name: Minio__AccessKey
     valueFrom:
       secretKeyRef:
-        name: distributed-file-system
-        key: password
-  - name: SettingsOptions__User
+        name: minio
+        key: access-key
+  - name: Minio__EndPoint
     valueFrom:
       configMapKeyRef:
-        name: distributed-file-system
-        key: username
+        name: minio
+        key: endpoint
+  - name: Minio__SecretKey
+    valueFrom:
+      secretKeyRef:
+        name: minio
+        key: secret-key
 appsettingsJson:
   AllowedHosts: "*"
   ApplicationName: Quantalys.Financial.Document.Api
@@ -39,7 +44,7 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Financial.Document.Api
   HarvestConfiguration__Domain: Quantalys.Financial.Document
   HarvestConfiguration__Environment: rci
-  KeycloakRealm: https://keycloak-rci.harvest-r7.fr/auth/realms/AppUsers
+  Minio__BucketName: "obs-eu-west-0-pw-prod-base-documentaire-01"
   OpenTelemetry__ExportMetrics: false
   OpenTelemetry__ExportTraces: false
   OpenTelemetry__ServiceName: ""
@@ -48,10 +53,3 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
-  SettingsOptions__Server: ""
-  SettingsOptions__PathDoc: "Prospectus"
-  SettingsOptions__Directory: ""
-  Minio__EndPoint: "oss.eu-west-0.prod-cloud-ocb.orange-business.com"
-  Minio__AccessKey: "53N5AYQKVCNRBV7R48GS"
-  Minio__SecretKey: "N9utpCWUkrM6lwIQarFfB5jdhnVW0VzfwSxDXOW2"
-  Minio__BucketName: "obs-eu-west-0-pw-prod-base-documentaire-01"
