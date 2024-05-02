@@ -17,21 +17,6 @@ env:
       secretKeyRef:
         name: connection-strings
         key: sqlserver-quanta-replication
-  - name: SettingsOptions__Domain
-    valueFrom:
-      configMapKeyRef:
-        name: distributed-file-system
-        key: domain
-  - name: SettingsOptions__Password
-    valueFrom:
-      secretKeyRef:
-        name: distributed-file-system
-        key: password
-  - name: SettingsOptions__User
-    valueFrom:
-      configMapKeyRef:
-        name: distributed-file-system
-        key: username
 appsettingsJson:
   AllowedHosts: "*"
   ApplicationName: Quantalys.Financial.Document.Api
@@ -48,9 +33,6 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
-  SettingsOptions__Server: ""
-  SettingsOptions__PathDoc: "Prospectus"
-  SettingsOptions__Directory: ""
   Minio__EndPoint: "oss.eu-west-0.prod-cloud-ocb.orange-business.com"
   Minio__AccessKey: "53N5AYQKVCNRBV7R48GS"
   Minio__SecretKey: "N9utpCWUkrM6lwIQarFfB5jdhnVW0VzfwSxDXOW2"
