@@ -17,6 +17,26 @@ env:
       secretKeyRef:
         name: connection-strings
         key: sqlserver-quanta-replication
+  - name: KeycloakRealm
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url
+  - name: Minio__AccessKey
+    valueFrom:
+      secretKeyRef:
+        name: minio
+        key: access-key
+  - name: Minio__EndPoint
+    valueFrom:
+      configMapKeyRef:
+        name: minio
+        key: endpoint
+  - name: Minio__SecretKey
+    valueFrom:
+      secretKeyRef:
+        name: minio
+        key: secret-key
 appsettingsJson:
   AllowedHosts: "*"
   ApplicationName: Quantalys.Financial.Document.Api
@@ -24,7 +44,7 @@ appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Financial.Document.Api
   HarvestConfiguration__Domain: Quantalys.Financial.Document
   HarvestConfiguration__Environment: dev
-  KeycloakRealm: https://keycloak-dev.harvest-r7.fr/auth/realms/AppUsers
+  Minio__BucketName: "obs-eu-west-0-pw-prod-base-documentaire-01"
   OpenTelemetry__ExportMetrics: false
   OpenTelemetry__ExportTraces: false
   OpenTelemetry__ServiceName: ""
@@ -33,7 +53,3 @@ appsettingsJson:
   OpenTelemetry__MetricsPath: ""
   OpenTelemetry__ActivitySourceName: ""
   OpenTelemetry__MeterName: ""
-  Minio__EndPoint: "oss.eu-west-0.prod-cloud-ocb.orange-business.com"
-  Minio__AccessKey: "53N5AYQKVCNRBV7R48GS"
-  Minio__SecretKey: "N9utpCWUkrM6lwIQarFfB5jdhnVW0VzfwSxDXOW2"
-  Minio__BucketName: "obs-eu-west-0-pw-prod-base-documentaire-01"
