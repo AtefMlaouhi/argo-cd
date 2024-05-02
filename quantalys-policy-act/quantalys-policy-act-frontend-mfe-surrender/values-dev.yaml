@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha.90
+  tag: 2.1.0-alpha.85
 podAnnotations:
   env: dev
-  version: 2.1.0-alpha.90
+  version: 2.1.0-alpha.85
 replicaCount: 1
 config:
   keycloak:
