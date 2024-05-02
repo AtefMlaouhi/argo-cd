@@ -3,7 +3,7 @@ hosts:
 image:
   tag: 0.1.5-32692
 podAnnotations:
-  env: rci
+  env: rcc
   version: 0.1.5-32692
 replicaCount: 1
 env:
