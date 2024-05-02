@@ -11,16 +11,6 @@ extraEnv:
       secretKeyRef:
         name: keycloak
         key: client-hub-subscription-api
-  - name: DicAPIsToken__tokenUrl
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: token-url-axa
-  - name: DicAPIsToken__grant_type
-    valueFrom:
-      configMapKeyRef:
-        name: keycloak
-        key: grant-type-client-credentials
   - name: HubToken__tokenUrl
     valueFrom:
       configMapKeyRef:
@@ -103,9 +93,6 @@ extraEnv:
         key: token-url-axa
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
-  DicAPIs__BaseAddress: https://quantalys-financial-document-api-k8s.dev.harvest.fr
-  DicAPIsToken__clientId: documentapi
-  DicAPIsToken__clientSecret: tbd
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   HubToken__clientId: pw-aws-sa

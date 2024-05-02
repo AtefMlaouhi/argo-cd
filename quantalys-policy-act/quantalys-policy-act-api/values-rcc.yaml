@@ -10,6 +10,26 @@ env:
       configMapKeyRef:
         name: api-routes
         key: quantalys-api-management-api-external
+  - name: DicAPIsToken__tokenUrl
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: token-url-app
+  - name: DicAPIsToken__grant_type
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: grant-type-client-credentials
+  - name: DicAPIs__BaseAddress
+    valueFrom:
+      configMapKeyRef:
+        name: api-routes
+        key: quantalys-financial-document-api
+  - name: DicAPIsToken__clientSecret
+    valueFrom:
+      secretKeyRef:
+        name: keycloak
+        key: client-financial-document-api
   - name: HubAPIs__BaseAddress
     valueFrom:
       configMapKeyRef:
@@ -74,6 +94,7 @@ appsettingsJson:
   AllowedHosts: "*"
   ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   ASPNETCORE_ENVIRONMENT: Staging
+  DicAPIsToken__clientId: documentapi
   GetDocumentBundleRetry__DelayInSeconds: 3
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
@@ -87,4 +108,3 @@ appsettingsJson:
   Serilog__MinimumLevel__Override__Microsoft: Warning
   Serilog__MinimumLevel__Override__System: Warning
   UserProxyToken__clientId: quantalys-user-proxy-api
-  DicAPIsToken__clientId: documentapi
