@@ -95,6 +95,7 @@ appsettingsJson:
   ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   ASPNETCORE_ENVIRONMENT: Staging
   DicAPIsToken__clientId: documentapi
+  FeatureFlags__UseEsignSimpleLevelElectronicSignature: true
   GetDocumentBundleRetry__DelayInSeconds: 3
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
@@ -108,4 +109,3 @@ appsettingsJson:
   Serilog__MinimumLevel__Override__Microsoft: Warning
   Serilog__MinimumLevel__Override__System: Warning
   UserProxyToken__clientId: quantalys-user-proxy-api
-  FeatureFlags__UseEsignSimpleLevelElectronicSignature: true
