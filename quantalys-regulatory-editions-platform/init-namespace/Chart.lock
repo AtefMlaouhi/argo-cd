@@ -1,0 +1,6 @@
+dependencies:
+- name: init-namespace
+  repository: file://../../@templates/init-namespace
+  version: 0.1.0
+digest: sha256:88db8f7fbe8ed931bebf6301b2af3001ac22e2198e6fa71d73644df8cc8c63c4
+generated: "2024-03-08T09:29:06.9700841+01:00"

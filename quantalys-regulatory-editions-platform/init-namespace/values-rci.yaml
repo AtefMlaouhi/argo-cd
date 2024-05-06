@@ -1,0 +1,7 @@
+global:
+  rancherCluster: "c-m-gz9552xq" # Check Rancher flew-pw-rcc project axa banque
+  rancherProject: "p-8hlrw"
+init-namespace:
+  namespaces:
+    - quantalys-regulatory-editions-platform-rci
+  dockerconfigjson: ""

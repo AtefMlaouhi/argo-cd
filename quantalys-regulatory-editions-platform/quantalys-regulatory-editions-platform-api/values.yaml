@@ -1,0 +1,70 @@
+application-api:
+  image:
+    registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
+    repository: quantalys.axb.back.api
+    pullPolicy: IfNotPresent
+
+  imagePullSecrets:
+    - name: gitlab
+  nameOverride: quantalys-regulatory-editions-platform-back-api
+  fullnameOverride: quantalys-regulatory-editions-platform-back-api
+
+  podAnnotations:
+    env: unspecified
+    version: unspecified
+    proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }' # Ensure proxy is started before starting the app container
+
+  appsettingsJson: {}
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  probes:
+    readinessPath: "/health"
+
+  serviceAccount:
+    create: true
+    annotations: {}
+    name: ""
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 384Mi
+    limits:
+      memory: 384Mi
+
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 1
+    targetCPUUtilizationPercentage: 80
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  # Prevent multiple pods on the same host
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: "app"
+                  operator: In
+                  values:
+                    - "{{ .Release.Name }}"
+                - key: "app.kubernetes.io/name"
+                  operator: In
+                  values:
+                    - '{{ include "quantalys.axb.name" . }}'
+                - key: "app.kubernetes.io/instance"
+                  operator: In
+                  values:
+                    - "{{ .Release.Name }}"
+            topologyKey: "kubernetes.io/hostname"

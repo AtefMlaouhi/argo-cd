@@ -1,0 +1,7 @@
+application-api:
+  hosts:
+    - quantalys-regulatory-editions-platform-api.flex-rcc.harvest.fr
+  image:
+    tag: 0.1.0-33488
+podAnnotations:
+  version: 0.1.0-33488
