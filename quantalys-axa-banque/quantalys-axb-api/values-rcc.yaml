@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-api-recette.harvest.fr
   image:
-    tag: 0.1.0-33488
+    tag: 0.1.0-33589
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -63,4 +63,4 @@ application-api:
   podAnnotations:
     version: 0.1.0-33086
 podAnnotations:
-  version: 0.1.0-33488
+  version: 0.1.0-33589
