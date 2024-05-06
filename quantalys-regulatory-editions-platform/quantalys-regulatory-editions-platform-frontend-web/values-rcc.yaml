@@ -1,0 +1,22 @@
+hosts:
+  - quantalys-regulatory-editions-platform-recette.harvest.fr
+image:
+  tag: "0.1.0-40"
+appsettingsJson: |
+  {
+    "keycloak": {
+      "url": "https://auth-r7.harvest.fr/auth",
+      "realm": "AxbUsers",
+      "clientId": "AxB.BFF"
+    },
+    "matomo": {
+      "trackerUrl": "https://analytics-k8s.rci.harvest.fr",
+      "siteId": "44",
+      "disabled": true
+    },
+    "urls": {
+      "back": "https://quantalys-regulatory-editions-platform-api-recette.harvest.fr"
+    }
+  }
+podAnnotations:
+  version: "0.1.0-40"
