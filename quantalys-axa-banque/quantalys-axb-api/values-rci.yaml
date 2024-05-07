@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-api-rci.harvest.fr
   image:
-    tag: 0.1.0-33589
+    tag: 0.1.0-33640
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -61,4 +61,4 @@ application-api:
       - quantalys-axb-api-rci.harvest.fr # Swagger
     AllowedHosts: '*'
 podAnnotations:
-  version: 0.1.0-33589
+  version: 0.1.0-33640
