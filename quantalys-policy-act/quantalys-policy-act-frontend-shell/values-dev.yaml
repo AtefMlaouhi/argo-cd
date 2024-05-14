@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha.105
+  tag: 2.1.0-alpha.106
 podAnnotations:
   env: dev
-  version: 2.1.0-alpha.105
+  version: 2.1.0-alpha.106
 replicaCount: 1
 config:
   keycloak:
