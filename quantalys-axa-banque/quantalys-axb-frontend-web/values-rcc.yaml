@@ -1,7 +1,7 @@
 hosts:
   - quantalys-axb-recette.harvest.fr
 image:
-  tag: "0.1.0-41"
+  tag: "0.1.0-43"
 appsettingsJson: |
   {
     "keycloak": {
@@ -19,4 +19,4 @@ appsettingsJson: |
     }
   }
 podAnnotations:
-  version: "0.1.0-41"
+  version: "0.1.0-43"
