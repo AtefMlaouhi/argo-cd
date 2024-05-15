@@ -1,8 +1,8 @@
 image:
-  tag: 3.3.0-alpha0006-33888
+  tag: 3.3.0-alpha0008-33969
 podAnnotations:
   env: dev
-  version: 3.3.0-alpha0006-33888
+  version: 3.3.0-alpha0008-33969
 replicaCount: 1
 env:
   - name: ApiGateway__BaseAddress
