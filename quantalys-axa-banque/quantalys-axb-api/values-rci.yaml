@@ -9,11 +9,23 @@ application-api:
         secretKeyRef:
           name: connection-strings
           key: sqlserver-axb
+    # Keycloak
     - name: Keycloak__ClientId
       valueFrom:
         secretKeyRef:
           name: keycloak
           key: client-quantalys-user-axb-api
+    # MAAM
+    - name: MaamSettings__ClientId
+      valueFrom:
+        secretKeyRef:
+          name: maam-credentials
+          key: client-id
+    - name: MaamSettings__ClientSecret
+      valueFrom:
+        secretKeyRef:
+          name: maam-credentials
+          key: client-secret
     # B.API
     - name: BApiSettings__ClientId
       valueFrom:
@@ -25,17 +37,6 @@ application-api:
         secretKeyRef:
           name: b-api-credentials
           key: client-secret
-    # FCA
-    - name: FcaScoringSettings__Login
-      valueFrom:
-        secretKeyRef:
-          name: fca-scoring-credentials
-          key: login
-    - name: FcaScoringSettings__Password
-      valueFrom:
-        secretKeyRef:
-          name: fca-scoring-credentials
-          key: password
     # ABS
     - name: ArkeaBankingServicesSettings__CertificatePath
       valueFrom:
@@ -48,10 +49,12 @@ application-api:
           name: arkea-credentials
           key: certificate_password
   appsettingsJson:
-    OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
     OpenTelemetrySettings__Endpoint: opentelemetry-k8s.dev.harvest.fr
+    OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
+    MaamSettings__TokenUrl: https://maam-dev.axa.com/maam/v2/token
+    UserContextSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-assets-contextmanager-v1-vs/api
+    FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs
     BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
-    FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs/RecupererScoreParNumClient
     ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
     Keycloak__Authority: https://keycloak-dev.harvest-r7.fr/auth/realms/AxbUsers
     Keycloak__Audiences:
