@@ -1,3 +1,7 @@
+# 🚨 DEPRECATED
+# BFF IS NO MORE USED
+# THIS FOLDER WILL BE DELETED AFTER MAY 2024
+
 application-api:
   hosts:
     - quantalys-axb-bff-api-rci.harvest.fr

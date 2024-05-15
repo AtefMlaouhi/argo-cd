@@ -1,3 +1,7 @@
+# 🚨 DEPRECATED
+# BFF IS NO MORE USED
+# THIS FOLDER WILL BE DELETED AFTER MAY 2024
+
 apiVersion: v2
 name: quantalys-axb-bff-api
 description: A Helm chart for Kubernetes
