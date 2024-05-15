@@ -60,7 +60,7 @@ application-api:
     Keycloak__Audiences:
       - account
     Cors__AllowedOrigins:
-      # Front RCI
+      # Front
       - quantalys-axb-rci.harvest.fr
       # Swagger
       - quantalys-axb-api-rci.harvest.fr
