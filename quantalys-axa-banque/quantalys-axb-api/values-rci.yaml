@@ -57,8 +57,15 @@ application-api:
     Keycloak__Audiences:
       - account
     Cors__AllowedOrigins:
-      - quantalys-axb-rci.harvest.fr # Front RCI
-      - quantalys-axb-api-rci.harvest.fr # Swagger
+      # Front RCI
+      - quantalys-axb-rci.harvest.fr 
+      # Swagger
+      - quantalys-axb-api-rci.harvest.fr
     AllowedHosts: '*'
+    Testing__AllowTestingEndpoints: true
+    HttpSocket__RemoteCertificateValidation: false
+    # API plugs (to be removed once we get the credentials)
+    BApiSettings__UseMockedData: true
+    ArkeaBankingServicesSettings__UseMockedData: true
 podAnnotations:
   version: 0.1.0-33640
