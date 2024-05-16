@@ -1,7 +1,7 @@
 hosts:
-  - quantalys-axb-recette.harvest.fr
   - parcours-agent-epargne-financiere-rcc.axabanque-fr.intraxa
   - parcours-collab-epargne-financiere-rcc.axabanque-fr.intraxa
+  - quantalys-axb-recette.harvest.fr
 image:
   tag: "0.1.0-46"
 appsettingsJson: |
@@ -17,7 +17,7 @@ appsettingsJson: |
       "disabled": false
     },
     "urls": {
-      "back": "https://pef-rcc.axabanque-fr.intraxa"
+      "back": "https://bff-pef-rcc.axabanque-fr.intraxa"
     }
   }
 podAnnotations:

@@ -1,7 +1,8 @@
 application-api:
   hosts:
-    - quantalys-axb-api-recette.harvest.fr
     - pef-rcc.axabanque-fr.intraxa
+    - bff-pef-rcc.axabanque-fr.intraxa # Temporaire le temps de basculer les DNS
+    - quantalys-axb-api-recette.harvest.fr
   image:
     tag: 0.1.0-34071
   extraEnv:
@@ -66,8 +67,9 @@ application-api:
       - parcours-agent-epargne-financiere-rcc.axabanque-fr.intraxa
       - parcours-collab-epargne-financiere-rcc.axabanque-fr.intraxa
       # Swagger
-      - quantalys-axb-api-recette.harvest.fr
       - pef-rcc.axabanque-fr.intraxa
+      - bff-pef-rcc.axabanque-fr.intraxa # Temporaire le temps de basculer les DNS
+      - quantalys-axb-api-recette.harvest.fr
     AllowedHosts: '*'
     HttpSocket__RemoteCertificateValidation: false
     # API plugs (to be removed once we get the credentials)
