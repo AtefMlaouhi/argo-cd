@@ -1,9 +1,9 @@
 hosts:
   - quantalys-axb.flex-rcc.harvest.fr
 image:
-  tag: "0.1.0-45"
+  tag: "0.1.0-46"
 appsettingsJson:
   todo: todo
   # TODO
 podAnnotations:
-  version: "0.1.0-45"
+  version: "0.1.0-46"
