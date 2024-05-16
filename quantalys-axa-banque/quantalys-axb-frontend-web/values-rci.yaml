@@ -12,7 +12,7 @@ appsettingsJson: |
     "matomo": {
       "trackerUrl": "https://analytics-k8s.rci.harvest.fr",
       "siteId": "44",
-      "disabled": false
+      "disabled": true
     },
     "urls": {
       "back": "https://quantalys-axb-api-rci.harvest.fr"
