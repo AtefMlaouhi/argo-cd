@@ -4,7 +4,7 @@ application-api:
     - bff-pef-rcc.axabanque-fr.intraxa # Temporaire le temps de basculer les DNS
     - quantalys-axb-api-recette.harvest.fr
   image:
-    tag: 0.1.0-34071
+    tag: 0.1.0-34095
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -78,4 +78,4 @@ application-api:
     BApiSettings__UseMockedData: true
     ArkeaBankingServicesSettings__UseMockedData: true
 podAnnotations:
-  version: 0.1.0-34071
+  version: 0.1.0-34095
