@@ -3,7 +3,7 @@ hosts:
   - parcours-agent-epargne-financiere-rcc.axabanque-fr.intraxa
   - parcours-collab-epargne-financiere-rcc.axabanque-fr.intraxa
 image:
-  tag: "0.1.0-45"
+  tag: "0.1.0-46"
 appsettingsJson: |
   {
     "keycloak": {
@@ -21,4 +21,4 @@ appsettingsJson: |
     }
   }
 podAnnotations:
-  version: "0.1.0-45"
+  version: "0.1.0-46"
