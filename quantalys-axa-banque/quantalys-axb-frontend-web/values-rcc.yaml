@@ -8,7 +8,7 @@ appsettingsJson: |
   {
     "keycloak": {
       "url": "https://auth-r7.harvest.fr/auth",
-      "realm": "AxbUsers",
+      "realm": "AXBUsers",
       "clientId": "AxB.BFF"
     },
     "matomo": {
