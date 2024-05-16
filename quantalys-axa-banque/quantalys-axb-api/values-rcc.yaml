@@ -3,7 +3,7 @@ application-api:
     - quantalys-axb-api-recette.harvest.fr
     - pef-rcc.axabanque-fr.intraxa
   image:
-    tag: 0.1.0-34032
+    tag: 0.1.0-34036
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -74,4 +74,4 @@ application-api:
   podAnnotations:
     version: 0.1.0-33086
 podAnnotations:
-  version: 0.1.0-34032
+  version: 0.1.0-34036
