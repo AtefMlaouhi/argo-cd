@@ -17,7 +17,7 @@ appsettingsJson: |
       "disabled": false
     },
     "urls": {
-      "back": "https://bff-pef-rcc.axabanque-fr.intraxa"
+      "back": "https://pef-rcc.axabanque-fr.intraxa"
     }
   }
 podAnnotations:
