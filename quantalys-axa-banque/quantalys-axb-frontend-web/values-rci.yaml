@@ -1,7 +1,7 @@
 hosts:
   - quantalys-axb-rci.harvest.fr
 image:
-  tag: "0.1.0-ci-cd-environment-differentiation.1-49"
+  tag: "0.1.0-49"
 appsettingsJson: |
   {
     "keycloak": {
@@ -19,4 +19,4 @@ appsettingsJson: |
     }
   }
 podAnnotations:
-  version: "0.1.0-ci-cd-environment-differentiation.1-49"
+  version: "0.1.0-49"
