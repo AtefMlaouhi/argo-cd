@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-alpha0007-32204
+  tag: 2.2.0-alpha0001-34369
 podAnnotations:
   env: dev
-  version: 2.1.0-alpha0007-32204
+  version: 2.2.0-alpha0001-34369
 hosts:
   - quantalys-gateway-api-k8s.dev.harvest.fr
 replicaCount: 1
