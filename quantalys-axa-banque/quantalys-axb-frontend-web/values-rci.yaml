@@ -1,7 +1,7 @@
 hosts:
   - quantalys-axb-rci.harvest.fr
 image:
-  tag: 0.1.0-ci-cd-retry-on-failure.1-55
+  tag: 0.1.0-53
 appsettingsJson: |
   {
     "keycloak": {
@@ -19,4 +19,4 @@ appsettingsJson: |
     }
   }
 podAnnotations:
-  version: 0.1.0-ci-cd-retry-on-failure.1-55
+  version: 0.1.0-53
