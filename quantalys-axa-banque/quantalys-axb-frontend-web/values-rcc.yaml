@@ -3,7 +3,7 @@ hosts:
   - parcours-collab-epargne-financiere-rcc.axabanque-fr.intraxa
   - quantalys-axb-recette.harvest.fr
 image:
-  tag: "0.1.0-50"
+  tag: 0.1.0-52
 appsettingsJson: |
   {
     "keycloak": {
@@ -21,4 +21,4 @@ appsettingsJson: |
     }
   }
 podAnnotations:
-  version: "0.1.0-50"
+  version: 0.1.0-52

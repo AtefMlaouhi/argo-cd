@@ -3,7 +3,7 @@ application-api:
     - pef-rcc.axabanque-fr.intraxa
     - quantalys-axb-api-recette.harvest.fr
   image:
-    tag: 0.1.0-34095
+    tag: 0.1.0-34581
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -54,7 +54,7 @@ application-api:
     OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
     MaamSettings__TokenUrl: https://maam-dev.axa.com/maam/v2/token
     UserContextSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-assets-contextmanager-v1-vs/api
-    FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-fca-cst-scoring-v1-vrs
+    FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/ws/fr-fca-cst-scoring-v1-vrs
     BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
     ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
     Keycloak__Authority: https://auth-r7.harvest.fr/auth/realms/AXBUsers
@@ -76,4 +76,4 @@ application-api:
     BApiSettings__UseMockedData: true
     ArkeaBankingServicesSettings__UseMockedData: true
 podAnnotations:
-  version: 0.1.0-34095
+  version: 0.1.0-34581
