@@ -1,8 +1,8 @@
 image:
-  tag: 3.1.6-33227
+  tag: 3.2.8-34666
 podAnnotations:
   env: preprod
-  version: 3.1.6-33227
+  version: 3.2.8-34666
 replicaCount: 1
 env:
   - name: ApiGateway__BaseAddress
