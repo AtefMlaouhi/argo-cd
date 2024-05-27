@@ -110,4 +110,4 @@ appsettingsJson:
   Serilog__MinimumLevel__Override__System: Warning
   UserProxyToken__clientId: quantalys-user-proxy-api
   HealthChecks__MiniO__Enabled: true
-  HealthChecksUI__Enabled: true
+  HealthChecksUI__Enabled: false
