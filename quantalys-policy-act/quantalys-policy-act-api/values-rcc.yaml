@@ -95,10 +95,12 @@ appsettingsJson:
   ApplicationId: 4c736984-155f-49d2-81c7-b6117720599c
   ASPNETCORE_ENVIRONMENT: Staging
   DicAPIsToken__clientId: documentapi
+  FeatureFlags__UseEsignSimpleLevelElectronicSignature: true
   GetDocumentBundleRetry__DelayInSeconds: 3
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rcc
+  HealthChecks__MiniO__Enabled: true
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
   Minio__IsActive: true

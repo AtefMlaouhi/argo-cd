@@ -100,6 +100,8 @@ appsettingsJson:
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rci
+  HealthChecks__MiniO__Enabled: true
+  HealthChecksUI__Enabled: false
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
   Minio__IsActive: true
@@ -109,5 +111,3 @@ appsettingsJson:
   Serilog__MinimumLevel__Override__Microsoft: Warning
   Serilog__MinimumLevel__Override__System: Warning
   UserProxyToken__clientId: quantalys-user-proxy-api
-  HealthChecks__MiniO__Enabled: true
-  HealthChecksUI__Enabled: false
