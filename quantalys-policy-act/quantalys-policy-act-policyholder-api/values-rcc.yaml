@@ -1,8 +1,8 @@
 image:
-  tag: 4.0.0-31983
+  tag: 4.0.1-34837
 podAnnotations:
   env: rcc
-  version: 4.0.0-31983
+  version: 4.0.1-34837
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
