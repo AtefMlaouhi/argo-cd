@@ -18,6 +18,7 @@ nginx_config: |
   events{}
   http {
       include /etc/nginx/mime.types;
+      server_tokens off;
       server {
         listen 80;
 
