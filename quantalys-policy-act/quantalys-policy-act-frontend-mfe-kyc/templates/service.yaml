@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "quantalys.policy.act.frontend.mfe.key.fullname" . }}
+  labels:
+    {{- include "quantalys.policy.act.frontend.mfe.kyc.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "quantalys.policy.act.frontend.mfe.key.selectorLabels" . | nindent 4 }}
