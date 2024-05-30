@@ -46,7 +46,7 @@ spec:
           {{- end }}
           envFrom:
             - configMapRef:
-                name: policy-act-frontend-shift-mfe-config
+                name: policy-act-frontend-kyc-mfe-config
                 optional: false 
           ports:
             - name: http
