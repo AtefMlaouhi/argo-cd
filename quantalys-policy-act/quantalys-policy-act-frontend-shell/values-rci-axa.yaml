@@ -11,5 +11,7 @@ config:
       host: quantalys-policy-act-frontend-mfe-shift-axa-k8s.rci.harvest.fr
     - name: topup
       host: quantalys-policy-act-frontend-mfe-topup-axa-k8s.rci.harvest.fr
+    - name: surrender
+      host: quantalys-policy-act-frontend-mfe-surrender-axa-k8s.rci.harvest.fr
   backend:
     url: quantalys-policy-act-bff-axa-api-k8s.rci.harvest.fr
