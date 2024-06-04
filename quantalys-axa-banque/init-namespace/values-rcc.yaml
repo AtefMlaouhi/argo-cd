@@ -3,5 +3,6 @@ global:
   rancherCluster: "c-m-gz9552xq"
   rancherProject: "p-zfgj4"
 init-namespace:
-  namespaces: {}
+  namespaces:
+    - quantalys-axb-rce
   dockerconfigjson: ""

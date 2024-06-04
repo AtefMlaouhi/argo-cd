@@ -4,5 +4,5 @@ global:
   rancherProject: "p-qz5br"
 init-namespace:
   namespaces:
-    - quantalys-axb-rci
+    - quantalys-axb-preprod
   dockerconfigjson: ""
