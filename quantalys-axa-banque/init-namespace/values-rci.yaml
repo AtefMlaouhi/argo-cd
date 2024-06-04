@@ -1,5 +1,6 @@
 global:
-  rancherCluster: "c-m-gz9552xq" # Check Rancher flew-pw-rcc project axa banque
+  # See https://confluence.harvest.fr/pages/viewpage.action?pageId=83870635 for AXABanque-RCI
+  rancherCluster: "c-m-gz9552xq"
   rancherProject: "p-8hlrw"
 init-namespace:
   namespaces:

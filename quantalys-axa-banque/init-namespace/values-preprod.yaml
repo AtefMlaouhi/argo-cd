@@ -1,0 +1,8 @@
+global:
+  # See https://confluence.harvest.fr/pages/viewpage.action?pageId=83870635 for AXABanque
+  rancherCluster: "c-m-sdx59d8b"
+  rancherProject: "p-fvxw4"
+init-namespace:
+  namespaces:
+    - quantalys-axb-rci
+  dockerconfigjson: ""
