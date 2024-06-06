@@ -62,8 +62,11 @@ application-api:
       - account
     Cors__AllowedOrigins:
       # Front
-      - example.com
+      - quantalys-axb-preprod.harvest.fr
+      - parcours-agent-epargne-financiere-stg.axabanque-fr.intraxa
+      - parcours-collab-epargne-financiere-stg.axabanque-fr.intraxa
       # Swagger
+      - quantalys-axb-api-preprod.harvest.fr
       - pef-stg.axabanque-fr.intraxa
     # API plugs (to be removed once we get the credentials)
     BApiSettings__UseMockedData: true
