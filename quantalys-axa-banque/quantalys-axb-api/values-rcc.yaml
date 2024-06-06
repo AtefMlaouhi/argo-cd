@@ -69,6 +69,7 @@ application-api:
       - pef-rcc.axabanque-fr.intraxa
       - quantalys-axb-api-recette.harvest.fr
     AllowedHosts: '*'
+    TestingSettings__AllowTestingEndpoints: false
     HttpSocket__RemoteCertificateValidation: false
     # API plugs (to be removed once we get the credentials)
     BApiSettings__UseMockedData: true
