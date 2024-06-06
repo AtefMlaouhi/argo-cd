@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.19
+  tag: 2.1.20
 podAnnotations:
   env: rcc
-  version: 2.1.19
+  version: 2.1.20
 replicaCount: 1
 config:
   keycloak:
