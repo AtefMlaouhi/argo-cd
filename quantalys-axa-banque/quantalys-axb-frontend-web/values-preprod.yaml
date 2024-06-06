@@ -1,9 +1,22 @@
 hosts:
-  - quantalys-axb.flex-rcc.harvest.fr
+  - example.com
 image:
-  tag: "0.1.0-46"
-appsettingsJson:
-  todo: todo
-  # TODO
+  tag: 0.1.0-54
+appsettingsJson: |
+  {
+    "keycloak": {
+      "url": "https://auth-preprod.harvest.fr/auth",
+      "realm": "AXBUsers",
+      "clientId": "AxB.BFF"
+    },
+    "matomo": {
+      "trackerUrl": "https://analytics-k8s.rci.harvest.fr",
+      "siteId": "44",
+      "disabled": false
+    },
+    "urls": {
+      "back": "https://pef-stg.axabanque-fr.intraxa"
+    }
+  }
 podAnnotations:
-  version: "0.1.0-46"
+  version: 0.1.0-54
