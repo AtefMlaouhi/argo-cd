@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-axb-api-rci.harvest.fr
   image:
-    tag: 0.1.0-35655
+    tag: 24.06.07-4
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -70,4 +70,4 @@ application-api:
     BApiSettings__UseMockedData: true
     ArkeaBankingServicesSettings__UseMockedData: true
 podAnnotations:
-  version: 0.1.0-35655
+  version: 24.06.07-4
