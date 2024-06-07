@@ -1,7 +1,7 @@
 hosts:
   - quantalys-axb-rci.harvest.fr
 image:
-  tag: 0.1.0-60
+  tag: 24.06.07-2
 appsettingsJson: |
   {
     "keycloak": {
@@ -19,4 +19,4 @@ appsettingsJson: |
     }
   }
 podAnnotations:
-  version: 0.1.0-60
+  version: 24.06.07-2
