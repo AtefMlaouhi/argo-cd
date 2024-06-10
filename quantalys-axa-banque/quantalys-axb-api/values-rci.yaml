@@ -55,7 +55,7 @@ application-api:
     UserContextSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-assets-contextmanager-v1-vs/api
     FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/ws/fr-fca-cst-scoring-v1-vrs
     BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
-    ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v1-vrs
+    ArkeaBankingServicesSettings__ServiceBaseUrl: https://inteipaxbgw01.ppcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v2-vrs
     Keycloak__Authority: https://keycloak-dev.harvest-r7.fr/auth/realms/AxbUsers
     Keycloak__Audiences:
       - account
