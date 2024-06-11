@@ -1,5 +1,7 @@
 hosts:
-  - example.com
+  - parcours-agent-epargne-financiere-stg.axabanque-fr.intraxa
+  - parcours-collab-epargne-financiere-stg.axabanque-fr.intraxa
+  - quantalys-axb-preprod.harvest.fr
 image:
   tag: 0.1.0-54
 appsettingsJson: |
