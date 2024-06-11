@@ -1,7 +1,7 @@
 application-api:
   hosts:
-    - pef-rcc.axabanque-fr.intraxa
-    - quantalys-axb-api-recette.harvest.fr
+    - pef-stg.axabanque-fr.intraxa
+    - quantalys-axb-api-preprod.harvest.fr
   image:
     tag: 0.1.0-34926
   extraEnv:
