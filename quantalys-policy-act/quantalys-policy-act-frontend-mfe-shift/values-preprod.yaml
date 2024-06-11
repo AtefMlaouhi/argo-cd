@@ -7,4 +7,4 @@ replicaCount: 1
 config:
   keycloak:
     server: auth-preprod.harvest.fr
-    logoutRedirectUrl: ''
+    logoutRedirectUrl: ""
