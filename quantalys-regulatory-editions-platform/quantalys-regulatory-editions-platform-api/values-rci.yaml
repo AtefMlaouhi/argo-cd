@@ -61,6 +61,6 @@ application-api:
       - quantalys-regulatory-editions-platform-api-rci.harvest.fr # Swagger
     AllowedHosts: "*"
 podAnnotations:
-  version: 0.1.0-31281-setup-ci0001-35743
+  version: 0.1.0-31281-setup-ci0001-35805
 image:
-  tag: 0.1.0-31281-setup-ci0001-35743
+  tag: 0.1.0-31281-setup-ci0001-35805
