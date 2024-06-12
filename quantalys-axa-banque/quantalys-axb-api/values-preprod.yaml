@@ -3,7 +3,7 @@ application-api:
     - pef-stg.axabanque-fr.intraxa
     - quantalys-axb-api-preprod.harvest.fr
   image:
-    tag: 0.1.0-34926
+    tag: 24.06.10-1
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -72,4 +72,4 @@ application-api:
     BApiSettings__UseMockedData: true
     ArkeaBankingServicesSettings__UseMockedData: true
 podAnnotations:
-  version: 0.1.0-34926
+  version: 24.06.10-1
