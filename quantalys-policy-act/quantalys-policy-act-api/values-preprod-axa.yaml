@@ -93,7 +93,6 @@ extraEnv:
         key: token-url-axa
 appsettingsJson:
   ApplicationName: Quantalys.Policy.Act.Axa.Api
-  DicAPIsToken__clientId: documentapi
   GetDocumentBundleRetry__ErrorCodes: "400-004-012,400-004-013"
   HarvestConfiguration__ApplicationName: Quantalys.Policy.Act.Axa.Api
   HubToken__clientId: pw-aws-sa
