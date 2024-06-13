@@ -43,6 +43,7 @@ env:
 appsettingsJson:
   AllowedHosts: "*"
   ASPNETCORE_ENVIRONMENT: Staging
+  FeatureFlags__SignatureProxyEnabled: false
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rcc
   Jwt__Audience: quantalys-policy-act-backend-api
