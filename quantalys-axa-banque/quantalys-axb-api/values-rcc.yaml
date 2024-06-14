@@ -3,7 +3,7 @@ application-api:
     - pef-rcc.axabanque-fr.intraxa
     - quantalys-axb-api-recette.harvest.fr
   image:
-    tag: 24.06.10-1
+    tag: 24.06.14-1
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
@@ -15,7 +15,7 @@ application-api:
       valueFrom:
         secretKeyRef:
           name: keycloak
-          key: client-quantalys-user-axb-api
+          key: client-id
     # MAAM
     - name: MaamSettings__ClientId
       valueFrom:
@@ -28,35 +28,35 @@ application-api:
           name: maam-credentials
           key: client-secret
     # B.API
-    - name: BApiSettings__ClientId
+    - name: BApiTokenSettings__PrivateKey
       valueFrom:
         secretKeyRef:
           name: b-api-credentials
-          key: client-id
-    - name: BApiSettings__ClientSecret
-      valueFrom:
-        secretKeyRef:
-          name: b-api-credentials
-          key: client-secret
+          key: private-key
     # ABS
-    - name: ArkeaBankingServicesSettings__CertificatePath
+    - name: ArkeaBankingServicesSettings__PrivateKey
       valueFrom:
         secretKeyRef:
           name: arkea-credentials
-          key: certificate_path
-    - name: ArkeaBankingServicesSettings__CertificatePassword
+          key: private-key
+    - name: ArkeaBankingServicesSettings__PartnerKid
       valueFrom:
         secretKeyRef:
           name: arkea-credentials
-          key: certificate_password
+          key: partner-kid
+    - name: ArkeaBankingServicesSettings__PartnerClientId
+      valueFrom:
+        secretKeyRef:
+          name: arkea-credentials
+          key: partner-client-id
   appsettingsJson:
     OpenTelemetrySettings__Endpoint: opentelemetry-k8s.dev.harvest.fr
     OpenTelemetrySettings__ServiceName: dev-quantalys-customer-Axb-api
     MaamSettings__TokenUrl: https://maam-dev.axa.com/maam/v2/token
     UserContextSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/gateway/fr-assets-contextmanager-v1-vs/api
     FcaScoringSettings__ServiceBaseUrl: https://eip-rec.axa-fr.intraxa/ws/fr-fca-cst-scoring-v1-vrs
-    BApiSettings__ServiceBaseUrl: https://inteipshgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-auth-bankdata-v1-vrs
-    ArkeaBankingServicesSettings__ServiceBaseUrl: https://inteipaxbgw01.ppcloudmgmt.intraxa/gateway/axb-arkea-mng-person-v2-vrs
+    BApiBankdataSettings__ServiceBaseUrl: https://inteipaxbgw01.ppcloudmgmt.intraxa/gateway/axb-datalake-cap-bankdata-v1-vrs
+    ArkeaBankingServicesSettings__ServiceBaseUrl: https://ppeipaxbgw01.prcloudmgmt.intraxa/gateway
     Keycloak__Authority: https://auth-r7.harvest.fr/auth/realms/AXBUsers
     Keycloak__Audiences:
       - account
@@ -70,7 +70,7 @@ application-api:
       - quantalys-axb-api-recette.harvest.fr
     HttpSocket__RemoteCertificateValidation: false
     # API plugs (to be removed once we get the credentials)
-    BApiSettings__UseMockedData: true
-    ArkeaBankingServicesSettings__UseMockedData: true
+    BApiSettings__UseMockedData: false
+    ArkeaBankingServicesSettings__UseMockedData: false
 podAnnotations:
-  version: 24.06.10-1
+  version: 24.06.14-1
