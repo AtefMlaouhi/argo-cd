@@ -31,7 +31,7 @@ application-api:
       valueFrom:
         secretKeyRef:
           name: b-api-credentials
-          key: client-id
+          key: private-key
     # ABS
     - name: ArkeaBankingServicesSettings__PrivateKey
       valueFrom:
