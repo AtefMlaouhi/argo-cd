@@ -67,7 +67,7 @@ application-api:
     TestingSettings__AllowTestingEndpoints: true
     HttpSocket__RemoteCertificateValidation: false
     # API plugs (to be removed once we get the credentials)
-    BApiSettings__UseMockedData: false
-    ArkeaBankingServicesSettings__UseMockedData: false
+    BApiSettings__UseMockedData: true
+    ArkeaBankingServicesSettings__UseMockedData: true
 podAnnotations:
   version: 24.06.13-2
