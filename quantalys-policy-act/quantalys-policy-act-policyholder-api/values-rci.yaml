@@ -1,8 +1,8 @@
 image:
-  tag: 4.0.1-beta0001-34689
+  tag: 4.1.0-beta0001-36305
 podAnnotations:
   env: rci
-  version: 4.0.1-beta0001-34689
+  version: 4.1.0-beta0001-36305
 replicaCount: 1
 env:
   - name: HubAPIs__BaseAddress
