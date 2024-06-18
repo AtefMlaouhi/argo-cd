@@ -1,0 +1,39 @@
+{{- if .Values.dependencyTrackTriggerEnabled }}
+ 
+{{- $versionApi := .Values.image.tag }}
+
+# {{- range .Values.image.tag }}
+#   {{- if eq .name "quantalys-axb-api" }}
+#     {{- $versionApi = .version }}
+#   {{- end }}
+# {{- end }}
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: dependencytrack
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 10
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+        - name: dependencytrack
+          image: registry-git.harvest.fr/tools/docker-utilities-images/dependecytrack-ci:latest
+          command: [ "/scripts/update_tags.sh", '{{ .Values.profile }}',
+                     "quantalys-axa-banque-back-api", '{{ $versionApi }}'
+          ]
+          env:
+            - name: DEPENDENCYTRACK_API_KEY
+              value: R776Uf6yx8ol9yAEmvbHQLrkmujeKQSr
+ 
+      restartPolicy: Never
+      imagePullSecrets:
+        - name: gitlab
+{{- end }}

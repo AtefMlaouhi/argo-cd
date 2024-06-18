@@ -9,6 +9,8 @@ application-api:
   nameOverride: quantalys-axb-back-api
   fullnameOverride: quantalys-axb-back-api
 
+  dependencyTrackTriggerEnabled: true
+  
   podAnnotations:
     env: unspecified
     version: unspecified

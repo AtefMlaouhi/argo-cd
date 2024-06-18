@@ -4,6 +4,7 @@ application-api:
     - quantalys-axb-api-preprod.harvest.fr
   image:
     tag: 24.06.10-1
+  profile: "preprod"
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
