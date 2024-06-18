@@ -4,8 +4,8 @@ application-api:
   image:
     tag: 24.06.14-2
 
-  dependencyTrackTriggerEnabled: false
-  profil: "rci"
+  dependencyTrackTriggerEnabled: true
+  profile: "rci"
 
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
