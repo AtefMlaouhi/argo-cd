@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.22
+  tag: 2.1.23
 podAnnotations:
   env: preprod
-  version: 2.1.22
+  version: 2.1.23
 replicaCount: 1
 config:
   keycloak:
