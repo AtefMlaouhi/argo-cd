@@ -1,10 +1,10 @@
 image:
-  tag: 1.1.0-alpha.56
+  tag: 2.1.23
 podAnnotations:
   env: prod
-  version: 1.1.0-alpha.56
+  version: 2.1.23
 replicaCount: 1
 config:
   keycloak:
     server: auth.harvest.fr
-    logoutRedirectUrl: ''
+    logoutRedirectUrl: ""
