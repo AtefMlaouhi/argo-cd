@@ -9,7 +9,7 @@ config:
   micro_frontends:
     - name: shift
       host: quantalys-policy-act-frontend-axa-shift-mfe.harvest.fr 
-    - name: topup
-      host: quantalys-policy-act-frontend-axa-topup-mfe.harvest.fr
+#    - name: topup
+#      host: quantalys-policy-act-frontend-axa-topup-mfe.harvest.fr
   backend:
     url: quantalys-policy-act-bff-axa-api.harvest.fr
