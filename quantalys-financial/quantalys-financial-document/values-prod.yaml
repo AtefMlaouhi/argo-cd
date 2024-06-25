@@ -5,7 +5,10 @@ image:
 podAnnotations:
   env: prod
   version: 0.1.5-35141
-replicaCount: 1
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
 env:
   - name: ConnectionStrings__BaseFrance
     valueFrom:
