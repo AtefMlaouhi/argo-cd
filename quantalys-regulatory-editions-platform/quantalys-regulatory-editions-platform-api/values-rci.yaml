@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-regulatory-editions-platform-api-rci.harvest.fr
   image:
-    tag: 0.1.0-33488
+    tag: 0.1.0-36365
   extraEnv:
     - name: ConnectionStrings__AxbDbConnection
       valueFrom:
