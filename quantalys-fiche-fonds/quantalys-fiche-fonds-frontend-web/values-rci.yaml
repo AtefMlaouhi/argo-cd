@@ -1,22 +1,6 @@
 hosts:
-  - quantalys-regulatory-editions-platform-rci.harvest.fr
+  - quantalys-fiche-fonds-rci.harvest.fr
 image:
   tag: "0.1.0-40"
-appsettingsJson: |
-  {
-    "keycloak": {
-      "url": "https://keycloak-dev.harvest-r7.fr/auth",
-      "realm": "AxbUsers",
-      "clientId": "AxB.BFF"
-    },
-    "matomo": {
-      "trackerUrl": "https://analytics-k8s.rci.harvest.fr",
-      "siteId": "44",
-      "disabled": false
-    },
-    "urls": {
-      "back": "https://quantalys-regulatory-editions-platform-api-rci.harvest.fr"
-    }
-  }
 podAnnotations:
   version: "0.1.0-40"
