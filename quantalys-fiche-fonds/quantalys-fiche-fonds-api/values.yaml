@@ -1,7 +1,7 @@
 application-api:
   image:
     registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-    repository: quantalys.axb.back.api
+    repository: quantalys.fiche-fonds.back.api
     pullPolicy: IfNotPresent
 
   imagePullSecrets:
