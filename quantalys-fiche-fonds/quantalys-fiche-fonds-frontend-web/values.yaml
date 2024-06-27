@@ -1,12 +1,12 @@
 image:
   registry: registry-git.harvest.fr/quantalys/cicd/argocd-dotnet
-  repository: quantalys.axb.frontend.web # nom de l'image docker (cf CI.yml dans le repo du front)
+  repository: quantalys.fiche-fonds.mfe # nom de l'image docker (cf CI.yml dans le repo du front)
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
   - name: gitlab
-nameOverride: quantalys-regulatory-editions-platform-frontend-web
-fullnameOverride: quantalys-regulatory-editions-platform-frontend-web
+nameOverride: quantalys-fiche-fonds-mfe
+fullnameOverride: quantalys-fiche-fonds-mfe
 
 podAnnotations:
   env: unspecified
