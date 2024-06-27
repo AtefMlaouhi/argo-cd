@@ -5,7 +5,7 @@ application-api:
     tag: 0.1.0-36365
   extraEnv:
     - name: ConnectionDb__SqlServer
-      value: "TrustServerCertificate=True;data source=WIN-MTPCEMI4AFD.hvsgrp.fr;user id=SVC_REGULATORY_PLATFORM;password=\"y.|;'$7N#OQ69#`IHGmu\";initial catalog=QuantalysRegulatoryEditionsPlatform-Rci;Timeout=30;MultipleActiveResultSets=True;Application Name=QuantalysRegulatoryEditionsPlatform"
+      value: "TrustServerCertificate=True;data source=WIN-MTPCEMI4AFD.hvsgrp.fr;user id=SVC_REGULATORY_PLATFORM;password=\"y.|;'$7N#OQ69#`IHGmu\";initial catalog=rci-regulatory-edition-platform;Timeout=30;MultipleActiveResultSets=True;Application Name=QuantalysRegulatoryEditionsPlatform"
   appsettingsJson:
     Cors__AllowedOrigins:
       - quantalys-regulatory-editions-platform-rci.harvest.fr # Front RCI
