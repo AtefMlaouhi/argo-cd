@@ -5,9 +5,9 @@ application-api:
     tag: 0.1.0-the-final-deploy0001-36934
   extraEnv:
     - name: ConnectionDb__ConnectionString
-      value: ""
+      value: "TrustServerCertificate=True;data source=WIN-MTPCEMI4AFD.hvsgrp.fr;user id=SVC_FICHE_FONDS;password=\"za62kVh6EMqscm5SWvE6\";initial catalog=rci-regulatory-edition-platform;Timeout=30;MultipleActiveResultSets=True;Application Name=QuantalysRegulatoryEditionsPlatform"
     - name: ConnectionDb__DefaultConnection
-      value: ""
+      value: "TrustServerCertificate=True;data source=WIN-MTPCEMI4AFD.hvsgrp.fr;user id=SVC_FICHE_FONDS;password=\"za62kVh6EMqscm5SWvE6\";initial catalog=rci-regulatory-edition-platform;Timeout=30;MultipleActiveResultSets=True;Application Name=QuantalysRegulatoryEditionsPlatform"
   appsettingsJson:
     Cors__AllowedOrigins:
       - quantalys-fiche-fonds-rci.harvest.fr # Front RCI
