@@ -3,7 +3,12 @@ application-api:
     - quantalys-regulatory-editions-platform-api-rci.harvest.fr
   image:
     tag: 0.1.0-36365
-  extraEnv: 
+  extraEnv:
+    - name: ConnectionStrings__AxbDbConnection
+      valueFrom:
+        secretKeyRef:
+          name: connection-strings
+          key: sqlserver-axb
   appsettingsJson:
     Cors__AllowedOrigins:
       - quantalys-regulatory-editions-platform-rci.harvest.fr # Front RCI
