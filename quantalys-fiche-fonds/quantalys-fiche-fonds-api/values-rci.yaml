@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-fiche-fonds-api-rci.harvest.fr
   image:
-    tag: 0.1.0-33488
+    tag: 0.1.0-the-final-deploy0001-36934
   extraEnv:
     - name: ConnectionDb__ConnectionString
       value: ""
