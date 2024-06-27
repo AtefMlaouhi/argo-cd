@@ -3,7 +3,7 @@ kind: VirtualService
 metadata:
   name: {{ include "application.api.name" . }}
   annotations:
-    link.argocd.argoproj.io/external-link: {{ index .Values.hosts 0 }}
+    link.argocd.argoproj.io/external-link: https://{{ index .Values.hosts 0 }}
 spec:
   gateways:
   - istio-system/https-gateway
