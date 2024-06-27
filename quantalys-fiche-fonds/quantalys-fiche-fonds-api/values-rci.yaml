@@ -12,6 +12,6 @@ application-api:
       - quantalys-fiche-fonds-api-rci.harvest.fr # Swagger
     AllowedHosts: "*"
 podAnnotations:
-  version: 0.1.0-the-final-deploy0001-36934
+  version: 0.1.0-the-final-deploy0001-36953
 image:
-  tag: 0.1.0-the-final-deploy0001-36934
+  tag: 0.1.0-the-final-deploy0001-36953
