@@ -6,8 +6,8 @@ application-api:
 
   imagePullSecrets:
     - name: gitlab
-  nameOverride: quantalys-regulatory-editions-platform-back-api
-  fullnameOverride: quantalys-regulatory-editions-platform-back-api
+  nameOverride: quantalys-fiche-fonds-back-api
+  fullnameOverride: quantalys-fiche-fonds-back-api
 
   podAnnotations:
     env: unspecified
