@@ -100,7 +100,7 @@ appsettingsJson:
   GetDocumentBundleRetry__RetryCount: 5
   HarvestConfiguration__Domain: Quantalys.Policy.Act
   HarvestConfiguration__Environment: rcc
-  HealthChecks__MiniO__Enabled: true
+  HealthChecks__MiniO__Enabled: false
   InvestmentToken__clientId: quantalys-investment-proxy-api
   Jwt__Audiences: "quantalys-policy-act-backend-api,quantalys-policy-act-api"
   Minio__IsActive: true
