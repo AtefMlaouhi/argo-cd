@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-fichefonds-api-rci.harvest.fr
   image:
-    tag: 0.1.0-the-final-deploy0001-37236
+    tag: 0.1.0-the-final-deploy0001-37238
   extraEnv:
     - name: ConnectionStrings__QuantaCore
       value: "data source=WIN-MTPCEMI4AFD.hvsgrp.fr;User Id=SVC_FICHE_FONDS;Password=za62kVh6EMqscm5SWvE6;initial catalog=rci-quantacore-fichefonds;Timeout=30;MultipleActiveResultSets=True;Encrypt=False;TrustServerCertificate=True;Persist Security Info=False;Trusted_Connection=True;"
@@ -12,6 +12,6 @@ application-api:
       - quantalys-fichefonds-api-rci.harvest.fr # Swagger
     AllowedHosts: "*"
 podAnnotations:
-  version: 0.1.0-the-final-deploy0001-37236
+  version: 0.1.0-the-final-deploy0001-37238
 image:
-  tag: 0.1.0-the-final-deploy0001-37236
+  tag: 0.1.0-the-final-deploy0001-37238
