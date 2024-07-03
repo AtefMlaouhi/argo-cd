@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-regulatory-editions-platform-rci.harvest.fr
+  - regulatory-editions-platform-k8s.rci.harvest.fr
 image:
   tag: "0.1.0-the-final-deploy0001-36787"
 appsettingsJson: |
@@ -15,7 +15,7 @@ appsettingsJson: |
       "disabled": false
     },
     "urls": {
-      "back": "https://quantalys-regulatory-editions-platform-api-rci.harvest.fr"
+      "back": "https://regulatory-editions-platform-api-k8s.rci.harvest.fr
     }
   }
 podAnnotations:

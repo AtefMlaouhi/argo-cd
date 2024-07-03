@@ -1,5 +1,5 @@
 hosts:
-  - quantalys-fichefonds-mfe-rci.harvest.fr
+  - quantalys-fichefonds-mfe-k8s.rci.harvest.fr
 image:
   tag: "0.1.0-the-final-deploy0001-36975"
 podAnnotations:
