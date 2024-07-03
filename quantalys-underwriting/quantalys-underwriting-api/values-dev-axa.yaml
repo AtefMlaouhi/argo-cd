@@ -5,7 +5,7 @@ extraEnv:
     valueFrom:
       secretKeyRef:
         name: connection-strings
-        key: sqlserver-quanta-synonyms-axa
+        key: sqlserver-quanta-core-axa
   - name: Authentication__MetadataUrl
     valueFrom:
       configMapKeyRef:
