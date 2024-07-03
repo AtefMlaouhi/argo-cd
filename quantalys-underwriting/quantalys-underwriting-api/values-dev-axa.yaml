@@ -19,6 +19,8 @@ extraEnv:
 appsettingsJson:
   HarvestConfiguration__ApplicationName: Quantalys.Underwriting.Axa.Api
   Tenant__Name: axa
+  Tenant__ApplicationScheme: https
+  Tenant__ApplicationHost: aws-pw-dev.quantalys.com
   OpenTelemetry__ActivityName: quantalys-underwriting-axa-activity
   OpenTelemetry__MeterName: quantalys-underwriting-axa-meter
   OpenTelemetry__ServiceName: dev-quantalys-underwriting-axa-api
