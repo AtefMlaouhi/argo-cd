@@ -1,0 +1,40 @@
+image:
+  tag: 1.1.0-alpha0024-28862
+podAnnotations:
+  env: dev
+  version: 1.1.0-alpha0024-28862
+replicaCount: 1
+env:
+  - name: Authentication__RequireHttpsMetadata
+    valueFrom:
+      configMapKeyRef:
+        name: keycloak
+        key: require-https-metadata
+  - name: OpenTelemetry__CollectorHost
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-host
+  - name: OpenTelemetry__CollectorUri
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: opentelemetry-collector-uri
+  - name: OpenTelemetry__ExportMetrics
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: flag-export-metrics
+  - name: OpenTelemetry__Protocol
+    valueFrom:
+      configMapKeyRef:
+        name: instrumentation
+        key: protocol
+appsettingsJson:
+  Authentication__Audience: quantalys-underwriting-api
+  ASPNETCORE_ENVIRONMENT: Integration
+  Caching__DurationInHours: 24
+  HarvestConfiguration__Domain: Quantalys.Underwriting
+  HarvestConfiguration__Environment: dev
+  Serilog__MinimumLevel__Override__Microsoft: Warning
+  Serilog__MinimumLevel__Override__System: Warning
