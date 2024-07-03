@@ -68,6 +68,7 @@ application-api:
       # Swagger
       - pef-rcc.axabanque-fr.intraxa
       - quantalys-axb-api-recette.harvest.fr
+    TestingSettings__AllowTestingEndpoints: true
     HttpSocket__RemoteCertificateValidation: false
     # API plugs (to be removed once we get the credentials)
     BApiSettings__UseMockedData: false
