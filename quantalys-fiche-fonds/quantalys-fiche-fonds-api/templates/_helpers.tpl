@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "quantalys.fichefonds.api.name" -}}
+{{- define "quantalys.axb.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "quantalys.fichefonds.api.fullname" -}}
+{{- define "quantalys.axb.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "quantalys.fichefonds.api.chart" -}}
+{{- define "quantalys.axb.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "quantalys.fichefonds.api.labels" -}}
-helm.sh/chart: {{ include "quantalys.fichefonds.api.chart" . }}
-{{ include "quantalys.fichefonds.api.selectorLabels" . }}
+{{- define "quantalys.axb.labels" -}}
+helm.sh/chart: {{ include "quantalys.axb.chart" . }}
+{{ include "quantalys.axb.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,8 +45,8 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "quantalys.fichefonds.api.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "quantalys.fichefonds.api.name" . }}
+{{- define "quantalys.axb.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "quantalys.axb.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app: {{ .Release.Name }}
 {{- end }}
@@ -54,9 +54,9 @@ app: {{ .Release.Name }}
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "quantalys.fichefonds.api.serviceAccountName" -}}
+{{- define "quantalys.axb.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "quantalys.fichefonds.api.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "quantalys.axb.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

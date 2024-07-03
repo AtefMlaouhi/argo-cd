@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "quantalys.fichefonds.mfe.fullname" . }}
+  name: {{ include "quantalys.axb.frontend.fullname" . }}
   labels:
-    {{- include "quantalys.fichefonds.mfe.labels" . | nindent 4 }}
+    {{- include "quantalys.axb.frontend.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "quantalys.fichefonds.mfe.fullname" . }}
+    name: {{ include "quantalys.axb.frontend.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   {{- if or (.Values.autoscaling.targetCPUUtilizationPercentage) (.Values.autoscaling.targetMemoryUtilizationPercentage)  }}
