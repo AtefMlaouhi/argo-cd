@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "quantalys.axb.frontend.fullname" . }}
-  labels:
-    {{- include "quantalys.axb.frontend.labels" . | nindent 4 }}
+  name: { { include "quantalys.fichefonds.mfe.fullname" . } }
+  labels: { { - include "quantalys.fichefonds.mfe.labels" . | nindent 4 } }
 spec:
-  type: {{ .Values.service.type }}
+  type: { { .Values.service.type } }
   ports:
-    - port: {{ .Values.service.port }}
+    - port: { { .Values.service.port } }
       targetPort: http
       protocol: TCP
       name: http
   selector:
-    {{- include "quantalys.axb.frontend.selectorLabels" . | nindent 4 }}
+    { { - include "quantalys.fichefonds.mfe.selectorLabels" . | nindent 4 } }

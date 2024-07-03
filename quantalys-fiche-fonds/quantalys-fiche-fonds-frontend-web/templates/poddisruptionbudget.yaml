@@ -2,7 +2,7 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ include "quantalys.axb.frontend.fullname" . }}
+  name: {{ include "quantalys.fichefonds.mfe.fullname" . }}
 spec:
   {{ if gt (.Values.autoscaling.minReplicas | int) 4 }}
   minAvailable: 2
@@ -11,5 +11,5 @@ spec:
   {{ end }}
   selector:
     matchLabels:
-      {{- include "quantalys.axb.frontend.selectorLabels" . | nindent 6 }}
+      {{- include "quantalys.fichefonds.mfe.selectorLabels" . | nindent 6 }}
 {{- end }}
