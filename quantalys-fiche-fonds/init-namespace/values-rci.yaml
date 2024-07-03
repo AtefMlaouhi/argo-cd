@@ -3,5 +3,5 @@ global:
   rancherProject: "p-8hlrw"
 init-namespace:
   namespaces:
-    - quantalys-regulatory-editions-platform-rci
+    - quantalys-fichefonds-rci
   dockerconfigjson: ""
