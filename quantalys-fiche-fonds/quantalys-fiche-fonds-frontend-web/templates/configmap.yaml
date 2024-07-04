@@ -5,5 +5,77 @@ metadata:
 data:
   nginx.conf: |
     {{- tpl .Values.nginx_config . | nindent 4 }}
-  appsettings.json: |
-    {{- tpl .Values.appsettingsJson . | nindent 4 }}
+  config.js: |
+    if (
+        (typeof window !== 'undefined' && !window.FicheFondsConfig) ||
+        (typeof exports !== 'undefined' && !exports.FicheFondsConfig)
+    ) {
+        const FicheFondsConfig = {
+            baseUrl: 'http://localhost:4200', // baseUrl utilisée pour charger les assets dans les templates
+            keycloakConfig: {
+                url: 'https://keycloak-dev.harvest-r7.fr/auth',
+                logoutRedirectUrl: 'http://localhost:4200', // peut être différente de l'application elle-même
+                realm: 'MONEYPITCH',
+                clientId: 'moneypitch-app-client',
+                loginOptions: {
+                    idpHint: '',
+                },
+                // credentials de test sur ce realm : front-app-mfe / Front-app-mfe99
+            },
+            urls: {
+                // pour mettre les url de vos apis
+                apis: {
+                    example: 'https://example-api-k8s.dev.harvest.fr',
+                },
+                // pour mettre les fichiers de config.js des remotes / microfrontend que vous consommez
+                configs: {
+                    example: 'http://localhost:4200/assets/config/config.js',
+                },
+                // pour indiquer les fonts des remotes / microfrontend que vous consommez
+                fonts: {
+                    example: 'http://localhost:4200/assets/basalte/fonts.css',
+                },
+                // pour indiquer les fichiers remoteEntry des remotes / microfrontend que vous consommez
+                remotes: {
+                    webcomponent: {
+                        example: 'http://localhost:4200/remoteEntryWebComponent.js',
+                    },
+                    lazyloading: {
+                        example: 'http://localhost:4200/remoteEntryLazyLoading.js',
+                    },
+                },
+            },
+            remotesConfigName: {
+                example: 'FicheFondsConfig',
+            },
+            version: '1.0.0',
+            routingBaseUrl: '',
+        };
+
+        // pour le navigateur
+        if (typeof window !== 'undefined') {
+            window.FicheFondsConfig = FicheFondsConfig;
+            // chargement des configs des microfrontends consommés
+            var configs = FicheFondsConfig.urls.configs;
+            Object.keys(configs).forEach(function (key) {
+                var script = document.createElement('script');
+                script.src = configs[key];
+                document.head.appendChild(script);
+            });
+
+            var fonts = FicheFondsConfig.urls.fonts;
+            Object.keys(fonts).forEach(function (key) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = fonts[key];
+                link.media = 'all';
+                document.head.appendChild(link);
+            });
+        }
+
+        // pour webpack lors de la compilation
+        if (typeof exports !== 'undefined') {
+            exports.FicheFondsConfig = FicheFondsConfig;
+        }
+    }
