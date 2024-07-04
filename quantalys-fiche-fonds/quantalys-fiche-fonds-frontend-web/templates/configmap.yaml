@@ -11,10 +11,10 @@ data:
         (typeof exports !== 'undefined' && !exports.FicheFondsConfig)
     ) {
         const FicheFondsConfig = {
-            baseUrl: 'http://localhost:4200', // baseUrl utilisée pour charger les assets dans les templates
+            baseUrl: 'https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr', // baseUrl utilisée pour charger les assets dans les templates
             keycloakConfig: {
                 url: 'https://keycloak-dev.harvest-r7.fr/auth',
-                logoutRedirectUrl: 'http://localhost:4200', // peut être différente de l'application elle-même
+                logoutRedirectUrl: 'https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr', // peut être différente de l'application elle-même
                 realm: 'MONEYPITCH',
                 clientId: 'moneypitch-app-client',
                 loginOptions: {
