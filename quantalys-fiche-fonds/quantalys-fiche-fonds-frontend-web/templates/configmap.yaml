@@ -25,7 +25,7 @@ data:
             urls: {
                 // pour mettre les url de vos apis
                 apis: {
-                    example: 'https://quantalys-fichefonds-api-k8s.rci.harvest.fr',
+                    fichefondsBff: 'https://quantalys-fichefonds-api-k8s.rci.harvest.fr',
                 },
                 // pour mettre les fichiers de config.js des remotes / microfrontend que vous consommez
                 configs: {
