@@ -25,23 +25,23 @@ data:
             urls: {
                 // pour mettre les url de vos apis
                 apis: {
-                    example: 'https://example-api-k8s.dev.harvest.fr',
+                    example: 'https://quantalys-fichefonds-api-k8s.rci.harvest.fr',
                 },
                 // pour mettre les fichiers de config.js des remotes / microfrontend que vous consommez
                 configs: {
-                    example: 'http://localhost:4200/assets/config/config.js',
+                    example: 'https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr/assets/config/config.js',
                 },
                 // pour indiquer les fonts des remotes / microfrontend que vous consommez
                 fonts: {
-                    example: 'http://localhost:4200/assets/basalte/fonts.css',
+                    example: 'https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr/assets/basalte/fonts.css',
                 },
                 // pour indiquer les fichiers remoteEntry des remotes / microfrontend que vous consommez
                 remotes: {
                     webcomponent: {
-                        example: 'http://localhost:4200/remoteEntryWebComponent.js',
+                        example: 'https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr/remoteEntryWebComponent.js',
                     },
                     lazyloading: {
-                        example: 'http://localhost:4200/remoteEntryLazyLoading.js',
+                        example: 'https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr/remoteEntryLazyLoading.js',
                     },
                 },
             },
