@@ -8,7 +8,7 @@ application-api:
       value: "data source=WIN-MTPCEMI4AFD.hvsgrp.fr;User Id=SVC_FICHE_FONDS;Password=za62kVh6EMqscm5SWvE6;initial catalog=rci-quantacore-fichefonds;Timeout=30;MultipleActiveResultSets=True;TrustServerCertificate=True"
   appsettingsJson:
     AllowedOrigins:
-      - https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr
+      - "https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr"
     AllowedHosts: "*"
 podAnnotations:
   version: 0.1.0-fix-yaml-fronten0001-37435
