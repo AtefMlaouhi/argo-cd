@@ -7,9 +7,7 @@ application-api:
     - name: ConnectionStrings__QuantaCore
       value: "data source=WIN-MTPCEMI4AFD.hvsgrp.fr;User Id=SVC_FICHE_FONDS;Password=za62kVh6EMqscm5SWvE6;initial catalog=rci-quantacore-fichefonds;Timeout=30;MultipleActiveResultSets=True;TrustServerCertificate=True"
   appsettingsJson:
-    Cors__AllowedOrigins:
-      - quantalys-fichefonds-mfe-k8s.rci.harvest.fr # Front RCI
-      - quantalys-fichefonds-api-k8s.rci.harvest.fr # Swagger
+    AllowedOrigins__Production: quantalys-fichefonds-mfe-k8s.rci.harvest.fr
     AllowedHosts: "*"
 podAnnotations:
   version: 0.1.0-37407
