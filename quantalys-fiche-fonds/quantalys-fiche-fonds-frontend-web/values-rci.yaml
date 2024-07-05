@@ -1,6 +1,6 @@
 hosts:
   - quantalys-fichefonds-mfe-k8s.rci.harvest.fr
 image:
-  tag: "0.1.0-fix-yaml-fronten0001-37464"
+  tag: "0.1.0-37468"
 podAnnotations:
-  version: "0.1.0-fix-yaml-fronten0001-37464"
+  version: "0.1.0-37468"
