@@ -1,2 +1,8 @@
 redis:
   architecture: standalone
+  auth:
+    existingSecret: redis
+  fullnameOverride: redis
+  master:
+    persistence:
+      enabled: true

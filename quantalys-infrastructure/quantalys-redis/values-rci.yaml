@@ -6,4 +6,6 @@ redis:
     requests:
       cpu: 10m
       memory: 512Mi
-  size: 8Gi
+  master:
+    persistence:
+      size: 16Gi
