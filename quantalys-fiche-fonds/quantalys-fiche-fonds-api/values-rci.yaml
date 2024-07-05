@@ -2,7 +2,7 @@ application-api:
   hosts:
     - quantalys-fichefonds-api-k8s.rci.harvest.fr
   image:
-    tag: 0.1.0-37467
+    tag: 0.1.0-37469
   extraEnv:
     - name: ConnectionStrings__QuantaCore
       value: "data source=WIN-MTPCEMI4AFD.hvsgrp.fr;User Id=SVC_FICHE_FONDS;Password=za62kVh6EMqscm5SWvE6;initial catalog=rci-quantacore-fichefonds;Timeout=30;MultipleActiveResultSets=True;TrustServerCertificate=True"
@@ -18,6 +18,6 @@ application-api:
         Args:
           endpoint: http://opentelemetry-collector.observability.svc.cluster.local:4317
 podAnnotations:
-  version: 0.1.0-37467
+  version: 0.1.0-37469
 image:
-  tag: 0.1.0-37467
+  tag: 0.1.0-37469
