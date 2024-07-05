@@ -11,5 +11,7 @@ config:
       host: quantalys-policy-act-frontend-axa-shift-mfe-preprod.harvest.fr
     - name: topup
       host: quantalys-policy-act-frontend-axa-topup-mfe-preprod.harvest.fr
+#    - name: surrender
+#      host: quantalys-policy-act-frontend-axa-surrender-mfe-preprod.harvest.fr
   backend:
     url: quantalys-policy-act-bff-axa-api-preprod.harvest.fr
