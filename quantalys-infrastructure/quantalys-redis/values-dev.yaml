@@ -1,0 +1,9 @@
+redis:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 10m
+      memory: 512Mi
+  size: 4Gi

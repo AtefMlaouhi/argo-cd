@@ -1,0 +1,9 @@
+dependencies:
+- name: redis
+  repository: file://../../@templates/redis
+  version: 19.6.1
+- name: common
+  repository: file://../../@templates/common
+  version: 2.20.3
+digest: sha256:0b59827ad4aca6db9afbd55ff40e0294f5be639b5c446193e2bfa059287f292e
+generated: "2024-07-05T10:49:51.4461576+02:00"

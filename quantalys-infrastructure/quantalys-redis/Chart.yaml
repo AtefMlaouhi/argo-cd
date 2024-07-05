@@ -1,0 +1,27 @@
+annotations:
+  category: Database
+apiVersion: v1
+appVersion: 19.6.1
+dependencies:
+- name: redis
+  repository: file://../../@templates/redis
+  version: 19.6.1
+- name: common
+  repository: file://../../@templates/common
+  tags:
+  - bitnami-common
+  version: 2.x.x
+description: Redis(R) is an open source, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.
+home: https://bitnami.com
+icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+keywords:
+- redis
+- keyvalue
+- database
+maintainers:
+- name: Broadcom, Inc. All Rights Reserved.
+  url: https://github.com/bitnami/charts
+name: redis
+sources:
+- https://github.com/bitnami/charts/tree/main/bitnami/redis
+version: 19.6.1
