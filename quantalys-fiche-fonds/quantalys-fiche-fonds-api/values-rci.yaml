@@ -10,6 +10,13 @@ application-api:
     AllowedOrigins:
       - 'https://quantalys-fichefonds-mfe-k8s.rci.harvest.fr'
     AllowedHosts: "*"
+    Serilog__WriteTo:
+      - Name: Console
+        Args: 
+          restrictedToMinimumLevel: Information
+      - Name: Console
+        Args:
+          endpoint: http://opentelemetry-collector.observability.svc.cluster.local:4317
 podAnnotations:
   version: 0.1.0-fix-yaml-fronten0001-37436
 image:
