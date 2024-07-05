@@ -4,6 +4,6 @@ dependencies:
   version: 12.8.12
 - name: common
   repository: file://../../@templates/common
-  version: 2.13.0
-digest: sha256:bca9d9c9fdb4f1707595c5a4862db1262fa39c246f4e67ec7bad41534011e30f
-generated: "2023-10-05T13:40:19.0580968+02:00"
+  version: 2.20.3
+digest: sha256:36a63b7a693edc3ffd36df056be4bba7c51a46461bb66b5b0f780e9f37082a78
+generated: "2024-07-05T13:46:39.7079005+02:00"
