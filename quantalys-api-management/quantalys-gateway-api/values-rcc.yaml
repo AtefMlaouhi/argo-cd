@@ -1,8 +1,8 @@
 image:
-  tag: 2.1.0-33229
+  tag: 2.4.1-beta0001-37218
 podAnnotations:
   env: rcc
-  version: 2.1.0-33229
+  version: 2.4.1-beta0001-37218
 hosts:
   - quantalys-gateway-api-recette.harvest.fr
 replicaCount: 1
